@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
-using Crownwood.DotNetMagic.Common;
 using ChaKi.Common;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -15,16 +14,6 @@ namespace ChaKi.Options
     {
         public EventHandler Applied;
 
-        private static Dictionary<string, VisualStyle> m_PredefinedStyles = new Dictionary<string, VisualStyle>
-        {
-            { "Office 2007 Silver", VisualStyle.Office2007Silver },
-            { "Office 2007 Blue", VisualStyle.Office2007Blue },
-            { "Office 2007 Black", VisualStyle.Office2007Black },
-            { "Office 2003", VisualStyle.Office2003 },
-            { "VisualStudio 2005", VisualStyle.IDE2005 },
-            { "Plain", VisualStyle.Plain }
-        };
-
         private GUISetting m_RollbackData;
 
         public OptionDialog()
@@ -34,8 +23,6 @@ namespace ChaKi.Options
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GUISetting.Instance.Visual = m_PredefinedStyles[(string)comboBox1.SelectedItem];
-//            Program.MainForm.ChangeStyle(m_PredefinedStyles[comboBox1.SelectedText]);
         }
 
         /// <summary>
@@ -46,8 +33,6 @@ namespace ChaKi.Options
         private void OptionDialog_Shown(object sender, EventArgs e)
         {
             m_RollbackData = new GUISetting(GUISetting.Instance);  // backup
-
-            this.comboBox1.Text = GUISetting.Instance.Visual.ToString();
 
             this.fontSampleLabel1.Font = GUISetting.Instance.GetBaseTextFont();
             this.fontSampleLabel2.Font = GUISetting.Instance.GetBaseAnsiFont();

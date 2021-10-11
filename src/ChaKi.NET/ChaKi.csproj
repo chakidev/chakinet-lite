@@ -100,9 +100,6 @@
     <OutputPath>bin\x64\ChaMame_Debug\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetMagic2005, Version=5.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\lib\DotNetMagic2005.dll</HintPath>
-    </Reference>
     <Reference Include="DynamicInterop">
       <HintPath>..\packages\DynamicInterop.0.7.4\lib\net40\DynamicInterop.dll</HintPath>
     </Reference>
@@ -447,7 +444,7 @@
       <DependentUpon>StringSearchPane.cs</DependentUpon>
     </Compile>
     <Compile Include="Panels\ConditionsPanel.cs">
-      <SubType>Form</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Panels\ConditionsPanel.Designer.cs">
       <DependentUpon>ConditionsPanel.cs</DependentUpon>

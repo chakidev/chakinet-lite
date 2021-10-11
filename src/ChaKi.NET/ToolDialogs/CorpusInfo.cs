@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
-using ChaKi.VirtualGrid;
 using ChaKi.Entity.Corpora;
-using System.Collections;
 using ChaKi.GUICommon;
 using ChaKi.Service.Database;
 using ChaKi.Entity.Kwic;
-using Crownwood.DotNetMagic.Controls;
-using TabControl = Crownwood.DotNetMagic.Controls.TabControl;
-using TabPage = Crownwood.DotNetMagic.Controls.TabPage;
 
 namespace ChaKi.ToolDialogs
 {
@@ -27,7 +22,7 @@ namespace ChaKi.ToolDialogs
             m_Closed = false;
 
             this.tabControl1.SelectedTab = this.tabPage1;
-            this.tabControl1.SelectionChanged += new SelectTabHandler(this.tabControl1_SelectionChanged);
+            this.tabControl1.SelectedIndexChanged += this.tabControl1_SelectionChanged;
         }
 
         public void LoadCorpusInfo(Corpus c)
@@ -63,9 +58,9 @@ namespace ChaKi.ToolDialogs
         }
 
         //  Lexiconタブに最初に移った時にLexiconのロードを開始
-        private void tabControl1_SelectionChanged(TabControl sender, TabPage oldPage, TabPage newPage)
+        private void tabControl1_SelectionChanged(object sender, EventArgs args)
         {
-            if (newPage.TabIndex == 2 && !this.tabControl2.Visible)
+            if (this.tabControl1.SelectedIndex == 2 && !this.tabControl2.Visible)
             {
                 this.tabControl2.Visible = true;
                 Application.DoEvents();

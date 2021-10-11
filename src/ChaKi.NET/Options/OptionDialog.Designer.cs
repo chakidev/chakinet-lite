@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionDialog));
-            this.tabControl1 = new Crownwood.DotNetMagic.Controls.TabControl();
-            this.tabPage1 = new Crownwood.DotNetMagic.Controls.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button8 = new System.Windows.Forms.Button();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.button7 = new System.Windows.Forms.Button();
@@ -43,8 +43,8 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.tabPage2 = new Crownwood.DotNetMagic.Controls.TabPage();
-            this.tabPage4 = new Crownwood.DotNetMagic.Controls.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.colorPickerButton2 = new ChaKi.Common.ColorPickerButton();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.tabPage3 = new Crownwood.DotNetMagic.Controls.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -65,7 +65,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabPage5 = new Crownwood.DotNetMagic.Controls.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -91,21 +91,14 @@
             // tabControl1
             // 
             resources.ApplyResources(this.tabControl1, "tabControl1");
-            this.tabControl1.Appearance = Crownwood.DotNetMagic.Controls.VisualAppearance.MultiDocument;
-            this.tabControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabControl1.Name = "tabControl1";
-            this.tabControl1.OfficeDockSides = false;
             this.tabControl1.SelectedIndex = 4;
-            this.tabControl1.ShowClose = false;
-            this.tabControl1.ShowDropSelect = false;
-            this.tabControl1.Style = Crownwood.DotNetMagic.Common.VisualStyle.Office2007Silver;
-            this.tabControl1.TabPages.AddRange(new Crownwood.DotNetMagic.Controls.TabPage[] {
+            this.tabControl1.TabPages.AddRange(new System.Windows.Forms.TabPage[] {
             this.tabPage1,
             this.tabPage2,
             this.tabPage4,
             this.tabPage3,
             this.tabPage5});
-            this.tabControl1.TextTips = true;
             // 
             // tabPage1
             // 
@@ -121,15 +114,8 @@
             this.tabPage1.Controls.Add(this.checkBox2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.comboBox1);
-            this.tabPage1.InactiveBackColor = System.Drawing.Color.Empty;
-            this.tabPage1.InactiveTextBackColor = System.Drawing.Color.Empty;
-            this.tabPage1.InactiveTextColor = System.Drawing.Color.Empty;
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.SelectBackColor = System.Drawing.Color.Empty;
-            this.tabPage1.Selected = false;
-            this.tabPage1.SelectTextBackColor = System.Drawing.Color.Empty;
-            this.tabPage1.SelectTextColor = System.Drawing.Color.Empty;
             // 
             // button8
             // 
@@ -210,29 +196,15 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.InactiveBackColor = System.Drawing.Color.Empty;
-            this.tabPage2.InactiveTextBackColor = System.Drawing.Color.Empty;
-            this.tabPage2.InactiveTextColor = System.Drawing.Color.Empty;
             resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.SelectBackColor = System.Drawing.Color.Empty;
-            this.tabPage2.Selected = false;
-            this.tabPage2.SelectTextBackColor = System.Drawing.Color.Empty;
-            this.tabPage2.SelectTextColor = System.Drawing.Color.Empty;
             // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Controls.Add(this.groupBox4);
-            this.tabPage4.InactiveBackColor = System.Drawing.Color.Empty;
-            this.tabPage4.InactiveTextBackColor = System.Drawing.Color.Empty;
-            this.tabPage4.InactiveTextColor = System.Drawing.Color.Empty;
             resources.ApplyResources(this.tabPage4, "tabPage4");
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.SelectBackColor = System.Drawing.Color.Empty;
-            this.tabPage4.Selected = false;
-            this.tabPage4.SelectTextBackColor = System.Drawing.Color.Empty;
-            this.tabPage4.SelectTextColor = System.Drawing.Color.Empty;
             // 
             // groupBox5
             // 
@@ -297,15 +269,8 @@
             this.tabPage3.Controls.Add(this.groupBox3);
             this.tabPage3.Controls.Add(this.groupBox2);
             this.tabPage3.Controls.Add(this.groupBox1);
-            this.tabPage3.InactiveBackColor = System.Drawing.Color.Empty;
-            this.tabPage3.InactiveTextBackColor = System.Drawing.Color.Empty;
-            this.tabPage3.InactiveTextColor = System.Drawing.Color.Empty;
             resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.SelectBackColor = System.Drawing.Color.Empty;
-            this.tabPage3.Selected = false;
-            this.tabPage3.SelectTextBackColor = System.Drawing.Color.Empty;
-            this.tabPage3.SelectTextColor = System.Drawing.Color.Empty;
             // 
             // groupBox3
             // 
@@ -392,14 +357,8 @@
             this.tabPage5.Controls.Add(this.textBox3);
             this.tabPage5.Controls.Add(this.label9);
             this.tabPage5.Controls.Add(this.checkBox6);
-            this.tabPage5.InactiveBackColor = System.Drawing.Color.Empty;
-            this.tabPage5.InactiveTextBackColor = System.Drawing.Color.Empty;
-            this.tabPage5.InactiveTextColor = System.Drawing.Color.Empty;
             resources.ApplyResources(this.tabPage5, "tabPage5");
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.SelectBackColor = System.Drawing.Color.Empty;
-            this.tabPage5.SelectTextBackColor = System.Drawing.Color.Empty;
-            this.tabPage5.SelectTextColor = System.Drawing.Color.Empty;
             // 
             // label10
             // 
@@ -495,12 +454,12 @@
 
         #endregion
 
-        private Crownwood.DotNetMagic.Controls.TabControl tabControl1;
-        private Crownwood.DotNetMagic.Controls.TabPage tabPage1;
-        private Crownwood.DotNetMagic.Controls.TabPage tabPage2;
-        private Crownwood.DotNetMagic.Controls.TabPage tabPage3;
-        private Crownwood.DotNetMagic.Controls.TabPage tabPage4;
-        private Crownwood.DotNetMagic.Controls.TabPage tabPage5;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;

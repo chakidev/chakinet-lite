@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
-using Crownwood.DotNetMagic.Common;
 using System.Drawing;
 using ChaKi.Common.Settings;
 using ChaKi.Common;
@@ -13,7 +12,6 @@ namespace ChaKi
     {
         public static GUISetting Instance { get; private set; }
 
-        public VisualStyle Visual { get; set; }
         public FontDictionary Fonts { get; set; }
         public KwicViewSettings KwicViewSettings { get; set; }
         public GridSettings CommandPanelGridSettings { get; set; }
@@ -57,8 +55,6 @@ namespace ChaKi
         private GUISetting()
         {
             // Defaults
-            this.Visual = VisualStyle.Office2007Silver;
-
             this.Fonts = FontDictionary.Current;
             this.KwicViewSettings = KwicViewSettings.Current;
             this.DepEditSettings = DepEditSettings.Current;
@@ -83,7 +79,6 @@ namespace ChaKi
 
         public void CopyFrom(GUISetting src)
         {
-            this.Visual = src.Visual;
             this.Fonts = src.Fonts.Copy();
             this.SearchSettings = src.SearchSettings.Copy();
             this.AutoLogon = src.AutoLogon;

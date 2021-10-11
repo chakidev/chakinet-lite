@@ -18,7 +18,6 @@ using ChaKi.Service.Search;
 using ChaKi.ToolDialogs;
 using ChaKi.Views;
 using ChaKi.Views.KwicView;
-using Crownwood.DotNetMagic.Docking;
 using DependencyEditSLA;
 using System;
 using System.Collections.Generic;
@@ -289,17 +288,14 @@ namespace ChaKi
 
         private void OnViewSearchPanel(object sender, EventArgs e)
         {
-            SwitchVisible(this.condPanelContainer);
         }
 
         private void OnViewSearchPanelUpdate(object sender, EventArgs e)
         {
-            this.UICViewSearchPanelToolStripMenuItem.Checked = this.condPanelContainer.Visible;
         }
 
         private void OnViewHistoryPanel(object sender, EventArgs e)
         {
-            SwitchVisible(this.historyGuidePanelContainer);
         }
 
         private void OnViewHistoryPanelUpdate(object sender, EventArgs e)
@@ -309,7 +305,6 @@ namespace ChaKi
 
         private void OnViewCommandPanel(object sender, EventArgs e)
         {
-            SwitchVisible(this.commandPanelContainer);
         }
 
         private void OnViewCommandPanelUpdate(object sender, EventArgs e)
@@ -319,7 +314,6 @@ namespace ChaKi
 
         private void OnViewContextPanel(object sender, EventArgs e)
         {
-            SwitchVisible(this.contextPanelContainer);
         }
 
         private void OnViewContextPanelUpdate(object sender, EventArgs e)
@@ -329,17 +323,14 @@ namespace ChaKi
 
         private void OnViewDependencyEditPanel(object sender, EventArgs e)
         {
-            SwitchVisible(this.dependencyEditContainer);
         }
 
         private void OnViewDependencyEditPanelUpdate(object sender, EventArgs e)
         {
-            this.UICViewDependencyEditPanelToolStripMenuItem.Checked = this.dependencyEditContainer.Visible;
         }
 
         private void OnViewLexemePanel(object sender, EventArgs e)
         {
-            SwitchVisible(this.LexemePanelContainer);
         }
 
         private void OnViewLexemePanelUpdate(object sender, EventArgs e)
@@ -349,7 +340,6 @@ namespace ChaKi
 
         private void OnViewAttributePanel(object sender, EventArgs e)
         {
-            SwitchVisible(this.AttributePanelContainer);
         }
 
         private void OnViewAttributePanelUpdate(object sender, EventArgs e)
@@ -359,7 +349,6 @@ namespace ChaKi
 
         private void OnViewScriptingPanel(object sender, EventArgs e)
         {
-            SwitchVisible(this.scriptingPanelContainer);
         }
 
         private void OnViewScriptingPanelUpdate(object sender, EventArgs e)
@@ -523,50 +512,50 @@ namespace ChaKi
             }
             m_ViewFullScreenGuard = true;
             // 現在のDocking状態をメモリ上に待避
-            var tempSetting = dockingManager.SaveConfigToArray(Encoding.UTF8);
+            //var tempSetting = dockingManager.SaveConfigToArray(Encoding.UTF8);
 
             // 現在FloatingになっているパネルはそのままTopMostで表示を維持する。
-            var floatings = new List<Form>();
-            foreach (Content c in this.dockingManager.Contents)
-            {
-                if (c.Visible)
-                {
-                    Control p = c.Control;
-                    while (p != null)
-                    {
-                        if (p is FloatingForm)
-                        {
-                            p.Visible = true;
-                            var form = p.TopLevelControl as Form;
-                            if (form != null)
-                            {
-                                form.TopMost = true;
-                                floatings.Add(form);
-                            }
-                        }
-                        p = p.Parent;
-                    }
-                }
-            }
+            //var floatings = new List<Form>();
+            //foreach (Content c in this.dockingManager.Contents)
+            //{
+            //    if (c.Visible)
+            //    {
+            //        Control p = c.Control;
+            //        while (p != null)
+            //        {
+            //            if (p is FloatingForm)
+            //            {
+            //                p.Visible = true;
+            //                var form = p.TopLevelControl as Form;
+            //                if (form != null)
+            //                {
+            //                    form.TopMost = true;
+            //                    floatings.Add(form);
+            //                }
+            //            }
+            //            p = p.Parent;
+            //        }
+            //    }
+            //}
 
-            if (m_FullScreenContainer == null)
-            {
-                m_FullScreenContainer = new FullScreenContainer(new Action<Form>(
-                    d =>
-                    {
-                        // Hide時の処理(callback)
-                        this.kwicView.Parent = null;
-                        this.toolStripContainer1.ContentPanel.Controls.Add(this.kwicView);
-                        foreach (var form in floatings)
-                        {
-                            form.TopMost = false;
-                        }
-                        // Docking状態を戻す
-                        dockingManager.LoadConfigFromArray(tempSetting);
-                        this.kwicView.Enabled = true;
-                        m_ViewFullScreenGuard = false;
-                    }));
-            }
+            //if (m_FullScreenContainer == null)
+            //{
+            //    m_FullScreenContainer = new FullScreenContainer(new Action<Form>(
+            //        d =>
+            //        {
+            //            // Hide時の処理(callback)
+            //            this.kwicView.Parent = null;
+            //            this.toolStripContainer1.ContentPanel.Controls.Add(this.kwicView);
+            //            foreach (var form in floatings)
+            //            {
+            //                form.TopMost = false;
+            //            }
+            //            // Docking状態を戻す
+            //            dockingManager.LoadConfigFromArray(tempSetting);
+            //            this.kwicView.Enabled = true;
+            //            m_ViewFullScreenGuard = false;
+            //        }));
+            //}
 
             this.kwicView.Parent = m_FullScreenContainer;
             m_FullScreenContainer.Show();

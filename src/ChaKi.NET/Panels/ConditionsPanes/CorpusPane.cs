@@ -11,7 +11,6 @@ using ChaKi.Service.Git;
 using ChaKi.Service.Import;
 using ChaKi.Service.Readers;
 using ChaKi.ToolDialogs;
-using Crownwood.DotNetMagic.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,11 +48,6 @@ namespace ChaKi.Panels.ConditionsPanes
         public CorpusPane(SentenceSearchCondition model)
         {
             InitializeComponent();
-
-            // 標準のListViewでSmallImageListを使用すると、XPで画質が悪くなるので、
-            // DotNetMagicのTreeView(List Style)を使用する。
-            treeControl1.SetTreeControlStyle(TreeControlStyles.List);
-            treeControl1.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
             m_ImageList = new List<Image>();
             using (Stream st = Assembly.GetExecutingAssembly().GetManifestResourceStream("ChaKi.Resources.SQLite_S.png"))
@@ -109,18 +103,18 @@ namespace ChaKi.Panels.ConditionsPanes
             foreach (Corpus c in m_Model.Corpora)
             {
                 string name = c.Name;
-                Node node = new Node(name);
+                TreeNode node = new TreeNode(name);
                 if (c.DBParam.DBType.Equals("SQLite"))
                 {
-                    node.Image = m_ImageList[0];
+                    node.ImageIndex = 0;
                 }
                 else if (c.DBParam.DBType.Equals("MySQL"))
                 {
-                    node.Image = m_ImageList[1];
+                    node.ImageIndex = 1;
                 }
                 else if (c.DBParam.DBType.Equals("SQLServer"))
                 {
-                    node.Image = m_ImageList[2];
+                    node.ImageIndex = 2;
                 }
                 treeControl1.Nodes.Add(node);
                 if (c == ChaKiModel.CurrentCorpus)
@@ -144,7 +138,7 @@ namespace ChaKi.Panels.ConditionsPanes
         /// </summary>
         /// <param name="tc"></param>
         /// <param name="e"></param>
-        private void treeControl1_AfterSelect(Crownwood.DotNetMagic.Controls.TreeControl tc, Crownwood.DotNetMagic.Controls.NodeEventArgs e)
+        private void treeControl1_AfterSelect(object tc, TreeViewEventArgs e)
         {
             if (m_bSuppressUpdate || e.Node == null)
             {
@@ -342,7 +336,7 @@ namespace ChaKi.Panels.ConditionsPanes
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            Node n = treeControl1.SelectedNode;
+            var n = treeControl1.SelectedNode;
             if (n == null)
             {
                 return;
@@ -396,7 +390,7 @@ namespace ChaKi.Panels.ConditionsPanes
         /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
-            Node n = treeControl1.SelectedNode;
+            var n = treeControl1.SelectedNode;
             if (n == null)
             {
                 return;
@@ -419,7 +413,7 @@ namespace ChaKi.Panels.ConditionsPanes
         /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
-            Node n = treeControl1.SelectedNode;
+            var n = treeControl1.SelectedNode;
             if (n == null)
             {
                 return;
@@ -442,7 +436,7 @@ namespace ChaKi.Panels.ConditionsPanes
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-            Node n = treeControl1.SelectedNode;
+            var n = treeControl1.SelectedNode;
             if (n == null)
             {
                 return;
@@ -474,7 +468,7 @@ namespace ChaKi.Panels.ConditionsPanes
         /// <param name="e"></param>
         public void ExportCurrent()
         {
-            Node n = treeControl1.SelectedNode;
+            var n = treeControl1.SelectedNode;
             if (n == null)
             {
                 return;

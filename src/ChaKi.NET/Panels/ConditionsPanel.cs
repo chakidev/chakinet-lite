@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Crownwood.DotNetMagic.Common;
 using ChaKi.Entity.Search;
 using ChaKi.Panels;
 using ChaKi.Panels.ConditionsPanes;
@@ -28,7 +27,7 @@ namespace ChaKi.Panels
         CP_MINING = 7,
     }
 
-    public partial class ConditionsPanel : Form
+    public partial class ConditionsPanel : Panel
     {
         public EventHandler TabChanged;
 
@@ -107,11 +106,6 @@ namespace ChaKi.Panels
             this.documentsAnalysisPane.SetCondition(m_Cond.DocumentsAnalysisCond);
             this.miningPane.SetCondition(m_Cond.MiningCond);
             return m_Cond;
-        }
-
-        public VisualStyle Style
-        {
-            set { this.tabControl1.Style = value; }
         }
 
         /// <summary>
@@ -216,7 +210,7 @@ namespace ChaKi.Panels
             }
         }
 
-        private void tabControl1_SelectionChanged(Crownwood.DotNetMagic.Controls.TabControl sender, Crownwood.DotNetMagic.Controls.TabPage oldPage, Crownwood.DotNetMagic.Controls.TabPage newPage)
+        private void tabControl1_SelectionChanged(TabControl sender, TabPage oldPage, TabPage newPage)
         {
             if (TabChanged != null)
             {

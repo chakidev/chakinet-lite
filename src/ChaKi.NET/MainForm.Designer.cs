@@ -78,6 +78,7 @@ namespace ChaKi
             this.UICViewAutoAdjustRowWidthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator27 = new System.Windows.Forms.ToolStripSeparator();
             this.UICViewSplitViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UICViewFullScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICSearchSelectCorpusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICSearchSetSearchFiltersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,13 +117,15 @@ namespace ChaKi
             this.UICToolsEditTagSetDefinitionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.UICToolsTextFormatterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UICDictionaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UICDictionaryExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UICDictionaryExportMWEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICOptionsSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICOptionsPropertyBoxSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICOptionsWordColorSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICOptionsTagAppearanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICOptionsDictionarySettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UICDictionaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICHelpHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICHelpAboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -174,6 +177,8 @@ namespace ChaKi
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripComboBox2 = new ChaKi.Panels.ProjectSelector();
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
+            this.UICVersioncontrolCommitToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator28 = new System.Windows.Forms.ToolStripSeparator();
             this.UICHelpHelpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -181,17 +186,23 @@ namespace ChaKi
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
             this.statusStrip1 = new ChaKi.GUICommon.ChakiStatusStrip();
-            this.UICViewFullScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UICVersioncontrolCommitToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator28 = new System.Windows.Forms.ToolStripSeparator();
-            this.UICDictionaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UICDictionaryExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UICDictionaryExportMWEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -200,9 +211,7 @@ namespace ChaKi
             // toolStripContainer1.ContentPanel
             // 
             resources.ApplyResources(this.toolStripContainer1.ContentPanel, "toolStripContainer1.ContentPanel");
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.collocationView);
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.kwicView);
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.wordListView);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
             resources.ApplyResources(this.toolStripContainer1, "toolStripContainer1");
             this.toolStripContainer1.Name = "toolStripContainer1";
             // 
@@ -237,6 +246,7 @@ namespace ChaKi
             // 
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UICFileToolStripMenuItem,
             this.UICEditToolStripMenuItem,
@@ -284,9 +294,8 @@ namespace ChaKi
             // 
             // UICFileSendToExcelCSVToolStripMenuItem
             // 
-            this.UICFileSendToExcelCSVToolStripMenuItem.Image = global::ChaKi.Properties.Resources.ToExcel;
-            this.UICFileSendToExcelCSVToolStripMenuItem.Name = "UICFileSendToExcelCSVToolStripMenuItem";
             resources.ApplyResources(this.UICFileSendToExcelCSVToolStripMenuItem, "UICFileSendToExcelCSVToolStripMenuItem");
+            this.UICFileSendToExcelCSVToolStripMenuItem.Name = "UICFileSendToExcelCSVToolStripMenuItem";
             // 
             // toolStripSeparator11
             // 
@@ -526,9 +535,13 @@ namespace ChaKi
             // 
             // UICViewSplitViewToolStripMenuItem
             // 
-            this.UICViewSplitViewToolStripMenuItem.Image = global::ChaKi.Properties.Resources.TileWindowsHorizontally;
-            this.UICViewSplitViewToolStripMenuItem.Name = "UICViewSplitViewToolStripMenuItem";
             resources.ApplyResources(this.UICViewSplitViewToolStripMenuItem, "UICViewSplitViewToolStripMenuItem");
+            this.UICViewSplitViewToolStripMenuItem.Name = "UICViewSplitViewToolStripMenuItem";
+            // 
+            // UICViewFullScreenToolStripMenuItem
+            // 
+            resources.ApplyResources(this.UICViewFullScreenToolStripMenuItem, "UICViewFullScreenToolStripMenuItem");
+            this.UICViewFullScreenToolStripMenuItem.Name = "UICViewFullScreenToolStripMenuItem";
             // 
             // UICSearchToolStripMenuItem
             // 
@@ -599,15 +612,13 @@ namespace ChaKi
             // 
             // UICSearchBeginSearchNarrowToolStripMenuItem
             // 
-            this.UICSearchBeginSearchNarrowToolStripMenuItem.Image = global::ChaKi.Properties.Resources.NarrowSearch;
-            this.UICSearchBeginSearchNarrowToolStripMenuItem.Name = "UICSearchBeginSearchNarrowToolStripMenuItem";
             resources.ApplyResources(this.UICSearchBeginSearchNarrowToolStripMenuItem, "UICSearchBeginSearchNarrowToolStripMenuItem");
+            this.UICSearchBeginSearchNarrowToolStripMenuItem.Name = "UICSearchBeginSearchNarrowToolStripMenuItem";
             // 
             // UICSearchBeginSearchAppendToolStripMenuItem
             // 
-            this.UICSearchBeginSearchAppendToolStripMenuItem.Image = global::ChaKi.Properties.Resources.AppendSearch;
-            this.UICSearchBeginSearchAppendToolStripMenuItem.Name = "UICSearchBeginSearchAppendToolStripMenuItem";
             resources.ApplyResources(this.UICSearchBeginSearchAppendToolStripMenuItem, "UICSearchBeginSearchAppendToolStripMenuItem");
+            this.UICSearchBeginSearchAppendToolStripMenuItem.Name = "UICSearchBeginSearchAppendToolStripMenuItem";
             // 
             // UICSearchBeginWordListToolStripMenuItem
             // 
@@ -759,26 +770,24 @@ namespace ChaKi
             // 
             this.UICToolsTextFormatterToolStripMenuItem.Name = "UICToolsTextFormatterToolStripMenuItem";
             resources.ApplyResources(this.UICToolsTextFormatterToolStripMenuItem, "UICToolsTextFormatterToolStripMenuItem");
-
             // 
             // UICDictionaryToolStripMenuItem
             // 
             this.UICDictionaryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UICDictionaryExportToolStripMenuItem,
-            this.UICDictionaryExportMWEToolStripMenuItem,
-            });
+            this.UICDictionaryExportMWEToolStripMenuItem});
             this.UICDictionaryToolStripMenuItem.Name = "UICDictionaryToolStripMenuItem";
             resources.ApplyResources(this.UICDictionaryToolStripMenuItem, "UICDictionaryToolStripMenuItem");
             // 
             // UICDictionaryExportToolStripMenuItem
             // 
-            resources.ApplyResources(this.UICDictionaryExportToolStripMenuItem, "UICDictionaryExportToolStripMenuItem");
             this.UICDictionaryExportToolStripMenuItem.Name = "UICDictionaryExportToolStripMenuItem";
+            resources.ApplyResources(this.UICDictionaryExportToolStripMenuItem, "UICDictionaryExportToolStripMenuItem");
             // 
             // UICDictionaryExportMWEToolStripMenuItem
             // 
-            resources.ApplyResources(this.UICDictionaryExportMWEToolStripMenuItem, "UICDictionaryExportMWEToolStripMenuItem");
             this.UICDictionaryExportMWEToolStripMenuItem.Name = "UICDictionaryExportMWEToolStripMenuItem";
+            resources.ApplyResources(this.UICDictionaryExportMWEToolStripMenuItem, "UICDictionaryExportMWEToolStripMenuItem");
             // 
             // UICOptionsToolStripMenuItem
             // 
@@ -837,6 +846,7 @@ namespace ChaKi
             // toolStrip
             // 
             resources.ApplyResources(this.toolStrip, "toolStrip");
+            this.toolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UICFileOpenToolStripButton,
             this.UICFileSaveToolStripButton,
@@ -905,7 +915,6 @@ namespace ChaKi
             // UICFileSendToExcelCSVToolStripButton
             // 
             this.UICFileSendToExcelCSVToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.UICFileSendToExcelCSVToolStripButton.Image = global::ChaKi.Properties.Resources.ToExcel;
             resources.ApplyResources(this.UICFileSendToExcelCSVToolStripButton, "UICFileSendToExcelCSVToolStripButton");
             this.UICFileSendToExcelCSVToolStripButton.Name = "UICFileSendToExcelCSVToolStripButton";
             // 
@@ -951,14 +960,12 @@ namespace ChaKi
             // UICSearchBeginSearchNarrowToolStripButton
             // 
             this.UICSearchBeginSearchNarrowToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.UICSearchBeginSearchNarrowToolStripButton.Image = global::ChaKi.Properties.Resources.NarrowSearch;
             resources.ApplyResources(this.UICSearchBeginSearchNarrowToolStripButton, "UICSearchBeginSearchNarrowToolStripButton");
             this.UICSearchBeginSearchNarrowToolStripButton.Name = "UICSearchBeginSearchNarrowToolStripButton";
             // 
             // UICSearchBeginSearchAppendToolStripButton
             // 
             this.UICSearchBeginSearchAppendToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.UICSearchBeginSearchAppendToolStripButton.Image = global::ChaKi.Properties.Resources.AppendSearch;
             resources.ApplyResources(this.UICSearchBeginSearchAppendToolStripButton, "UICSearchBeginSearchAppendToolStripButton");
             this.UICSearchBeginSearchAppendToolStripButton.Name = "UICSearchBeginSearchAppendToolStripButton";
             // 
@@ -1037,14 +1044,12 @@ namespace ChaKi
             // UICViewFreezeUpdateToolStripButton
             // 
             this.UICViewFreezeUpdateToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.UICViewFreezeUpdateToolStripButton.Image = global::ChaKi.Properties.Resources.none;
-            this.UICViewFreezeUpdateToolStripButton.Name = "UICViewFreezeUpdateToolStripButton";
             resources.ApplyResources(this.UICViewFreezeUpdateToolStripButton, "UICViewFreezeUpdateToolStripButton");
+            this.UICViewFreezeUpdateToolStripButton.Name = "UICViewFreezeUpdateToolStripButton";
             // 
             // UICViewFullScreenToolStripButton
             // 
             this.UICViewFullScreenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.UICViewFullScreenToolStripButton.Image = global::ChaKi.Properties.Resources.FullScreenHS;
             resources.ApplyResources(this.UICViewFullScreenToolStripButton, "UICViewFullScreenToolStripButton");
             this.UICViewFullScreenToolStripButton.Name = "UICViewFullScreenToolStripButton";
             // 
@@ -1056,7 +1061,6 @@ namespace ChaKi
             // UICEditChangeLexemeToolStripButton
             // 
             this.UICEditChangeLexemeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.UICEditChangeLexemeToolStripButton.Image = global::ChaKi.Properties.Resources.ChangeLexeme;
             resources.ApplyResources(this.UICEditChangeLexemeToolStripButton, "UICEditChangeLexemeToolStripButton");
             this.UICEditChangeLexemeToolStripButton.Name = "UICEditChangeLexemeToolStripButton";
             // 
@@ -1132,8 +1136,8 @@ namespace ChaKi
             // 
             // toolStripTextBox1
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
             resources.ApplyResources(this.toolStripTextBox1, "toolStripTextBox1");
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox1_KeyUp);
             // 
             // UICViewGotoSentenceToolStripButton
@@ -1150,7 +1154,6 @@ namespace ChaKi
             // UICViewSplitViewToolStripButton
             // 
             this.UICViewSplitViewToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.UICViewSplitViewToolStripButton.Image = global::ChaKi.Properties.Resources.TileWindowsHorizontally;
             resources.ApplyResources(this.UICViewSplitViewToolStripButton, "UICViewSplitViewToolStripButton");
             this.UICViewSplitViewToolStripButton.Name = "UICViewSplitViewToolStripButton";
             // 
@@ -1168,6 +1171,12 @@ namespace ChaKi
             // 
             this.toolStripSeparator22.Name = "toolStripSeparator22";
             resources.ApplyResources(this.toolStripSeparator22, "toolStripSeparator22");
+            // 
+            // UICVersioncontrolCommitToolStripButton
+            // 
+            this.UICVersioncontrolCommitToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICVersioncontrolCommitToolStripButton, "UICVersioncontrolCommitToolStripButton");
+            this.UICVersioncontrolCommitToolStripButton.Name = "UICVersioncontrolCommitToolStripButton";
             // 
             // toolStripSeparator28
             // 
@@ -1214,22 +1223,39 @@ namespace ChaKi
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
             // 
-            // UICViewFullScreenToolStripMenuItem
+            // splitContainer1
             // 
-            this.UICViewFullScreenToolStripMenuItem.Image = global::ChaKi.Properties.Resources.FullScreenHS;
-            this.UICViewFullScreenToolStripMenuItem.Name = "UICViewFullScreenToolStripMenuItem";
-            resources.ApplyResources(this.UICViewFullScreenToolStripMenuItem, "UICViewFullScreenToolStripMenuItem");
+            resources.ApplyResources(this.splitContainer1, "splitContainer1");
+            this.splitContainer1.Name = "splitContainer1";
             // 
-            // UICVersioncontrolCommitToolStripButton
+            // splitContainer1.Panel2
             // 
-            this.UICVersioncontrolCommitToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.UICVersioncontrolCommitToolStripButton.Image = global::ChaKi.Properties.Resources.git_commit;
-            this.UICVersioncontrolCommitToolStripButton.Name = "UICVersioncontrolCommitToolStripButton";
-            resources.ApplyResources(this.UICVersioncontrolCommitToolStripButton, "UICVersioncontrolCommitToolStripButton");
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+            // 
+            // splitContainer2
+            // 
+            resources.ApplyResources(this.splitContainer2, "splitContainer2");
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
+            // 
+            // splitContainer3
+            // 
+            resources.ApplyResources(this.splitContainer3, "splitContainer3");
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.kwicView);
+            this.splitContainer3.Panel1.Controls.Add(this.wordListView);
+            this.splitContainer3.Panel1.Controls.Add(this.collocationView);
             // 
             // MainForm
             // 
@@ -1240,7 +1266,6 @@ namespace ChaKi
             this.Controls.Add(this.statusStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Style = Crownwood.DotNetMagic.Common.VisualStyle.Office2007Silver;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
@@ -1255,6 +1280,15 @@ namespace ChaKi
             this.menuStrip1.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1418,6 +1452,9 @@ namespace ChaKi
         private System.Windows.Forms.ToolStripMenuItem UICDictionaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UICDictionaryExportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UICDictionaryExportMWEToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.SplitContainer splitContainer3;
     }
 }
 

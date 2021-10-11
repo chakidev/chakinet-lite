@@ -34,7 +34,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.treeControl1 = new Crownwood.DotNetMagic.Controls.TreeControl();
+            this.treeControl1 = new System.Windows.Forms.TreeView();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -89,20 +89,9 @@
             // treeControl1
             // 
             resources.ApplyResources(this.treeControl1, "treeControl1");
-            this.treeControl1.AutoEdit = false;
-            this.treeControl1.CanUserExpandCollapse = false;
-            this.treeControl1.FocusNode = null;
-            this.treeControl1.GroupExtraHeight = 0;
-            this.treeControl1.GroupFont = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeControl1.GroupImageBoxWidth = 16;
-            this.treeControl1.GroupIndentBottom = 0;
-            this.treeControl1.GroupIndentTop = 0;
-            this.treeControl1.HotBackColor = System.Drawing.Color.Empty;
-            this.treeControl1.HotForeColor = System.Drawing.Color.Empty;
             this.treeControl1.Name = "treeControl1";
             this.treeControl1.SelectedNode = null;
-            this.treeControl1.SelectedNoFocusBackColor = System.Drawing.SystemColors.Control;
-            this.treeControl1.AfterSelect += new Crownwood.DotNetMagic.Controls.NodeEventHandler(this.treeControl1_AfterSelect);
+            this.treeControl1.AfterSelect += this.treeControl1_AfterSelect;
             // 
             // button5
             // 
@@ -163,7 +152,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private Crownwood.DotNetMagic.Controls.TreeControl treeControl1;
+        private System.Windows.Forms.TreeView treeControl1;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;

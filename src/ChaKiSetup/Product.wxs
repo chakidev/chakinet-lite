@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="*" Name="ChaKi.NET" Language="1033" Version="2.6.489" Manufacturer="NAIST/Sowa Research Co.,Ltd." UpgradeCode="6983fc35-9cc2-48da-9e6d-195d345ab154">
+        <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Comments="コーパス検索・管理アプリケーション" SummaryCodepage="932" Description="コーパス検索・管理アプリケーション" />
+        <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+        <MediaTemplate />
+        <Feature Id="ProductFeature" Title="ChaKiSetup" Level="1">
+            <ComponentGroupRef Id="ProductComponents" />
+            <ComponentRef Id="ProductComponent" />
+        </Feature>
+        <UI />
+        <UIRef Id="WixUI_Minimal" />
+        <PropertyRef Id="NETFRAMEWORK35" />
+        <Condition Message="This application requires .NET Framework 3.5.">Installed OR NETFRAMEWORK35</Condition>
+    </Product>
+    <Fragment>
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder">
+                <Directory Name="NAIST" Id="NAIST">
+                    <Directory Name="ChaKi.NET" Id="CHAKI.NET">
+                        <Component Id="" Guid="" />
+                    </Directory>
+                </Directory>
+            </Directory>
+        </Directory>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+            <Component Id="ProductComponent" Guid="">
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

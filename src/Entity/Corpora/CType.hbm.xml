@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="ChaKi.Entity.Corpora.CType, ChaKiEntity" table="ctype" batch-size="20" lazy="false">
+    <id name="ID" column="id" type="Int32">
+      <generator class="increment" />
+    </id>
+    
+    <property name="Name1" column="name1" type="String" length="255"/>
+    <property name="Name2" column="name2" type="String" length="255"/>
+    <property name="Name" column="ctype" type="String" length="255"/>
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+リリースビルド作成手順 2009.12.14
+
+・ビルドを行う。  --> AssemblyInfo以外最新版
+・PostBuild.batを実行 --> 最新版zipを作成
+・Commitを行う。 --> zipがコミットされる
+・PreBuild.batを実行 --> AssemblyInfoを最新に
+・ビルドを行う。  --> AssemblyInfoも含めた最新版（msi用）
+・セットアップをビルド
+・リリースノートを作成する。
+・SourceForgeにUploadする。
+
+
+---
+2009.12.11
+
+OpenFileFolderDialogプロジェクトのビルドで下記のエラーが出た場合
+"general error c101008d: Failed to write the updated manifest to the resource of file "...". "/;9LR&U~W_
+
+--> src/OpenFileFolderDialog/{Release,Debug} フォルダを削除して再ビルド。
+
+
+--
+2011.01.26
+
+Major Versionを変更するには？（備忘録）
+ --> About DialogのVersion名を書き換える。
+     src\CreateAssemblyInfo.vbsの中のCurrentVersion変数の値を変更し、リビルドを行う。
+     Setupのプロパティでも合わせて変更を行うこと。
+Minor Version (Release No)はsourceforge.jpから自動取得している。
+

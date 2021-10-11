@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <!-- mappingのバージョンは2.0ではだめで2.2を指定すること -->
+
+  <class name="ChaKi.Entity.Corpora.Document, ChaKiEntity" table="document" batch-size="20" lazy="true">
+    <id name="ID" column="document_id" type="Int32">
+      <generator class="increment" />
+    </id>
+
+    <property name="Order" column="document_order" type="Int32"/>
+    <property name="FileName" column="filename" type="String" length="255"/>
+    <!--<property name="Text" column="document_text" type="StringClob"/>-->
+    <set name="Attributes" table="documenttag" inverse="true" batch-size="20">
+      <key column="document_id"/>
+      <one-to-many class="ChaKi.Entity.Corpora.Annotations.DocumentAttribute, ChaKiEntity"/>
+    </set>
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="ChaKi.Entity.Corpora.Annotations.TagSet, ChaKiEntity" table="tagset" batch-size="20" lazy="false">
+    <id name="ID" column="id" type="Int32">
+      <generator class="increment" />
+    </id>
+    
+    <property name="Name" column="tagset_name" type="String" length="255"/>
+    <list name="Tags" table="tag_definition" batch-size="20">
+      <key column="tagset_id"/>
+      <index column="id"/>
+      <one-to-many class="ChaKi.Entity.Corpora.Annotations.Tag, ChaKiEntity"/>
+    </list>
+    <list name="Versions" table="tagset_version" batch-size="20">
+      <key column="tagset_id"/>
+      <index column="version_id"/>
+      <one-to-many class="ChaKi.Entity.Corpora.Annotations.TagSetVersion, ChaKiEntity"/>
+    </list>
+  </class>
+
+</hibernate-mapping>

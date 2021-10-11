@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FAA43423-CF2D-4094-8DD6-19750C08CD4D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DependencyEdit</RootNamespace>
+    <AssemblyName>DepEdit</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChangeLexemeEventArgs.cs" />
+    <Compile Include="ChangeLexemeEventHandler.cs" />
+    <Compile Include="ConcatButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConcatButton.Designer.cs">
+      <DependentUpon>ConcatButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAHitType.cs" />
+    <Compile Include="DepArrow.cs" />
+    <Compile Include="DepArrowArc.cs" />
+    <Compile Include="DepEditControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DepEditControl.Designer.cs">
+      <DependentUpon>DepEditControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BunsetsuBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BunsetsuBox.Designer.cs">
+      <DependentUpon>BunsetsuBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LexemeSelectionGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LexemeSelectionGrid.Designer.cs">
+      <DependentUpon>LexemeSelectionGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MergeSplitEventHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SentenceStructure.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SentenceStructure.Designer.cs">
+      <DependentUpon>SentenceStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MergeSplitEventArgs.cs" />
+    <Compile Include="TagLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TagLabel.Designer.cs">
+      <DependentUpon>TagLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WordBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WordBox.Designer.cs">
+      <DependentUpon>WordBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WordGap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WordGap.Designer.cs">
+      <DependentUpon>WordGap.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DepEditControl.resx">
+      <DependentUpon>DepEditControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BunsetsuBox.resx">
+      <DependentUpon>BunsetsuBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SentenceStructure.resx">
+      <DependentUpon>SentenceStructure.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WordBox.resx">
+      <DependentUpon>WordBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Autofit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Snapshot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{B0C53F88-95C9-46D7-BDE2-6113D354EF5E}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceInterface.cs\ServiceInterface.csproj">
+      <Project>{21322F56-CED4-4254-8F37-B2D8C5CBF6E6}</Project>
+      <Name>ServiceInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{D7ADF4FF-56F3-44EC-9015-DA9E6CE8DFD9}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Scissor.cur" />
+    <EmbeddedResource Include="WordGap.resx">
+      <DependentUpon>WordGap.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ConcatButton.resx">
+      <DependentUpon>ConcatButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LexemeSelectionGrid.resx">
+      <DependentUpon>LexemeSelectionGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Scissor24.cur" />
+    <EmbeddedResource Include="TagLabel.resx">
+      <DependentUpon>TagLabel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DefaultScale.png" />
+    <None Include="Resources\concat.bmp" />
+    <Content Include="Resources\DispMode.png" />
+    <None Include="Resources\GraphViz.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

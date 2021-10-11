@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="ChaKi.Entity.Corpora.Annotations.DocumentAttribute, ChaKiEntity" table="documenttag" lazy="false">
+    <id name="ID" column="id" type="Int32">
+      <generator class="increment" />
+    </id>
+    
+    <property name="Key" column="tag" type="String" length="255"/>
+    <property name="Value" column="description" type="String"/>
+
+    <many-to-one name="Doc" class="ChaKi.Entity.Corpora.Document, ChaKiEntity" column="document_id" not-null="true"/>
+  </class>
+
+</hibernate-mapping>

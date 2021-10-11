@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <!-- mappingのバージョンは2.0ではだめで2.2を指定すること -->
+  <!-- propertyのtypeがややこしいが、間違えるとわかりにくいInvalid Cast Exceptionが出る. -->
+
+  <class name="ChaKi.Entity.Corpora.Lexeme, ChaKiEntity" table="lexeme" batch-size="60" lazy="false">
+    <id name="ID" column="id" type="Int32">
+      <generator class="increment" />
+    </id>
+    
+    <property name="Surface" column="surface" type="String" length="255"/>
+    <property name="Reading" column="reading" type="String" length="255"/>
+    <property name="LemmaForm" column="lemmaform" type="String" length="255"/>
+    <property name="Pronunciation" column="pronunciation" type="String" length="255"/>
+    <many-to-one name="BaseLexeme" class="ChaKi.Entity.Corpora.Lexeme, ChaKiEntity" column="base_lexeme_ref"/>
+    <property name="Lemma" column="lemma" type="String" length="255"/>
+    <many-to-one name="PartOfSpeech" class="ChaKi.Entity.Corpora.PartOfSpeech, ChaKiEntity" column="part_of_speech_id"/>
+    <many-to-one name="CType" class="ChaKi.Entity.Corpora.CType, ChaKiEntity" column="ctype_id"/>
+    <many-to-one name="CForm" class="ChaKi.Entity.Corpora.CForm, ChaKiEntity" column="cform_id"/>
+    <property name="Frequency" column="frequency" type="Int32"/>
+    <property name="CustomProperty" column="custom" type="String"/>
+  </class>
+
+</hibernate-mapping>

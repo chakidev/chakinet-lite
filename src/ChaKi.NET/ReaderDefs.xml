@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ReaderDefs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xsi:noNamespaceSchemaLocation="ReaderDefs.xsd">
+
+  <!-- 標準ReaderDefのName属性は変更しないでください。 -->
+
+  <!-- 標準Reader定義"ChaSen|Cabocha" -->
+  <ReaderDef Name="ChaSen|Cabocha" LineFormat="TabSeparatedLine">
+    <Fields>
+      <Field><MappedTo Tag="Surface"/></Field>
+      <Field><MappedTo Tag="Reading"/><MappedTo Tag="Pronunciation"/></Field>
+      <Field><MappedTo Tag="BaseLexeme"/></Field>
+      <Field><MappedTo Tag="PartOfSpeech"/></Field>
+      <Field><MappedTo Tag="CType"/></Field>
+      <Field><MappedTo Tag="CForm"/></Field>
+    </Fields>
+  </ReaderDef>
+
+  <!-- 標準Reader定義"Mecab|Cabocha" -->
+  <ReaderDef Name="Mecab|Cabocha" LineFormat="MecabLine">
+    <Fields>
+      <Field><MappedTo Tag="Surface"/></Field>
+      <Field><MappedTo Tag="PartOfSpeech"/></Field>
+      <Field><MappedTo Tag="PartOfSpeech"/></Field>
+      <Field><MappedTo Tag="PartOfSpeech"/></Field>
+      <Field><MappedTo Tag="PartOfSpeech"/></Field>
+      <Field><MappedTo Tag="CType"/></Field>
+      <Field><MappedTo Tag="CForm"/></Field>
+      <Field><MappedTo Tag="BaseLexeme"/></Field>
+      <Field><MappedTo Tag="Reading"/></Field>
+      <Field><MappedTo Tag="Pronunciation"/></Field>
+    </Fields>
+  </ReaderDef>
+
+  <!-- 標準Reader定義"English|Cabocha" -->
+  <ReaderDef Name="English|Cabocha" LineFormat="TabSeparatedLine">
+    <Fields>
+      <Field><MappedTo Tag="Surface"/></Field>
+      <Field><MappedTo Tag="PartOfSpeech"/></Field>
+      <Field><MappedTo Tag="BaseLexeme"/></Field>
+    </Fields>
+  </ReaderDef>
+
+  <!-- 標準Reader定義"Mecab|Cabocha|UniDic2" UniDic 2 (unidic-mecab-kana-accent-2.1.2) -->
+  <ReaderDef Name="Mecab|Cabocha|UniDic2" LineFormat="MecabLine">
+    <Fields>
+      <!-- unidic-mecab/rewrite.def を参考にUniDicフィールドを順に並べ、対応するChaKi propertyへアサインしたもの -->
+      <Field><MappedTo Tag="Surface"/></Field>
+      <Field><MappedTo Tag="PartOfSpeech"/></Field>	<!-- "pos1" -->
+      <Field><MappedTo Tag="PartOfSpeech"/></Field>	<!-- "pos2" -->
+      <Field><MappedTo Tag="PartOfSpeech"/></Field>	<!-- "pos3" -->
+      <Field><MappedTo Tag="PartOfSpeech"/></Field>	<!-- "pos4" -->
+      <Field><MappedTo Tag="CType"/></Field>		<!-- "cType" -->
+      <Field><MappedTo Tag="CForm"/></Field>		<!-- "cForm" -->
+      <Field><MappedTo Tag="LemmaForm"/></Field>	<!-- "lForm" -->
+      <Field><MappedTo Tag="Lemma"/></Field>		<!-- "lemma" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="orth"/></Field>	<!-- "orth" -->
+      <Field><MappedTo Tag="Pronunciation"/></Field>    <!-- "pron" -->
+      <Field><MappedTo Tag="BaseLexeme"/></Field>	<!-- "orthBase" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="pronBase"/></Field>	<!-- "pronBase" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="goshu"/></Field>		<!-- "goshu" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="iType"/></Field>		<!-- "iType" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="iForm"/></Field>		<!-- "iForm" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="fType"/></Field>		<!-- "fType" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="fForm"/></Field>		<!-- "fForm" -->
+      <Field><MappedTo Tag="Reading"/></Field>		<!-- "kana" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="kanaBase"/></Field>	<!-- "kanaBase" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="form"/></Field>	<!-- "form" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="formBase"/></Field>	<!-- "formBase" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="iConType"/></Field>	<!-- "iConType" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="fConType"/></Field>	<!-- "fConType" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="aType"/></Field>		<!-- "aType" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="aConType"/></Field>	<!-- "aConType" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="aModType"/></Field>	<!-- "aModType" -->
+    </Fields>
+  </ReaderDef>
+
+  <!-- 標準Reader定義"Mecab|Cabocha|UniDic1" Old UniDic-->
+  <ReaderDef Name="Mecab|Cabocha|UniDic1" LineFormat="MecabLine">
+    <Fields>
+      <!-- unidic-mecab/rewrite.def を参考にUniDicフィールドを順に並べ、対応するChaKi propertyへアサインしたもの -->
+      <Field><MappedTo Tag="Surface"/></Field>
+      <Field><MappedTo Tag="PartOfSpeech"/></Field>	<!-- "pos1" -->
+      <Field><MappedTo Tag="PartOfSpeech"/></Field>	<!-- "pos2" -->
+      <Field><MappedTo Tag="PartOfSpeech"/></Field>	<!-- "pos3" -->
+      <Field><MappedTo Tag="PartOfSpeech"/></Field>	<!-- "pos4" -->
+      <Field><MappedTo Tag="CType"/></Field>		<!-- "cType" -->
+      <Field><MappedTo Tag="CForm"/></Field>		<!-- "cForm" -->
+      <Field><MappedTo Tag="LemmaForm"/></Field>	<!-- "lForm" -->
+      <Field><MappedTo Tag="Lemma"/></Field>		<!-- "lemma" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="orth"/></Field>	<!-- "orth" -->
+      <Field><MappedTo Tag="Pronunciation"/></Field><!-- "pron" -->
+      <Field><MappedTo Tag="Reading"/></Field>		<!-- "kana" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="goshu"/></Field>		<!-- "goshu" -->
+      <Field><MappedTo Tag="BaseLexeme"/></Field>	<!-- "orthBase" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="pronBase"/></Field>	<!-- "pronBase" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="kanaBase"/></Field>	<!-- "kanaBase" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="formBase"/></Field>	<!-- "formBase" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="iType"/></Field>		<!-- "iType" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="iForm"/></Field>		<!-- "iForm" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="iConType"/></Field>	<!-- "iConType" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="fType"/></Field>		<!-- "fType" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="fForm"/></Field>		<!-- "fForm" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="fConType"/></Field>	<!-- "fConType" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="aType"/></Field>		<!-- "aType" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="aConType"/></Field>	<!-- "aConType" -->
+      <Field><MappedTo Tag="Custom" CustomTagName="aModType"/></Field>	<!-- "aModType" -->
+    </Fields>
+  </ReaderDef>
+
+  <!-- 標準Reader定義"Mecab|Cabocha|UniDic2|LUW" -->
+  <!-- 長単位付きの特殊形式: 2回に分けてCabocha|UniDic2形式のインポートを行い、2つのProjectを作成. -->
+  <ReaderDef Name="Mecab|Cabocha|UniDic2|LUW" LineFormat="MecabLine"/>
+
+  <!-- 標準Reader定義"CONLL" -->
+  <ReaderDef Name="CONLL" LineFormat="CONLL"/>
+
+  <!-- 標準Reader定義"CONLLU" -->
+  <ReaderDef Name="CONLLU" LineFormat="CONLLU"/>
+
+  <!-- 標準Reader定義"PlainText" -->
+  <ReaderDef Name="PlainText" LineFormat="TextLine"/>
+
+</ReaderDefs>

@@ -1,0 +1,978 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+      None
+    </ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F7E0E4F3-15FE-4480-8D38-01FA2F878AD8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ChaKi</RootNamespace>
+    <AssemblyName>ChaKi.NET</AssemblyName>
+    <ApplicationIcon>ChaKi.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Release|AnyCPU'">
+    <OutputPath>bin\ChaMame_Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Release|x64'">
+    <OutputPath>bin\x64\ChaMame_Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Debug|AnyCPU'">
+    <OutputPath>bin\ChaMame_Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Debug|x64'">
+    <OutputPath>bin\x64\ChaMame_Debug\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetMagic2005, Version=5.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\DotNetMagic2005.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicInterop">
+      <HintPath>..\packages\DynamicInterop.0.7.4\lib\net40\DynamicInterop.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=5.2.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenFileFolderDialog, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\OpenFileFolderDialog.dll</HintPath>
+    </Reference>
+    <Reference Include="RDotNet">
+      <HintPath>..\packages\R.NET.Community.1.6\lib\net40\RDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="RDotNet.NativeLibrary">
+      <HintPath>..\packages\R.NET.Community.1.6\lib\net40\RDotNet.NativeLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AddIn">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutChaKiDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutChaKiDialog.Designer.cs">
+      <DependentUpon>AboutChaKiDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChaKiModel.cs" />
+    <Compile Include="Common\EditAttributesDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\EditAttributesDialog.Designer.cs">
+      <DependentUpon>EditAttributesDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ExpandButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Common\ExpandButton.Designer.cs">
+      <DependentUpon>ExpandButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\GridWithTotal.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\LinkArrow.cs" />
+    <Compile Include="Common\LinkArrowHitType.cs" />
+    <Compile Include="Common\BrushCache.cs" />
+    <Compile Include="Common\BunsetsuBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Common\BunsetsuBox.Designer.cs">
+      <DependentUpon>BunsetsuBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ChakiStatusStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\ChakiStatusStrip.Designer.cs">
+      <DependentUpon>ChakiStatusStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\PropertyBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Common\PropertyBox.Designer.cs">
+      <DependentUpon>PropertyBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUISetting.cs" />
+    <Compile Include="Options\CustomizePropertyBoxDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options\CustomizePropertyBoxDialog.Designer.cs">
+      <DependentUpon>CustomizePropertyBoxDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\TagAppearanceDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options\TagAppearanceDialog.Designer.cs">
+      <DependentUpon>TagAppearanceDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\WordColorSettingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options\WordColorSettingDialog.Designer.cs">
+      <DependentUpon>WordColorSettingDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\WordColorSettingPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\WordColorSettingPanel.Designer.cs">
+      <DependentUpon>WordColorSettingPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\DocumentsAnalysisPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\DocumentsAnalysisPane.Designer.cs">
+      <DependentUpon>DocumentsAnalysisPane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\FilterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\FilterControl.Designer.cs">
+      <DependentUpon>FilterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\AddinPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\AddinPane.Designer.cs">
+      <DependentUpon>AddinPane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\FilterButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\FilterButton.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FilterButton.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ProjectSelector.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\ScriptingPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\ScriptingPanel.Designer.cs">
+      <DependentUpon>ScriptingPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\WordAttributeListPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\WordEditPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\WordEditPanel.Designer.cs">
+      <DependentUpon>WordEditPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\AutoImporter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\AutoImporter.Designer.cs">
+      <DependentUpon>AutoImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\CollocationProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\CollocationProgressDialog.Designer.cs">
+      <DependentUpon>CollocationProgressDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\CreateDictionary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\CreateDictionary.Designer.cs">
+      <DependentUpon>CreateDictionary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\DBSchemaConversion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\DBSchemaConversion.Designer.cs">
+      <DependentUpon>DBSchemaConversion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\EditLexemeFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\EditLexemeFilter.Designer.cs">
+      <DependentUpon>EditLexemeFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\ExportGridToExcelDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\ExportGridToExcelDialog.Designer.cs">
+      <DependentUpon>ExportGridToExcelDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\ExportToExcelDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\ExportToExcelDialog.Designer.cs">
+      <DependentUpon>ExportToExcelDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\CreateSQLiteCorpusNoFileFolderDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\CreateSQLiteCorpusNoFileFolderDialog.Designer.cs">
+      <DependentUpon>CreateSQLiteCorpusNoFileFolderDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\GitCommitDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\GitCommitDialog.Designer.cs">
+      <DependentUpon>GitCommitDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\GitLoginDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\GitLoginDialog.Designer.cs">
+      <DependentUpon>GitLoginDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\GitSetIdentityDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\GitSetIdentityDialog.Designer.cs">
+      <DependentUpon>GitSetIdentityDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\GitSetRemoteDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\GitSetRemoteDialog.Designer.cs">
+      <DependentUpon>GitSetRemoteDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\LoadPresetScriptsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\LoadPresetScriptsDialog.Designer.cs">
+      <DependentUpon>LoadPresetScriptsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\RepairDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\RepairDialog.Designer.cs">
+      <DependentUpon>RepairDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CollocationView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CollocationView.Designer.cs">
+      <DependentUpon>CollocationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FullScreenContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FullScreenContainer.Designer.cs">
+      <DependentUpon>FullScreenContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KwicView\Caret.cs" />
+    <Compile Include="Views\KwicView\CharPosElement.cs" />
+    <Compile Include="Views\KwicView\CharRangeElement.cs" />
+    <Compile Include="Views\KwicView\Columns.cs" />
+    <Compile Include="Views\KwicView\SelectionChangedEventArgs.cs" />
+    <Compile Include="Views\KwicView\DummyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\KwicView\DummyTextBox.Designer.cs">
+      <DependentUpon>DummyTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KwicView\HitType.cs" />
+    <Compile Include="Views\KwicView\KwicView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\KwicView\KwicView.designer.cs">
+      <DependentUpon>KwicView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KwicView\KwicViewPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\KwicView\KwicViewPanel.Designer.cs">
+      <DependentUpon>KwicViewPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KwicView\KwicViewSettingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\KwicView\KwicViewSettingDialog.Designer.cs">
+      <DependentUpon>KwicViewSettingDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KwicView\KwicViewTransparentPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\KwicView\LineElement.cs" />
+    <Compile Include="Views\KwicView\LineElementComparer.cs" />
+    <Compile Include="Views\KwicView\LinkElement.cs" />
+    <Compile Include="Views\KwicView\SegElement.cs" />
+    <Compile Include="Views\KwicView\Selection.cs" />
+    <Compile Include="Views\KwicView\WordElement.cs" />
+    <Compile Include="Views\KwicView\WordElementStyle.cs" />
+    <Compile Include="Options\FontSampleLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\FontSampleLabel.Designer.cs">
+      <DependentUpon>FontSampleLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\CollocationPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\CollocationPane.Designer.cs">
+      <DependentUpon>CollocationPane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\AttributeListPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\AttributeListPanel.Designer.cs">
+      <DependentUpon>AttributeListPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\LexiconDataRetriever.cs" />
+    <Compile Include="Views\KwicView\WordMappingHilightEventArgs.cs" />
+    <Compile Include="VirtualGrid\GridCache.cs" />
+    <Compile Include="Common\RelationButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\RelationCommandEventArgs.cs" />
+    <Compile Include="Panels\ConditionsPanes\DepSearchPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\DepSearchPane.Designer.cs">
+      <DependentUpon>DepSearchPane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\IChaKiView.cs" />
+    <Compile Include="Panels\CommandPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\CommandPanel.Designer.cs">
+      <DependentUpon>CommandPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\CorpusPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\CorpusPane.Designer.cs">
+      <DependentUpon>CorpusPane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\FilterPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\FilterPane.Designer.cs">
+      <DependentUpon>FilterPane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\StringSearchPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\StringSearchPane.Designer.cs">
+      <DependentUpon>StringSearchPane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanel.Designer.cs">
+      <DependentUpon>ConditionsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ContextPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\ContextPanel.Designer.cs">
+      <DependentUpon>ContextPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\HistoryGuidePanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\HistoryGuidePanel.Designer.cs">
+      <DependentUpon>HistoryGuidePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\CorpusInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\CorpusInfo.Designer.cs">
+      <DependentUpon>CorpusInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\CreateMySQLCorpus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\CreateMySQLCorpus.Designer.cs">
+      <DependentUpon>CreateMySQLCorpus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\CreateSQLiteCorpus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\CreateSQLiteCorpus.Designer.cs">
+      <DependentUpon>CreateSQLiteCorpus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.Handlers.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Logics.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options\OptionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options\OptionDialog.Designer.cs">
+      <DependentUpon>OptionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutChaKiDialog.resx">
+      <DependentUpon>AboutChaKiDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\EditAttributesDialog.resx">
+      <DependentUpon>EditAttributesDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.ja-JP.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\CustomizePropertyBoxDialog.ja-JP.resx">
+      <DependentUpon>CustomizePropertyBoxDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\OptionDialog.ja-JP.resx">
+      <DependentUpon>OptionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\WordColorSettingDialog.ja-JP.resx">
+      <DependentUpon>WordColorSettingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\WordColorSettingPanel.ja-JP.resx">
+      <DependentUpon>WordColorSettingPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\CommandPanel.ja-JP.resx">
+      <DependentUpon>CommandPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\CommandPanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CommandPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanel.ja-JP.resx">
+      <DependentUpon>ConditionsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\CollocationPane.ja-JP.resx">
+      <DependentUpon>CollocationPane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\CorpusPane.ja-JP.resx">
+      <DependentUpon>CorpusPane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\CorpusPane.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CorpusPane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\DocumentsAnalysisPane.ja-JP.resx">
+      <DependentUpon>DocumentsAnalysisPane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\DocumentsAnalysisPane.resx">
+      <DependentUpon>DocumentsAnalysisPane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\FilterControl.ja-JP.resx">
+      <DependentUpon>FilterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\FilterPane.ja-JP.resx">
+      <DependentUpon>FilterPane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\FilterPane.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FilterPane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\StringSearchPane.ja-JP.resx">
+      <DependentUpon>StringSearchPane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\StringSearchPane.resx">
+      <DependentUpon>StringSearchPane.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ConditionsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ContextPanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ContextPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\WordEditPanel.resx">
+      <DependentUpon>WordEditPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
+    <EmbeddedResource Include="ToolDialogs\AutoImporter.resx">
+      <DependentUpon>AutoImporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\CreateMySQLCorpus.ja-JP.resx">
+      <DependentUpon>CreateMySQLCorpus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\CreateMySQLCorpus.resx">
+      <DependentUpon>CreateMySQLCorpus.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\CreateSQLiteCorpus.ja-JP.resx">
+      <DependentUpon>CreateSQLiteCorpus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\CreateSQLiteCorpus.resx">
+      <DependentUpon>CreateSQLiteCorpus.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\OptionDialog.resx">
+      <DependentUpon>OptionDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\TagSearchPane.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TagSearchPane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\DBLogin.resx">
+      <DependentUpon>DBLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\GitCommitDialog.ja-JP.resx">
+      <DependentUpon>GitCommitDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\GitCommitDialog.resx">
+      <DependentUpon>GitCommitDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\GitLoginDialog.ja-JP.resx">
+      <DependentUpon>GitLoginDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\GitLoginDialog.resx">
+      <DependentUpon>GitLoginDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\GitSetIdentityDialog.ja-JP.resx">
+      <DependentUpon>GitSetIdentityDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\GitSetIdentityDialog.resx">
+      <DependentUpon>GitSetIdentityDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\GitSetRemoteDialog.ja-JP.resx">
+      <DependentUpon>GitSetRemoteDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\GitSetRemoteDialog.resx">
+      <DependentUpon>GitSetRemoteDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\LoadPresetScriptsDialog.resx">
+      <DependentUpon>LoadPresetScriptsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\RepairDialog.resx">
+      <DependentUpon>RepairDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\ShowDatabaseListDialog.resx">
+      <DependentUpon>ShowDatabaseListDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\TagSearchPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\ConditionsPanes\TagSearchPane.Designer.cs">
+      <DependentUpon>TagSearchPane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\DBLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\DBLogin.Designer.cs">
+      <DependentUpon>DBLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolDialogs\ShowDatabaseListDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolDialogs\ShowDatabaseListDialog.Designer.cs">
+      <DependentUpon>ShowDatabaseListDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UICommands\UICommand.cs" />
+    <Compile Include="VirtualGrid\IDataRetriever.cs" />
+    <Compile Include="Views\WordListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\WordListView.Designer.cs">
+      <DependentUpon>WordListView.cs</DependentUpon>
+    </Compile>
+    <None Include="Scripts\CreateSegmentAll.rb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReaderDefs.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Toolbar.png" />
+    <None Include="Resources\RIDButton.png" />
+    <None Include="Resources\CenterizeButton.png" />
+    <None Include="Resources\Abort.png" />
+    <Content Include="ChaKi.ico" />
+    <Content Include="ReaderDefs.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Addin.png" />
+    <Content Include="Resources\Adjust.png" />
+    <Content Include="Resources\AdjustLeft.png" />
+    <Content Include="Resources\ArrowDown.png" />
+    <Content Include="Resources\ArrowUp.png" />
+    <None Include="Resources\ChaKi.ico" />
+    <Content Include="Resources\base_plus_sign_32.png" />
+    <Content Include="Resources\ChaKi.png" />
+    <Content Include="Resources\ChaKi2.png" />
+    <None Include="Resources\LoadSearchConditions.png" />
+    <None Include="Resources\MySQL.png" />
+    <None Include="Resources\SQLite.png" />
+    <EmbeddedResource Include="Common\BunsetsuBox.resx">
+      <DependentUpon>BunsetsuBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\ExpandButton.resx">
+      <DependentUpon>ExpandButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\GridWithTotal.resx">
+      <DependentUpon>GridWithTotal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\PropertyBox.resx">
+      <DependentUpon>PropertyBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\RelationButton.resx">
+      <DependentUpon>RelationButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\CustomizePropertyBoxDialog.resx">
+      <DependentUpon>CustomizePropertyBoxDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\TagAppearanceDialog.resx">
+      <DependentUpon>TagAppearanceDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\WordColorSettingDialog.resx">
+      <DependentUpon>WordColorSettingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\WordColorSettingPanel.resx">
+      <DependentUpon>WordColorSettingPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\FilterControl.resx">
+      <DependentUpon>FilterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\AddinPane.resx">
+      <DependentUpon>AddinPane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\FilterButton.resx">
+      <DependentUpon>FilterButton.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FilterButton.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ScriptingPanel.resx">
+      <DependentUpon>ScriptingPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\CollocationProgressDialog.resx">
+      <DependentUpon>CollocationProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\CreateDictionary.resx">
+      <DependentUpon>CreateDictionary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\DBSchemaConversion.resx">
+      <DependentUpon>DBSchemaConversion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\EditLexemeFilter.resx">
+      <DependentUpon>EditLexemeFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\ExportGridToExcelDialog.resx">
+      <DependentUpon>ExportGridToExcelDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\ExportToExcelDialog.resx">
+      <DependentUpon>ExportToExcelDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolDialogs\CreateSQLiteCorpusNoFileFolderDialog.resx">
+      <DependentUpon>CreateSQLiteCorpusNoFileFolderDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CollocationView.resx">
+      <DependentUpon>CollocationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FullScreenContainer.resx">
+      <DependentUpon>FullScreenContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KwicView\DummyTextBox.resx">
+      <DependentUpon>DummyTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KwicView\KwicViewPanel.ja-JP.resx">
+      <DependentUpon>KwicViewPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KwicView\KwicViewSettingDialog.resx">
+      <DependentUpon>KwicViewSettingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\FontSampleLabel.resx">
+      <DependentUpon>FontSampleLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\CollocationPane.resx">
+      <DependentUpon>CollocationPane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ConditionsPanes\DepSearchPane.resx">
+      <DependentUpon>DepSearchPane.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\HistoryGuidePanel.resx">
+      <DependentUpon>HistoryGuidePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KwicView\KwicView.resx">
+      <DependentUpon>KwicView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\KwicView\KwicViewPanel.resx">
+      <DependentUpon>KwicViewPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\AttributeListPanel.resx">
+      <DependentUpon>AttributeListPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MySQL_S.png" />
+    <EmbeddedResource Include="Resources\SQLite_S.png" />
+    <EmbeddedResource Include="ToolDialogs\CorpusInfo.resx">
+      <DependentUpon>CorpusInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WordListView.resx">
+      <DependentUpon>WordListView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Resources\MSSQL.png" />
+    <None Include="Resources\ChaKi3.png" />
+    <Content Include="Resources\ChaKiSmall.png" />
+    <Content Include="Resources\ChangeLexeme.png" />
+    <Content Include="Resources\Checked.png" />
+    <Content Include="Resources\Collocation.png" />
+    <Content Include="Resources\ConversionArrow.png" />
+    <Content Include="Resources\copyToolStripMenuItem.Image.png" />
+    <Content Include="Resources\CSVFile.png" />
+    <EmbeddedResource Include="Resources\DefaultDockState.xml" />
+    <Content Include="Resources\DeleteOutput.png" />
+    <Content Include="Resources\DependencyView.png" />
+    <None Include="Resources\EditInformationHS.png" />
+    <Content Include="Resources\Excel.png" />
+    <None Include="Resources\Expanded.png" />
+    <Content Include="Resources\ExpanderDown.png" />
+    <Content Include="Resources\ExpanderUp.png" />
+    <Content Include="Resources\ExpandSpaceHS.png" />
+    <None Include="Resources\FitlerOff.png" />
+    <None Include="Resources\FitlerOn.png" />
+    <Content Include="Resources\FullScreenHS.png" />
+    <None Include="Resources\git_commit.png" />
+    <Content Include="Resources\GotoShortcutsHS.png" />
+    <Content Include="Resources\HilightNext.png" />
+    <Content Include="Resources\HilightPrevious.png" />
+    <Content Include="Resources\KwicMode.png" />
+    <Content Include="Resources\KwicView.png" />
+    <Content Include="Resources\List_NumberedHS.png" />
+    <Content Include="Resources\naist.png" />
+    <None Include="Resources\redo.png" />
+    <None Include="Resources\Save.png" />
+    <None Include="Resources\Save2.png" />
+    <Content Include="Resources\none.bmp" />
+    <Content Include="Resources\none.PNG" />
+    <Content Include="Resources\OrganizerHS.png" />
+    <Content Include="Resources\Rlogo-3.png" />
+    <Content Include="Resources\Saved.png" />
+    <Content Include="Resources\SaveSearchCond..png" />
+    <Content Include="Resources\Search.png" />
+    <Content Include="Resources\SearchInView.png" />
+    <Content Include="Resources\ShiftLeft.png" />
+    <Content Include="Resources\ShiftRight.png" />
+    <None Include="Resources\Shrinked.png" />
+    <Content Include="Resources\TextMode.png" />
+    <Content Include="Resources\TileWindowsHorizontallyHS.png" />
+    <Content Include="Resources\ToExcel.png" />
+    <Content Include="Resources\UICEditCopyToolStripButton.Image.png" />
+    <Content Include="Resources\UICEditCutToolStripButton.Image.png" />
+    <Content Include="Resources\UICEditDeleteAllToolStripButton.Image.png" />
+    <Content Include="Resources\UICEditPasteToolStripButton.Image.png" />
+    <Content Include="Resources\UICFileNewToolStripButton.Image.png" />
+    <Content Include="Resources\UICFileOpenToolStripButton.Image.png" />
+    <Content Include="Resources\UICFilePrintToolStripButton.Image.png" />
+    <Content Include="Resources\UICFileSaveToolStripButton.Image.png" />
+    <Content Include="Resources\UICHelpHelpToolStripButton.Image.png" />
+    <Content Include="Resources\UICSearchResetAllSearchSettingsToolStripButton.Image.png" />
+    <Content Include="Resources\UICViewAutoAdjustToolStripButton.Image.png" />
+    <Content Include="Resources\UICViewLoadAnnotationsToolStripButton.Image.png" />
+    <Content Include="Resources\UICViewReloadKwicViewToolStripButtonImage.png" />
+    <Content Include="Resources\UICViewViewAttributeToolStripButton.Image.png" />
+    <Content Include="Resources\Unchecked.png" />
+    <None Include="Resources\undo.png" />
+    <Content Include="Resources\Unsaved.png" />
+    <Content Include="Resources\XKwic.ico" />
+    <EmbeddedResource Include="Resources\MSSQL_S.png" />
+    <Content Include="Resources\minus_sign_32.png" />
+    <Content Include="XKwic.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Addins\AddinsHostSideViews\AddinsHostSideViews.csproj">
+      <Project>{C9BDF674-D43B-4B0C-ABDF-FACDD0C4A93E}</Project>
+      <Name>AddinsHostSideViews</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChaKiCommon\ChaKiCommon.csproj">
+      <Project>{B9B0121C-BD6C-496E-8573-5A2CB440242A}</Project>
+      <Name>ChaKiCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DepEditSLA\DepEditSLA.csproj">
+      <Project>{7D86F989-177E-4804-9C7D-FBA4DCE0E4F1}</Project>
+      <Name>DepEditSLA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{B0C53F88-95C9-46D7-BDE2-6113D354EF5E}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceInterface\ServiceInterface.csproj">
+      <Project>{21322F56-CED4-4254-8F37-B2D8C5CBF6E6}</Project>
+      <Name>ServiceInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{D7ADF4FF-56F3-44EC-9015-DA9E6CE8DFD9}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

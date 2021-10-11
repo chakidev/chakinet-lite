@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- コマンド"xsd.exe ChakiEntity.dll /t:ReaderDefs"で自動作成した、ReaderDefs.xml用のXMLスキーマ -->
+
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="ReaderDefs" nillable="true" type="ReaderDefs" />
+  
+  <xs:complexType name="ReaderDefs">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReaderDef" type="ReaderDef" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="ReaderDef">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Fields" type="ArrayOfField" />
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" />
+    <xs:attribute name="LineFormat" type="xs:string" />
+  </xs:complexType>
+  
+  <xs:complexType name="ArrayOfField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Field" nillable="true" type="Field" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Field">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MappedTo" type="MappedTo" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="MappedTo">
+    <xs:attribute name="Tag" type="xs:string" />
+    <xs:attribute name="CustomTagName" type="xs:string" />
+  </xs:complexType>
+  
+</xs:schema>

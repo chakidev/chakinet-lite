@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CreateIndexSegmentStatement1" xml:space="preserve">
+    <value>CREATE INDEX segment_start_char_index ON segment (start_char)</value>
+  </data>
+  <data name="CreateIndexCFormCTypeStatement" xml:space="preserve">
+    <value>CREATE INDEX cform_ctype_index ON cform_ctype (cform_id, ctype_id)</value>
+  </data>
+  <data name="CreateIndexCFormStatement" xml:space="preserve">
+    <value>CREATE INDEX cform_index ON cform (cform)</value>
+  </data>
+  <data name="CreateIndexCorpusAttributeStatement" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CreateIndexCTypeStatement" xml:space="preserve">
+    <value>CREATE INDEX ctype_index ON ctype (ctype)</value>
+  </data>
+  <data name="CreateIndexLexemeStatement1" xml:space="preserve">
+    <value>CREATE INDEX lexeme_surface_index ON lexeme (surface)</value>
+  </data>
+  <data name="CreateIndexPartOfSpeechStatement" xml:space="preserve">
+    <value>CREATE INDEX part_of_speech_index ON part_of_speech (part_of_speech)</value>
+  </data>
+  <data name="CreateIndexSentenceStatement1" xml:space="preserve">
+    <value>CREATE INDEX sentence_start_char_index ON sentence (start_char)</value>
+  </data>
+  <data name="CreateIndexWordStatement1" xml:space="preserve">
+    <value>CREATE INDEX word_sentence_id_index ON word (sentence_id ASC)</value>
+  </data>
+  <data name="CreateTableSegmentStatement" xml:space="preserve">
+    <value>CREATE TABLE segment (
+ id bigint primary key,
+ tag_definition_id int not null,
+ version_id int not null,
+ document_id int not null,
+ start_char int not null,
+ end_char int not null,
+ string_value text not null,
+ project_id int not null,
+ user_id int not null,
+ createtime timestamp not null default CURRENT_TIMESTAMP,
+ comments text,
+ sentence_id int,
+ lexeme_id int
+)</value>
+  </data>
+  <data name="CreateTableCFormCTypeStatement" xml:space="preserve">
+    <value>CREATE TABLE cform_ctype (
+ cform_id int,
+ ctype_id int)</value>
+  </data>
+  <data name="CreateTableCFormStatement" xml:space="preserve">
+    <value>CREATE TABLE cform (
+ id int primary key,
+ cform varchar(255)
+ )</value>
+  </data>
+  <data name="CreateTableCorpusAttributeStatement" xml:space="preserve">
+    <value>CREATE TABLE corpus_attribute (
+ id int primary key,
+ name varchar(255),
+ value varchar(255)
+)</value>
+  </data>
+  <data name="CreateTableCTypeStatement" xml:space="preserve">
+    <value>CREATE TABLE ctype (
+ id int primary key,
+ name1 varchar(255),
+ name2 varchar(255),
+ ctype varchar(255)
+ )</value>
+  </data>
+  <data name="CreateTableLexemeStatement" xml:space="preserve">
+    <value>CREATE TABLE lexeme (
+  id                 int primary key,
+  surface         varchar(255),
+  reading         varchar(255) default '',
+  lemmaform   varchar(255) default '',
+  pronunciation  varchar(255) default '',
+  base_lexeme_ref   int not null,
+  lemma        varchar(255) default '',
+  part_of_speech_id  int not null,
+  ctype_id       int not null,
+  cform_id       int not null,
+  updated_at    timestamp,
+  frequency      int default 0,
+  custom          text
+)</value>
+  </data>
+  <data name="CreateTablePartOfSpeechStatement" xml:space="preserve">
+    <value>CREATE TABLE part_of_speech (
+ id int primary key,
+ name1 varchar(255),
+ name2 varchar(255),
+ name3 varchar(255),
+ name4 varchar(255),
+ part_of_speech varchar(255)
+ )</value>
+  </data>
+  <data name="CreateTableSentenceStatement" xml:space="preserve">
+    <value>CREATE TABLE sentence (
+  id             int primary key,
+  start_char    int not null,
+  end_char     int not null,
+  document_id int not null,
+  pos           int not null
+)</value>
+  </data>
+  <data name="CreateTableWordStatement" xml:space="preserve">
+    <value>CREATE TABLE word (
+  id             int primary key,
+  sentence_id  int not null,
+  start_char int not null,
+  end_char     int not null,
+  lexeme_id     int not null,
+  bunsetsu_segment_id  bigint not null,
+  updated_at   timestamp,
+  position       int,
+  start_time  real,
+  end_time    real,
+  duration      real,
+  extra_chars  varchar(255) default '',
+  project_id  int default 0,
+  head_info   int default 0
+)</value>
+  </data>
+  <data name="DropTableSegmentStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS segment</value>
+  </data>
+  <data name="DropTableCFormCTypeStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS cform_ctype</value>
+  </data>
+  <data name="DropTableCFormStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS cform</value>
+  </data>
+  <data name="DropTableCorpusAttributeStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS corpus_attribute</value>
+  </data>
+  <data name="DropTableCTypeStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS ctype</value>
+  </data>
+  <data name="DropTableLexemeStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS lexeme</value>
+  </data>
+  <data name="DropTablePartOfSpeechStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS part_of_speech</value>
+  </data>
+  <data name="DropTableSentenceStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS sentence</value>
+  </data>
+  <data name="DropTableWordStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS word</value>
+  </data>
+  <data name="CreateIndexWordStatement2" xml:space="preserve">
+    <value>CREATE INDEX word_lexeme_id_index ON word (lexeme_id ASC)</value>
+  </data>
+  <data name="CreateIndexLinkStatement1" xml:space="preserve">
+    <value>CREATE INDEX link_from_segment_index ON link (from_segment_id)</value>
+  </data>
+  <data name="CreateTableLinkStatement" xml:space="preserve">
+    <value>CREATE TABLE link (
+ id bigint primary key,
+ tag_definition_id int not null,
+ version_id int not null,
+ from_segment_id bigint not null,
+ to_segment_id bigint not null,
+ project_id int not null,
+ user_id int,
+ createtime timestamp not null default CURRENT_TIMESTAMP,
+ comments text,
+ from_sentence_id int,
+ to_sentence_id int,
+ lexeme_id int
+)</value>
+  </data>
+  <data name="DropTableLinkStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS link</value>
+  </data>
+  <data name="CreateIndexGroupStatement" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CreateIndexGroupMemberStatement1" xml:space="preserve">
+    <value>CREATE INDEX group_member_group_index ON group_member ( group_id )</value>
+  </data>
+  <data name="CreateIndexGroupMemberStatement2" xml:space="preserve">
+    <value>CREATE INDEX group_member_member_index ON group_member ( member_id )</value>
+  </data>
+  <data name="CreateTableGroupStatement" xml:space="preserve">
+    <value>CREATE TABLE group_element (
+ id bigint primary key,
+ tag_definition_id int not null,
+ version_id int not null,
+ project_id int not null,
+ user_id int,
+ createtime timestamp not null default CURRENT_TIMESTAMP,
+ comments text
+)</value>
+  </data>
+  <data name="CreateTableGroupMemberStatement" xml:space="preserve">
+    <value>CREATE TABLE group_member (
+ group_id bigint not null,
+ object_type varchar(8) not null default "Segment",
+ member_id bigint not null,
+ project_id int,
+ user_id int,
+ createtime timestamp not null default CURRENT_TIMESTAMP
+)</value>
+    <comment>project_id, user_idはnot nullがoriginal</comment>
+  </data>
+  <data name="DropTableGroupStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS group_</value>
+  </data>
+  <data name="DropTableGroupMemberStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS group_member</value>
+  </data>
+  <data name="CreateIndexBunsetsuStatement" xml:space="preserve">
+    <value>CREATE INDEX bunsetsu_index ON bunsetsu (sentence_id)</value>
+  </data>
+  <data name="CreateTableBunsetsuStatement" xml:space="preserve">
+    <value>CREATE TABLE bunsetsu (
+ id int primary key,
+ position int,
+ sentence_id int,
+ dep_bunsetsu_id int,
+ dep_relation varchar(16)
+)</value>
+  </data>
+  <data name="DropTableBunsetsuStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS bunsetsu</value>
+  </data>
+  <data name="CreateIndexLexemeStatement2" xml:space="preserve">
+    <value>CREATE INDEX lexeme_reading_index ON lexeme (reading)</value>
+  </data>
+  <data name="CreateIndexLexemeStatement3" xml:space="preserve">
+    <value>CREATE INDEX lexeme_pronunciation_index ON lexeme (pronunciation)</value>
+  </data>
+  <data name="CreateIndexLexemeStatement4" xml:space="preserve">
+    <value>CREATE INDEX lexeme_base_lexeme_index ON lexeme (base_lexeme_ref)</value>
+  </data>
+  <data name="CreateIndexLexemeStatement5" xml:space="preserve">
+    <value>CREATE INDEX lexeme_part_of_speech_index ON lexeme (part_of_speech_id)</value>
+  </data>
+  <data name="CreateIndexLexemeStatement6" xml:space="preserve">
+    <value>CREATE INDEX lexemes_ctype_index ON lexeme (ctype_id)</value>
+  </data>
+  <data name="CreateIndexLexemeStatement7" xml:space="preserve">
+    <value>CREATE INDEX lexeme_cform_index ON lexeme (cform_id)</value>
+  </data>
+  <data name="CreateIndexLinkStatement2" xml:space="preserve">
+    <value>CREATE INDEX link_to_segment_index ON link (to_segment_id )</value>
+  </data>
+  <data name="CreateIndexSegmentsStatement2" xml:space="preserve">
+    <value>CREATE INDEX segment_end_char_index ON segment (end_char)</value>
+  </data>
+  <data name="CreateIndexSentenceStatement2" xml:space="preserve">
+    <value>CREATE INDEX sentence_end_char_index ON sentence (end_char)</value>
+  </data>
+  <data name="CreateIndexLinkStatement3" xml:space="preserve">
+    <value>CREATE INDEX link_from_sentence_index ON link (from_sentence_id )</value>
+  </data>
+  <data name="CreateIndexLinkStatement4" xml:space="preserve">
+    <value>CREATE INDEX link_to_sentence_index ON link (to_sentence_id )</value>
+  </data>
+  <data name="CreateIndexSegmentStatement3" xml:space="preserve">
+    <value>CREATE INDEX segment_sentence_index ON segment (sentence_id)</value>
+  </data>
+  <data name="CreateTableDocumentTagStatement" xml:space="preserve">
+    <value>CREATE TABLE documenttag (
+  id             int primary key,
+  tag           varchar(255),
+  description text,
+  document_id int not null,
+  updated_at timestamp
+)</value>
+  </data>
+  <data name="CreateTableSentenceDocumentTagStatement" xml:space="preserve">
+    <value>CREATE TABLE sentence_documenttag (
+  sentence_id int not null,
+  documenttag_id int not null
+)</value>
+  </data>
+  <data name="DropTableDocumentTagStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS documenttag</value>
+  </data>
+  <data name="DropTableSentenceDocumentTagStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS sentence_documenttag</value>
+  </data>
+  <data name="CreateIndexSentenceDocumenttagStatement1" xml:space="preserve">
+    <value>CREATE INDEX sentence_documenttag_index ON sentence_documenttag(sentence_id);</value>
+  </data>
+  <data name="CreateTableDocumentStatement" xml:space="preserve">
+    <value>CREATE TABLE document (
+  document_id  int primary key,
+  document_order int,
+  filename varchar(255),
+  document_text longtext
+)</value>
+  </data>
+  <data name="CreateTableDocumentsetStatement" xml:space="preserve">
+    <value>CREATE TABLE document_set (
+  document_set_id  int primary key,
+  document_set_name varchar(255),
+  comments text
+)</value>
+  </data>
+  <data name="CreateTableProjectStatement" xml:space="preserve">
+    <value>CREATE TABLE project (
+  project_id  int primary key,
+  comments text,
+  document_privilege smallint,
+  tagset_privilege smallint
+)
+</value>
+  </data>
+  <data name="CreateTableProjectTagsetStatement" xml:space="preserve">
+    <value>CREATE TABLE project_tagset (
+  project_id  int not null,
+  tagset_id int not null,
+  tagset_role int
+)</value>
+    <comment>tagset_roleはnon-nullがoriginal</comment>
+  </data>
+  <data name="CreateTableTagDefinitionStatement" xml:space="preserve">
+    <value>CREATE TABLE tag_definition (
+  id             int primary key,
+  tagset_id int not null,
+  type varchar(8) not null,
+  tag_name varchar(255) not null,
+  description text,
+  version_id int not null
+)</value>
+  </data>
+  <data name="CreateTableTagsetStatement" xml:space="preserve">
+    <value>CREATE TABLE tagset (
+  id             int primary key,
+  tagset_name varchar(255) not null
+)</value>
+  </data>
+  <data name="CreateTableTagsetVersionStatement" xml:space="preserve">
+    <value>CREATE TABLE tagset_version (
+  version_id  int primary key,
+  tagset_id int not null,
+  version varchar(255) not null,
+  revision int not null,
+  current bool not null
+)</value>
+  </data>
+  <data name="DropTableDocumentStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS document</value>
+  </data>
+  <data name="DropTableDocumentsetStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS documentset</value>
+  </data>
+  <data name="DropTableProjectStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS project</value>
+  </data>
+  <data name="DropTableProjectTagsetStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS project_tagset</value>
+  </data>
+  <data name="DropTableTagDefinitionStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS tag_definition</value>
+  </data>
+  <data name="DropTableTagsetStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS tagset</value>
+  </data>
+  <data name="DropTableTagsetVersionStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS tagset_version</value>
+  </data>
+  <data name="CreateTableProjectUserStatement" xml:space="preserve">
+    <value>CREATE TABLE project_user (
+  user_id  int not null,
+  project_id int not null,
+  user_privilege int
+)
+</value>
+    <comment>user_privilegeはnon-nullがoriginal</comment>
+  </data>
+  <data name="CreateTableUserStatement" xml:space="preserve">
+    <value>CREATE TABLE user (
+  user_id  int primary key,
+  user_name varchar(255) not null,
+  user_password varchar(255),
+  user_privilege int,
+  comments text
+)
+</value>
+  </data>
+  <data name="DropTableProjectUserStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS project_user</value>
+  </data>
+  <data name="DropTableUserStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS user</value>
+  </data>
+  <data name="CreateTableGroupAttributeStatement" xml:space="preserve">
+    <value>CREATE TABLE group_attribute (
+ id bigint primary key,
+ group_id bigint not null,
+ attribute_key varchar(255) not null,
+ attribute_value varchar(255) not null,
+ version_id int not null,
+ project_id int not null,
+ user_id int,
+ createtime timestamp not null default CURRENT_TIMESTAMP,
+ comments text
+)</value>
+  </data>
+  <data name="CreateTableLinkAttributeStatement" xml:space="preserve">
+    <value>CREATE TABLE link_attribute (
+ id bigint primary key,
+ link_id bigint not null,
+ attribute_key varchar(255) not null,
+ attribute_value varchar(255) not null,
+ version_id int not null,
+ project_id int not null,
+ user_id int,
+ createtime timestamp not null default CURRENT_TIMESTAMP,
+ comments text
+)</value>
+  </data>
+  <data name="CreateTableSegmentAttributeStatement" xml:space="preserve">
+    <value>CREATE TABLE segment_attribute (
+ id bigint primary key,
+ segment_id bigint not null,
+ attribute_key varchar(255) not null,
+ attribute_value varchar(255) not null,
+ version_id int not null,
+ project_id int not null,
+ user_id int,
+ createtime timestamp not null default CURRENT_TIMESTAMP,
+ comments text
+)</value>
+  </data>
+  <data name="DropTableGroupAttributeStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS group_attribute</value>
+  </data>
+  <data name="DropTableLinkAttributeStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS link_attribute</value>
+  </data>
+  <data name="DropTableSegmentAttributeStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS segment_attribute</value>
+  </data>
+  <data name="CreateIndexWordStatement3" xml:space="preserve">
+    <value>CREATE INDEX word_bunsetsu_segment_id_index ON word (bunsetsu_segment_id  ASC)</value>
+  </data>
+  <data name="CreateTableAttributeConstraintStatement" xml:space="preserve">
+    <value>CREATE TABLE attribute_constraint (
+  id int primary key,
+  tag_definition_id int not null,
+  attribute_key varchar(255) not null,
+  mandatory bool,
+  value_type varchar(255) not null,
+  value_candidates varchar(255),
+  default_value varchar(255),
+  description text,
+  version_id int not null
+)</value>
+  </data>
+  <data name="CreateTableDocumentSetDocumentStatement" xml:space="preserve">
+    <value>CREATE TABLE document_set_document (
+  document_id int not null,
+  document_set_id int not null
+)</value>
+  </data>
+  <data name="CreateTableDocumentSetProjectStatement" xml:space="preserve">
+    <value>CREATE TABLE document_set_project (
+  document_set_project_id int primary key,
+  document_set_id int not null,
+  project_id int not null
+)</value>
+  </data>
+  <data name="CreateTableDocumentSetProjectUserStatement" xml:space="preserve">
+    <value>CREATE TABLE document_set_project_user (
+  document_set_project_id int not null,
+  user_id int not null,
+  user_privilege int not null
+)</value>
+  </data>
+  <data name="CreateTableDocumentSetUserStatement" xml:space="preserve">
+    <value>CREATE TABLE document_set_user (
+  user_id int not null,
+  document_set_id int not null,
+  user_privilege int
+)</value>
+  </data>
+  <data name="CreateTableGroupConstraintStatement" xml:space="preserve">
+    <value>CREATE TABLE group_constraint (
+  id int primary key,
+  tag_definition_id int not null,
+  element_tag_definition_id int not null,
+  element_segment_condition varchar(255),
+  description text,
+  version_id int not null
+)</value>
+  </data>
+  <data name="CreateTableLinkConstraintStatement" xml:space="preserve">
+    <value>CREATE TABLE link_constraint (
+  id int primary key,
+  tag_definition_id int not null,
+  from_tag_definition_id int not null,
+  from_segment_condition varchar(255),
+  to_tag_definition_id int not null,
+  to_segment_condition varchar(255),
+  description text,
+  version_id int not null
+)</value>
+  </data>
+  <data name="CreateTableSegmentConstraintStatement" xml:space="preserve">
+    <value>CREATE TABLE segment_constraint (
+  id int primary key,
+  tag_definition_id int not null,
+  base_tag_definition_id int not null,
+  base_segment_condition varchar(255),
+  description text,
+  version_id int not null
+)</value>
+  </data>
+  <data name="CreateTableTagAppearanceStatement" xml:space="preserve">
+    <value>CREATE TABLE tag_appearance (
+  id int primary key,
+  tag_definition_id int not null,
+  attribute_condition text,
+  target_project_id int not null,
+  target_user_id int not null,
+  appearance text not null,
+  priority int not null,
+  user_id int,
+  createtime timestamp,
+  description text
+)</value>
+  </data>
+  <data name="CreateTableTagsetUserStatement" xml:space="preserve">
+    <value>CREATE TABLE tagset_user (
+  user_id int not null,
+  tagset_id int not null,
+  user_privilege int not null
+)</value>
+  </data>
+  <data name="DropTableAttributeConstraintStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS attribute_constraint</value>
+  </data>
+  <data name="DropTableDocumentSetDocumentStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS document_set_document</value>
+  </data>
+  <data name="DropTableDocumentSetProjectStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS document_set_project</value>
+  </data>
+  <data name="DropTableDocumentSetProjectUserStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS document_set_project_user</value>
+  </data>
+  <data name="DropTableDocumentSetUserStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS document_set_user</value>
+  </data>
+  <data name="DropTableGroupConstraintStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS group_constraint</value>
+  </data>
+  <data name="DropTableLinkConstraintStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS link_constraint</value>
+  </data>
+  <data name="DropTableSegmentConstraintStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS segment_constraint</value>
+  </data>
+  <data name="DropTableTagAppearanceStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS tag_appearance</value>
+  </data>
+  <data name="DropTableTagsetUserStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS tagset_user</value>
+  </data>
+  <data name="CreateIndexWordStatement4" xml:space="preserve">
+    <value>CREATE INDEX word_start_time_index ON word (start_time)</value>
+  </data>
+  <data name="CreateIndexWordStatement5" xml:space="preserve">
+    <value>CREATE INDEX word_end_time_index ON word (end_time)</value>
+  </data>
+  <data name="CreateIndexWordStatement6" xml:space="preserve">
+    <value>CREATE INDEX word_duration_index ON word (duration)</value>
+  </data>
+  <data name="CreateTableWordWordStatement" xml:space="preserve">
+    <value>CREATE TABLE word_word (
+ from_word int, 
+ to_word int,
+ comment  varchar(255) default ''
+)</value>
+  </data>
+  <data name="DropTableWordWordStatement" xml:space="preserve">
+    <value>DROP TABLE IF EXISTS word_word</value>
+  </data>
+  <data name="CreateIndexWordWordStatement" xml:space="preserve">
+    <value>CREATE INDEX word_word_index ON word_word (from_word)</value>
+  </data>
+  <data name="CreateIndexGroupAttributeGroupStatement" xml:space="preserve">
+    <value>CREATE INDEX group_attribute_group_index ON group_attribute (group_id)</value>
+  </data>
+  <data name="CreateIndexLinkAttributeLinkStatement" xml:space="preserve">
+    <value>CREATE INDEX link_attribute_link_index ON link_attribute (link_id,attribute_key)</value>
+  </data>
+  <data name="CreateIndexSegmentAttributeSegmentStatement" xml:space="preserve">
+    <value>CREATE INDEX segment_attribute_segment_index ON segment_attribute (segment_id)</value>
+  </data>
+</root>

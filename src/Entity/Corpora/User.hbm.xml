@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <!-- mappingのバージョンは2.0ではだめで2.2を指定すること -->
+
+  <class name="ChaKi.Entity.Corpora.User, ChaKiEntity" table="user" batch-size="20" lazy="false">
+    <id name="ID" column="user_id" type="Int32">
+      <generator class="increment" />
+    </id>
+
+    <bag name="Projects" table="project_user" lazy="true">
+      <key column="user_id"/>
+      <many-to-many class="ChaKi.Entity.Corpora.Project, ChaKiEntity" column="project_id"/>
+    </bag>    
+    <property name="Name" column="user_name" type="String"/>
+    <property name="Password" column="user_password" type="String"/>
+    <property name="Privilege" column="user_privilege" type="Int32"/>
+    <property name="Comments" column="comments" type="StringClob"/>
+  </class>
+
+</hibernate-mapping>

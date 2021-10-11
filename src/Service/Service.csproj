@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="..\packages\LibGit2Sharp.NativeBinaries.1.0.185\build\LibGit2Sharp.NativeBinaries.props" Condition="Exists('..\packages\LibGit2Sharp.NativeBinaries.1.0.185\build\LibGit2Sharp.NativeBinaries.props')" />
+  <PropertyGroup>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+      None
+    </ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D7ADF4FF-56F3-44EC-9015-DA9E6CE8DFD9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ChaKi.Service</RootNamespace>
+    <AssemblyName>ChaKiService</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;DETAILPRINT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>.\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;DETAILPRINT</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Release|AnyCPU'">
+    <OutputPath>bin\ChaMame_Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Release|x64'">
+    <OutputPath>bin\x64\ChaMame_Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Debug|AnyCPU'">
+    <OutputPath>bin\ChaMame_Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Debug|x64'">
+    <OutputPath>bin\x64\ChaMame_Debug\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DynamicInterop, Version=0.7.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DynamicInterop.0.7.4\lib\net40\DynamicInterop.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="LibGit2Sharp, Version=0.24.0.0, Culture=neutral, PublicKeyToken=7cbde695407f0333, processorArchitecture=MSIL">
+      <HintPath>..\packages\LibGit2Sharp.0.24.0\lib\net40\LibGit2Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\lib\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=5.2.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.0.0.1001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="RDotNet, Version=1.5.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\R.NET.Community.1.6\lib\net40\RDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="RDotNet.NativeLibrary, Version=1.5.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\R.NET.Community.1.6\lib\net40\RDotNet.NativeLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.48.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Annotation\AnnotationService.cs" />
+    <Compile Include="AttributeEditService\AttributeEditService.cs" />
+    <Compile Include="Cabocha\CabochaRunner.cs" />
+    <Compile Include="Cabocha\PartialSentence.cs" />
+    <Compile Include="Collocation\Counter.cs" />
+    <Compile Include="Collocation\CounterFSM.cs" />
+    <Compile Include="Collocation\CounterMI.cs" />
+    <Compile Include="Collocation\CounterNgram.cs" />
+    <Compile Include="Collocation\CounterRaw.cs" />
+    <Compile Include="Collocation\CollocationService.cs" />
+    <Compile Include="Collocation\FSM\Projection.cs" />
+    <Compile Include="Collocation\FSM\SequenceData.cs" />
+    <Compile Include="Collocation\FSM\SSequence.cs" />
+    <Compile Include="Corpora\CorpusService.cs" />
+    <Compile Include="Database\OpContext.cs" />
+    <Compile Include="Database\PgSQLDBService.cs" />
+    <Compile Include="DependencyEdit\DuplicatedAnnotationException.cs" />
+    <Compile Include="DependencyEdit\OperationChangeSegmentTag.cs" />
+    <Compile Include="DependencyEdit\OperationCreateLink.cs" />
+    <Compile Include="DependencyEdit\OperationCreateMWEAnnotation.cs" />
+    <Compile Include="DependencyEdit\DepEditContext.cs" />
+    <Compile Include="DependencyEdit\DictionaryAccessor.cs" />
+    <Compile Include="DependencyEdit\DictionaryAccessor_DB.cs" />
+    <Compile Include="DependencyEdit\DictionaryAccessor_Cradle.cs" />
+    <Compile Include="DependencyEdit\OperationAddItemToWordGroup.cs" />
+    <Compile Include="DependencyEdit\OperationChangeComment.cs" />
+    <Compile Include="DependencyEdit\OperationChangeLexeme.cs" />
+    <Compile Include="DependencyEdit\OperationChangeLinkTag.cs" />
+    <Compile Include="DependencyEdit\OperationChangeWordGroupTag.cs" />
+    <Compile Include="DependencyEdit\OperationCreateSegment.cs" />
+    <Compile Include="DependencyEdit\OperationCreateWordGroup.cs" />
+    <Compile Include="DependencyEdit\OperationDeleteLink.cs" />
+    <Compile Include="DependencyEdit\OperationDeleteSegment.cs" />
+    <Compile Include="DependencyEdit\OperationDeleteSegmentWithInOutLinks.cs" />
+    <Compile Include="DependencyEdit\OperationMergeBunsetsu.cs" />
+    <Compile Include="DependencyEdit\OperationMergeWord.cs" />
+    <Compile Include="DependencyEdit\OperationMoveArrow.cs" />
+    <Compile Include="DependencyEdit\OperationRemoveItemFromWordGroupWithInOutLinks.cs" />
+    <Compile Include="DependencyEdit\OperationUpdateAllBunsetsu.cs" />
+    <Compile Include="DependencyEdit\OperationRemoveItemFromWordGroup.cs" />
+    <Compile Include="DependencyEdit\OperationSplitBunsetsu.cs" />
+    <Compile Include="DependencyEdit\OperationSplitWord.cs" />
+    <Compile Include="Export\ExportServiceAnnotation.cs" />
+    <Compile Include="Export\ExportServiceBase.cs" />
+    <Compile Include="Export\ExportServiceCabocha.cs" />
+    <Compile Include="Export\ExportServiceConll.cs" />
+    <Compile Include="Export\ExportServiceConllU.cs" />
+    <Compile Include="Export\ExportServiceCSV.cs" />
+    <Compile Include="Export\ExportServiceExcel.cs" />
+    <Compile Include="Export\ExportServiceMweToConll.cs" />
+    <Compile Include="Export\ExportServiceR.cs" />
+    <Compile Include="Export\ExportServiceRdata.cs" />
+    <Compile Include="Export\ExportServiceText.cs" />
+    <Compile Include="Export\ExportServiceXml.cs" />
+    <Compile Include="Export\ExportServiceMecab.cs" />
+    <Compile Include="Git\GitRepositories.cs" />
+    <Compile Include="Git\GitService.cs" />
+    <Compile Include="Git\RepositoryChangedEventArgs.cs" />
+    <Compile Include="Import\ImportOperationContext.cs" />
+    <Compile Include="Import\ImportService.cs" />
+    <Compile Include="Lexicons\LexemeEditService.cs" />
+    <Compile Include="Readers\AnnotationReader.cs" />
+    <Compile Include="Readers\CabochaBunsetsu.cs" />
+    <Compile Include="Readers\CabochaBunsetsuList.cs" />
+    <Compile Include="Readers\CabochaMecabReader.cs" />
+    <Compile Include="Readers\CabochaChasenReader.cs" />
+    <Compile Include="Database\DBService.cs" />
+    <Compile Include="Database\MSSQLDBService.cs" />
+    <Compile Include="Database\MySQLDBService.cs" />
+    <Compile Include="Database\SQLiteDBService.cs" />
+    <Compile Include="DependencyEdit\Operation.cs" />
+    <Compile Include="DependencyEdit\History.cs" />
+    <Compile Include="Lexicons\LexiconService.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DependencyEdit\DepEditService.cs" />
+    <Compile Include="Readers\CabochaReader.cs" />
+    <Compile Include="Readers\CompositeWordChunk.cs" />
+    <Compile Include="Readers\ConllReader.cs" />
+    <Compile Include="Readers\ConllUReader.cs" />
+    <Compile Include="Readers\CorpusSourceReader.cs" />
+    <Compile Include="Readers\CorpusSourceReaderFactory.cs" />
+    <Compile Include="Readers\CorpusSourceType.cs" />
+    <Compile Include="Readers\ChaKiReader.cs" />
+    <Compile Include="Readers\LexiconBuilder.cs" />
+    <Compile Include="Readers\PlainTextReader.cs" />
+    <Compile Include="Search\DepSearchService.cs" />
+    <Compile Include="Search\LexemeResultSet.cs" />
+    <Compile Include="Search\QueryBuilder.cs" />
+    <Compile Include="Search\QueryBuilderException.cs" />
+    <Compile Include="Search\QueryBuilderSLA.cs" />
+    <Compile Include="Search\RetrieveWithTagService.cs" />
+    <Compile Include="Search\SearchConfiguration.cs" />
+    <Compile Include="Search\SearchServiceBase.cs" />
+    <Compile Include="Search\SentenceContextService.cs" />
+    <Compile Include="Search\SentenceListService.cs" />
+    <Compile Include="Search\SentenceTagService.cs" />
+    <Compile Include="Search\StringSearchService.cs" />
+    <Compile Include="Search\TagSearchService.cs" />
+    <Compile Include="Search\WordListService.cs" />
+    <Compile Include="Database\SQLiteUserFunc.cs" />
+    <Compile Include="Common\StringConnector.cs" />
+    <Compile Include="Common\Util.cs" />
+    <Compile Include="SentenceEdit\SentenceEditService.cs" />
+    <Compile Include="TagSetEdit\TagSetEditService.cs" />
+    <Compile Include="WordEdit\WordEditService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChaKiCommon\ChaKiCommon.csproj">
+      <Project>{B9B0121C-BD6C-496E-8573-5A2CB440242A}</Project>
+      <Name>ChaKiCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{B0C53F88-95C9-46D7-BDE2-6113D354EF5E}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceInterface\ServiceInterface.csproj">
+      <Project>{21322F56-CED4-4254-8F37-B2D8C5CBF6E6}</Project>
+      <Name>ServiceInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\LibGit2Sharp.NativeBinaries.1.0.185\build\LibGit2Sharp.NativeBinaries.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\LibGit2Sharp.NativeBinaries.1.0.185\build\LibGit2Sharp.NativeBinaries.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

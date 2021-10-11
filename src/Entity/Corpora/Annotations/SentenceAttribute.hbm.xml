@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="ChaKi.Entity.Corpora.Annotations.SentenceAttribute, ChaKiEntity" table="documenttag" lazy="false">
+    <id name="ID" column="id" type="Int32">
+      <generator class="increment" />
+    </id>
+
+    <property name="Key" column="tag" type="String" length="255"/>
+    <property name="Value" column="description" type="String"/>
+
+    <!-- DocumentID must always be '-1' (Unused) -->
+    <property name="DocumentID" column="document_id" type="Int32"/>
+  </class>
+
+</hibernate-mapping>

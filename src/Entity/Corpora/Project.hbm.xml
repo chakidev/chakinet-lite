@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <!-- mappingのバージョンは2.0ではだめで2.2を指定すること -->
+
+  <class name="ChaKi.Entity.Corpora.Project, ChaKiEntity" table="project" batch-size="20" lazy="false">
+    <id name="ID" column="project_id" type="Int32">
+      <generator class="increment" />
+    </id>
+
+    <bag name="TagSetList" table="project_tagset" lazy="true">
+      <key column="project_id"/>
+      <many-to-many class="ChaKi.Entity.Corpora.Annotations.TagSet, ChaKiEntity" column="tagset_id"/>
+    </bag>
+    <bag name="Users" table="project_user" lazy="true">
+      <key column="project_id"/>
+      <many-to-many class="ChaKi.Entity.Corpora.User, ChaKiEntity" column="user_id"/>
+    </bag>
+    <property name="Comments" column="comments" type="StringClob"/>
+    <property name="DocumentPrivilege" column="document_privilege" type="Int32"/>
+    <property name="TagsetPrivilege" column="tagset_privilege" type="Int32"/>
+  </class>
+
+</hibernate-mapping>

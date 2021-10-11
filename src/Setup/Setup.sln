@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9F87410D-7C46-4499-911A-5F81AF95FFBA}"
+	ProjectSection(SolutionItems) = preProject
+		更新時の注意.txt = 更新時の注意.txt
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{C1B5DABC-9E66-4D0A-9170-1DC9D0C9A9FA}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup64", "Setup64\Setup64.vdproj", "{90C1828C-BBFB-4CC1-9856-D2574A2E7C56}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+		x64 Release|Default = x64 Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1B5DABC-9E66-4D0A-9170-1DC9D0C9A9FA}.Debug|Default.ActiveCfg = Debug
+		{C1B5DABC-9E66-4D0A-9170-1DC9D0C9A9FA}.Debug|Default.Build.0 = Debug
+		{C1B5DABC-9E66-4D0A-9170-1DC9D0C9A9FA}.Release|Default.ActiveCfg = Release
+		{C1B5DABC-9E66-4D0A-9170-1DC9D0C9A9FA}.Release|Default.Build.0 = Release
+		{C1B5DABC-9E66-4D0A-9170-1DC9D0C9A9FA}.x64 Release|Default.ActiveCfg = Release
+		{C1B5DABC-9E66-4D0A-9170-1DC9D0C9A9FA}.x64 Release|Default.Build.0 = Release
+		{90C1828C-BBFB-4CC1-9856-D2574A2E7C56}.Debug|Default.ActiveCfg = Debug
+		{90C1828C-BBFB-4CC1-9856-D2574A2E7C56}.Debug|Default.Build.0 = Debug
+		{90C1828C-BBFB-4CC1-9856-D2574A2E7C56}.Release|Default.ActiveCfg = Release
+		{90C1828C-BBFB-4CC1-9856-D2574A2E7C56}.Release|Default.Build.0 = Release
+		{90C1828C-BBFB-4CC1-9856-D2574A2E7C56}.x64 Release|Default.ActiveCfg = Release
+		{90C1828C-BBFB-4CC1-9856-D2574A2E7C56}.x64 Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

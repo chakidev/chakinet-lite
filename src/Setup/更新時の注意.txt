@@ -1,0 +1,10 @@
+0. EXE, DLLのバージョン(AssemblyInfo内)を更新すること。
+1. 「見つかった依存関係」を必ず明示的に更新すること。
+2. DotNetMagic2005.dllが２つ存在する。bin/Releaseの下を参照しているもののみを残す。
+3. SetupのプロパティからVersionを更新し、ProductCodeの自動再生成も行う。
+4. 重複するファイルでも、Add-in下にコピーするものと、アプリケーションフォルダにコピーするものとがあるので消さないように注意.
+   (プロパティの"Folder"アトリビュートを見て判別）
+
+* VSInstall Extensionでdpca.dllの問題によりXPでのセットアップができなくなっている。
+　これに対応するため、PreBuild.batでVS10のdpca.dllをカレントVSの下にコピーするようにしているが、VSのバージョンを変更したら
+ このPreBuild.batもパスを変更すること。また、このbatは管理者権限でなければ動作しない。

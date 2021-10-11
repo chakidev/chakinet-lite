@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+      None
+    </ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B0C53F88-95C9-46D7-BDE2-6113D354EF5E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ChaKi.Entity</RootNamespace>
+    <AssemblyName>ChaKiEntity</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>.\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Release|AnyCPU'">
+    <OutputPath>bin\ChaMame_Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Release|x64'">
+    <OutputPath>bin\x64\ChaMame_Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Debug|AnyCPU'">
+    <OutputPath>bin\ChaMame_Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Debug|x64'">
+    <OutputPath>bin\x64\ChaMame_Debug\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.0.3, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=5.2.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.0.0.1001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerCollections, Version=1.0.2141.24679, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\PowerCollections.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.48.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collocation\CollocationList.cs" />
+    <Compile Include="Collocation\ColumnDef.cs" />
+    <Compile Include="Collocation\ColumnType.cs" />
+    <Compile Include="Collocation\DIValue.cs" />
+    <Compile Include="Corpora\Annotations\AnnotationList.cs" />
+    <Compile Include="Corpora\Annotations\AttributeBase.cs" />
+    <Compile Include="Corpora\Annotations\AttributeBase32.cs" />
+    <Compile Include="Corpora\Annotations\DocumentAttribute.cs" />
+    <Compile Include="Corpora\Annotations\GroupAttribute.cs" />
+    <Compile Include="Corpora\Annotations\Link2.cs" />
+    <Compile Include="Corpora\Annotations\LinkAttribute.cs" />
+    <Compile Include="Corpora\Annotations\Segment2.cs" />
+    <Compile Include="Corpora\Annotations\SegmentAttribute.cs" />
+    <Compile Include="Corpora\Annotations\SentenceAttribute.cs" />
+    <Compile Include="Corpora\Annotations\SimpleAttribute.cs" />
+    <Compile Include="Corpora\Bunsetsu.cs" />
+    <Compile Include="Corpora\CharRange.cs" />
+    <Compile Include="Corpora\CorpusAttribute.cs" />
+    <Compile Include="Corpora\CorpusProperty.cs" />
+    <Compile Include="Corpora\Dictionary_Cradle.cs" />
+    <Compile Include="Corpora\Dictionary_DB.cs" />
+    <Compile Include="Corpora\Dictionary.cs" />
+    <Compile Include="Corpora\Document.cs" />
+    <Compile Include="Corpora\DocumentSet.cs" />
+    <Compile Include="Corpora\Annotations\Group.cs" />
+    <Compile Include="Corpora\Annotations\Link.cs" />
+    <Compile Include="Corpora\DocumentSetProjectMapping.cs" />
+    <Compile Include="Corpora\HeadInfo.cs" />
+    <Compile Include="Corpora\LexemeCorpusBoolLongTuple.cs" />
+    <Compile Include="Corpora\LexemeListFilter.cs" />
+    <Compile Include="Corpora\LexemeList.cs" />
+    <Compile Include="Corpora\LexemeEqualityComparer.cs" />
+    <Compile Include="Corpora\MWE.cs" />
+    <Compile Include="Corpora\Namespace.cs" />
+    <Compile Include="Corpora\Project.cs" />
+    <Compile Include="Corpora\Annotations\Segment.cs" />
+    <Compile Include="Corpora\CForm.cs" />
+    <Compile Include="Corpora\Corpus.cs" />
+    <Compile Include="Corpora\CType.cs" />
+    <Compile Include="Corpora\LexemeFilter.cs" />
+    <Compile Include="Corpora\Lexicon.cs" />
+    <Compile Include="Corpora\Lexeme.cs" />
+    <Compile Include="Corpora\PartOfSpeech.cs" />
+    <Compile Include="Corpora\Property.cs" />
+    <Compile Include="Corpora\PropertyPair.cs" />
+    <Compile Include="Corpora\SentenceContext.cs" />
+    <Compile Include="Corpora\Annotations\Annotation.cs" />
+    <Compile Include="Corpora\Annotations\Tag.cs" />
+    <Compile Include="Corpora\Annotations\TagSet.cs" />
+    <Compile Include="Corpora\Annotations\TagSetVersion.cs" />
+    <Compile Include="Corpora\User.cs" />
+    <Compile Include="CorpusSchema.cs" />
+    <Compile Include="DBParameter.cs" />
+    <Compile Include="DocumentAnalysis\DocumentsAnalysisTypes.cs" />
+    <Compile Include="DocumentAnalysis\DocumentsAnalysisCondition.cs" />
+    <Compile Include="Kwic\KwicItem.cs" />
+    <Compile Include="Kwic\KwicItemComparer.cs" />
+    <Compile Include="Kwic\KwicList.cs" />
+    <Compile Include="Kwic\KwicPortion.cs" />
+    <Compile Include="Kwic\KwicPortionType.cs" />
+    <Compile Include="Kwic\KwicWord.cs" />
+    <Compile Include="Kwic\LexemeCountList.cs" />
+    <Compile Include="Kwic\UpdateKwicListEvent.cs" />
+    <Compile Include="Readers\Field.cs" />
+    <Compile Include="Readers\MappedTo.cs" />
+    <Compile Include="Readers\ReaderDef.cs" />
+    <Compile Include="Readers\ReaderDefs.cs" />
+    <Compile Include="Search\CollocationCondition.cs" />
+    <Compile Include="Search\CollocationType.cs" />
+    <Compile Include="Search\DepSearchCondition.cs" />
+    <Compile Include="Search\LinkCondition.cs" />
+    <Compile Include="Search\MiningCondition.cs" />
+    <Compile Include="Search\ResultsetFilter.cs" />
+    <Compile Include="Search\SearchConditionsSequence.cs" />
+    <Compile Include="Search\SearchHistory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Corpora\Sentence.cs" />
+    <Compile Include="Corpora\Word.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Search\CommandProgress.cs" />
+    <Compile Include="Search\CommandProgressItem.cs" />
+    <Compile Include="Search\SentenceSearchCondition.cs" />
+    <Compile Include="Search\FilterCondition.cs" />
+    <Compile Include="Search\ISearchCondition.cs" />
+    <Compile Include="Search\LexemeCondition.cs" />
+    <Compile Include="Search\Range.cs" />
+    <Compile Include="Search\SearchConditions.cs" />
+    <Compile Include="Search\SearchSequenceOperator.cs" />
+    <Compile Include="Search\SearchType.cs" />
+    <Compile Include="Search\StringSeachCondition.cs" />
+    <Compile Include="Search\TagSearchCondition.cs" />
+    <Compile Include="SerializableDictionary.cs" />
+    <Compile Include="Settings\ExportSetting.cs" />
+    <Compile Include="Settings\GridSettings.cs" />
+    <Compile Include="Settings\TagSetting.cs" />
+    <Compile Include="Settings\WordColorSetting.cs" />
+    <Compile Include="Settings\UserSetting.cs" />
+    <Compile Include="Settings\WordColorSettings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Lexeme.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Sentence.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Word.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Annotations\Segment.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\CType.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\CForm.hbm.xml" />
+    <EmbeddedResource Include="Corpora\PartOfSpeech.hbm.xml" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Annotations\Link.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Annotations\Group.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Bunsetsu.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Annotations\DocumentAttribute.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Annotations\TagSet.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Annotations\TagSetVersion.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Annotations\Tag.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Document.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\DocumentSet.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Project.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\CorpusAttribute.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\User.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Annotations\GroupAttribute.hbm.xml" />
+    <EmbeddedResource Include="Corpora\Annotations\LinkAttribute.hbm.xml" />
+    <EmbeddedResource Include="Corpora\Annotations\SegmentAttribute.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\DocumentSetProjectMapping.hbm.xml" />
+    <EmbeddedResource Include="Corpora\Annotations\SentenceAttribute.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Annotations\Segment2.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Corpora\Annotations\Link2.hbm.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>$(SolutionDir)prebuild.bat $(SolutionDir)</PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="ChaKi.Entity.Corpora.Annotations.GroupAttribute, ChaKiEntity" table="group_attribute" batch-size="20" lazy="false">
+    <id name="ID" column="id" type="Int64">
+      <generator class="increment" />
+    </id>
+    
+    <many-to-one name="Target" class="ChaKi.Entity.Corpora.Annotations.Group, ChaKiEntity" column="group_id"/>
+    <property name="Key" column="attribute_key" type="String"/>
+    <property name="Value" column="attribute_value" type="String"/>
+    <property name="Comment" column="comments" type="StringClob"/>
+    <many-to-one name="Proj" class="ChaKi.Entity.Corpora.Project, ChaKiEntity" column="project_id"/>
+    <many-to-one name="User" class="ChaKi.Entity.Corpora.User, ChaKiEntity" column="user_id"/>
+    <many-to-one name="Version" class="ChaKi.Entity.Corpora.Annotations.TagSetVersion, ChaKiEntity" column="version_id"/>
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,100 @@
+#! DOCID	0	
+#! DOCID	1	<FilePath /><Bib_ID>00000001</Bib_ID><ISBN /><Title>Document#1</Title><Number /><Bib_author>Author1</Bib_author><Publisher /><Year /><Genre /><Bib_author_ID /><Sampling_page /><Sampling_point /><Status /><Author_ID /><Author>Author1</Author><Sex /><BirthYear />
+#! DOCID	2	<FilePath /><Bib_ID>00000002</Bib_ID><ISBN /><Title>Document#2</Title><Number /><Bib_author>Author2</Bib_author><Publisher /><Year /><Genre /><Bib_author_ID /><Sampling_page /><Sampling_point /><Status /><Author_ID /><Author>Author2</Author><Sex /><BirthYear />
+#! DOCID	3	<FilePath /><Bib_ID>00000003</Bib_ID><ISBN /><Title>Document#3</Title><Number /><Bib_author>Author3</Bib_author><Publisher /><Year /><Genre /><Bib_author_ID /><Sampling_page /><Sampling_point /><Status /><Author_ID /><Author>Author3</Author><Sex /><BirthYear />
+#! SENTENCETAGID	0	<FilePath />
+#! SENTENCETAGID	1	<Bib_ID>00000001</Bib_ID>
+#! SENTENCETAGID	2	<ISBN />
+#! SENTENCETAGID	3	<Title>Document#1</Title>
+#! SENTENCETAGID	4	<Number />
+#! SENTENCETAGID	5	<Bib_author>Author1</Bib_author>
+#! SENTENCETAGID	6	<Publisher />
+#! SENTENCETAGID	7	<Year />
+#! SENTENCETAGID	8	<Genre />
+#! SENTENCETAGID	9	<Bib_author_ID />
+#! SENTENCETAGID	10	<Sampling_page />
+#! SENTENCETAGID	11	<Sampling_point />
+#! SENTENCETAGID	12	<Status />
+#! SENTENCETAGID	13	<Author_ID />
+#! SENTENCETAGID	14	<Author>Author1</Author>
+#! SENTENCETAGID	15	<Sex />
+#! SENTENCETAGID	16	<BirthYear />
+#! SENTENCETAGID	17	<FilePath />
+#! SENTENCETAGID	18	<Bib_ID>00000002</Bib_ID>
+#! SENTENCETAGID	19	<ISBN />
+#! SENTENCETAGID	20	<Title>Document#2</Title>
+#! SENTENCETAGID	21	<Number />
+#! SENTENCETAGID	22	<Bib_author>Author2</Bib_author>
+#! SENTENCETAGID	23	<Publisher />
+#! SENTENCETAGID	24	<Year />
+#! SENTENCETAGID	25	<Genre />
+#! SENTENCETAGID	26	<Bib_author_ID />
+#! SENTENCETAGID	27	<Sampling_page />
+#! SENTENCETAGID	28	<Sampling_point />
+#! SENTENCETAGID	29	<Status />
+#! SENTENCETAGID	30	<Author_ID />
+#! SENTENCETAGID	31	<Author>Author2</Author>
+#! SENTENCETAGID	32	<Sex />
+#! SENTENCETAGID	33	<BirthYear />
+#! SENTENCETAGID	34	<FilePath />
+#! SENTENCETAGID	35	<Bib_ID>00000003</Bib_ID>
+#! SENTENCETAGID	36	<ISBN />
+#! SENTENCETAGID	37	<Title>Document#3</Title>
+#! SENTENCETAGID	38	<Number />
+#! SENTENCETAGID	39	<Bib_author>Author3</Bib_author>
+#! SENTENCETAGID	40	<Publisher />
+#! SENTENCETAGID	41	<Year />
+#! SENTENCETAGID	42	<Genre />
+#! SENTENCETAGID	43	<Bib_author_ID />
+#! SENTENCETAGID	44	<Sampling_page />
+#! SENTENCETAGID	45	<Sampling_point />
+#! SENTENCETAGID	46	<Status />
+#! SENTENCETAGID	47	<Author_ID />
+#! SENTENCETAGID	48	<Author>Author3</Author>
+#! SENTENCETAGID	49	<Sex />
+#! SENTENCETAGID	50	<BirthYear />
+#! DOC 1
+* 0 2D 0/0 0
+A	名詞,普通名詞,一般,*,*,*,A,A,,A,A,*,A,A,A,A,*,*,*,*,*,*,*,*,*	O
+* 1 2D 0/0 0
+B	名詞,普通名詞,一般,*,*,*,B,B,,B,B,*,B,B,B,B,*,*,*,*,*,*,*,*,*	O
+* 2 -1D 0/0 0
+C	名詞,普通名詞,一般,*,*,*,C,C,,C,C,*,C,C,C,C,*,*,*,*,*,*,*,*,*	O
+EOS
+* 0 2D 0/0 0
+D	名詞,普通名詞,一般,*,*,*,D,D,,D,D,*,D,D,D,D,*,*,*,*,*,*,*,*,*	O
+* 1 2D 0/0 0
+E	名詞,普通名詞,一般,*,*,*,E,E,,E,E,*,E,E,E,E,*,*,*,*,*,*,*,*,*	O
+* 2 -1D 0/0 0
+F	名詞,普通名詞,一般,*,*,*,F,F,,F,F,*,F,F,F,F,*,*,*,*,*,*,*,*,*	O
+EOS
+#! DOC 2
+* 0 2D 0/0 0
+A	名詞,普通名詞,一般,*,*,*,A,A,,A,A,*,A,A,A,A,*,*,*,*,*,*,*,*,*	O
+* 1 2D 0/0 0
+B	名詞,普通名詞,一般,*,*,*,B,B,,B,B,*,B,B,B,B,*,*,*,*,*,*,*,*,*	O
+* 2 -1D 0/0 0
+C	名詞,普通名詞,一般,*,*,*,C,C,,C,C,*,C,C,C,C,*,*,*,*,*,*,*,*,*	O
+EOS
+* 0 2D 0/0 0
+D	名詞,普通名詞,一般,*,*,*,D,D,,D,D,*,D,D,D,D,*,*,*,*,*,*,*,*,*	O
+* 1 2D 0/0 0
+E	名詞,普通名詞,一般,*,*,*,E,E,,E,E,*,E,E,E,E,*,*,*,*,*,*,*,*,*	O
+* 2 -1D 0/0 0
+F	名詞,普通名詞,一般,*,*,*,F,F,,F,F,*,F,F,F,F,*,*,*,*,*,*,*,*,*	O
+EOS
+#! DOC 3
+* 0 2D 0/0 0
+A	名詞,普通名詞,一般,*,*,*,A,A,,A,A,*,A,A,A,A,*,*,*,*,*,*,*,*,*	O
+* 1 2D 0/0 0
+B	名詞,普通名詞,一般,*,*,*,B,B,,B,B,*,B,B,B,B,*,*,*,*,*,*,*,*,*	O
+* 2 -1D 0/0 0
+C	名詞,普通名詞,一般,*,*,*,C,C,,C,C,*,C,C,C,C,*,*,*,*,*,*,*,*,*	O
+EOS
+* 0 2D 0/0 0
+D	名詞,普通名詞,一般,*,*,*,D,D,,D,D,*,D,D,D,D,*,*,*,*,*,*,*,*,*	O
+* 1 2D 0/0 0
+E	名詞,普通名詞,一般,*,*,*,E,E,,E,E,*,E,E,E,E,*,*,*,*,*,*,*,*,*	O
+* 2 -1D 0/0 0
+F	名詞,普通名詞,一般,*,*,*,F,F,,F,F,*,F,F,F,F,*,*,*,*,*,*,*,*,*	O
+EOS

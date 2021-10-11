@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <!-- mappingのバージョンは2.0ではだめで2.2を指定すること -->
+
+  <class name="ChaKi.Entity.Corpora.Sentence, ChaKiEntity" table="sentence" batch-size="20">
+    <id name="ID" column="id" type="Int32">
+      <generator class="increment" />
+    </id>
+    <!--<list name="Words" table="word" batch-size="20">
+      <key column="sentence_id"/>
+      <index column="position"/>
+      <one-to-many class="ChaKi.Entity.Corpora.Word, ChaKiEntity"/>
+    </list>-->
+    <set name="Words" table="word" batch-size="20">
+      <key column="sentence_id"/>
+      <one-to-many class="ChaKi.Entity.Corpora.Word, ChaKiEntity"/>
+    </set>
+    <list name="Bunsetsus" table="bunsetsu" batch-size="20">
+      <key column="sentence_id"/>
+      <index column="position"/>
+      <one-to-many class="ChaKi.Entity.Corpora.Bunsetsu, ChaKiEntity"/>
+    </list>
+    <many-to-one name="ParentDoc" class="ChaKi.Entity.Corpora.Document, ChaKiEntity" column="document_id"/>
+    <property name="StartChar" column="start_char" type="Int32"/>
+    <property name="EndChar" column="end_char" type="Int32"/>
+    <property name="Pos" column="pos" type="Int32"/>
+
+    <set name="Attributes" table="sentence_documenttag">
+      <key column="sentence_id"/>
+      <many-to-many class="ChaKi.Entity.Corpora.Annotations.SentenceAttribute, ChaKiEntity" column="documenttag_id"/>
+    </set>
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="ChaKi.Entity.Corpora.Bunsetsu, ChaKiEntity" table="bunsetsu" batch-size="20">
+    <id name="ID" column="id" type="Int32">
+      <generator class="increment" />
+    </id>
+    
+    <property name="Pos" column="position" type="Int32"/>
+    <many-to-one name="Sen" class="ChaKi.Entity.Corpora.Sentence, ChaKiEntity" column="sentence_id"/>
+    <many-to-one name="DependsTo" class="ChaKi.Entity.Corpora.Bunsetsu, ChaKiEntity" column="dep_bunsetsu_id"/>
+    <property name="DependsAs" column="dep_relation" type="String" length="255"/>
+  </class>
+
+</hibernate-mapping>

@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B9B0121C-BD6C-496E-8573-5A2CB440242A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ChaKi.Common</RootNamespace>
+    <AssemblyName>ChaKiCommon</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>.\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Release|AnyCPU'">
+    <OutputPath>bin\ChaMame_Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Release|x64'">
+    <OutputPath>bin\x64\ChaMame_Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Debug|AnyCPU'">
+    <OutputPath>bin\ChaMame_Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ChaMame_Debug|x64'">
+    <OutputPath>bin\x64\ChaMame_Debug\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ControlHelper.cs" />
+    <Compile Include="NativeFunctions.cs" />
+    <Compile Include="ConsoleProgress.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="RichTextBoxWriter.cs" />
+    <Compile Include="SequenceMatcher\IndexRange.cs" />
+    <Compile Include="SequenceMatcher\MatchingResult.cs" />
+    <Compile Include="SequenceMatcher\MWEMatcher.cs" />
+    <Compile Include="SerializableDictionary.cs" />
+    <Compile Include="Settings\AttributeListSelectorSettings.cs" />
+    <Compile Include="Settings\CabochaSetting.cs" />
+    <Compile Include="Settings\CollocationViewSettings.cs" />
+    <Compile Include="Settings\ContextPanelSettings.cs" />
+    <Compile Include="Settings\DocumentSelectorSettings.cs" />
+    <Compile Include="Settings\GitSettings.cs" />
+    <Compile Include="Settings\Text2CorpusSettings.cs" />
+    <Compile Include="TagChangedEventArgs.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="Widgets\AddinDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widgets\AddinDialog.Designer.cs">
+      <DependentUpon>AddinDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\AttributeGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Widgets\AttributeGridData.cs" />
+    <Compile Include="Widgets\AttributeListSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Widgets\AttributeListSelector.Designer.cs">
+      <DependentUpon>AttributeListSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\ColorListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Widgets\ColorListBox.Designer.cs">
+      <DependentUpon>ColorListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\ColorPickerButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Widgets\ColorPickerButton.Designer.cs">
+      <DependentUpon>ColorPickerButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\ColorPickerColumn.cs" />
+    <Compile Include="CyclicColorTable.cs" />
+    <Compile Include="Delegates.cs" />
+    <Compile Include="Widgets\DocumentSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Widgets\DocumentSelector.Designer.cs">
+      <DependentUpon>DocumentSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\DpiAdjuster.cs" />
+    <Compile Include="Widgets\ErrorReportDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widgets\ExceptionDialogBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widgets\ExceptionDialogBox.designer.cs">
+      <DependentUpon>ExceptionDialogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExtendedGraphics.cs" />
+    <Compile Include="LinkPens.cs" />
+    <Compile Include="SegmentPens.cs" />
+    <Compile Include="Settings\DictionarySettings.cs" />
+    <Compile Include="Settings\DepEditSettings.cs" />
+    <Compile Include="FontDictionary.cs" />
+    <Compile Include="Settings\GridSettings.cs" />
+    <Compile Include="Settings\KwicViewSettings.cs" />
+    <Compile Include="Widgets\InputDoneEventArgs.cs" />
+    <Compile Include="IProgress.cs" />
+    <Compile Include="Widgets\LexemeBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Widgets\LexemeBox.Designer.cs">
+      <DependentUpon>LexemeBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopupControl\GripBounds.cs" />
+    <Compile Include="PopupControl\NativeMethods.cs" />
+    <Compile Include="PopupControl\Popup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PopupControl\Popup.designer.cs">
+      <DependentUpon>Popup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopupControl\PopupAnimation.cs" />
+    <Compile Include="ProjectEdit\ProjectEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectEdit\ProjectEditor.Designer.cs">
+      <DependentUpon>ProjectEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\PropertyBoxSettings.cs" />
+    <Compile Include="Settings\SearchSettings.cs" />
+    <Compile Include="Settings\TagSelectorSettings.cs" />
+    <Compile Include="Widgets\LexemeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Widgets\LexemeList.Designer.cs">
+      <DependentUpon>LexemeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\ListSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Widgets\ListSelector.Designer.cs">
+      <DependentUpon>ListSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\MessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widgets\MessageBox.Designer.cs">
+      <DependentUpon>MessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\OpenWebServiceDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widgets\OpenWebServiceDialog.Designer.cs">
+      <DependentUpon>OpenWebServiceDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\ProgressDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widgets\ProgressDialog.Designer.cs">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\ProgressDialogSimple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widgets\ProgressDialogSimple.Designer.cs">
+      <DependentUpon>ProgressDialogSimple.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\PropertyInputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widgets\PropertyInputDialog.Designer.cs">
+      <DependentUpon>PropertyInputDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\PropertyListSelectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widgets\PropertyListSelectionDialog.Designer.cs">
+      <DependentUpon>PropertyListSelectionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\PropertyTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Widgets\PropertyTree.Designer.cs">
+      <DependentUpon>PropertyTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\PropertyTreeSelectionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widgets\PropertyTreeSelectionDialog.Designer.cs">
+      <DependentUpon>PropertyTreeSelectionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\TagSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Widgets\TagSelector.Designer.cs">
+      <DependentUpon>TagSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TopologicalSort.cs" />
+    <Compile Include="Widgets\TransparentBackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Widgets\TransparentBackForm.Designer.cs">
+      <DependentUpon>TransparentBackForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\TransparentPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{B0C53F88-95C9-46D7-BDE2-6113D354EF5E}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Widgets\AddinDialog.resx">
+      <DependentUpon>AddinDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\AttributeGrid.resx">
+      <DependentUpon>AttributeGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\AttributeListSelector.resx">
+      <DependentUpon>AttributeListSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\ColorListBox.resx">
+      <DependentUpon>ColorListBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\ColorPickerButton.resx">
+      <DependentUpon>ColorPickerButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\DocumentSelector.resx">
+      <DependentUpon>DocumentSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\ErrorReportDialog.resx">
+      <DependentUpon>ErrorReportDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\ExceptionDialogBox.resx">
+      <DependentUpon>ExceptionDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\LexemeBox.resx">
+      <DependentUpon>LexemeBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectEdit\ProjectEditor.resx">
+      <DependentUpon>ProjectEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\LexemeList.resx">
+      <DependentUpon>LexemeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\ListSelector.resx">
+      <DependentUpon>ListSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\MessageBox.ja-JP.resx">
+      <DependentUpon>MessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\MessageBox.resx">
+      <DependentUpon>MessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\OpenWebServiceDialog.resx">
+      <DependentUpon>OpenWebServiceDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\ProgressDialog.ja-JP.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\ProgressDialog.resx">
+      <DependentUpon>ProgressDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\ProgressDialogSimple.resx">
+      <DependentUpon>ProgressDialogSimple.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\PropertyInputDialog.resx">
+      <DependentUpon>PropertyInputDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\PropertyListSelectionDialog.resx">
+      <DependentUpon>PropertyListSelectionDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\PropertyTree.resx">
+      <DependentUpon>PropertyTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\PropertyTreeSelectionDialog.resx">
+      <DependentUpon>PropertyTreeSelectionDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\TagSelector.resx">
+      <DependentUpon>TagSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\TransparentBackForm.resx">
+      <DependentUpon>TransparentBackForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CenterizeButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CenterizeButton1.png" />
+    <Content Include="Resources\Detail.png" />
+    <None Include="Resources\FormRunHS.png" />
+    <None Include="Resources\Expanded.png" />
+    <Content Include="Resources\Gear.ico" />
+    <Content Include="Resources\List.png" />
+    <None Include="Resources\Shrinked.png" />
+    <Content Include="Resources\NewCardHS.png" />
+    <Content Include="Resources\SmallIcon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

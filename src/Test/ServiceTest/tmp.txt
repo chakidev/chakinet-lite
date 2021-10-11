@@ -1,0 +1,8 @@
+SQLite version 3.6.23.1
+Enter ".help" for instructions
+Enter SQL statements terminated with a ";"
+sqlite> 0|
+1|終止形-一般
+2|基本形
+3|連用形-一般
+sqlite> 

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <!-- mappingのバージョンは2.0ではだめで2.2を指定すること -->
+
+  <class name="ChaKi.Entity.Corpora.Word, ChaKiEntity" table="word">
+    <id name="ID" column="id" type="Int32">
+      <generator class="increment" />
+    </id>
+
+    <many-to-one name="Sen" class="ChaKi.Entity.Corpora.Sentence, ChaKiEntity" column="sentence_id"/>
+    <many-to-one name="Lex" class="ChaKi.Entity.Corpora.Lexeme, ChaKiEntity" column="lexeme_id"/>
+    <many-to-one name="Bunsetsu" class="ChaKi.Entity.Corpora.Annotations.Segment, ChaKiEntity" column="bunsetsu_segment_id"/>
+    <property name="Pos" column="position" type="Int32"/>
+    <property name="StartChar" column="start_char" type="Int32"/>
+    <property name="EndChar" column="end_char" type="Int32"/>
+    <property name="StartTime" column="start_time" type="Double"/>
+    <property name="EndTime" column="end_time" type="Double"/>
+    <property name="Duration" column="duration" type="Double"/>
+    <property name="Extras" column="extra_chars" type="String"/>
+    <many-to-one name="Project" class="ChaKi.Entity.Corpora.Project, ChaKiEntity" column="project_id"/>
+    <property name="HeadInfo" column="head_info" type="ChaKi.Entity.Corpora.HeadInfo, ChaKiEntity"/>
+  </class>
+
+</hibernate-mapping>

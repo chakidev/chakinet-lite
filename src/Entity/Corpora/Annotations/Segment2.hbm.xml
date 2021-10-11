@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="ChaKi.Entity.Corpora.Annotations.Segment2, ChaKiEntity" table="segment" batch-size="20" lazy="false">
+    <id name="ID" column="id" type="Int64">
+      <generator class="increment" />
+    </id>
+
+    <property name="StartChar" column="start_char" type="Int32"/>
+    <property name="EndChar" column="end_char" type="Int32"/>
+    <many-to-one name="Sentence" class="ChaKi.Entity.Corpora.Sentence, ChaKiEntity" column="sentence_id"/>
+
+    <many-to-one name="Tag" class="ChaKi.Entity.Corpora.Annotations.Tag, ChaKiEntity" column="tag_definition_id"/>
+    <many-to-one name="Doc" class="ChaKi.Entity.Corpora.Document, ChaKiEntity" column="document_id"/>
+    <many-to-one name="Proj" class="ChaKi.Entity.Corpora.Project, ChaKiEntity" column="project_id"/>
+    <many-to-one name="User" class="ChaKi.Entity.Corpora.User, ChaKiEntity" column="user_id"/>
+    <many-to-one name="Version" class="ChaKi.Entity.Corpora.Annotations.TagSetVersion, ChaKiEntity" column="version_id"/>
+    <property name="Comment" column="comments" type="StringClob"/>
+    <property name="StringValue" column="string_value" type="StringClob"/>
+    <set name="Attributes" table="segment_attribute" batch-size="20">
+      <key column="segment_id"/>
+      <one-to-many class="ChaKi.Entity.Corpora.Annotations.SegmentAttribute, ChaKiEntity"/>
+    </set>
+    <map name="Attributes2" table="segment_attribute" batch-size="20">
+      <key column="segment_id"/>
+      <map-key column="attribute_key" type="string" />
+      <element column="attribute_value" type="string" />
+      <!--<one-to-many class="ChaKi.Entity.Corpora.Annotations.SegmentAttribute, ChaKiEntity"/>-->
+    </map>
+    <many-to-one name="Lex" class="ChaKi.Entity.Corpora.Lexeme, ChaKiEntity" column="lexeme_id" not-found="ignore" />
+  </class>
+
+</hibernate-mapping>
+

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConditionsPanel));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.corpusTab = new System.Windows.Forms.TabPage();
             this.filterTab = new System.Windows.Forms.TabPage();
             this.stringSearchTab = new System.Windows.Forms.TabPage();
             this.tagSearchTab = new System.Windows.Forms.TabPage();
@@ -49,20 +48,12 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.TabPages.AddRange(new System.Windows.Forms.TabPage[] {
-            this.corpusTab,
             this.filterTab,
             this.stringSearchTab,
             this.tagSearchTab,
             this.depSearchTab,
             this.collocationTab,
             this.addinTab});
-            // 
-            // corpusTab
-            // 
-            this.corpusTab.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.corpusTab, "corpusTab");
-            this.corpusTab.Name = "corpusTab";
-            this.corpusTab.Text = "Corpus";
             // 
             // filterTab
             // 
@@ -132,7 +123,6 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage corpusTab;
         private System.Windows.Forms.TabPage tagSearchTab;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage filterTab;

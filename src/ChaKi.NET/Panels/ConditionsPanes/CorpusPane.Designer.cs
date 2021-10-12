@@ -90,8 +90,6 @@
             // 
             resources.ApplyResources(this.treeControl1, "treeControl1");
             this.treeControl1.Name = "treeControl1";
-            this.treeControl1.SelectedNode = null;
-            this.treeControl1.AfterSelect += this.treeControl1_AfterSelect;
             // 
             // button5
             // 

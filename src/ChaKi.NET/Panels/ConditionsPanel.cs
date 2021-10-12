@@ -31,7 +31,8 @@ namespace ChaKi.Panels
     {
         public EventHandler TabChanged;
 
-        private CorpusPane corpusPane;
+        public CorpusPane CorpusPane { get; private set; }
+
         private FilterPane filterPane;
         private StringSearchPane stringSearchPane;
         private TagSearchPane tagSearchPane;
@@ -50,9 +51,9 @@ namespace ChaKi.Panels
 
             InitializeComponent();
 
-            var panes = new List<Control>();
+            CorpusPane = new CorpusPane(model.SentenceCond) { Dock = DockStyle.Fill };
 
-            panes.Add(corpusPane = new CorpusPane(model.SentenceCond));
+            var panes = new List<Control>();
             panes.Add(filterPane = new FilterPane(model.FilterCond, model.SentenceCond));
             panes.Add(stringSearchPane = new StringSearchPane(model.StringCond));
             panes.Add(tagSearchPane = new TagSearchPane(model.TagCond));
@@ -68,7 +69,6 @@ namespace ChaKi.Panels
                 pane.DragDrop += HandleDragDrop;
             }
 
-            corpusPane.Dock = DockStyle.Fill;
             filterPane.Dock = DockStyle.Fill;
             stringSearchPane.Dock = DockStyle.Fill;
             tagSearchPane.Dock = DockStyle.Fill;
@@ -77,7 +77,6 @@ namespace ChaKi.Panels
             documentsAnalysisPane.Dock = DockStyle.Fill;
             miningPane.Dock = DockStyle.Fill;
 
-            this.corpusTab.Controls.Add(corpusPane);
             this.filterTab.Controls.Add(filterPane);
             this.stringSearchTab.Controls.Add(stringSearchPane);
             this.tagSearchTab.Controls.Add(tagSearchPane);
@@ -97,7 +96,7 @@ namespace ChaKi.Panels
         public SearchConditions ChangeConditions(SearchConditions model)
         {
             m_Cond = new SearchConditions( model );  // この時点でコピーを作成
-            this.corpusPane.SetCondition(m_Cond.SentenceCond);
+            this.CorpusPane.SetCondition(m_Cond.SentenceCond);
             this.filterPane.SetCondition(m_Cond.FilterCond);
             this.stringSearchPane.SetCondition(m_Cond.StringCond);
             this.tagSearchPane.SetCondition(m_Cond.TagCond);
@@ -145,7 +144,7 @@ namespace ChaKi.Panels
         /// <returns></returns>
         public SearchConditions GetConditions()
         {
-            m_Cond.SentenceCond = this.corpusPane.GetCondition();
+            m_Cond.SentenceCond = this.CorpusPane.GetCondition();
             m_Cond.FilterCond = this.filterPane.GetCondition();
             m_Cond.StringCond = this.stringSearchPane.GetCondition();
             m_Cond.TagCond = this.tagSearchPane.GetCondition();
@@ -163,7 +162,7 @@ namespace ChaKi.Panels
         public void SetConditions(SearchConditions cond)
         {
             m_Cond = cond;
-            this.corpusPane.SetCondition(m_Cond.SentenceCond);
+            this.CorpusPane.SetCondition(m_Cond.SentenceCond);
             this.filterPane.SetCondition(m_Cond.FilterCond);
             this.stringSearchPane.SetCondition(m_Cond.StringCond);
             this.tagSearchPane.SetCondition(m_Cond.TagCond);
@@ -249,12 +248,12 @@ namespace ChaKi.Panels
 
         public List<Corpus> GetCorpusList()
         {
-            return this.corpusPane.CorpusList;
+            return this.CorpusPane.CorpusList;
         }
 
         public void AddCorpus(string file, bool clear)
         {
-            this.corpusPane.AddCorpus(file, clear);
+            this.CorpusPane.AddCorpus(file, clear);
         }
 
         private void HandleDragEnter(object sender, DragEventArgs e)

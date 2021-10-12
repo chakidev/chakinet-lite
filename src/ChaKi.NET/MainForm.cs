@@ -19,6 +19,7 @@ using ChaKi.ToolDialogs;
 using System.Diagnostics;
 using System.Reflection;
 using ChaKi.Service.Database;
+using ChaKi.Panels.ConditionsPanes;
 
 namespace ChaKi
 {
@@ -34,6 +35,7 @@ namespace ChaKi
         private Panel LexemePanelContainer = new Panel();
         private Panel historyGuidePanelContainer = new Panel();
         private Panel AttributePanelContainer = new Panel();
+        private CorpusPane corpusPane;
         private ConditionsPanel condPanel;
         private CommandPanel commandPanel;
         private ContextPanel contextPanel;
@@ -98,6 +100,7 @@ namespace ChaKi
             condPanel = new ConditionsPanel(m_Model.CurrentSearchConditions) { Dock = DockStyle.Fill };
             condPanel.FilterPane.ProjectSelector = this.toolStripComboBox2;
             this.splitContainer2.Panel1.Controls.Add(condPanel);
+            this.splitContainer1.Panel1.Controls.Add(condPanel.CorpusPane);
             contextPanel = new ContextPanel();
             scriptingPanel = new ScriptingPanel();
             wordAttributeListPanel = new WordAttributeListPanel();

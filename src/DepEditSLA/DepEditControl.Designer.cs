@@ -68,11 +68,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1.SuspendLayout();
             this.toolStripContainer2.ContentPanel.SuspendLayout();
             this.toolStripContainer2.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -114,7 +118,7 @@
             this.toolStripButton18});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(751, 37);
+            this.toolStrip1.Size = new System.Drawing.Size(687, 37);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -207,28 +211,28 @@
             this.toolStripDropDownButton1.Image = global::DependencyEditSLA.Properties.Resources.DispMode;
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(34, 34);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(33, 34);
             this.toolStripDropDownButton1.Text = "Mode";
             this.toolStripDropDownButton1.ToolTipText = "DisplayMode";
             // 
             // verticalToolStripMenuItem
             // 
             this.verticalToolStripMenuItem.Name = "verticalToolStripMenuItem";
-            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
+            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.verticalToolStripMenuItem.Text = "Diagonal";
             this.verticalToolStripMenuItem.Click += new System.EventHandler(this.verticalToolStripMenuItem_Click);
             // 
             // horizonalToolStripMenuItem
             // 
             this.horizonalToolStripMenuItem.Name = "horizonalToolStripMenuItem";
-            this.horizonalToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
+            this.horizonalToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.horizonalToolStripMenuItem.Text = "Horizonal";
             this.horizonalToolStripMenuItem.Click += new System.EventHandler(this.horizonalToolStripMenuItem_Click);
             // 
             // morphemesToolStripMenuItem
             // 
             this.morphemesToolStripMenuItem.Name = "morphemesToolStripMenuItem";
-            this.morphemesToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
+            this.morphemesToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.morphemesToolStripMenuItem.Text = "Morphemes";
             this.morphemesToolStripMenuItem.Click += new System.EventHandler(this.morphemesToolStripMenuItem_Click);
             // 
@@ -417,11 +421,11 @@
             // toolStripContainer2.ContentPanel
             // 
             this.toolStripContainer2.ContentPanel.Controls.Add(this.menuStrip1);
-            this.toolStripContainer2.ContentPanel.Size = new System.Drawing.Size(773, 172);
+            this.toolStripContainer2.ContentPanel.Size = new System.Drawing.Size(754, 172);
             this.toolStripContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer2.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer2.Name = "toolStripContainer2";
-            this.toolStripContainer2.Size = new System.Drawing.Size(773, 209);
+            this.toolStripContainer2.Size = new System.Drawing.Size(754, 209);
             this.toolStripContainer2.TabIndex = 3;
             this.toolStripContainer2.Text = "toolStripContainer2";
             // 
@@ -439,7 +443,7 @@
             this.toolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(170, 74);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(121, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(102, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
@@ -447,21 +451,42 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(57, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(48, 20);
             this.toolStripMenuItem1.Text = "&Undo";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(56, 24);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(46, 20);
             this.toolStripMenuItem2.Text = "&Redo";
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
+            this.splitContainer1.Panel1MinSize = 18;
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.toolStripContainer2);
+            this.splitContainer1.Panel2MinSize = 18;
+            this.splitContainer1.Size = new System.Drawing.Size(773, 209);
+            this.splitContainer1.SplitterDistance = 18;
+            this.splitContainer1.SplitterWidth = 1;
+            this.splitContainer1.TabIndex = 4;
             // 
             // DepEditControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Controls.Add(this.toolStripContainer2);
-            this.Font = new System.Drawing.Font("Lucida Sans Unicode", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Controls.Add(this.splitContainer1);
             this.Name = "DepEditControl";
             this.Size = new System.Drawing.Size(773, 209);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.DepEditControl_Paint);
@@ -475,6 +500,9 @@
             this.toolStripContainer2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -520,5 +548,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton17;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripButton toolStripButton18;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }

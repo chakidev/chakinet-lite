@@ -8,18 +8,17 @@ End Class
 
 Dim AssemblyList(15)
 Dim objRegExp, objFSO, objStream, wshShell, objSvnCommand
-Dim versionStr, lastVersionStr
 Dim info
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
 '=============================================================
 Const CompanyStr = "NAIST/Sowa Research Co.,Ltd."
 Const CopyrightStr = "(C) 2011-2021"
-Const CurrentVersion = "3.16"
+Const CurrentVersion = "0.5.0"
 '=============================================================
 Set AssemblyList(0) = New AssemblyInfo
 With AssemblyList(0)
-  .Name = "ChaKi"
+  .Name = "ChaKi.NET Lite"
   .Guid = "d1df69eb-c99c-402d-926d-692b04246138"
   .FilePath = ".\ChaKi.NET\Properties\AssemblyInfo.cs"
 End With
@@ -114,24 +113,10 @@ With AssemblyList(15)
   .FilePath = ".\ImportWordRelation\Properties\AssemblyInfo.cs"
 End With
 '=============================================================
-'MsgBox "CreateAssemblyInfo.vbs"
-' SubversionÇ©ÇÁHEAD Revisionî‘çÜÇìæÇÈ
-Set wshShell = CreateObject("WScript.Shell")
-Set objSvnCommand = wshShell.Exec("svnversion ..\..\ChaKi.NET\src")
-versionStr = objSvnCommand.StdOut.ReadAll
-Set objRegExp = new regexp
-objRegExp.Pattern = "(\d+:)?(\d+)M?"
-objRegExp.Global = True
-versionStr = Replace(objRegExp.Replace(versionStr,"$2"), vbNewLine,"")
 
-On Error Resume Next
 Set objFSO = WScript.CreateObject("Scripting.FileSystemObject")
-Set objStream = objFSO.OpenTextFile("LastVer.txt", ForReading, True)
-lastVersionStr = objStream.ReadLine()
-objStream.Close
 
 If true Then
-	MsgBox "Updating AssemblyInfo's : " + versionStr
 	' AssemblyInfo.csÇê∂ê¨
 	For Each info in AssemblyList
 	  Set objStream = objFSO.OpenTextFile(info.FilePath, ForWriting, True)
@@ -150,16 +135,13 @@ If true Then
 	  objStream.WriteLine "[assembly: AssemblyCulture("""")]"
 	  objStream.WriteLine "[assembly: ComVisible(false)]"
 	  objStream.WriteLine "[assembly: Guid(""" + info.Guid + """)]"
-	  objStream.WriteLine "[assembly: AssemblyVersion(""" + CurrentVersion + "." + versionStr + ".0"")]"
-	  objStream.WriteLine "[assembly: AssemblyFileVersion(""" + CurrentVersion + "." + versionStr + ".0"")]"
+	  objStream.WriteLine "[assembly: AssemblyVersion(""" + CurrentVersion + """)]"
+	  objStream.WriteLine "[assembly: AssemblyFileVersion(""" + CurrentVersion + """)]"
 	  If info.Name = "ChaKiService" Then
 	    objStream.WriteLine "[assembly: System.Runtime.CompilerServices.InternalsVisibleTo(""ServiceTest"")]"
 	  End If
 	  
 	  objStream.Close
 	Next
-	Set objStream = objFSO.OpenTextFile("LastVer.txt", ForWriting, True)
-	objStream.WriteLine versionStr
-	objStream.Close
 
 End If

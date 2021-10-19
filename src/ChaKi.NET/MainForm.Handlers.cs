@@ -538,24 +538,24 @@ namespace ChaKi
             //    }
             //}
 
-            //if (m_FullScreenContainer == null)
-            //{
-            //    m_FullScreenContainer = new FullScreenContainer(new Action<Form>(
-            //        d =>
-            //        {
-            //            // Hide時の処理(callback)
-            //            this.kwicView.Parent = null;
-            //            this.toolStripContainer1.ContentPanel.Controls.Add(this.kwicView);
-            //            foreach (var form in floatings)
-            //            {
-            //                form.TopMost = false;
-            //            }
-            //            // Docking状態を戻す
-            //            dockingManager.LoadConfigFromArray(tempSetting);
-            //            this.kwicView.Enabled = true;
-            //            m_ViewFullScreenGuard = false;
-            //        }));
-            //}
+            if (m_FullScreenContainer == null)
+            {
+                m_FullScreenContainer = new FullScreenContainer(new Action<Form>(
+                    d =>
+                    {
+                        // Hide時の処理(callback)
+                        this.kwicView.Parent = null;
+                        this.splitContainer3.Panel1.Controls.Add(this.kwicView);
+                        //foreach (var form in floatings)
+                        //{
+                        //    form.TopMost = false;
+                        //}
+                        // Docking状態を戻す
+                        //dockingManager.LoadConfigFromArray(tempSetting);
+                        this.kwicView.Enabled = true;
+                         m_ViewFullScreenGuard = false;
+                    }));
+            }
 
             this.kwicView.Parent = m_FullScreenContainer;
             m_FullScreenContainer.Show();

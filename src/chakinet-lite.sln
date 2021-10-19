@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0A8B4F89-9739-469E-AEF0-1B51D20D68DB}"
 	ProjectSection(SolutionItems) = preProject
@@ -83,10 +83,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportWordRelation", "ImportWordRelation\ImportWordRelation.csproj", "{596A2BAA-EF29-4DCF-9A45-A8A3D2A179F1}"
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		ChaMame_Debug|Any CPU = ChaMame_Debug|Any CPU
 		ChaMame_Debug|Mixed Platforms = ChaMame_Debug|Mixed Platforms
@@ -374,7 +370,6 @@ Global
 		{E0F27922-AE0C-4DBF-ACC7-A8D0C16764CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0F27922-AE0C-4DBF-ACC7-A8D0C16764CF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E0F27922-AE0C-4DBF-ACC7-A8D0C16764CF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{E0F27922-AE0C-4DBF-ACC7-A8D0C16764CF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E0F27922-AE0C-4DBF-ACC7-A8D0C16764CF}.Release|Win32.ActiveCfg = Release|Any CPU
 		{E0F27922-AE0C-4DBF-ACC7-A8D0C16764CF}.Release|x64.ActiveCfg = Release|Any CPU
 		{E0F27922-AE0C-4DBF-ACC7-A8D0C16764CF}.Release|x86.ActiveCfg = Release|x64
@@ -810,7 +805,6 @@ Global
 		{4BCF31E3-31C5-46BF-8440-1FBF90C5F019}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BCF31E3-31C5-46BF-8440-1FBF90C5F019}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4BCF31E3-31C5-46BF-8440-1FBF90C5F019}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{4BCF31E3-31C5-46BF-8440-1FBF90C5F019}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4BCF31E3-31C5-46BF-8440-1FBF90C5F019}.Release|Win32.ActiveCfg = Release|Any CPU
 		{4BCF31E3-31C5-46BF-8440-1FBF90C5F019}.Release|x64.ActiveCfg = Release|Any CPU
 		{4BCF31E3-31C5-46BF-8440-1FBF90C5F019}.Release|x86.ActiveCfg = Release|Any CPU
@@ -998,6 +992,10 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {229492DF-93F2-412A-BBFB-657B83AC3C7B}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 	GlobalSection(Performance) = preSolution
 		HasPerformanceSessions = true

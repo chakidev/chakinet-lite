@@ -1,21 +1,17 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Forms;
-using ChaKi.Common;
+﻿using ChaKi.Common;
 using ChaKi.Common.Settings;
 using ChaKi.Entity.Corpora;
 using ChaKi.GUICommon;
+using ChaKi.Service.Cabocha;
+using ChaKi.Service.Database;
 using ChaKi.Service.DependencyEdit;
 using DependencyEditSLA.Widgets;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 using MessageBox = ChaKi.Common.Widgets.MessageBox;
-using System.Text;
-using ChaKi.Service.Cabocha;
-using System.IO;
-using ChaKi.Service.Export;
-using ChaKi.Service.Readers;
-using ChaKi.Service.Database;
 
 namespace DependencyEditSLA
 {
@@ -701,6 +697,22 @@ namespace DependencyEditSLA
         private void toolStripButton18_Click(object sender, EventArgs e)
         {
             m_SentenceStructure?.EditSettings(this.toolStrip1.PointToScreen(new Point(0, 0)));
+        }
+
+        // Draw Panel Header
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+            var header = "Dependency";
+            var font = new Font(this.Font.FontFamily, 
+                this.Font.Size, FontStyle.Regular, GraphicsUnit.Point);
+            var pointF = new PointF(4, 4);
+            var stringFormat = new StringFormat()
+            {
+                FormatFlags = StringFormatFlags.DirectionVertical
+            };
+            var solidBrush = new SolidBrush(Color.FromArgb(255, 0, 0, 255));
+
+            e.Graphics.DrawString(header, font, solidBrush, pointF, stringFormat);
         }
     }
 }

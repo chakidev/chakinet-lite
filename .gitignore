@@ -387,12 +387,12 @@ FodyWeavers.xsd
 .idea/
 *.sln.iml
 
-AssemblyInfo.cs
 src/ServiceInterface/*.dll
-*.resources.dll
 src/DepEditSLA/*.dll
 src/Entity/*.dll
-NHibernate.ByteCode.Castle.xml
-Castle.Core.xml
 src/Service/*.dll
 src/ChaKiCommon/*.dll
+*.resources.dll
+NHibernate.ByteCode.Castle.xml
+Castle.Core.xml
+# AssemblyInfo.cs

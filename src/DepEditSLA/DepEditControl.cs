@@ -687,6 +687,16 @@ namespace DependencyEditSLA
                     this.toolStripTextBox1.Width = (int)((float)this.toolStripTextBox1.Width * xscale);
                 }
             }
+            // Draw Panel Header
+            var header = "Dependency";
+            var font = new Font(this.Font.FontFamily,
+                this.Font.Size, FontStyle.Regular, GraphicsUnit.Point);
+            var pointF = new PointF(4, 4);
+            var stringFormat = new StringFormat()
+            {
+                FormatFlags = StringFormatFlags.DirectionVertical
+            };
+            e.Graphics.DrawString(header, font, Brushes.Black, pointF, stringFormat);
         }
 
         /// <summary>
@@ -697,22 +707,6 @@ namespace DependencyEditSLA
         private void toolStripButton18_Click(object sender, EventArgs e)
         {
             m_SentenceStructure?.EditSettings(this.toolStrip1.PointToScreen(new Point(0, 0)));
-        }
-
-        // Draw Panel Header
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-            var header = "Dependency";
-            var font = new Font(this.Font.FontFamily, 
-                this.Font.Size, FontStyle.Regular, GraphicsUnit.Point);
-            var pointF = new PointF(4, 4);
-            var stringFormat = new StringFormat()
-            {
-                FormatFlags = StringFormatFlags.DirectionVertical
-            };
-            var solidBrush = new SolidBrush(Color.FromArgb(255, 0, 0, 255));
-
-            e.Graphics.DrawString(header, font, solidBrush, pointF, stringFormat);
         }
     }
 }

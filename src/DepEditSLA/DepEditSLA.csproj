@@ -222,6 +222,9 @@
     <Compile Include="WordBoxIndexRange.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DepEditControl.ja-JP.resx">
+      <DependentUpon>DepEditControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DictionarySettingDialog.ja-JP.resx">
       <DependentUpon>DictionarySettingDialog.cs</DependentUpon>
       <SubType>Designer</SubType>

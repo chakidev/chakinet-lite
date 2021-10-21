@@ -118,14 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 14</value>
+  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 14</value>
+    <value>96, 13</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>選択済コーパス一覧:</value>
   </data>
   <data name="button4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 237</value>
+    <value>18, 235</value>
   </data>
   <data name="button7.Location" type="System.Drawing.Point, System.Drawing">
     <value>111, 171</value>
@@ -146,10 +149,10 @@
     <value>情報表示</value>
   </data>
   <data name="button5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 237</value>
+    <value>50, 235</value>
   </data>
   <data name="button6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 203</value>
+    <value>17, 203</value>
   </data>
   <data name="button6.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 26</value>
@@ -158,7 +161,7 @@
     <value>すべて除外</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 171</value>
+    <value>17, 171</value>
   </data>
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 26</value>
@@ -175,17 +178,26 @@
   <data name="button1.Text" xml:space="preserve">
     <value>追加...</value>
   </data>
+  <data name="treeControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 30</value>
+  </data>
+  <data name="treeControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 95</value>
+  </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>270, 282</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 14</value>
+    <value>61, 13</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>対象コーパス</value>
   </data>
+  <data name="button8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>244, 3</value>
+  </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Meiryo UI, 8.25pt</value>
+    <value>Yu Gothic UI, 8.25pt</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>270, 300</value>

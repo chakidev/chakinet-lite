@@ -40,6 +40,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.treeControl1 = new System.Windows.Forms.TreeView();
             this.label2 = new System.Windows.Forms.Label();
+            this.button8 = new ChaKi.Common.SvgButton();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,11 +125,19 @@
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
+            // button8
+            // 
+            resources.ApplyResources(this.button8, "button8");
+            this.button8.BackColor = System.Drawing.Color.GhostWhite;
+            this.button8.Name = "button8";
+            this.button8.Svg = ChaKi.Properties.Resources.CollapseLeftGroup_16x;
+            // 
             // CorpusPane
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackColor = System.Drawing.Color.GhostWhite;
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Name = "CorpusPane";
@@ -152,5 +161,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TreeView treeControl1;
         private System.Windows.Forms.Label label2;
+        private ChaKi.Common.SvgButton button8;
     }
 }

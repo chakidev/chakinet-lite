@@ -396,3 +396,4 @@ src/ChaKiCommon/*.dll
 NHibernate.ByteCode.Castle.xml
 Castle.Core.xml
 # AssemblyInfo.cs
+Svg.xml

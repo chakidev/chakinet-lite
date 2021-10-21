@@ -24,6 +24,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MessageBox = System.Windows.Forms.MessageBox;
+using ChaKi.Properties;
+using Svg;
 
 namespace ChaKi.Panels.ConditionsPanes
 {
@@ -663,6 +665,5 @@ namespace ChaKi.Panels.ConditionsPanes
         {
 
         }
-
     }
 }

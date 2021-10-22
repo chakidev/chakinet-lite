@@ -40,6 +40,57 @@ namespace ChaKi
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.UICFileOpenToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICFileSaveToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICFileSendToExcelCSVToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.UICEditCutToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICEditCopyToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICEditPasteToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICEditDeleteAllToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
+            this.UICSearchBeginSearchToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICSearchBeginSearchNarrowToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICSearchBeginSearchAppendToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICSearchBeginWordListToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICSearchBeginCollocationToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator24 = new System.Windows.Forms.ToolStripSeparator();
+            this.UICSearchLoadSearchConditionsToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICSearchSaveCurrentSearchConditionsToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICSearchResetAllSearchSettingsToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.UICViewKwicModeToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICViewTextModeToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICViewViewAttributesToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICViewReloadKwicViewToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICViewLoadAnnotationsToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICViewFreezeUpdateToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICViewFullScreenToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator23 = new System.Windows.Forms.ToolStripSeparator();
+            this.UICEditChangeLexemeToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.UICFormatShiftPivotLeftToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICFormatShiftPivotRightToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
+            this.UICFormatHilightPreviousWordToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.UICFormatHilightNextWordToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
+            this.UICViewAutoAdjustRowWidthToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.UICSearchSearchInViewToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.UICViewGotoSentenceToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator26 = new System.Windows.Forms.ToolStripSeparator();
+            this.UICViewSplitViewToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBox2 = new ChaKi.Panels.ProjectSelector();
+            this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
+            this.UICVersioncontrolCommitToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator28 = new System.Windows.Forms.ToolStripSeparator();
+            this.UICHelpHelpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.UICFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICFileOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -135,57 +186,6 @@ namespace ChaKi
             this.UICHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICHelpHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICHelpAboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.UICFileOpenToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICFileSaveToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICFileSendToExcelCSVToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.UICEditCutToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICEditCopyToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICEditPasteToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICEditDeleteAllToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
-            this.UICSearchBeginSearchToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICSearchBeginSearchNarrowToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICSearchBeginSearchAppendToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICSearchBeginWordListToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICSearchBeginCollocationToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator24 = new System.Windows.Forms.ToolStripSeparator();
-            this.UICSearchLoadSearchConditionsToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICSearchSaveCurrentSearchConditionsToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICSearchResetAllSearchSettingsToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.UICViewKwicModeToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICViewTextModeToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICViewViewAttributesToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICViewReloadKwicViewToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICViewLoadAnnotationsToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICViewFreezeUpdateToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICViewFullScreenToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator23 = new System.Windows.Forms.ToolStripSeparator();
-            this.UICEditChangeLexemeToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
-            this.UICFormatShiftPivotLeftToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICFormatShiftPivotRightToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
-            this.UICFormatHilightPreviousWordToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.UICFormatHilightNextWordToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
-            this.UICViewAutoAdjustRowWidthToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
-            this.UICSearchSearchInViewToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.UICViewGotoSentenceToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator26 = new System.Windows.Forms.ToolStripSeparator();
-            this.UICViewSplitViewToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripComboBox2 = new ChaKi.Panels.ProjectSelector();
-            this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
-            this.UICVersioncontrolCommitToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator28 = new System.Windows.Forms.ToolStripSeparator();
-            this.UICHelpHelpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -206,8 +206,8 @@ namespace ChaKi
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -222,8 +222,8 @@ namespace ChaKi
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1);
             // 
             // splitContainer1
             // 
@@ -304,9 +304,356 @@ namespace ChaKi
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // toolStrip
+            // 
+            resources.ApplyResources(this.toolStrip, "toolStrip");
+            this.toolStrip.ImageScalingSize = new System.Drawing.Size(40, 40);
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.UICFileOpenToolStripButton,
+            this.UICFileSaveToolStripButton,
+            this.UICFileSendToExcelCSVToolStripButton,
+            this.toolStripSeparator,
+            this.UICEditCutToolStripButton,
+            this.UICEditCopyToolStripButton,
+            this.UICEditPasteToolStripButton,
+            this.UICEditDeleteAllToolStripButton,
+            this.toolStripSeparator15,
+            this.UICSearchBeginSearchToolStripButton,
+            this.UICSearchBeginSearchNarrowToolStripButton,
+            this.UICSearchBeginSearchAppendToolStripButton,
+            this.UICSearchBeginWordListToolStripButton,
+            this.UICSearchBeginCollocationToolStripButton,
+            this.toolStripSeparator24,
+            this.UICSearchLoadSearchConditionsToolStripButton,
+            this.UICSearchSaveCurrentSearchConditionsToolStripButton,
+            this.UICSearchResetAllSearchSettingsToolStripButton,
+            this.toolStripSeparator2,
+            this.UICViewKwicModeToolStripButton,
+            this.UICViewTextModeToolStripButton,
+            this.UICViewViewAttributesToolStripButton,
+            this.UICViewReloadKwicViewToolStripButton,
+            this.UICViewLoadAnnotationsToolStripButton,
+            this.UICViewFreezeUpdateToolStripButton,
+            this.UICViewFullScreenToolStripButton,
+            this.toolStripSeparator23,
+            this.UICEditChangeLexemeToolStripButton,
+            this.toolStripSeparator14,
+            this.UICFormatShiftPivotLeftToolStripButton,
+            this.UICFormatShiftPivotRightToolStripButton,
+            this.toolStripSeparator17,
+            this.UICFormatHilightPreviousWordToolStripButton,
+            this.UICFormatHilightNextWordToolStripButton,
+            this.toolStripSeparator16,
+            this.UICViewAutoAdjustRowWidthToolStripButton,
+            this.toolStripSeparator13,
+            this.toolStripComboBox1,
+            this.UICSearchSearchInViewToolStripButton,
+            this.toolStripSeparator20,
+            this.toolStripTextBox1,
+            this.UICViewGotoSentenceToolStripButton,
+            this.toolStripSeparator26,
+            this.UICViewSplitViewToolStripButton,
+            this.toolStripLabel1,
+            this.toolStripComboBox2,
+            this.toolStripSeparator22,
+            this.UICVersioncontrolCommitToolStripButton,
+            this.toolStripSeparator28,
+            this.UICHelpHelpToolStripButton});
+            this.toolStrip.Name = "toolStrip";
+            // 
+            // UICFileOpenToolStripButton
+            // 
+            this.UICFileOpenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICFileOpenToolStripButton, "UICFileOpenToolStripButton");
+            this.UICFileOpenToolStripButton.Name = "UICFileOpenToolStripButton";
+            // 
+            // UICFileSaveToolStripButton
+            // 
+            this.UICFileSaveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICFileSaveToolStripButton, "UICFileSaveToolStripButton");
+            this.UICFileSaveToolStripButton.Name = "UICFileSaveToolStripButton";
+            // 
+            // UICFileSendToExcelCSVToolStripButton
+            // 
+            this.UICFileSendToExcelCSVToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICFileSendToExcelCSVToolStripButton, "UICFileSendToExcelCSVToolStripButton");
+            this.UICFileSendToExcelCSVToolStripButton.Name = "UICFileSendToExcelCSVToolStripButton";
+            // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            resources.ApplyResources(this.toolStripSeparator, "toolStripSeparator");
+            // 
+            // UICEditCutToolStripButton
+            // 
+            this.UICEditCutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICEditCutToolStripButton, "UICEditCutToolStripButton");
+            this.UICEditCutToolStripButton.Name = "UICEditCutToolStripButton";
+            // 
+            // UICEditCopyToolStripButton
+            // 
+            this.UICEditCopyToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICEditCopyToolStripButton, "UICEditCopyToolStripButton");
+            this.UICEditCopyToolStripButton.Name = "UICEditCopyToolStripButton";
+            // 
+            // UICEditPasteToolStripButton
+            // 
+            this.UICEditPasteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICEditPasteToolStripButton, "UICEditPasteToolStripButton");
+            this.UICEditPasteToolStripButton.Name = "UICEditPasteToolStripButton";
+            // 
+            // UICEditDeleteAllToolStripButton
+            // 
+            this.UICEditDeleteAllToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICEditDeleteAllToolStripButton, "UICEditDeleteAllToolStripButton");
+            this.UICEditDeleteAllToolStripButton.Name = "UICEditDeleteAllToolStripButton";
+            // 
+            // toolStripSeparator15
+            // 
+            this.toolStripSeparator15.Name = "toolStripSeparator15";
+            resources.ApplyResources(this.toolStripSeparator15, "toolStripSeparator15");
+            // 
+            // UICSearchBeginSearchToolStripButton
+            // 
+            resources.ApplyResources(this.UICSearchBeginSearchToolStripButton, "UICSearchBeginSearchToolStripButton");
+            this.UICSearchBeginSearchToolStripButton.Name = "UICSearchBeginSearchToolStripButton";
+            // 
+            // UICSearchBeginSearchNarrowToolStripButton
+            // 
+            this.UICSearchBeginSearchNarrowToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICSearchBeginSearchNarrowToolStripButton, "UICSearchBeginSearchNarrowToolStripButton");
+            this.UICSearchBeginSearchNarrowToolStripButton.Name = "UICSearchBeginSearchNarrowToolStripButton";
+            // 
+            // UICSearchBeginSearchAppendToolStripButton
+            // 
+            this.UICSearchBeginSearchAppendToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICSearchBeginSearchAppendToolStripButton, "UICSearchBeginSearchAppendToolStripButton");
+            this.UICSearchBeginSearchAppendToolStripButton.Name = "UICSearchBeginSearchAppendToolStripButton";
+            // 
+            // UICSearchBeginWordListToolStripButton
+            // 
+            this.UICSearchBeginWordListToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICSearchBeginWordListToolStripButton, "UICSearchBeginWordListToolStripButton");
+            this.UICSearchBeginWordListToolStripButton.Name = "UICSearchBeginWordListToolStripButton";
+            // 
+            // UICSearchBeginCollocationToolStripButton
+            // 
+            this.UICSearchBeginCollocationToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICSearchBeginCollocationToolStripButton, "UICSearchBeginCollocationToolStripButton");
+            this.UICSearchBeginCollocationToolStripButton.Name = "UICSearchBeginCollocationToolStripButton";
+            // 
+            // toolStripSeparator24
+            // 
+            this.toolStripSeparator24.Name = "toolStripSeparator24";
+            resources.ApplyResources(this.toolStripSeparator24, "toolStripSeparator24");
+            // 
+            // UICSearchLoadSearchConditionsToolStripButton
+            // 
+            this.UICSearchLoadSearchConditionsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICSearchLoadSearchConditionsToolStripButton, "UICSearchLoadSearchConditionsToolStripButton");
+            this.UICSearchLoadSearchConditionsToolStripButton.Name = "UICSearchLoadSearchConditionsToolStripButton";
+            // 
+            // UICSearchSaveCurrentSearchConditionsToolStripButton
+            // 
+            this.UICSearchSaveCurrentSearchConditionsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICSearchSaveCurrentSearchConditionsToolStripButton, "UICSearchSaveCurrentSearchConditionsToolStripButton");
+            this.UICSearchSaveCurrentSearchConditionsToolStripButton.Name = "UICSearchSaveCurrentSearchConditionsToolStripButton";
+            // 
+            // UICSearchResetAllSearchSettingsToolStripButton
+            // 
+            this.UICSearchResetAllSearchSettingsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICSearchResetAllSearchSettingsToolStripButton, "UICSearchResetAllSearchSettingsToolStripButton");
+            this.UICSearchResetAllSearchSettingsToolStripButton.Name = "UICSearchResetAllSearchSettingsToolStripButton";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            // 
+            // UICViewKwicModeToolStripButton
+            // 
+            this.UICViewKwicModeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICViewKwicModeToolStripButton, "UICViewKwicModeToolStripButton");
+            this.UICViewKwicModeToolStripButton.Name = "UICViewKwicModeToolStripButton";
+            // 
+            // UICViewTextModeToolStripButton
+            // 
+            this.UICViewTextModeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICViewTextModeToolStripButton, "UICViewTextModeToolStripButton");
+            this.UICViewTextModeToolStripButton.Name = "UICViewTextModeToolStripButton";
+            // 
+            // UICViewViewAttributesToolStripButton
+            // 
+            this.UICViewViewAttributesToolStripButton.Checked = true;
+            this.UICViewViewAttributesToolStripButton.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.UICViewViewAttributesToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICViewViewAttributesToolStripButton, "UICViewViewAttributesToolStripButton");
+            this.UICViewViewAttributesToolStripButton.Name = "UICViewViewAttributesToolStripButton";
+            // 
+            // UICViewReloadKwicViewToolStripButton
+            // 
+            this.UICViewReloadKwicViewToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICViewReloadKwicViewToolStripButton, "UICViewReloadKwicViewToolStripButton");
+            this.UICViewReloadKwicViewToolStripButton.Name = "UICViewReloadKwicViewToolStripButton";
+            // 
+            // UICViewLoadAnnotationsToolStripButton
+            // 
+            this.UICViewLoadAnnotationsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICViewLoadAnnotationsToolStripButton, "UICViewLoadAnnotationsToolStripButton");
+            this.UICViewLoadAnnotationsToolStripButton.Name = "UICViewLoadAnnotationsToolStripButton";
+            // 
+            // UICViewFreezeUpdateToolStripButton
+            // 
+            this.UICViewFreezeUpdateToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICViewFreezeUpdateToolStripButton, "UICViewFreezeUpdateToolStripButton");
+            this.UICViewFreezeUpdateToolStripButton.Name = "UICViewFreezeUpdateToolStripButton";
+            // 
+            // UICViewFullScreenToolStripButton
+            // 
+            this.UICViewFullScreenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICViewFullScreenToolStripButton, "UICViewFullScreenToolStripButton");
+            this.UICViewFullScreenToolStripButton.Name = "UICViewFullScreenToolStripButton";
+            // 
+            // toolStripSeparator23
+            // 
+            this.toolStripSeparator23.Name = "toolStripSeparator23";
+            resources.ApplyResources(this.toolStripSeparator23, "toolStripSeparator23");
+            // 
+            // UICEditChangeLexemeToolStripButton
+            // 
+            this.UICEditChangeLexemeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICEditChangeLexemeToolStripButton, "UICEditChangeLexemeToolStripButton");
+            this.UICEditChangeLexemeToolStripButton.Name = "UICEditChangeLexemeToolStripButton";
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            resources.ApplyResources(this.toolStripSeparator14, "toolStripSeparator14");
+            // 
+            // UICFormatShiftPivotLeftToolStripButton
+            // 
+            this.UICFormatShiftPivotLeftToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICFormatShiftPivotLeftToolStripButton, "UICFormatShiftPivotLeftToolStripButton");
+            this.UICFormatShiftPivotLeftToolStripButton.Name = "UICFormatShiftPivotLeftToolStripButton";
+            // 
+            // UICFormatShiftPivotRightToolStripButton
+            // 
+            this.UICFormatShiftPivotRightToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICFormatShiftPivotRightToolStripButton, "UICFormatShiftPivotRightToolStripButton");
+            this.UICFormatShiftPivotRightToolStripButton.Name = "UICFormatShiftPivotRightToolStripButton";
+            // 
+            // toolStripSeparator17
+            // 
+            this.toolStripSeparator17.Name = "toolStripSeparator17";
+            resources.ApplyResources(this.toolStripSeparator17, "toolStripSeparator17");
+            // 
+            // UICFormatHilightPreviousWordToolStripButton
+            // 
+            this.UICFormatHilightPreviousWordToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICFormatHilightPreviousWordToolStripButton, "UICFormatHilightPreviousWordToolStripButton");
+            this.UICFormatHilightPreviousWordToolStripButton.Name = "UICFormatHilightPreviousWordToolStripButton";
+            // 
+            // UICFormatHilightNextWordToolStripButton
+            // 
+            this.UICFormatHilightNextWordToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICFormatHilightNextWordToolStripButton, "UICFormatHilightNextWordToolStripButton");
+            this.UICFormatHilightNextWordToolStripButton.Name = "UICFormatHilightNextWordToolStripButton";
+            // 
+            // toolStripSeparator16
+            // 
+            this.toolStripSeparator16.Name = "toolStripSeparator16";
+            resources.ApplyResources(this.toolStripSeparator16, "toolStripSeparator16");
+            // 
+            // UICViewAutoAdjustRowWidthToolStripButton
+            // 
+            this.UICViewAutoAdjustRowWidthToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICViewAutoAdjustRowWidthToolStripButton, "UICViewAutoAdjustRowWidthToolStripButton");
+            this.UICViewAutoAdjustRowWidthToolStripButton.Name = "UICViewAutoAdjustRowWidthToolStripButton";
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            resources.ApplyResources(this.toolStripSeparator13, "toolStripSeparator13");
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.BackColor = System.Drawing.Color.White;
+            this.toolStripComboBox1.DropDownHeight = 200;
+            this.toolStripComboBox1.DropDownWidth = 200;
+            resources.ApplyResources(this.toolStripComboBox1, "toolStripComboBox1");
+            this.toolStripComboBox1.Margin = new System.Windows.Forms.Padding(1);
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            // 
+            // UICSearchSearchInViewToolStripButton
+            // 
+            this.UICSearchSearchInViewToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICSearchSearchInViewToolStripButton, "UICSearchSearchInViewToolStripButton");
+            this.UICSearchSearchInViewToolStripButton.Name = "UICSearchSearchInViewToolStripButton";
+            // 
+            // toolStripSeparator20
+            // 
+            this.toolStripSeparator20.Name = "toolStripSeparator20";
+            resources.ApplyResources(this.toolStripSeparator20, "toolStripSeparator20");
+            // 
+            // toolStripTextBox1
+            // 
+            resources.ApplyResources(this.toolStripTextBox1, "toolStripTextBox1");
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox1_KeyUp);
+            // 
+            // UICViewGotoSentenceToolStripButton
+            // 
+            this.UICViewGotoSentenceToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICViewGotoSentenceToolStripButton, "UICViewGotoSentenceToolStripButton");
+            this.UICViewGotoSentenceToolStripButton.Name = "UICViewGotoSentenceToolStripButton";
+            // 
+            // toolStripSeparator26
+            // 
+            this.toolStripSeparator26.Name = "toolStripSeparator26";
+            resources.ApplyResources(this.toolStripSeparator26, "toolStripSeparator26");
+            // 
+            // UICViewSplitViewToolStripButton
+            // 
+            this.UICViewSplitViewToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICViewSplitViewToolStripButton, "UICViewSplitViewToolStripButton");
+            this.UICViewSplitViewToolStripButton.Name = "UICViewSplitViewToolStripButton";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            resources.ApplyResources(this.toolStripLabel1, "toolStripLabel1");
+            // 
+            // toolStripComboBox2
+            // 
+            this.toolStripComboBox2.Name = "toolStripComboBox2";
+            resources.ApplyResources(this.toolStripComboBox2, "toolStripComboBox2");
+            // 
+            // toolStripSeparator22
+            // 
+            this.toolStripSeparator22.Name = "toolStripSeparator22";
+            resources.ApplyResources(this.toolStripSeparator22, "toolStripSeparator22");
+            // 
+            // UICVersioncontrolCommitToolStripButton
+            // 
+            this.UICVersioncontrolCommitToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICVersioncontrolCommitToolStripButton, "UICVersioncontrolCommitToolStripButton");
+            this.UICVersioncontrolCommitToolStripButton.Name = "UICVersioncontrolCommitToolStripButton";
+            // 
+            // toolStripSeparator28
+            // 
+            this.toolStripSeparator28.Name = "toolStripSeparator28";
+            resources.ApplyResources(this.toolStripSeparator28, "toolStripSeparator28");
+            // 
+            // UICHelpHelpToolStripButton
+            // 
+            this.UICHelpHelpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.UICHelpHelpToolStripButton, "UICHelpHelpToolStripButton");
+            this.UICHelpHelpToolStripButton.Name = "UICHelpHelpToolStripButton";
+            // 
             // menuStrip1
             // 
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -905,352 +1252,6 @@ namespace ChaKi
             resources.ApplyResources(this.UICHelpAboutToolStripMenuItem, "UICHelpAboutToolStripMenuItem");
             this.UICHelpAboutToolStripMenuItem.Name = "UICHelpAboutToolStripMenuItem";
             // 
-            // toolStrip
-            // 
-            resources.ApplyResources(this.toolStrip, "toolStrip");
-            this.toolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.UICFileOpenToolStripButton,
-            this.UICFileSaveToolStripButton,
-            this.UICFileSendToExcelCSVToolStripButton,
-            this.toolStripSeparator,
-            this.UICEditCutToolStripButton,
-            this.UICEditCopyToolStripButton,
-            this.UICEditPasteToolStripButton,
-            this.UICEditDeleteAllToolStripButton,
-            this.toolStripSeparator15,
-            this.UICSearchBeginSearchToolStripButton,
-            this.UICSearchBeginSearchNarrowToolStripButton,
-            this.UICSearchBeginSearchAppendToolStripButton,
-            this.UICSearchBeginWordListToolStripButton,
-            this.UICSearchBeginCollocationToolStripButton,
-            this.toolStripSeparator24,
-            this.UICSearchLoadSearchConditionsToolStripButton,
-            this.UICSearchSaveCurrentSearchConditionsToolStripButton,
-            this.UICSearchResetAllSearchSettingsToolStripButton,
-            this.toolStripSeparator2,
-            this.UICViewKwicModeToolStripButton,
-            this.UICViewTextModeToolStripButton,
-            this.UICViewViewAttributesToolStripButton,
-            this.UICViewReloadKwicViewToolStripButton,
-            this.UICViewLoadAnnotationsToolStripButton,
-            this.UICViewFreezeUpdateToolStripButton,
-            this.UICViewFullScreenToolStripButton,
-            this.toolStripSeparator23,
-            this.UICEditChangeLexemeToolStripButton,
-            this.toolStripSeparator14,
-            this.UICFormatShiftPivotLeftToolStripButton,
-            this.UICFormatShiftPivotRightToolStripButton,
-            this.toolStripSeparator17,
-            this.UICFormatHilightPreviousWordToolStripButton,
-            this.UICFormatHilightNextWordToolStripButton,
-            this.toolStripSeparator16,
-            this.UICViewAutoAdjustRowWidthToolStripButton,
-            this.toolStripSeparator13,
-            this.toolStripComboBox1,
-            this.UICSearchSearchInViewToolStripButton,
-            this.toolStripSeparator20,
-            this.toolStripTextBox1,
-            this.UICViewGotoSentenceToolStripButton,
-            this.toolStripSeparator26,
-            this.UICViewSplitViewToolStripButton,
-            this.toolStripLabel1,
-            this.toolStripComboBox2,
-            this.toolStripSeparator22,
-            this.UICVersioncontrolCommitToolStripButton,
-            this.toolStripSeparator28,
-            this.UICHelpHelpToolStripButton});
-            this.toolStrip.Name = "toolStrip";
-            // 
-            // UICFileOpenToolStripButton
-            // 
-            this.UICFileOpenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICFileOpenToolStripButton, "UICFileOpenToolStripButton");
-            this.UICFileOpenToolStripButton.Name = "UICFileOpenToolStripButton";
-            // 
-            // UICFileSaveToolStripButton
-            // 
-            this.UICFileSaveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICFileSaveToolStripButton, "UICFileSaveToolStripButton");
-            this.UICFileSaveToolStripButton.Name = "UICFileSaveToolStripButton";
-            // 
-            // UICFileSendToExcelCSVToolStripButton
-            // 
-            this.UICFileSendToExcelCSVToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICFileSendToExcelCSVToolStripButton, "UICFileSendToExcelCSVToolStripButton");
-            this.UICFileSendToExcelCSVToolStripButton.Name = "UICFileSendToExcelCSVToolStripButton";
-            // 
-            // toolStripSeparator
-            // 
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            resources.ApplyResources(this.toolStripSeparator, "toolStripSeparator");
-            // 
-            // UICEditCutToolStripButton
-            // 
-            this.UICEditCutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICEditCutToolStripButton, "UICEditCutToolStripButton");
-            this.UICEditCutToolStripButton.Name = "UICEditCutToolStripButton";
-            // 
-            // UICEditCopyToolStripButton
-            // 
-            this.UICEditCopyToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICEditCopyToolStripButton, "UICEditCopyToolStripButton");
-            this.UICEditCopyToolStripButton.Name = "UICEditCopyToolStripButton";
-            // 
-            // UICEditPasteToolStripButton
-            // 
-            this.UICEditPasteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICEditPasteToolStripButton, "UICEditPasteToolStripButton");
-            this.UICEditPasteToolStripButton.Name = "UICEditPasteToolStripButton";
-            // 
-            // UICEditDeleteAllToolStripButton
-            // 
-            this.UICEditDeleteAllToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICEditDeleteAllToolStripButton, "UICEditDeleteAllToolStripButton");
-            this.UICEditDeleteAllToolStripButton.Name = "UICEditDeleteAllToolStripButton";
-            // 
-            // toolStripSeparator15
-            // 
-            this.toolStripSeparator15.Name = "toolStripSeparator15";
-            resources.ApplyResources(this.toolStripSeparator15, "toolStripSeparator15");
-            // 
-            // UICSearchBeginSearchToolStripButton
-            // 
-            resources.ApplyResources(this.UICSearchBeginSearchToolStripButton, "UICSearchBeginSearchToolStripButton");
-            this.UICSearchBeginSearchToolStripButton.Name = "UICSearchBeginSearchToolStripButton";
-            // 
-            // UICSearchBeginSearchNarrowToolStripButton
-            // 
-            this.UICSearchBeginSearchNarrowToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICSearchBeginSearchNarrowToolStripButton, "UICSearchBeginSearchNarrowToolStripButton");
-            this.UICSearchBeginSearchNarrowToolStripButton.Name = "UICSearchBeginSearchNarrowToolStripButton";
-            // 
-            // UICSearchBeginSearchAppendToolStripButton
-            // 
-            this.UICSearchBeginSearchAppendToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICSearchBeginSearchAppendToolStripButton, "UICSearchBeginSearchAppendToolStripButton");
-            this.UICSearchBeginSearchAppendToolStripButton.Name = "UICSearchBeginSearchAppendToolStripButton";
-            // 
-            // UICSearchBeginWordListToolStripButton
-            // 
-            this.UICSearchBeginWordListToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICSearchBeginWordListToolStripButton, "UICSearchBeginWordListToolStripButton");
-            this.UICSearchBeginWordListToolStripButton.Name = "UICSearchBeginWordListToolStripButton";
-            // 
-            // UICSearchBeginCollocationToolStripButton
-            // 
-            this.UICSearchBeginCollocationToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICSearchBeginCollocationToolStripButton, "UICSearchBeginCollocationToolStripButton");
-            this.UICSearchBeginCollocationToolStripButton.Name = "UICSearchBeginCollocationToolStripButton";
-            // 
-            // toolStripSeparator24
-            // 
-            this.toolStripSeparator24.Name = "toolStripSeparator24";
-            resources.ApplyResources(this.toolStripSeparator24, "toolStripSeparator24");
-            // 
-            // UICSearchLoadSearchConditionsToolStripButton
-            // 
-            this.UICSearchLoadSearchConditionsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICSearchLoadSearchConditionsToolStripButton, "UICSearchLoadSearchConditionsToolStripButton");
-            this.UICSearchLoadSearchConditionsToolStripButton.Name = "UICSearchLoadSearchConditionsToolStripButton";
-            // 
-            // UICSearchSaveCurrentSearchConditionsToolStripButton
-            // 
-            this.UICSearchSaveCurrentSearchConditionsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICSearchSaveCurrentSearchConditionsToolStripButton, "UICSearchSaveCurrentSearchConditionsToolStripButton");
-            this.UICSearchSaveCurrentSearchConditionsToolStripButton.Name = "UICSearchSaveCurrentSearchConditionsToolStripButton";
-            // 
-            // UICSearchResetAllSearchSettingsToolStripButton
-            // 
-            this.UICSearchResetAllSearchSettingsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICSearchResetAllSearchSettingsToolStripButton, "UICSearchResetAllSearchSettingsToolStripButton");
-            this.UICSearchResetAllSearchSettingsToolStripButton.Name = "UICSearchResetAllSearchSettingsToolStripButton";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
-            // 
-            // UICViewKwicModeToolStripButton
-            // 
-            this.UICViewKwicModeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICViewKwicModeToolStripButton, "UICViewKwicModeToolStripButton");
-            this.UICViewKwicModeToolStripButton.Name = "UICViewKwicModeToolStripButton";
-            // 
-            // UICViewTextModeToolStripButton
-            // 
-            this.UICViewTextModeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICViewTextModeToolStripButton, "UICViewTextModeToolStripButton");
-            this.UICViewTextModeToolStripButton.Name = "UICViewTextModeToolStripButton";
-            // 
-            // UICViewViewAttributesToolStripButton
-            // 
-            this.UICViewViewAttributesToolStripButton.Checked = true;
-            this.UICViewViewAttributesToolStripButton.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.UICViewViewAttributesToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICViewViewAttributesToolStripButton, "UICViewViewAttributesToolStripButton");
-            this.UICViewViewAttributesToolStripButton.Name = "UICViewViewAttributesToolStripButton";
-            // 
-            // UICViewReloadKwicViewToolStripButton
-            // 
-            this.UICViewReloadKwicViewToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICViewReloadKwicViewToolStripButton, "UICViewReloadKwicViewToolStripButton");
-            this.UICViewReloadKwicViewToolStripButton.Name = "UICViewReloadKwicViewToolStripButton";
-            // 
-            // UICViewLoadAnnotationsToolStripButton
-            // 
-            this.UICViewLoadAnnotationsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICViewLoadAnnotationsToolStripButton, "UICViewLoadAnnotationsToolStripButton");
-            this.UICViewLoadAnnotationsToolStripButton.Name = "UICViewLoadAnnotationsToolStripButton";
-            // 
-            // UICViewFreezeUpdateToolStripButton
-            // 
-            this.UICViewFreezeUpdateToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICViewFreezeUpdateToolStripButton, "UICViewFreezeUpdateToolStripButton");
-            this.UICViewFreezeUpdateToolStripButton.Name = "UICViewFreezeUpdateToolStripButton";
-            // 
-            // UICViewFullScreenToolStripButton
-            // 
-            this.UICViewFullScreenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICViewFullScreenToolStripButton, "UICViewFullScreenToolStripButton");
-            this.UICViewFullScreenToolStripButton.Name = "UICViewFullScreenToolStripButton";
-            // 
-            // toolStripSeparator23
-            // 
-            this.toolStripSeparator23.Name = "toolStripSeparator23";
-            resources.ApplyResources(this.toolStripSeparator23, "toolStripSeparator23");
-            // 
-            // UICEditChangeLexemeToolStripButton
-            // 
-            this.UICEditChangeLexemeToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICEditChangeLexemeToolStripButton, "UICEditChangeLexemeToolStripButton");
-            this.UICEditChangeLexemeToolStripButton.Name = "UICEditChangeLexemeToolStripButton";
-            // 
-            // toolStripSeparator14
-            // 
-            this.toolStripSeparator14.Name = "toolStripSeparator14";
-            resources.ApplyResources(this.toolStripSeparator14, "toolStripSeparator14");
-            // 
-            // UICFormatShiftPivotLeftToolStripButton
-            // 
-            this.UICFormatShiftPivotLeftToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICFormatShiftPivotLeftToolStripButton, "UICFormatShiftPivotLeftToolStripButton");
-            this.UICFormatShiftPivotLeftToolStripButton.Name = "UICFormatShiftPivotLeftToolStripButton";
-            // 
-            // UICFormatShiftPivotRightToolStripButton
-            // 
-            this.UICFormatShiftPivotRightToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICFormatShiftPivotRightToolStripButton, "UICFormatShiftPivotRightToolStripButton");
-            this.UICFormatShiftPivotRightToolStripButton.Name = "UICFormatShiftPivotRightToolStripButton";
-            // 
-            // toolStripSeparator17
-            // 
-            this.toolStripSeparator17.Name = "toolStripSeparator17";
-            resources.ApplyResources(this.toolStripSeparator17, "toolStripSeparator17");
-            // 
-            // UICFormatHilightPreviousWordToolStripButton
-            // 
-            this.UICFormatHilightPreviousWordToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICFormatHilightPreviousWordToolStripButton, "UICFormatHilightPreviousWordToolStripButton");
-            this.UICFormatHilightPreviousWordToolStripButton.Name = "UICFormatHilightPreviousWordToolStripButton";
-            // 
-            // UICFormatHilightNextWordToolStripButton
-            // 
-            this.UICFormatHilightNextWordToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICFormatHilightNextWordToolStripButton, "UICFormatHilightNextWordToolStripButton");
-            this.UICFormatHilightNextWordToolStripButton.Name = "UICFormatHilightNextWordToolStripButton";
-            // 
-            // toolStripSeparator16
-            // 
-            this.toolStripSeparator16.Name = "toolStripSeparator16";
-            resources.ApplyResources(this.toolStripSeparator16, "toolStripSeparator16");
-            // 
-            // UICViewAutoAdjustRowWidthToolStripButton
-            // 
-            this.UICViewAutoAdjustRowWidthToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICViewAutoAdjustRowWidthToolStripButton, "UICViewAutoAdjustRowWidthToolStripButton");
-            this.UICViewAutoAdjustRowWidthToolStripButton.Name = "UICViewAutoAdjustRowWidthToolStripButton";
-            // 
-            // toolStripSeparator13
-            // 
-            this.toolStripSeparator13.Name = "toolStripSeparator13";
-            resources.ApplyResources(this.toolStripSeparator13, "toolStripSeparator13");
-            // 
-            // toolStripComboBox1
-            // 
-            this.toolStripComboBox1.BackColor = System.Drawing.Color.White;
-            this.toolStripComboBox1.DropDownHeight = 200;
-            this.toolStripComboBox1.DropDownWidth = 200;
-            resources.ApplyResources(this.toolStripComboBox1, "toolStripComboBox1");
-            this.toolStripComboBox1.Margin = new System.Windows.Forms.Padding(1);
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            // 
-            // UICSearchSearchInViewToolStripButton
-            // 
-            this.UICSearchSearchInViewToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICSearchSearchInViewToolStripButton, "UICSearchSearchInViewToolStripButton");
-            this.UICSearchSearchInViewToolStripButton.Name = "UICSearchSearchInViewToolStripButton";
-            // 
-            // toolStripSeparator20
-            // 
-            this.toolStripSeparator20.Name = "toolStripSeparator20";
-            resources.ApplyResources(this.toolStripSeparator20, "toolStripSeparator20");
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            resources.ApplyResources(this.toolStripTextBox1, "toolStripTextBox1");
-            this.toolStripTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox1_KeyUp);
-            // 
-            // UICViewGotoSentenceToolStripButton
-            // 
-            this.UICViewGotoSentenceToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICViewGotoSentenceToolStripButton, "UICViewGotoSentenceToolStripButton");
-            this.UICViewGotoSentenceToolStripButton.Name = "UICViewGotoSentenceToolStripButton";
-            // 
-            // toolStripSeparator26
-            // 
-            this.toolStripSeparator26.Name = "toolStripSeparator26";
-            resources.ApplyResources(this.toolStripSeparator26, "toolStripSeparator26");
-            // 
-            // UICViewSplitViewToolStripButton
-            // 
-            this.UICViewSplitViewToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICViewSplitViewToolStripButton, "UICViewSplitViewToolStripButton");
-            this.UICViewSplitViewToolStripButton.Name = "UICViewSplitViewToolStripButton";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            resources.ApplyResources(this.toolStripLabel1, "toolStripLabel1");
-            // 
-            // toolStripComboBox2
-            // 
-            this.toolStripComboBox2.Name = "toolStripComboBox2";
-            resources.ApplyResources(this.toolStripComboBox2, "toolStripComboBox2");
-            // 
-            // toolStripSeparator22
-            // 
-            this.toolStripSeparator22.Name = "toolStripSeparator22";
-            resources.ApplyResources(this.toolStripSeparator22, "toolStripSeparator22");
-            // 
-            // UICVersioncontrolCommitToolStripButton
-            // 
-            this.UICVersioncontrolCommitToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICVersioncontrolCommitToolStripButton, "UICVersioncontrolCommitToolStripButton");
-            this.UICVersioncontrolCommitToolStripButton.Name = "UICVersioncontrolCommitToolStripButton";
-            // 
-            // toolStripSeparator28
-            // 
-            this.toolStripSeparator28.Name = "toolStripSeparator28";
-            resources.ApplyResources(this.toolStripSeparator28, "toolStripSeparator28");
-            // 
-            // UICHelpHelpToolStripButton
-            // 
-            this.UICHelpHelpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(this.UICHelpHelpToolStripButton, "UICHelpHelpToolStripButton");
-            this.UICHelpHelpToolStripButton.Name = "UICHelpHelpToolStripButton";
-            // 
             // BottomToolStripPanel
             // 
             resources.ApplyResources(this.BottomToolStripPanel, "BottomToolStripPanel");
@@ -1320,10 +1321,10 @@ namespace ChaKi
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

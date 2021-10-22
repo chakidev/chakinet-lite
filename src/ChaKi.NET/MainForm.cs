@@ -114,7 +114,12 @@ namespace ChaKi
             // DPI微調整
             DpiAdjuster.Adjust(this, (px, py) =>
             {
+                this.menuStrip1.ImageScalingSize = new Size((int)(16 * px), (int)(16 * py));
                 this.toolStrip.ImageScalingSize = new Size((int)(16 * px), (int)(16 * py));
+                // なぜか上記を有効にするには、.designer.csでのImageScalingSize設定を削除する必要がある
+                this.splitContainer1.SplitterDistance = this.condPanel.CorpusPane.ExpandedWidth;
+                this.splitContainer2.SplitterDistance = (int)(250 * px);
+                this.splitContainer3.SplitterDistance = (int)(300 * px);
             });
             this.condPanel.CorpusPane.SizeChanged += CorpusPane_SizeChanged;
 

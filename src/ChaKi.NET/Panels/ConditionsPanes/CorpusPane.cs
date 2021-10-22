@@ -39,6 +39,9 @@ namespace ChaKi.Panels.ConditionsPanes
         private ManualResetEvent m_WaitDone;
         private bool m_CancelFlag;
 
+        public int ExpandedWidth { get; private set; } // Expand時 DPI aware width
+        public int CollapsedWidth { get; private set; } // Collapsed時 DPI aware width
+
         public List<Corpus> CorpusList
         {
             get
@@ -72,6 +75,15 @@ namespace ChaKi.Panels.ConditionsPanes
             UpdateView();
 
             GitRepositories.RepositoryChanged += GitRepositories_RepositoryChanged;
+
+            // DPI微調整
+            DpiAdjuster.Adjust(this, (px, py) =>
+            {
+                this.ExpandedWidth = (int)(250 * px);
+                this.CollapsedWidth = (int)(30 * px);
+                this.Width = ExpandedWidth;
+            });
+
         }
 
 #if false
@@ -664,7 +676,7 @@ namespace ChaKi.Panels.ConditionsPanes
         // パネルを縮小する
         private void button8_Click_1(object sender, EventArgs e)
         {
-            this.Width = 30;
+            this.Width = this.CollapsedWidth;
             this.panel2.Visible = false;
             this.label2.Visible = false;
             this.button8.Visible = false;
@@ -674,7 +686,7 @@ namespace ChaKi.Panels.ConditionsPanes
         // パネルを元に戻す
         private void button9_Click(object sender, EventArgs e)
         {
-            this.Width = 250;
+            this.Width = this.ExpandedWidth;
             this.panel2.Visible = true;
             this.label2.Visible = true;
             this.button8.Visible = true;

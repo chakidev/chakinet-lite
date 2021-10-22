@@ -8,6 +8,7 @@ using ChaKi.Common;
 using ChaKi.Common.Settings;
 using System.Drawing;
 using System.Collections.Generic;
+using ChaKi.Common.Widgets;
 
 namespace ChaKi.Views.KwicView
 {
@@ -147,7 +148,12 @@ namespace ChaKi.Views.KwicView
                     m_Columns.Widths[i] = this.dataGridView1.Columns[i].Width;
                     Invalidate(true);
                 }
-                this.dataGridView1.ColumnHeadersHeight = (int)(23 * currentScaleFactor.Height);
+                var chh = 30 * currentScaleFactor.Height;
+                // DPI微調整
+                DpiAdjuster.Adjust(this, (px, py) =>
+                {
+                    this.dataGridView1.ColumnHeadersHeight = (int)(chh * py);
+                });
                 foreach (var panel in this.Panels)
                 {
                     panel.SuspendUpdateView = false;

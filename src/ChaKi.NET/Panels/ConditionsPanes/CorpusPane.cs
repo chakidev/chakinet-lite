@@ -661,9 +661,25 @@ namespace ChaKi.Panels.ConditionsPanes
             }
         }
 
-        private void UpdateAnnotation(Corpus corpus, string repositoryName)
+        // パネルを縮小する
+        private void button8_Click_1(object sender, EventArgs e)
         {
-
+            this.Width = 30;
+            this.panel2.Visible = false;
+            this.label2.Visible = false;
+            this.button8.Visible = false;
+            this.button9.Visible = true;
         }
+
+        // パネルを元に戻す
+        private void button9_Click(object sender, EventArgs e)
+        {
+            this.Width = 250;
+            this.panel2.Visible = true;
+            this.label2.Visible = true;
+            this.button8.Visible = true;
+            this.button9.Visible = false;
+        }
+
     }
 }

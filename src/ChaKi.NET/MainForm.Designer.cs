@@ -37,6 +37,9 @@ namespace ChaKi
             this.kwicView = new ChaKi.Views.KwicView.KwicView();
             this.wordListView = new ChaKi.Views.WordListView();
             this.collocationView = new ChaKi.Views.CollocationView();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.UICFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICFileOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -200,7 +203,9 @@ namespace ChaKi
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -252,6 +257,10 @@ namespace ChaKi
             this.splitContainer3.Panel1.Controls.Add(this.wordListView);
             this.splitContainer3.Panel1.Controls.Add(this.collocationView);
             // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.tabControl1);
+            // 
             // kwicView
             // 
             resources.ApplyResources(this.kwicView, "kwicView");
@@ -273,6 +282,27 @@ namespace ChaKi
             // 
             resources.ApplyResources(this.collocationView, "collocationView");
             this.collocationView.Name = "collocationView";
+            // 
+            // tabControl1
+            // 
+            resources.ApplyResources(this.tabControl1, "tabControl1");
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Multiline = true;
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.Name = "tabPage1";
+            // 
+            // tabPage2
+            // 
+            resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
@@ -1168,8 +1198,8 @@ namespace ChaKi
             // 
             // toolStripTextBox1
             // 
-            resources.ApplyResources(this.toolStripTextBox1, "toolStripTextBox1");
             this.toolStripTextBox1.Name = "toolStripTextBox1";
+            resources.ApplyResources(this.toolStripTextBox1, "toolStripTextBox1");
             this.toolStripTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox1_KeyUp);
             // 
             // UICViewGotoSentenceToolStripButton
@@ -1286,8 +1316,10 @@ namespace ChaKi
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip.ResumeLayout(false);
@@ -1458,6 +1490,9 @@ namespace ChaKi
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
 

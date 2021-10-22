@@ -1,4 +1,5 @@
-﻿using Svg;
+﻿using ChaKi.Common.Widgets;
+using Svg;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,7 +25,10 @@ namespace ChaKi.Common
                 {
                     var svgDoc = SvgDocument.Open<SvgDocument>(str);
                     this.Image?.Dispose();
-                    this.Image = svgDoc.Draw(this.Width, this.Height);
+                    DpiAdjuster.Adjust(this, (xscale, yscale) =>
+                    {
+                        this.Image = svgDoc.Draw((int)(this.Width * xscale), (int)(this.Height * yscale));
+                    });
                 }
             }
             get { return null; }

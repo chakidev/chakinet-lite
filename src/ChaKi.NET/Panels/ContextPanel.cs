@@ -17,7 +17,7 @@ using ChaKi.Properties;
 
 namespace ChaKi.Panels
 {
-    public partial class ContextPanel : Form, IChaKiView
+    public partial class ContextPanel : UserControl, IChaKiView
     {
         public SentenceContext Model { get; set; }
 

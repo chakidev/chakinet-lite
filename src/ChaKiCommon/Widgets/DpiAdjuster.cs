@@ -31,5 +31,14 @@ namespace ChaKi.Common.Widgets
                 m_Scale = scale;
             }
         }
+
+        public static void Adjust(Control control, Action<double, double> adjustAction)
+        {
+            using (var g = control.CreateGraphics())
+            {
+                var scale = new SizeF(g.DpiX / 96.0F, g.DpiY / 96.0F);
+                adjustAction.Invoke(scale.Width, scale.Height);
+            }
+        }
     }
 }

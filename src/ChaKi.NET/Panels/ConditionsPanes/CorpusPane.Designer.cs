@@ -41,6 +41,7 @@
             this.treeControl1 = new System.Windows.Forms.TreeView();
             this.label2 = new System.Windows.Forms.Label();
             this.button8 = new ChaKi.Common.SvgButton();
+            this.button9 = new ChaKi.Common.SvgButton();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,13 +131,27 @@
             resources.ApplyResources(this.button8, "button8");
             this.button8.BackColor = System.Drawing.Color.GhostWhite;
             this.button8.Name = "button8";
-            this.button8.Svg = ChaKi.Properties.Resources.CollapseLeftGroup_16x;
+            this.button8.Svg = Properties.Resources.CollapseLeftGroup_16x;
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click_1);
+            // 
+            // button9
+            // 
+            resources.ApplyResources(this.button9, "button9");
+            this.button9.BackColor = System.Drawing.Color.GhostWhite;
+            this.button9.Name = "button9";
+            this.button9.Svg = Properties.Resources.ExpandRightGroup_16x;
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left;
+            this.button9.Visible = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // CorpusPane
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.GhostWhite;
+            this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
@@ -162,5 +177,6 @@
         private System.Windows.Forms.TreeView treeControl1;
         private System.Windows.Forms.Label label2;
         private ChaKi.Common.SvgButton button8;
+        private Common.SvgButton button9;
     }
 }

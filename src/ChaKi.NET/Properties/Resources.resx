@@ -265,4 +265,7 @@
   <data name="CollapseLeftGroup_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\collapseleftgroup_16x.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ExpandRightGroup_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\expandrightgroup_16x.svg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

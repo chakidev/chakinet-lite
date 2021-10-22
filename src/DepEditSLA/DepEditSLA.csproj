@@ -232,6 +232,7 @@
     <EmbeddedResource Include="EditCommentDialog.ja-JP.resx">
       <DependentUpon>EditCommentDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
     <EmbeddedResource Include="SentenceStructure.ja-JP.resx">
       <DependentUpon>SentenceStructure.cs</DependentUpon>
     </EmbeddedResource>

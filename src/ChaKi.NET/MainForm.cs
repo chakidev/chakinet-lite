@@ -1,25 +1,25 @@
-using System;
-using System.IO;
-using System.Drawing;
-using System.Windows.Forms;
-
 using ChaKi.Common;
-using ChaKi.GUICommon;
-using ChaKi.Panels;
-using ChaKi.UICommands;
-using DependencyEditSLA;
-using ChaKi.Entity.Settings;
+using ChaKi.Common.Settings;
+using ChaKi.Common.Widgets;
 using ChaKi.Entity.Corpora;
 using ChaKi.Entity.Kwic;
 using ChaKi.Entity.Search;
-using ChaKi.Common.Settings;
-using ChaKi.Views.KwicView;
-using ChaKi.Views;
-using ChaKi.ToolDialogs;
-using System.Diagnostics;
-using System.Reflection;
-using ChaKi.Service.Database;
+using ChaKi.Entity.Settings;
+using ChaKi.GUICommon;
+using ChaKi.Panels;
 using ChaKi.Panels.ConditionsPanes;
+using ChaKi.Service.Database;
+using ChaKi.UICommands;
+using ChaKi.Views;
+using ChaKi.Views.KwicView;
+using DependencyEditSLA;
+using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
+using MessageBox = ChaKi.Common.Widgets.MessageBox;
 
 namespace ChaKi
 {
@@ -101,14 +101,23 @@ namespace ChaKi
             condPanel.FilterPane.ProjectSelector = this.toolStripComboBox2;
             this.splitContainer2.Panel1.Controls.Add(condPanel);
             this.splitContainer1.Panel1.Controls.Add(condPanel.CorpusPane);
-            contextPanel = new ContextPanel();
             scriptingPanel = new ScriptingPanel();
             wordAttributeListPanel = new WordAttributeListPanel();
             commandPanel = new CommandPanel(condPanel.GetFilterButton());
             historyGuidePanel = new HistoryGuidePanel(m_Model.History);
             dependencyEditPanel = new DepEditControl() { Dock = DockStyle.Fill };
-            this.splitContainer3.Panel2.Controls.Add(dependencyEditPanel);
+            this.tabPage1.Controls.Add(dependencyEditPanel);
+            contextPanel = new ContextPanel() { Dock = DockStyle.Fill };
+            this.tabPage2.Controls.Add(contextPanel);
             attributePanel = new AttributeListPanel();
+
+            // DPI”÷’²®
+            DpiAdjuster.Adjust(this, (px, py) =>
+            {
+                this.toolStrip.ImageScalingSize = new Size((int)(16 * px), (int)(16 * py));
+            });
+            this.condPanel.CorpusPane.SizeChanged += CorpusPane_SizeChanged;
+
 
             m_DockStateFile = Program.SettingDir + @"\DockState.xml";
             try
@@ -295,6 +304,11 @@ namespace ChaKi
 
             this.dependencyEditPanel.EditContextChanged += new Action<OpContext>(HandleDependencyEditPanelEditModeChanged);
             this.dependencyEditPanel.Saving += new Action(HandleDependencyEditPanelSaving);
+        }
+
+        private void CorpusPane_SizeChanged(object sender, EventArgs e)
+        {
+            this.splitContainer1.SplitterDistance = this.condPanel.CorpusPane.Width;
         }
 
         public void ResetLayout()

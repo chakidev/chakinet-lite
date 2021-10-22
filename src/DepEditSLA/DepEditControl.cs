@@ -1,5 +1,6 @@
 ﻿using ChaKi.Common;
 using ChaKi.Common.Settings;
+using ChaKi.Common.Widgets;
 using ChaKi.Entity.Corpora;
 using ChaKi.GUICommon;
 using ChaKi.Service.Cabocha;
@@ -9,6 +10,7 @@ using DependencyEditSLA.Widgets;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Windows.Forms;
 using MessageBox = ChaKi.Common.Widgets.MessageBox;
@@ -81,7 +83,7 @@ namespace DependencyEditSLA
             m_DummyPanel.Location = new Point(0, 0);
             m_DummyPanel.Size = m_SentenceStructure.Size;
 
-            this.toolStripContainer2.ContentPanel.Controls.Add(m_ContainerPanel);
+            this.panel1.Controls.Add(m_ContainerPanel);
             m_ContainerPanel.Dock = DockStyle.Fill;
             m_ContainerPanel.Controls.Add(m_SentenceStructure);
             m_ContainerPanel.Controls.Add(m_DummyPanel);    // SentenceStrucureの再構成中のみ見せるパネルで、Containerのサイズを維持するためのもの.
@@ -102,6 +104,12 @@ namespace DependencyEditSLA
             m_Corpus = null;
             m_SentenceStructure.EditMode = false;
             m_IsEditMode = false;
+
+            // DPI微調整
+            DpiAdjuster.Adjust(this, (px, py) =>
+            {
+                this.toolStrip1.ImageScalingSize = new Size((int)(16 * px), (int)(16 * py));
+            });
         }
 
         private void m_SentenceStructure_CreateLinkModeChanged(object sender, EventArgs e)
@@ -687,16 +695,6 @@ namespace DependencyEditSLA
                     this.toolStripTextBox1.Width = (int)((float)this.toolStripTextBox1.Width * xscale);
                 }
             }
-            // Draw Panel Header
-            var header = "Dependency";
-            var font = new Font(this.Font.FontFamily,
-                this.Font.Size, FontStyle.Regular, GraphicsUnit.Point);
-            var pointF = new PointF(4, 4);
-            var stringFormat = new StringFormat()
-            {
-                FormatFlags = StringFormatFlags.DirectionVertical
-            };
-            e.Graphics.DrawString(header, font, Brushes.Black, pointF, stringFormat);
         }
 
         /// <summary>

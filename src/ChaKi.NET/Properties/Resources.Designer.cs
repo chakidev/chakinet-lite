@@ -267,6 +267,16 @@ namespace ChaKi.Properties {
         }
         
         /// <summary>
+        ///   型 System.Byte[] のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static byte[] ExpandRightGroup_16x {
+            get {
+                object obj = ResourceManager.GetObject("ExpandRightGroup_16x", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
         internal static System.Drawing.Bitmap FullScreenHS {

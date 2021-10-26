@@ -34,7 +34,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.Linen;
             this.Name = "SentenceStructureScrollPanel";
             this.Size = new System.Drawing.Size(485, 231);
             this.ResumeLayout(false);

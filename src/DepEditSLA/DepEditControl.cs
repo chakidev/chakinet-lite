@@ -79,7 +79,7 @@ namespace DependencyEditSLA
             m_SentenceStructure.Name = "m_SentenceStructure";
             m_SentenceStructure.Size = new Size(732, 184);
             m_SentenceStructure.TabIndex = 1;
-            m_DummyPanel.BackColor = Color.Linen;
+            m_DummyPanel.BackColor = Color.GhostWhite;
             m_DummyPanel.Location = new Point(0, 0);
             m_DummyPanel.Size = m_SentenceStructure.Size;
 

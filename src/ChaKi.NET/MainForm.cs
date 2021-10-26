@@ -14,6 +14,7 @@ using ChaKi.Views;
 using ChaKi.Views.KwicView;
 using DependencyEditSLA;
 using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -77,6 +78,10 @@ namespace ChaKi
 
             InitializeComponent();
 
+            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
+            {
+                return;
+            }
             Program.MainForm = this;
             m_Model = ChaKiModel.Instance;
             m_Model.Initialize();
@@ -115,8 +120,11 @@ namespace ChaKi
             DpiAdjuster.Adjust(this, (px, py) =>
             {
                 this.menuStrip1.ImageScalingSize = new Size((int)(16 * px), (int)(16 * py));
+                this.toolStrip.SuspendLayout();
+                this.toolStrip.AutoSize = false;
                 this.toolStrip.ImageScalingSize = new Size((int)(16 * px), (int)(16 * py));
-                // なぜか上記を有効にするには、.designer.csでのImageScalingSize設定を削除する必要がある
+                this.toolStrip.ResumeLayout();
+                this.toolStrip.AutoSize = true;
                 this.splitContainer1.SplitterDistance = this.condPanel.CorpusPane.ExpandedWidth;
                 this.splitContainer2.SplitterDistance = (int)(250 * px);
                 this.splitContainer3.SplitterDistance = (int)(300 * px);

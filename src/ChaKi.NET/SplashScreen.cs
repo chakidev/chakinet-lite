@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ChaKi.Common.Widgets;
+using System;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using System.Threading;
-using ChaKi.Common;
-using ChaKi.Common.Settings;
-using System.Text.RegularExpressions;
+using MessageBox = ChaKi.Common.Widgets.MessageBox;
 
 namespace ChaKi
 {
@@ -30,8 +25,9 @@ namespace ChaKi
             var versionTokens = AboutChaKiDialog.AssemblyVersion.Split('.');
             if (versionTokens.Length >= 3)
             {
-                try {
-                    var version = string.Format("{0}.{1:D2}.{2}", 
+                try
+                {
+                    var version = string.Format("{0}.{1:D2}.{2}",
                         int.Parse(versionTokens[0]),
                         int.Parse(versionTokens[1]),
                         int.Parse(versionTokens[2]));
@@ -98,11 +94,11 @@ namespace ChaKi
             {
                 if (value)
                 {
-                    this.Height = (int)(100 * this.currentScaleFactor.Height);
+                    this.Height = (int)(80 * this.currentScaleFactor.Height);
                 }
                 else
                 {
-                    this.Height = (int)(280 * this.currentScaleFactor.Height);
+                    this.Height = (int)(200 * this.currentScaleFactor.Height);
                 }
             }
         }

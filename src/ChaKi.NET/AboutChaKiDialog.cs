@@ -23,7 +23,7 @@ namespace ChaKi
             {
                 var ver1 = Int32.Parse(version.Groups[1].Value);
                 var ver2 = Int32.Parse(version.Groups[2].Value);
-                this.label1.Text = string.Format("ChaKi.NET Version {0}.{1:00}", ver1, ver2);
+                this.label1.Text = string.Format("ChaKi.NET lite Version {0}.{1:00}", ver1, ver2);
             }
 
 

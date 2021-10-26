@@ -17,14 +17,14 @@ namespace ChaKi.Panels
     /// </summary>
     public enum ConditionsPanelType
     {
-        CP_CORPUS = 0,
-        CP_FILTER = 1,
-        CP_STRING = 2,
-        CP_TAG = 3,
-        CP_DEP = 4,
-        CP_COLLOCATION = 5,
-        CP_DOCUMENTSANALYSIS = 6,
-        CP_MINING = 7,
+        CP_CORPUS = -1,
+        CP_FILTER = 0,
+        CP_STRING = 1,
+        CP_TAG = 2,
+        CP_DEP = 3,
+        CP_COLLOCATION = 4,
+        CP_DOCUMENTSANALYSIS = 5,
+        CP_MINING = 6,
     }
 
     public partial class ConditionsPanel : Panel

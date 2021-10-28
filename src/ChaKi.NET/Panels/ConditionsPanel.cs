@@ -118,6 +118,7 @@ namespace ChaKi.Panels
             switch (this.SelectedTab)
             {
                 case ConditionsPanelType.CP_CORPUS:
+                case ConditionsPanelType.CP_FILTER:
                     obj.ActiveSearch = SearchType.SentenceSearch;
                     break;
                 case ConditionsPanelType.CP_STRING:

@@ -149,11 +149,8 @@ namespace ChaKi.Views.KwicView
                     Invalidate(true);
                 }
                 var chh = 30 * currentScaleFactor.Height;
-                // DPI微調整
-                DpiAdjuster.Adjust(this, (px, py) =>
-                {
-                    this.dataGridView1.ColumnHeadersHeight = (int)(chh * py);
-                });
+                this.dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+                this.dataGridView1.ColumnHeadersHeight = (int)chh;
                 foreach (var panel in this.Panels)
                 {
                     panel.SuspendUpdateView = false;

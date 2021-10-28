@@ -43,12 +43,13 @@
             this.kwicViewPanel2 = new ChaKi.Views.KwicView.KwicViewPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.transparentPanel1 = new KwicViewTransparentPanel();
-            //((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.transparentPanel1 = new ChaKi.Views.KwicView.KwicViewTransparentPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.transparentPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -91,7 +92,7 @@
             this.dataGridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDown);
             this.dataGridView1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseMove);
             this.dataGridView1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseUp);
-             // 
+            // 
             // Index
             // 
             this.Index.HeaderText = "Index";
@@ -165,6 +166,42 @@
             this.Right.ToolTipText = "RightContext";
             this.Right.Width = 180;
             // 
+            // kwicViewPanel1
+            // 
+            this.kwicViewPanel1.BackColor = System.Drawing.Color.Ivory;
+            this.kwicViewPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kwicViewPanel1.DrawLinesFrom = 0;
+            this.kwicViewPanel1.DrawLinesTo = 0;
+            this.kwicViewPanel1.KwicMode = false;
+            this.kwicViewPanel1.Location = new System.Drawing.Point(0, 0);
+            this.kwicViewPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.kwicViewPanel1.Name = "kwicViewPanel1";
+            this.kwicViewPanel1.SingleSelection = -1;
+            this.kwicViewPanel1.Size = new System.Drawing.Size(794, 367);
+            this.kwicViewPanel1.SuspendUpdateView = false;
+            this.kwicViewPanel1.TabIndex = 4;
+            this.kwicViewPanel1.TwoLineMode = true;
+            this.kwicViewPanel1.UpdateFrozen = false;
+            this.kwicViewPanel1.WordWrap = true;
+            // 
+            // kwicViewPanel2
+            // 
+            this.kwicViewPanel2.BackColor = System.Drawing.Color.Ivory;
+            this.kwicViewPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kwicViewPanel2.DrawLinesFrom = 0;
+            this.kwicViewPanel2.DrawLinesTo = 0;
+            this.kwicViewPanel2.KwicMode = false;
+            this.kwicViewPanel2.Location = new System.Drawing.Point(3, 3);
+            this.kwicViewPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.kwicViewPanel2.Name = "kwicViewPanel2";
+            this.kwicViewPanel2.SingleSelection = -1;
+            this.kwicViewPanel2.Size = new System.Drawing.Size(144, 40);
+            this.kwicViewPanel2.SuspendUpdateView = false;
+            this.kwicViewPanel2.TabIndex = 5;
+            this.kwicViewPanel2.TwoLineMode = true;
+            this.kwicViewPanel2.UpdateFrozen = false;
+            this.kwicViewPanel2.WordWrap = true;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
@@ -186,73 +223,48 @@
             this.splitContainer1.Location = new System.Drawing.Point(3, 30);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(0);
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.splitContainer1.Panel1.Controls.Add(this.kwicViewPanel1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
+            this.splitContainer1.Panel2.Controls.Add(this.kwicViewPanel2);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(3);
             this.splitContainer1.Panel2Collapsed = true;
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Transparent;
-            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.splitContainer1.Panel1.Controls.Add(this.kwicViewPanel1);
-            this.splitContainer1.Panel2.Controls.Add(this.kwicViewPanel2);
             this.splitContainer1.Size = new System.Drawing.Size(794, 367);
             this.splitContainer1.SplitterDistance = 210;
             this.splitContainer1.TabIndex = 6;
-            //
-            // kwicViewPanel1
             // 
-            this.kwicViewPanel1.BackColor = System.Drawing.Color.Ivory;
-            this.kwicViewPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kwicViewPanel1.DrawLinesFrom = 0;
-            this.kwicViewPanel1.DrawLinesTo = 0;
-            this.kwicViewPanel1.KwicMode = false;
-            this.kwicViewPanel1.Location = new System.Drawing.Point(0, 0);
-            this.kwicViewPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.kwicViewPanel1.Name = "kwicViewPanel1";
-            this.kwicViewPanel1.SingleSelection = -1;
-            this.kwicViewPanel1.Size = new System.Drawing.Size(800, 400);
-            this.kwicViewPanel1.SuspendUpdateView = false;
-            this.kwicViewPanel1.TabIndex = 4;
-            this.kwicViewPanel1.TwoLineMode = true;
-            this.kwicViewPanel1.UpdateFrozen = false;
-            this.kwicViewPanel1.WordWrap = true;
-            //
-            // kwicViewPanel2
-            // 
-            this.kwicViewPanel2.BackColor = System.Drawing.Color.Ivory;
-            this.kwicViewPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kwicViewPanel2.DrawLinesFrom = 0;
-            this.kwicViewPanel2.DrawLinesTo = 0;
-            this.kwicViewPanel2.KwicMode = false;
-            this.kwicViewPanel2.Location = new System.Drawing.Point(0, 0);
-            this.kwicViewPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.kwicViewPanel2.Name = "kwicViewPanel2";
-            this.kwicViewPanel2.SingleSelection = -1;
-            this.kwicViewPanel2.Size = new System.Drawing.Size(800, 400);
-            this.kwicViewPanel2.SuspendUpdateView = false;
-            this.kwicViewPanel2.TabIndex = 5;
-            this.kwicViewPanel2.TwoLineMode = true;
-            this.kwicViewPanel2.UpdateFrozen = false;
-            this.kwicViewPanel2.WordWrap = true;
-            //
             // transparentPanel1
-            //
-            this.transparentPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            this.transparentPanel1.Location = new System.Drawing.Point(3, 30);
+            // 
+            this.transparentPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.transparentPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.transparentPanel1.Location = new System.Drawing.Point(0, 30);
+            this.transparentPanel1.Name = "transparentPanel1";
             this.transparentPanel1.Size = new System.Drawing.Size(794, 367);
-            this.transparentPanel1.BackColor = System.Drawing.Color.FromArgb(0, 0, 0, 0);
+            this.transparentPanel1.TabIndex = 0;
             this.transparentPanel1.Visible = false;
             // 
             // KwicView
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.transparentPanel1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "KwicView";
             this.Size = new System.Drawing.Size(800, 400);
-            //((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.transparentPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

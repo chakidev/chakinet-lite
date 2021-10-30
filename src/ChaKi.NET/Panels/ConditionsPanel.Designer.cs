@@ -43,58 +43,51 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.BackColor = System.Drawing.Color.LightGray;
+            this.tabControl1.Controls.Add(this.filterTab);
+            this.tabControl1.Controls.Add(this.stringSearchTab);
+            this.tabControl1.Controls.Add(this.tagSearchTab);
+            this.tabControl1.Controls.Add(this.depSearchTab);
+            this.tabControl1.Controls.Add(this.collocationTab);
+            this.tabControl1.Controls.Add(this.addinTab);
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.TabPages.AddRange(new System.Windows.Forms.TabPage[] {
-            this.filterTab,
-            this.stringSearchTab,
-            this.tagSearchTab,
-            this.depSearchTab,
-            this.collocationTab,
-            this.addinTab});
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // filterTab
             // 
             this.filterTab.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.filterTab, "filterTab");
             this.filterTab.Name = "filterTab";
-            this.filterTab.Text = "Filter";
             // 
             // stringSearchTab
             // 
             this.stringSearchTab.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.stringSearchTab, "stringSearchTab");
             this.stringSearchTab.Name = "stringSearchTab";
-            this.stringSearchTab.Text = "String";
             // 
             // tagSearchTab
             // 
             this.tagSearchTab.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.tagSearchTab, "tagSearchTab");
             this.tagSearchTab.Name = "tagSearchTab";
-            this.tagSearchTab.Text = "Tag";
             // 
             // depSearchTab
             // 
             this.depSearchTab.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.depSearchTab, "depSearchTab");
             this.depSearchTab.Name = "depSearchTab";
-            this.depSearchTab.Text = "Dependency";
             // 
             // collocationTab
             // 
             this.collocationTab.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.collocationTab, "collocationTab");
             this.collocationTab.Name = "collocationTab";
-            this.collocationTab.Text = "Collocation";
             // 
             // addinTab
             // 
             resources.ApplyResources(this.addinTab, "addinTab");
             this.addinTab.Name = "addinTab";
-            this.addinTab.Text = "AddIn";
             // 
             // pictureBox1
             // 
@@ -108,10 +101,9 @@
             // 
             this.AllowDrop = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "ConditionsPanel";
+            resources.ApplyResources(this, "$this");
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.HandleDragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.HandleDragEnter);
             this.tabControl1.ResumeLayout(false);

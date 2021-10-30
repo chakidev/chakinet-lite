@@ -534,10 +534,8 @@ namespace ChaKi
             switch (tab)
             {
                 case ConditionsPanelType.CP_CORPUS:
-                    commandEnableStates = new bool[5] { true, true, false, false, true };
-                    break;
                 case ConditionsPanelType.CP_FILTER:
-                    commandEnableStates = new bool[5] { true, false, false, false, true };
+                    commandEnableStates = new bool[5] { true, true, false, false, true };
                     break;
                 case ConditionsPanelType.CP_STRING:
                     commandEnableStates = new bool[5] { true, true, false, false, true };

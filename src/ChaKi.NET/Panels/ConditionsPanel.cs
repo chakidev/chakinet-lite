@@ -210,7 +210,7 @@ namespace ChaKi.Panels
             }
         }
 
-        private void tabControl1_SelectionChanged(TabControl sender, TabPage oldPage, TabPage newPage)
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs args)
         {
             if (TabChanged != null)
             {

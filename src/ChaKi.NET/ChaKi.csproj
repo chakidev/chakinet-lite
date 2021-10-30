@@ -840,6 +840,9 @@
     <EmbeddedResource Include="Views\KwicView\DummyTextBox.resx">
       <DependentUpon>DummyTextBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\KwicView\KwicView.ja-JP.resx">
+      <DependentUpon>KwicView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\KwicView\KwicViewPanel.ja-JP.resx">
       <DependentUpon>KwicViewPanel.cs</DependentUpon>
     </EmbeddedResource>

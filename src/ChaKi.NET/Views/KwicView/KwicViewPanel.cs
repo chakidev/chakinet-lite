@@ -46,6 +46,7 @@ namespace ChaKi.Views.KwicView
 
         public bool SuspendUpdateView { get; set; }
 
+        private SizeF currentScaleFactor = new SizeF(1f, 1f);
 
         /// <summary>
         /// Tagを持たない行が存在するか (= SimpleSearchの結果が含まれているか)
@@ -172,6 +173,16 @@ namespace ChaKi.Views.KwicView
             {
                 this.InvokeGotFocus(this, EventArgs.Empty);
             });
+
+            this.vScrollBar1.Width = (int)(40 + this.currentScaleFactor.Width);
+        }
+
+        protected override void ScaleControl(SizeF factor, BoundsSpecified specified)
+        {
+            base.ScaleControl(factor, specified);
+
+            //Record the running scale factor used
+            this.currentScaleFactor = new SizeF(factor.Width, factor.Height);
         }
 
         /// <summary>

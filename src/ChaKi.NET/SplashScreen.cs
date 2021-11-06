@@ -83,9 +83,7 @@ namespace ChaKi
             base.ScaleControl(factor, specified);
 
             //Record the running scale factor used
-            this.currentScaleFactor = new SizeF(
-               this.currentScaleFactor.Width * factor.Width,
-               this.currentScaleFactor.Height * factor.Height);
+            this.currentScaleFactor = new SizeF(factor.Width, factor.Height);
         }
 
         public bool Shrink

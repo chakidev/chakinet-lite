@@ -47,22 +47,22 @@
             // 
             // contextMenuStrip1
             // 
-            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.kwicViewSettingsToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             // 
             // kwicViewSettingsToolStripMenuItem
             // 
-            resources.ApplyResources(this.kwicViewSettingsToolStripMenuItem, "kwicViewSettingsToolStripMenuItem");
             this.kwicViewSettingsToolStripMenuItem.Name = "kwicViewSettingsToolStripMenuItem";
+            resources.ApplyResources(this.kwicViewSettingsToolStripMenuItem, "kwicViewSettingsToolStripMenuItem");
             this.kwicViewSettingsToolStripMenuItem.Click += new System.EventHandler(this.kwicViewSettingsToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.BackColor = System.Drawing.Color.Ivory;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
@@ -80,7 +80,7 @@
             // KwicViewPanel
             // 
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dummyTextBox1);

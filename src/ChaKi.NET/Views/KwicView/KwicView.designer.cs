@@ -59,21 +59,20 @@
             // 
             // splitContainer1.Panel1
             // 
-            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer1.Panel1.Controls.Add(this.kwicViewPanel1);
             // 
             // splitContainer1.Panel2
             // 
-            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer1.Panel2.Controls.Add(this.kwicViewPanel2);
+            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
             this.splitContainer1.Panel2Collapsed = true;
             // 
             // kwicViewPanel1
             // 
-            resources.ApplyResources(this.kwicViewPanel1, "kwicViewPanel1");
             this.kwicViewPanel1.BackColor = System.Drawing.Color.Ivory;
+            resources.ApplyResources(this.kwicViewPanel1, "kwicViewPanel1");
             this.kwicViewPanel1.DrawLinesFrom = 0;
             this.kwicViewPanel1.DrawLinesTo = 0;
             this.kwicViewPanel1.KwicMode = false;
@@ -86,8 +85,8 @@
             // 
             // kwicViewPanel2
             // 
-            resources.ApplyResources(this.kwicViewPanel2, "kwicViewPanel2");
             this.kwicViewPanel2.BackColor = System.Drawing.Color.Ivory;
+            resources.ApplyResources(this.kwicViewPanel2, "kwicViewPanel2");
             this.kwicViewPanel2.DrawLinesFrom = 0;
             this.kwicViewPanel2.DrawLinesTo = 0;
             this.kwicViewPanel2.KwicMode = false;
@@ -100,7 +99,6 @@
             // 
             // dataGridView1
             // 
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
@@ -116,6 +114,7 @@
             this.Left,
             this.Center,
             this.Right});
+            resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;

@@ -698,40 +698,6 @@ namespace ChaKi
             m_Model.CurrentSearchConditions = cond;
         }
 
-        protected void OnSaveConfig(XmlTextWriter xmlOut)
-        {
-            // DockState設定ファイルへの追加出力
-            xmlOut.WriteStartElement("WindowLocation");
-            xmlOut.WriteAttributeString("X", String.Format("{0}", this.Bounds.X));
-            xmlOut.WriteAttributeString("Y", String.Format("{0}", this.Bounds.Y));
-            xmlOut.WriteAttributeString("Width", String.Format("{0}", this.Bounds.Width));
-            xmlOut.WriteAttributeString("Height", String.Format("{0}", this.Bounds.Height));
-            xmlOut.WriteEndElement();
-        }
-
-        protected void OnLoadConfig(XmlTextReader xmlIn)
-        {
-            // DockState設定ファイルを読み込んだ時点での追加情報の処理
-            if (xmlIn.Name == "WindowLocation")
-            {
-                int x = 0;
-                int y = 0;
-                int width = 0;
-                int height = 0;
-                bool b = true;
-                b = b && Int32.TryParse(xmlIn.GetAttribute("X"), out x);
-                b = b && Int32.TryParse(xmlIn.GetAttribute("Y"), out y);
-                b = b && Int32.TryParse(xmlIn.GetAttribute("Width"), out width);
-                b = b && Int32.TryParse(xmlIn.GetAttribute("Height"), out height);
-                if (b)
-                {
-                    this.Bounds = NormalizeByPrimaryScreenSize(x, y, width, height, new Rectangle(0, 0, 800, 500));
-                }
-
-                xmlIn.Read();
-            }
-        }
-
         private static Rectangle NormalizeByPrimaryScreenSize(int x, int y, int width, int height, Rectangle defaultRect)
         {
             int maxWidth = Screen.PrimaryScreen.Bounds.Width;

@@ -531,6 +531,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WindowStates.cs" />
     <EmbeddedResource Include="AboutChaKiDialog.resx">
       <DependentUpon>AboutChaKiDialog.cs</DependentUpon>
       <SubType>Designer</SubType>

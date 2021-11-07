@@ -117,8 +117,9 @@ namespace ChaKi
             attributePanel = new AttributeListPanel();
 
             // DPI微調整
-            DpiAdjuster.Adjust(this, (px, py) =>
             {
+                var px = currentScaleFactor.Width;
+                var py = currentScaleFactor.Height;
                 this.menuStrip1.ImageScalingSize = new Size((int)(16 * px), (int)(16 * py));
                 this.toolStrip.SuspendLayout();
                 this.toolStrip.AutoSize = false;
@@ -126,35 +127,24 @@ namespace ChaKi
                 this.toolStrip.ResumeLayout();
                 this.toolStrip.AutoSize = true;
                 this.splitContainer1.SplitterDistance = this.condPanel.CorpusPane.ExpandedWidth;
-                this.splitContainer2.SplitterDistance = (int)(250 * px);
-                this.splitContainer3.SplitterDistance = (int)(300 * px);
-            });
+            }
             this.condPanel.CorpusPane.SizeChanged += CorpusPane_SizeChanged;
 
-
-            m_DockStateFile = Program.SettingDir + @"\DockState.xml";
-            try
+            // Window stateの復元
+            this.Location = new Point(
+                (int)(WindowStates.Instance.WindowLocation.X * currentScaleFactor.Width),
+                (int)(WindowStates.Instance.WindowLocation.Y * currentScaleFactor.Height));
+            this.Size = new Size(
+                (int)(WindowStates.Instance.WindowSize.Width * currentScaleFactor.Width),
+                (int)(WindowStates.Instance.WindowSize.Height * currentScaleFactor.Height));
+            if (!WindowStates.Instance.IsSplitter1Expanded)
             {
-                if (Program.IsIgnoreDockSetting)
-                {
-                    throw new FileNotFoundException();
-                }
+                this.condPanel.CorpusPane.Shrink();
             }
-            catch (FileNotFoundException)
-            {
-                // 埋め込まれたリソースからデフォルトドッキング設定を読み込み
-                try
-                {
-                }
-                catch
-                {
-                    MessageBox.Show("Could not read default docking positions.  Resetting.");
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Could not restore docking positions.  Resetting.");
-            }
+            this.splitContainer2.SplitterDistance = 
+                (int)(WindowStates.Instance.SplitterPos2  * this.currentScaleFactor.Height);
+            this.splitContainer3.SplitterDistance =
+                (int)(WindowStates.Instance.SplitterPos3 * this.currentScaleFactor.Height);
 
             // Menuは常に最上部に配置する.
             this.menuStrip1.Location = new Point(0, 0);
@@ -324,6 +314,17 @@ namespace ChaKi
             this.splitContainer1.SplitterDistance = this.condPanel.CorpusPane.Width;
         }
 
+        private SizeF currentScaleFactor = new SizeF(1f, 1f);
+
+        protected override void ScaleControl(SizeF factor, BoundsSpecified specified)
+        {
+            base.ScaleControl(factor, specified);
+
+            //Record the running scale factor used
+            this.currentScaleFactor = new SizeF(factor.Width, factor.Height);
+        }
+
+
         public void ResetLayout()
         {
             try
@@ -378,8 +379,18 @@ namespace ChaKi
             // CommandPanelにスレッド中断を指示する
             this.commandPanel.Abort(false);
 
-            // Docking状態を保存する
-            //dockingManager.SaveConfigToFile(m_DockStateFile);
+            // Window状態を保存する
+            WindowStates.Instance.WindowLocation = new Point(
+                    (int)(this.Location.X / this.currentScaleFactor.Width),
+                    (int)(this.Location.Y / this.currentScaleFactor.Height));
+            WindowStates.Instance.WindowSize = new Size(
+                    (int)(this.Size.Width / this.currentScaleFactor.Width),
+                    (int)(this.Size.Height / this.currentScaleFactor.Height));
+            WindowStates.Instance.IsSplitter1Expanded = this.condPanel.CorpusPane.IsExpanded;
+            WindowStates.Instance.SplitterPos2 =
+                (int)(this.splitContainer2.SplitterDistance / this.currentScaleFactor.Height);
+            WindowStates.Instance.SplitterPos3 =
+                (int)(this.splitContainer3.SplitterDistance / this.currentScaleFactor.Height);
 
             // ユーザ設定を保存する
             UserSettings.GetInstance().LastCorpus = m_Model.CurrentSearchConditions.SentenceCond.Corpora;

@@ -39,6 +39,7 @@ namespace ChaKi.Panels.ConditionsPanes
         private ManualResetEvent m_WaitDone;
         private bool m_CancelFlag;
 
+        public bool IsExpanded { get; private set; } = true;
         public int ExpandedWidth { get; private set; } // Expand時 DPI aware width
         public int CollapsedWidth { get; private set; } // Collapsed時 DPI aware width
 
@@ -83,7 +84,6 @@ namespace ChaKi.Panels.ConditionsPanes
                 this.CollapsedWidth = (int)(30 * px);
                 this.Width = ExpandedWidth;
             });
-
         }
 
 #if false
@@ -674,23 +674,35 @@ namespace ChaKi.Panels.ConditionsPanes
         }
 
         // パネルを縮小する
-        private void button8_Click_1(object sender, EventArgs e)
+        public void Shrink()
         {
             this.Width = this.CollapsedWidth;
             this.panel2.Visible = false;
             this.label2.Visible = false;
             this.button8.Visible = false;
             this.button9.Visible = true;
+            this.IsExpanded = false;
+        }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            Shrink();
         }
 
         // パネルを元に戻す
-        private void button9_Click(object sender, EventArgs e)
+        public void Expand()
         {
             this.Width = this.ExpandedWidth;
             this.panel2.Visible = true;
             this.label2.Visible = true;
             this.button8.Visible = true;
             this.button9.Visible = false;
+            this.IsExpanded = true;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Expand();
         }
 
     }

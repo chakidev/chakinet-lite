@@ -28,6 +28,8 @@ namespace ChaKi
         static private string m_SettingFileTagAppearance;
         static private string m_SettingFilePropertyBox;
         static private string m_SettingFileDictionary;
+        static private string m_SettingWindowState;
+
         static public string SettingFileWordColor { get; private set; }
         static private Program instance;
         private string[] args;
@@ -131,7 +133,7 @@ namespace ChaKi
             {
                 ProgramDir = Environment.CurrentDirectory;
                 SettingDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-                SettingDir += @"\ChaKi.NET";
+                SettingDir += @"\ChaKi.NET_lite";
                 if (!Directory.Exists(SettingDir))
                 {
                     Directory.CreateDirectory(SettingDir);
@@ -140,6 +142,20 @@ namespace ChaKi
             catch (Exception e)
             {
                 MessageBox.Show(string.Format("{0}: {1}", e.Message, SettingDir));
+            }
+
+            m_SettingWindowState = Path.Combine(SettingDir, "WindowState.xml");
+            try
+            {
+                WindowStates.Load(m_SettingWindowState);
+            }
+            catch (FileNotFoundException)
+            {
+                // just reset content
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(string.Format("Error reading Window State : {0}", e.Message));
             }
 
             m_SettingFilePropertyBox = SettingDir + @"\PropertyBoxSettings.xml";
@@ -249,6 +265,7 @@ namespace ChaKi
             PropertyBoxSettings.Save(m_SettingFilePropertyBox);
             TagSetting.Save(m_SettingFileTagAppearance);
             DictionarySettings.Save(m_SettingFileDictionary);
+            WindowStates.Save(m_SettingWindowState);
         }
 
         static void ApplicationIdleHandler(object sender, EventArgs e)

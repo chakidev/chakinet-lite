@@ -174,7 +174,7 @@ namespace ChaKi.Views.KwicView
                 this.InvokeGotFocus(this, EventArgs.Empty);
             });
 
-            this.vScrollBar1.Width = (int)(40 + this.currentScaleFactor.Width);
+            this.vScrollBar1.Width = 40; // Designerでの設定を念のため上書き
         }
 
         protected override void ScaleControl(SizeF factor, BoundsSpecified specified)

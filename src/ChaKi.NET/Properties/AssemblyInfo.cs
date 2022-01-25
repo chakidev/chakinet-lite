@@ -2,11 +2,11 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-[assembly: AssemblyTitle("ChaKi.NET lite")]
+[assembly: AssemblyTitle("ChaKi.NET Lite")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("NAIST/Sowa Research Co.,Ltd.")]
-[assembly: AssemblyProduct("ChaKi.NET lite")]
+[assembly: AssemblyProduct("ChaKi.NET Lite")]
 [assembly: AssemblyCopyright("(C) 2011-2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

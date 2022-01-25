@@ -94,7 +94,7 @@ namespace ChaKi.Entity.Corpora
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return string.Empty;
             }

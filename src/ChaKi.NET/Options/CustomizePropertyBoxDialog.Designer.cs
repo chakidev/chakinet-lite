@@ -35,7 +35,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TagName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DisplayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Visible = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IsVisible = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -72,7 +72,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TagName,
             this.DisplayName,
-            this.Visible,
+            this.IsVisible,
             this.Column1,
             this.Column2});
             this.dataGridView1.DataSource = this.bindingSource1;
@@ -97,10 +97,10 @@
             // 
             // Visible
             // 
-            this.Visible.Frozen = true;
-            resources.ApplyResources(this.Visible, "Visible");
-            this.Visible.Name = "Visible";
-            this.Visible.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsVisible.Frozen = true;
+            resources.ApplyResources(this.IsVisible, "Visible");
+            this.IsVisible.Name = "Visible";
+            this.IsVisible.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Column1
             // 
@@ -184,7 +184,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridViewTextBoxColumn TagName;
         private System.Windows.Forms.DataGridViewTextBoxColumn DisplayName;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Visible;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsVisible;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column2;
         private System.Windows.Forms.CheckBox checkBox1;

@@ -33,7 +33,6 @@ namespace ChaKi.Entity.Corpora
         private int pos;
         private int startChar;
         private int endChar;
-        private DateTime timeStamp;
 
         private double? startTime;
         private double? endTime;

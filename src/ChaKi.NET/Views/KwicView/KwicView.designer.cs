@@ -219,9 +219,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
 
-        private System.Windows.Forms.DataGridViewTextBoxColumn KLeft;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KCenter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KRight;
         private System.Windows.Forms.DataGridViewTextBoxColumn Index;
         private System.Windows.Forms.DataGridViewTextBoxColumn Check;
         private System.Windows.Forms.DataGridViewTextBoxColumn Corpus;

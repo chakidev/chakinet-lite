@@ -8,10 +8,6 @@ namespace ChaKi.Entity.Corpora.Annotations
     {
         public static readonly List<Link> EmptyList = new List<Link>();
 
-        // For Performance purpose:
-        private Sentence m_FromSentence;
-        private Sentence m_ToSentence;
-
         public Link()
         {
             this.ID = 0;

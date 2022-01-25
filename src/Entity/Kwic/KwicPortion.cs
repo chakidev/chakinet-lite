@@ -109,7 +109,6 @@ namespace ChaKi.Entity.Kwic
                 }
                 return (n1 - n2);   // n1‚Ì•û‚ª’·‚¯‚ê‚Î+, n2‚Ì•û‚ª’·‚¯‚ê‚Î-
             }
-            return 0;
         }
 
         public int Count

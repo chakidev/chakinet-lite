@@ -12,10 +12,6 @@ namespace ChaKi.Entity.Corpora.Annotations
     /// </summary>
     public class Link2 : Annotation
     {
-        // For Performance purpose:
-        private Sentence m_FromSentence;
-        private Sentence m_ToSentence;
-
         public Link2()
         {
             this.ID = 0;

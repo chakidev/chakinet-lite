@@ -288,11 +288,6 @@ namespace ChaKi.Entity.Kwic
 
         #region Private Fields
         /// <summary>
-        /// 逆順にした左文脈（ソートで使用）
-        /// </summary>
-        private KwicPortion Left_Rev;
-
-        /// <summary>
         /// 表示Shift時に、現在のcenterが元の位置から
         /// 何語分前後にずれているかを示す値
         /// </summary>

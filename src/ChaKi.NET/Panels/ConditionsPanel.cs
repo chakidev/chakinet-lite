@@ -247,9 +247,9 @@ namespace ChaKi.Panels
             this.filterPane.PerformFilterAutoIncrement();
         }
 
-        public List<Corpus> GetCorpusList()
+        public CorpusGroup GetCorpusGroup()
         {
-            return this.CorpusPane.CorpusList;
+            return this.CorpusPane.CorpusGroup;
         }
 
         public void AddCorpus(string file, bool clear)

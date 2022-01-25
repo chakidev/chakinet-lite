@@ -167,7 +167,6 @@ namespace DependencyEditSLA.Widgets
         protected Rectangle m_FromBox;
         protected Rectangle m_ToBox;
         protected GraphicsPath m_Path;  // 矢印のヒットエリア全体を表す領域オブジェクト
-        protected Point m_TagLocation;  // タグ文字列の左上位置
         protected LinkTagLabel m_TagLabel;
 
         static protected Pen m_RegionPen;

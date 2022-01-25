@@ -7,7 +7,7 @@ namespace ChaKi.Entity.Search
 {
     public class SentenceSearchCondition : ISearchCondition, ICloneable
     {
-        public List<Corpus> Corpora { get; set; }
+        public CorpusGroup CorpusGroup { get; set; }
 
         // 特定IDの文のみを取得する場合にセットされる.
         public SerializableDictionary<Corpus, List<int>> Ids { get; set; }
@@ -16,18 +16,15 @@ namespace ChaKi.Entity.Search
 
         public SentenceSearchCondition()
         {
-            this.Corpora = new List<Corpus>();
+            this.CorpusGroup = new CorpusGroup();
             this.Ids = new SerializableDictionary<Corpus, List<int>>();
         }
 
         public SentenceSearchCondition(SentenceSearchCondition src)
             : this()
         {
-            foreach (Corpus c in src.Corpora)
-            {
-                // CorpusはCloneオブジェクト間であっても共有する
-                this.Corpora.Add(c);
-            }
+            this.CorpusGroup = src.CorpusGroup.Clone();
+
             foreach (KeyValuePair<Corpus, List<int>> pair in src.Ids)
             {
                 List<int> ids = new List<int>();
@@ -47,14 +44,14 @@ namespace ChaKi.Entity.Search
 
         public void Reset()
         {
-            this.Corpora.Clear();
+            this.CorpusGroup.Clear();
             this.Ids.Clear();
             if (OnModelChanged != null) OnModelChanged(this, null);
         }
 
         public Corpus Find(string name)
         {
-            foreach (Corpus c in this.Corpora)
+            foreach (Corpus c in this.CorpusGroup)
             {
                 if (c.Name == name)
                 {

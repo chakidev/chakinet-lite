@@ -89,41 +89,62 @@ namespace ChaKi.Common.Widgets
             vw.ExpandAll();
         }
 
-        public void PopulateWithPOSSelections(IList<Corpus> cps, Corpus current)
+        public void PopulateWithPOSSelections(CorpusGroup cps, Corpus current)
         {
             if (cps == null || cps.Count == 0) return;
             Dictionary<string, IList<PartOfSpeech>> list = new Dictionary<string, IList<PartOfSpeech>>();
+            int currentIndex = 0;
+            int i = 0;
             foreach (Corpus c in cps)
             {
                 list.Add(c.Name, c.Lex.PartsOfSpeech);
+                if (c == current)
+                {
+                    currentIndex = i;
+                }
+                i++;
             }
             PopulateWithPOSSelections(list);
-            this.tabControl1.SelectedIndex = Math.Max(0, cps.IndexOf(current));
+            this.tabControl1.SelectedIndex = currentIndex;
         }
 
-        public void PopulateWithCTypeSelections(IList<Corpus> cps, Corpus current)
+        public void PopulateWithCTypeSelections(CorpusGroup cps, Corpus current)
         {
             if (cps == null) return;
             Dictionary<string, IList<CType>> list = new Dictionary<string, IList<CType>>();
+            int currentIndex = 0;
+            int i = 0;
             foreach (Corpus c in cps)
             {
                 list.Add(c.Name, c.Lex.CTypes);
+                if (c == current)
+                {
+                    currentIndex = i;
+                }
+                i++;
             }
             PopulateWithCTypeSelections(list);
-            this.tabControl1.SelectedIndex = Math.Max(0, cps.IndexOf(current));
+            this.tabControl1.SelectedIndex = currentIndex;
         }
 
 
-        public void PopulateWithCFormSelections(IList<Corpus> cps, Corpus current)
+        public void PopulateWithCFormSelections(CorpusGroup cps, Corpus current)
         {
             if (cps == null) return;
             Dictionary<string, IList<CForm>> list = new Dictionary<string, IList<CForm>>();
+            int currentIndex = 0;
+            int i = 0;
             foreach (Corpus c in cps)
             {
                 list.Add(c.Name, c.Lex.CForms);
+                if (c == current)
+                {
+                    currentIndex = i;
+                }
+                i++;
             }
             PopulateWithCFormSelections(list);
-            this.tabControl1.SelectedIndex = Math.Max(0, cps.IndexOf(current));
+            this.tabControl1.SelectedIndex = currentIndex;
         }
 
         public void PopulateWithPOSSelections(IDictionary<string, IList<PartOfSpeech>> list)

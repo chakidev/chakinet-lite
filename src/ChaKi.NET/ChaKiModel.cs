@@ -72,11 +72,11 @@ namespace ChaKi
         public SearchHistory History { get; private set; }
         public SearchConditions CurrentSearchConditions { get; set; }
 
-        public static IList<Corpus> CurrentCorpusList
+        public static CorpusGroup CurrentCorpusGroup
         {
             get
             {
-                return Instance.CurrentSearchConditions.SentenceCond.Corpora;
+                return Instance.CurrentSearchConditions.SentenceCond.CorpusGroup;
             }
         }
 
@@ -106,7 +106,7 @@ namespace ChaKi
             TagSelector.ClearAllTags();
 
             // 前回使用したコーパスリストをロードする.
-            var list = UserSettings.GetInstance().LastCorpus;
+            var list = UserSettings.GetInstance().LastCorpusGroup;
             // ロードするファイルの数が10を越えたらProgress dialogを出す
             if (list.Count > 10)
             {
@@ -121,7 +121,7 @@ namespace ChaKi
                     using (m_Worker = new BackgroundWorker())
                     {
                         m_Worker.WorkerReportsProgress = true;
-                        m_Worker.DoWork += (obj, ea) => { LoadCorpusList((List<Corpus>)ea.Argument); };
+                        m_Worker.DoWork += (obj, ea) => { LoadCorpusList((CorpusGroup)ea.Argument); };
                         m_Worker.ProgressChanged += new ProgressChangedEventHandler(OnWorkerProgressChanged);
                         m_Worker.RunWorkerAsync(list);
                         m_Dlg.ShowDialog();
@@ -141,11 +141,11 @@ namespace ChaKi
             }
         }
 
-        private void LoadCorpusList(List<Corpus> corpora)
+        private void LoadCorpusList(CorpusGroup corpora)
         {
             m_CancelFlag = false;
             int i = 0;
-            foreach (Corpus c in UserSettings.GetInstance().LastCorpus)
+            foreach (Corpus c in UserSettings.GetInstance().LastCorpusGroup)
             {
                 if (m_CancelFlag)
                 {
@@ -197,7 +197,7 @@ namespace ChaKi
                     err.ShowDialog();
                     continue;
                 }
-                CurrentSearchConditions.SentenceCond.Corpora.Add(c);
+                CurrentSearchConditions.SentenceCond.CorpusGroup.Add(c);
             }
             if (m_Dlg != null)
             {

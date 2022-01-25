@@ -21,19 +21,19 @@ namespace ChaKi.Common.Widgets
 
         public event EventHandler OnSelectionChanged;
 
-        public void PopulateWithPOSSelections(IList<Corpus> cps, Corpus current)
+        public void PopulateWithPOSSelections(CorpusGroup cps, Corpus current)
         {
             this.treeView1.PopulateWithPOSSelections(cps, current);
             this.Selection = string.Empty;
         }
 
-        public void PopulateWithCTypeSelections(IList<Corpus> cps, Corpus current)
+        public void PopulateWithCTypeSelections(CorpusGroup cps, Corpus current)
         {
             this.treeView1.PopulateWithCTypeSelections(cps, current);
             this.Selection = string.Empty;
         }
 
-        public void PopulateWithCFormSelections(IList<Corpus> cps, Corpus current)
+        public void PopulateWithCFormSelections(CorpusGroup cps, Corpus current)
         {
              this.treeView1.PopulateWithCFormSelections(cps, current);
              this.Selection = string.Empty;

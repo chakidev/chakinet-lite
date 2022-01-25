@@ -393,7 +393,7 @@ namespace ChaKi
                 (int)(this.splitContainer3.SplitterDistance / this.currentScaleFactor.Height);
 
             // ÉÜÅ[ÉUê›íËÇï€ë∂Ç∑ÇÈ
-            UserSettings.GetInstance().LastCorpus = m_Model.CurrentSearchConditions.SentenceCond.Corpora;
+            UserSettings.GetInstance().LastCorpusGroup = m_Model.CurrentSearchConditions.SentenceCond.CorpusGroup;
             UserSettings.GetInstance().DefaultCollCond = m_Model.CurrentSearchConditions.CollCond;
         }
 

@@ -43,13 +43,7 @@ namespace ChaKi.Panels.ConditionsPanes
         public int ExpandedWidth { get; private set; } // Expand時 DPI aware width
         public int CollapsedWidth { get; private set; } // Collapsed時 DPI aware width
 
-        public List<Corpus> CorpusList
-        {
-            get
-            {
-                return m_Model.Corpora;
-            }
-        }
+        public CorpusGroup CorpusGroup => m_Model.CorpusGroup;
 
         public CorpusPane(SentenceSearchCondition model)
         {
@@ -114,10 +108,12 @@ namespace ChaKi.Panels.ConditionsPanes
         {
             treeControl1.SuspendLayout();
             treeControl1.Nodes.Clear();
-            foreach (Corpus c in m_Model.Corpora)
+            foreach (Corpus c in this.CorpusGroup)
             {
                 string name = c.Name;
                 TreeNode node = new TreeNode(name);
+                node.Name = c.Name;
+                node.Checked = true;
                 if (c.DBParam.DBType.Equals("SQLite"))
                 {
                     node.ImageIndex = 0;
@@ -158,12 +154,17 @@ namespace ChaKi.Panels.ConditionsPanes
             {
                 return;
             }
-            int index = e.Node.Index;
-            if (index < 0 || index >= m_Model.Corpora.Count)
+            var name = e.Node.Name;
+            if (name == null)
             {
                 return;
             }
-            ChaKiModel.CurrentCorpus = m_Model.Corpora[index];
+            var c = this.CorpusGroup.Find(name);
+            if (c == null)
+            {
+                return;
+            }
+            ChaKiModel.CurrentCorpus = c;
         }
 
         /// <summary>
@@ -211,14 +212,8 @@ namespace ChaKi.Panels.ConditionsPanes
                         this.Cursor = oldCursor;
                     }
                 }
-                if (m_Model.Corpora.Count > 0)
-                {
-                    ChaKiModel.CurrentCorpus = m_Model.Corpora[0];
-                }
-                else
-                {
-                    ChaKiModel.CurrentCorpus = null;
-                }
+                var c = this.CorpusGroup.FirstOrDefault();
+                ChaKiModel.CurrentCorpus = c;
             }
             UpdateView();
         }
@@ -282,7 +277,7 @@ namespace ChaKi.Panels.ConditionsPanes
             this.Cursor = Cursors.WaitCursor;
             if (clear)
             {
-                m_Model.Corpora.Clear();
+                this.CorpusGroup.Clear();
             }
             try
             {
@@ -294,14 +289,7 @@ namespace ChaKi.Panels.ConditionsPanes
                 err.ShowDialog();
             }
             this.Cursor = oldCursor;
-            if (m_Model.Corpora.Count > 0)
-            {
-                ChaKiModel.CurrentCorpus = m_Model.Corpora[0];
-            }
-            else
-            {
-                ChaKiModel.CurrentCorpus = null;
-            }
+            ChaKiModel.CurrentCorpus = this.CorpusGroup.FirstOrDefault();
             UpdateView();
         }
 
@@ -311,7 +299,7 @@ namespace ChaKi.Panels.ConditionsPanes
             // コーパスの基本情報をロードしておく
             DBService dbs = DBService.Create(c.DBParam);
 
-            if (m_Model.Corpora.FirstOrDefault(_c => _c.Name == c.Name) != null)
+            if (this.CorpusGroup.FirstOrDefault(_c => _c.Name == c.Name) != null)
             {
                 MessageBox.Show(ChaKi.Properties.Resources.DuplicateCorpusName);
                 return;
@@ -340,7 +328,7 @@ namespace ChaKi.Panels.ConditionsPanes
                     TagSelector.PreparedSelectors[s].AddTag(t, c.Name);
                 }
             });
-            m_Model.Corpora.Add(c);
+            this.CorpusGroup.Add(c);
         }
 
         /// <summary>
@@ -350,27 +338,14 @@ namespace ChaKi.Panels.ConditionsPanes
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            var n = treeControl1.SelectedNode;
-            if (n == null)
+            var name = treeControl1.SelectedNode?.Name;
+            if (name == null)
             {
                 return;
             }
-            int index = n.Index;
-            if (index < 0 || index >= m_Model.Corpora.Count)
-            {
-                return;
-            }
-            try
-            {
-                var name = m_Model.Corpora[index].Name;
-                m_Model.Corpora.RemoveAt(index);
-                TagSelector.ClearAllTags(name);
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("CorpusPane - Invalid Model");
-            }
-            if (m_Model.Corpora.Count == 0)
+            this.CorpusGroup.Remove(name);
+            TagSelector.ClearAllTags(name);
+            if (this.CorpusGroup.FirstOrDefault() == null)
             {
                 ChaKiModel.CurrentCorpus = null;
             }
@@ -386,7 +361,7 @@ namespace ChaKi.Panels.ConditionsPanes
         {
             try
             {
-                m_Model.Corpora.Clear();
+                this.CorpusGroup.Clear();
                 TagSelector.ClearAllTags();
             }
             catch (ArgumentOutOfRangeException)
@@ -404,20 +379,22 @@ namespace ChaKi.Panels.ConditionsPanes
         /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
+#if false //todo
             var n = treeControl1.SelectedNode;
             if (n == null)
             {
                 return;
             }
             int index = n.Index;
-            if (index <= 0 || m_Model.Corpora.Count == 0 || index >= m_Model.Corpora.Count)
+            if (index <= 0 || m_Model.CorpusGroup.Count == 0 || index >= m_Model.CorpusGroup.Count)
             {
                 return;
             }
-            Corpus c = m_Model.Corpora[index];
-            m_Model.Corpora.RemoveAt(index);
-            m_Model.Corpora.Insert(index - 1, c);
+            Corpus c = m_Model.CorpusGroup[index];
+            m_Model.CorpusGroup.RemoveAt(index);
+            m_Model.CorpusGroup.Insert(index - 1, c);
             UpdateView();
+#endif
         }
 
         /// <summary>
@@ -427,20 +404,22 @@ namespace ChaKi.Panels.ConditionsPanes
         /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
+#if false //todo
             var n = treeControl1.SelectedNode;
             if (n == null)
             {
                 return;
             }
             int index = n.Index;
-            if (index < 0 || m_Model.Corpora.Count == 0 || index >= m_Model.Corpora.Count - 1)
+            if (index < 0 || m_Model.CorpusGroup.Count == 0 || index >= m_Model.CorpusGroup.Count - 1)
             {
                 return;
             }
-            Corpus c = m_Model.Corpora[index];
-            m_Model.Corpora.RemoveAt(index);
-            m_Model.Corpora.Insert(index + 1, c);
+            Corpus c = m_Model.CorpusGroup[index];
+            m_Model.CorpusGroup.RemoveAt(index);
+            m_Model.CorpusGroup.Insert(index + 1, c);
             UpdateView();
+#endif
         }
 
         /// <summary>
@@ -450,13 +429,8 @@ namespace ChaKi.Panels.ConditionsPanes
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-            var n = treeControl1.SelectedNode;
-            if (n == null)
-            {
-                return;
-            }
-            int index = n.Index;
-            if (index < 0 || index >= m_Model.Corpora.Count)
+            var c = GetSelectedCorpus();
+            if (c == null)
             {
                 return;
             }
@@ -465,7 +439,7 @@ namespace ChaKi.Panels.ConditionsPanes
             CorpusInfo cdlg = new CorpusInfo();
             MainForm.Instance.AddOwnedForm(cdlg);
             cdlg.Show();
-            cdlg.LoadCorpusInfo(m_Model.Corpora[index]);
+            cdlg.LoadCorpusInfo(c);
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -482,17 +456,11 @@ namespace ChaKi.Panels.ConditionsPanes
         /// <param name="e"></param>
         public void ExportCurrent()
         {
-            var n = treeControl1.SelectedNode;
-            if (n == null)
+            var c = GetSelectedCorpus();
+            if (c == null)
             {
                 return;
             }
-            int index = n.Index;
-            if (index < 0 || index >= m_Model.Corpora.Count)
-            {
-                return;
-            }
-            Corpus crps = m_Model.Corpora[index];
 
             CorpusSourceReaderFactory factory = CorpusSourceReaderFactory.Instance;
             FileDialog dlg = new SaveFileDialog();
@@ -518,7 +486,7 @@ namespace ChaKi.Panels.ConditionsPanes
             }
             dlg.Filter = filterStr.ToString().TrimEnd('|');
             dlg.CheckPathExists = true;
-            dlg.Title = string.Format("Export \"{0}\"", crps.Name);
+            dlg.Title = string.Format("Export \"{0}\"", c.Name);
             if (ExportCorpusLastSelectedFilterIndex > 0)
             {
                 dlg.FilterIndex = ExportCorpusLastSelectedFilterIndex;
@@ -544,12 +512,22 @@ namespace ChaKi.Panels.ConditionsPanes
                 m_Worker.WorkerReportsProgress = true;
                 m_Worker.DoWork += new DoWorkEventHandler(OnExportCorpus);
                 m_Worker.ProgressChanged += new ProgressChangedEventHandler(OnWorkerProgressChanged);
-                m_Worker.RunWorkerAsync(new object[] { dlg.FileName, crps, def, proj });
+                m_Worker.RunWorkerAsync(new object[] { dlg.FileName, c, def, proj });
                 m_Dlg.ShowDialog();
                 m_WaitDone.WaitOne();
                 m_Dlg.Dispose();
                 m_Worker.Dispose();
             }
+        }
+
+        private Corpus GetSelectedCorpus()
+        {
+            var name = treeControl1.SelectedNode?.Name;
+            if (name == null)
+            {
+                return null;
+            }
+            return this.CorpusGroup.Find(name);
         }
 
         void OnExportCorpus(object sender, DoWorkEventArgs e)
@@ -624,7 +602,7 @@ namespace ChaKi.Panels.ConditionsPanes
         // Git Repositoryが外部から更新された時のDB Update
         private void GitRepositories_RepositoryChanged(object sender, RepositoryChangedEventArgs e)
         {
-            var corpus = this.CorpusList.FirstOrDefault(c => c.Name == e.RepositoryName);
+            var corpus = this.CorpusGroup.FirstOrDefault(c => c.Name == e.RepositoryName);
             if (corpus != null)
             {
                 BeginInvoke(new Action<Corpus>(c =>

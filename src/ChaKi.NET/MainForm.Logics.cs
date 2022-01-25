@@ -221,7 +221,7 @@ namespace ChaKi
 
                 // Viewに対するModelを更新する
                 WordListView view = this.ChangeView(conds.ActiveSearch) as WordListView;
-                view.SetModel(hist.LexemeList, conds.SentenceCond.Corpora, lexSize, pivotPos);
+                view.SetModel(hist.LexemeList, conds.SentenceCond.CorpusGroup.ToList(), lexSize, pivotPos);
                 this.commandPanel.SetModel(hist.Progress);
 
                 // ServiceCommandに基づき、ヒストリを新規作成して追加
@@ -357,11 +357,11 @@ namespace ChaKi
         {
             SearchConditionsSequence condSeq = new SearchConditionsSequence(parent.CondSeq);
             SearchConditions conds = new SearchConditions() { ActiveSearch = SearchType.SentenceSearch };
-            Corpus c = condSeq.Last.SentenceCond.Corpora.Count == 1 ? condSeq.Last.SentenceCond.Corpora[0] : null;
-            if (c == null)
+            if (condSeq.Last.SentenceCond.CorpusGroup.Count != 1)
             {
                 throw new Exception("Number of Corpus must be 1.");
             }
+            var c = condSeq.Last.SentenceCond.CorpusGroup.First();
             conds.SentenceCond = new SentenceSearchCondition(condSeq.Last.SentenceCond);
             conds.SentenceCond.Ids.Add(c, idlist);
             m_Model.CurrentSearchConditions = conds;

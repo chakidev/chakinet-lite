@@ -119,6 +119,7 @@
             // treeControl1
             // 
             resources.ApplyResources(this.treeControl1, "treeControl1");
+            this.treeControl1.CheckBoxes = true;
             this.treeControl1.Name = "treeControl1";
             // 
             // label2
@@ -137,6 +138,7 @@
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.Color.GhostWhite;
             resources.ApplyResources(this.button9, "button9");
             this.button9.BackColor = System.Drawing.Color.GhostWhite;
             this.button9.Name = "button9";

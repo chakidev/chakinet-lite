@@ -27,13 +27,13 @@ namespace ChaKi.Entity.Settings
 
         private UserSettings()
         {
-            LastCorpus = new List<Corpus>();
+            LastCorpusGroup = new CorpusGroup();
             LastKeywords = new List<string>();
             ExportSetting = new ExportSetting();
         }
 
         // 前回使用したコーパスのリスト
-        public List<Corpus> LastCorpus { get; set; }
+        public CorpusGroup LastCorpusGroup { get; set; }
 
         // 検索履歴（Surface, Reading, Pronunciation） Queueにしたいが、XmlSerializeできない
         public List<string> LastKeywords { get; set; }

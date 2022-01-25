@@ -129,6 +129,7 @@
     <Compile Include="Corpora\Bunsetsu.cs" />
     <Compile Include="Corpora\CharRange.cs" />
     <Compile Include="Corpora\CorpusAttribute.cs" />
+    <Compile Include="Corpora\CorpusGroup.cs" />
     <Compile Include="Corpora\CorpusProperty.cs" />
     <Compile Include="Corpora\Dictionary_Cradle.cs" />
     <Compile Include="Corpora\Dictionary_DB.cs" />

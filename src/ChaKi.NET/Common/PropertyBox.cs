@@ -283,19 +283,19 @@ namespace ChaKi.GUICommon
             {
                 m_inputDlg.HasTreeSelection = true;
                 // Selection(Tree)にPOS候補を用意させる
-                m_inputDlg.TreePopup.PopulateWithPOSSelections(ChaKiModel.CurrentCorpusList, ChaKiModel.CurrentCorpus);
+                m_inputDlg.TreePopup.PopulateWithPOSSelections(ChaKiModel.CurrentCorpusGroup, ChaKiModel.CurrentCorpus);
             }
             else if (m_tags[index] == Lexeme.PropertyName[LP.CType])
             {
                 m_inputDlg.HasTreeSelection = true;
                 // Selection(Tree)にCType候補を用意させる
-                m_inputDlg.TreePopup.PopulateWithCTypeSelections(ChaKiModel.CurrentCorpusList, ChaKiModel.CurrentCorpus);
+                m_inputDlg.TreePopup.PopulateWithCTypeSelections(ChaKiModel.CurrentCorpusGroup, ChaKiModel.CurrentCorpus);
             }
             else if (m_tags[index] == Lexeme.PropertyName[LP.CForm])
             {
                 m_inputDlg.HasTreeSelection = true;
                 // Selection(Tree)にCForm候補を用意させる
-                m_inputDlg.TreePopup.PopulateWithCFormSelections(ChaKiModel.CurrentCorpusList, ChaKiModel.CurrentCorpus);
+                m_inputDlg.TreePopup.PopulateWithCFormSelections(ChaKiModel.CurrentCorpusGroup, ChaKiModel.CurrentCorpus);
             }
             else
             {

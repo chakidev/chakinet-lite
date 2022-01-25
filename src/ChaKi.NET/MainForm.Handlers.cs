@@ -23,6 +23,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -991,7 +992,7 @@ namespace ChaKi
         private void OnOptionsDictionarySettings(object sender, EventArgs args)
         {
             DictionarySettingDialog dlg = new DictionarySettingDialog();
-            dlg.Corpora = this.condPanel.GetCorpusList();
+            dlg.Corpora = this.condPanel.GetCorpusGroup().ToList();
             dlg.ShowDialog();
         }
 

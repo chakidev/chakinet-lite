@@ -57,7 +57,7 @@ namespace ChaKi.Service.Search
             {
                 m_Progress.Reset();
             }
-            foreach (Corpus c in m_CondSeq.Last.SentenceCond.Corpora)    //TODO: 絞り込みの場合、条件間でのCorpusの不一致はどうするか?
+            foreach (Corpus c in m_CondSeq.Last.SentenceCond.CorpusGroup)    //TODO: 絞り込みの場合、条件間でのCorpusの不一致はどうするか?
             {
                 if (!c.Mutex.WaitOne(10, false))
                 {

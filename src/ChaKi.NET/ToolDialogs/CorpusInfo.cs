@@ -104,15 +104,15 @@ namespace ChaKi.ToolDialogs
 
         private void ShowPOS()
         {
-            this.propertyTree1.PopulateWithPOSSelections(new List<Corpus> { m_Corpus }, m_Corpus);
+            this.propertyTree1.PopulateWithPOSSelections(new CorpusGroup(m_Corpus), m_Corpus);
         }
         private void ShowCForms()
         {
-            this.propertyTree2.PopulateWithCFormSelections(new List<Corpus> { m_Corpus }, m_Corpus);
+            this.propertyTree2.PopulateWithCFormSelections(new CorpusGroup(m_Corpus), m_Corpus);
         }
         private void ShowCTypes()
         {
-            this.propertyTree3.PopulateWithCTypeSelections(new List<Corpus> { m_Corpus }, m_Corpus);
+            this.propertyTree3.PopulateWithCTypeSelections(new CorpusGroup(m_Corpus), m_Corpus);
         }
         private void ShowTags(DBService svc)
         {

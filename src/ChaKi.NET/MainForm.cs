@@ -87,17 +87,13 @@ namespace ChaKi
             m_Model.Initialize();
 
             #region create views
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            var resources = new ComponentResourceManager(typeof(MainForm));
 
             // Create Views
-            //this.kwicView.Dock = DockStyle.Fill;
-            //this.wordListView.Dock = DockStyle.Fill;
-            //this.collocationView.Dock = DockStyle.Fill;
-
             // èâä˙èÛë‘Ç≈ï\é¶Ç∑ÇÈView
-            this.ChangeView(SearchType.SentenceSearch);
+            ChangeView(SearchType.SentenceSearch);
 
-            this.ResumeLayout();
+            ResumeLayout();
             #endregion
 
             #region create docking panels
@@ -148,6 +144,9 @@ namespace ChaKi
 
             // MenuÇÕèÌÇ…ç≈è„ïîÇ…îzíuÇ∑ÇÈ.
             this.menuStrip1.Location = new Point(0, 0);
+            this.kwicView.Dock = DockStyle.Fill;
+            this.wordListView.Dock = DockStyle.Fill;
+            this.collocationView.Dock = DockStyle.Fill;
             #endregion
 
             #region UICommandìoò^

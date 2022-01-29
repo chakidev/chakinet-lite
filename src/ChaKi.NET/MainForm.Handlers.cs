@@ -1021,7 +1021,7 @@ namespace ChaKi
         {
             try
             {
-                Help.ShowHelp(this, Path.Combine(Program.ProgramDir, "chaki.chm"));
+                Process.Start("https://chakidev.github.io/chakinet-lite-help/");
             }
             catch (Exception ex)
             {

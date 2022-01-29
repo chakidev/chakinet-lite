@@ -17,6 +17,8 @@ namespace ChaKi.Entity.Corpora
 
         public List<Corpus> Corpora { get; } = new List<Corpus>();
 
+        public string Name { get; set; }
+
         public CorpusGroup()
         {
         }

@@ -38,6 +38,8 @@ namespace ChaKi.Panels.ConditionsPanes
         private BackgroundWorker m_Worker;  // Export Corpusワーク
         private ManualResetEvent m_WaitDone;
         private bool m_CancelFlag;
+        private int m_LoadingTotal;
+        private int m_LoadingDone;
 
         public bool IsExpanded { get; private set; } = true;
         public int ExpandedWidth { get; private set; } // Expand時 DPI aware width
@@ -78,6 +80,10 @@ namespace ChaKi.Panels.ConditionsPanes
                 this.CollapsedWidth = (int)(30 * px);
                 this.Width = ExpandedWidth;
             });
+
+            this.AllowDrop = true;
+            this.DragEnter += CorpusPane_DragEnter;
+            this.DragDrop += CorpusPane_DragDrop;
         }
 
 #if false
@@ -108,12 +114,24 @@ namespace ChaKi.Panels.ConditionsPanes
         {
             treeControl1.SuspendLayout();
             treeControl1.Nodes.Clear();
-            foreach (Corpus c in this.CorpusGroup)
+            var rootNode = new TreeNode();
+            UpdateNodeRecursively(rootNode, this.CorpusGroup);
+            treeControl1.Nodes.AddRange(rootNode.Nodes.Cast<TreeNode>().ToArray());
+            treeControl1.ResumeLayout();
+        }
+
+        private void UpdateNodeRecursively(TreeNode node, CorpusGroup group)
+        {
+            foreach (var g in group.Groups)
             {
-                string name = c.Name;
-                TreeNode node = new TreeNode(name);
-                node.Name = c.Name;
-                node.Checked = true;
+                var childNode = new TreeNode(g.Name) { Name = g.Name, Checked = true };
+                node.Nodes.Add(childNode);
+                UpdateNodeRecursively(childNode, g);
+            }
+            foreach (var c in group.Corpora)
+            {
+                var name = c.Name;
+                var childNode = new TreeNode(name) { Name = name, Checked = true };
                 if (c.DBParam.DBType.Equals("SQLite"))
                 {
                     node.ImageIndex = 0;
@@ -126,7 +144,7 @@ namespace ChaKi.Panels.ConditionsPanes
                 {
                     node.ImageIndex = 2;
                 }
-                treeControl1.Nodes.Add(node);
+                node.Nodes.Add(childNode);
                 if (c == ChaKiModel.CurrentCorpus)
                 {
                     m_bSuppressUpdate = true;   // AfterSelectイベント誘発による再帰的Updateを抑制
@@ -134,7 +152,6 @@ namespace ChaKi.Panels.ConditionsPanes
                     m_bSuppressUpdate = false;
                 }
             }
-            treeControl1.ResumeLayout();
         }
 
         public void ModelChangedHandler(object sender, EventArgs e)
@@ -165,6 +182,123 @@ namespace ChaKi.Panels.ConditionsPanes
                 return;
             }
             ChaKiModel.CurrentCorpus = c;
+        }
+
+        private void CorpusPane_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+
+        /// <summary>
+        /// FolderがDragされたとき、そこに含まれるコーパスファイルでツリーを追加する処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CorpusPane_DragDrop(object sender, DragEventArgs e)
+        {
+            var files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (files.Length == 0)
+            {
+                return;
+            }
+            var count = CountDBFiles(files);
+            m_WaitDone = new ManualResetEvent(false);
+            using (m_Dlg = new ProgressDialog())
+            {
+                m_Dlg.Title = "Loading Corpus From File/Directory...";
+                m_Dlg.ProgressMax = count;
+                m_Dlg.ProgressReset();
+                m_Dlg.WorkerCancelled += OnCancelled;
+                using (m_Worker = new BackgroundWorker())
+                {
+                    m_Worker.WorkerReportsProgress = true;
+                    m_Worker.DoWork += (obj, ea) =>
+                    {
+                        m_LoadingTotal = count;
+                        m_LoadingDone = 0;
+                        m_CancelFlag = false;
+                        LoadCorpusRecursively((string[])ea.Argument, this.CorpusGroup);
+                        if (m_Dlg != null) m_Dlg.DialogResult = DialogResult.Cancel;
+                        m_WaitDone?.Set();
+                    };
+                    m_Worker.ProgressChanged += OnWorkerProgressChanged;
+                    m_Worker.RunWorkerAsync(files);
+                    m_Dlg.ShowDialog();
+                    m_WaitDone.WaitOne();
+                }
+            }
+            var c = this.CorpusGroup.FirstOrDefault();
+            ChaKiModel.CurrentCorpus = c;
+            UpdateView();
+        }
+
+        private static int CountDBFiles(string[] list)
+        {
+            var count = 0;
+            try
+            {
+                foreach (var path in list)
+                {
+                    var attr = File.GetAttributes(path);
+                    if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+                    {
+                        count += CountDBFiles(Directory.EnumerateFileSystemEntries(path).ToArray());
+                    }
+                    else
+                    {
+                        var ext = Path.GetExtension(path).ToLower();
+                        if (ext == ".db" || ext == ".def")
+                        {
+                            count++;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+            }
+            return count;
+        }
+
+        private void LoadCorpusRecursively(string[] paths, CorpusGroup parentGroup)
+        {
+            foreach (string path in paths)
+            {
+                if (m_CancelFlag)
+                {
+                    break;
+                }
+                var attr = File.GetAttributes(path);
+                if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+                {
+                    var childGroup = new CorpusGroup() { Name = Path.GetFileNameWithoutExtension(path) };
+                    parentGroup.Groups.Add(childGroup);
+                    LoadCorpusRecursively(Directory.EnumerateFileSystemEntries(path).ToArray(), childGroup);
+                    if (m_CancelFlag)
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    var ext = Path.GetExtension(path).ToLower();
+                    if (ext == ".db" || ext == ".def")
+                    {
+                        m_LoadingDone++;
+                        m_Worker?.ReportProgress((int)(m_LoadingDone * 100.0 / m_LoadingTotal));
+                        try
+                        {
+                            LoadCorpus(path, parentGroup);
+                        }
+                        catch (Exception ex)
+                        {
+                            var err = new ErrorReportDialog(string.Format("Cannot add corpus {0}", path), ex);
+                            err.ShowDialog();
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -293,7 +427,7 @@ namespace ChaKi.Panels.ConditionsPanes
             UpdateView();
         }
 
-        private void LoadCorpus(string path)
+        private void LoadCorpus(string path, CorpusGroup parentGroup = null)
         {
             Corpus c = Corpus.CreateFromFile(path);
             // コーパスの基本情報をロードしておく
@@ -328,7 +462,14 @@ namespace ChaKi.Panels.ConditionsPanes
                     TagSelector.PreparedSelectors[s].AddTag(t, c.Name);
                 }
             });
-            this.CorpusGroup.Add(c);
+            if (parentGroup == null)
+            {
+                this.CorpusGroup.Add(c);// rootに追加
+            }
+            else
+            {
+                parentGroup.Add(c);
+            }
         }
 
         /// <summary>

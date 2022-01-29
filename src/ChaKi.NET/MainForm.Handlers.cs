@@ -892,7 +892,14 @@ namespace ChaKi
 
             process.StartInfo.Arguments = string.Format("\"{0}\" \"{1}\"", c.Source, tagsetname);
             process.StartInfo.WorkingDirectory = Program.ProgramDir;
-            process.Start();
+            try
+            {
+                process.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void OnToolsCreateDictionary(object sender, EventArgs e)
@@ -915,7 +922,14 @@ namespace ChaKi
             process.StartInfo.UserName = "";
             process.StartInfo.Arguments = null;
             process.StartInfo.WorkingDirectory = Program.ProgramDir;
-            process.Start();
+            try
+            {
+                process.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void OnToolsText2Corpus(object sender, EventArgs e)
@@ -931,7 +945,14 @@ namespace ChaKi
             process.StartInfo.UserName = "";
             process.StartInfo.Arguments = null;
             process.StartInfo.WorkingDirectory = Program.ProgramDir;
-            process.Start();
+            try
+            {
+                process.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void OnOptionsSettings(object sender, EventArgs e)

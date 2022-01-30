@@ -19,39 +19,6 @@ namespace ChaKi.Entity.Corpora
 
         public string Name { get; set; }
 
-        public bool IsActiveTarget
-        {
-            get
-            {
-                foreach (var g in this.Groups)
-                {
-                    if (g.IsActiveTarget)
-                    {
-                        return true;
-                    }
-                }
-                foreach (var c in this.Corpora)
-                {
-                    if (c.IsActiveTarget)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            set
-            {
-                foreach (var g in this.Groups)
-                {
-                    g.IsActiveTarget = value;
-                }
-                foreach (var c in this.Corpora)
-                {
-                    c.IsActiveTarget = value;
-                }
-            }
-        }
-
         public CorpusGroup()
         {
         }

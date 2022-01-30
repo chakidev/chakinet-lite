@@ -11,13 +11,46 @@ namespace ChaKi.Entity.Corpora
     /// CorpusまたはCorpusGroupを複数リストとして保持することができる
     /// Corpusタブ/SentenceSearchのモデルは、ルートとしてこのツリーを指す。
     /// </summary>
-    public class CorpusGroup : IEnumerable<Corpus>
+    public class CorpusGroup
     {
         public List<CorpusGroup> Groups { get; } = new List<CorpusGroup>();
 
         public List<Corpus> Corpora { get; } = new List<Corpus>();
 
         public string Name { get; set; }
+
+        public bool IsActiveTarget
+        {
+            get
+            {
+                foreach (var g in this.Groups)
+                {
+                    if (g.IsActiveTarget)
+                    {
+                        return true;
+                    }
+                }
+                foreach (var c in this.Corpora)
+                {
+                    if (c.IsActiveTarget)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            set
+            {
+                foreach (var g in this.Groups)
+                {
+                    g.IsActiveTarget = value;
+                }
+                foreach (var c in this.Corpora)
+                {
+                    c.IsActiveTarget = value;
+                }
+            }
+        }
 
         public CorpusGroup()
         {
@@ -54,6 +87,23 @@ namespace ChaKi.Entity.Corpora
             this.Corpora.RemoveAll(c => c.Name == name);
         }
 
+        public CorpusGroup FindGroup(string name)
+        {
+            if (this.Name == name)
+            {
+                return this;
+            }
+            foreach (var g in this.Groups)
+            {
+                var found = g.FindGroup(name);
+                if (found != null)
+                {
+                    return found;
+                }
+            }
+            return null;
+        }
+
         public Corpus Find(string name)
         {
             foreach (var g in this.Groups)
@@ -65,6 +115,13 @@ namespace ChaKi.Entity.Corpora
                 }
             }
             return this.Corpora.Find(c => c.Name == name);
+        }
+
+        // XmlSerializerがIEnumerable<Corpus>としてシリアライズしないよう、
+        // IEnumerableは派生クラスで定義し、必要なときのみ派生クラスを介して呼び出す。
+        public IEnumerable<Corpus> AsEnumerable()
+        {
+            return new CorpusGroupEnumerable(this);
         }
 
         public int Count
@@ -95,24 +152,40 @@ namespace ChaKi.Entity.Corpora
             return obj;
         }
 
-        public IEnumerator<Corpus> GetEnumerator()
+        public class CorpusGroupEnumerable : IEnumerable<Corpus>
         {
-            foreach (var g in this.Groups)
+            private CorpusGroup m_Source;
+
+            public CorpusGroupEnumerable(CorpusGroup source)
             {
-                foreach (var c in g)
+                m_Source = source;
+            }
+
+            public IEnumerator<Corpus> GetEnumerator()
+            {
+                foreach (var g in m_Source.Groups)
                 {
-                    yield return c;
+                    foreach (var c in g.AsEnumerable())
+                    {
+                        if (c.IsActiveTarget)
+                        {
+                            yield return c;
+                        }
+                    }
+                }
+                foreach (var c in m_Source.Corpora)
+                {
+                    if (c.IsActiveTarget)
+                    {
+                        yield return c;
+                    }
                 }
             }
-            foreach (var c in this.Corpora)
-            {
-                yield return c;
-            }
-        }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return (IEnumerator)GetEnumerator();
+            IEnumerator IEnumerable.GetEnumerator()
+            {
+                return (IEnumerator)GetEnumerator();
+            }
         }
     }
 }

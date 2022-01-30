@@ -51,7 +51,7 @@ namespace ChaKi.Entity.Search
 
         public Corpus Find(string name)
         {
-            foreach (Corpus c in this.CorpusGroup)
+            foreach (var c in this.CorpusGroup.AsEnumerable())
             {
                 if (c.Name == name)
                 {

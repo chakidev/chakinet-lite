@@ -144,8 +144,9 @@ namespace ChaKi
         private void LoadCorpusList(CorpusGroup corpora)
         {
             m_CancelFlag = false;
-            int i = 0;
-            foreach (Corpus c in UserSettings.GetInstance().LastCorpusGroup)
+            var i = 0;
+            var n = corpora.Count;
+            foreach (var c in corpora.AsEnumerable())
             {
                 if (m_CancelFlag)
                 {
@@ -153,7 +154,7 @@ namespace ChaKi
                 }
                 if (m_Worker != null)
                 {
-                    m_Worker.ReportProgress((int)(i * 100.0 / corpora.Count));
+                    m_Worker.ReportProgress((int)(i * 100.0 / n));
                 }
                 i++;
                 try
@@ -197,8 +198,8 @@ namespace ChaKi
                     err.ShowDialog();
                     continue;
                 }
-                CurrentSearchConditions.SentenceCond.CorpusGroup.Add(c);
             }
+            CurrentSearchConditions.SentenceCond.CorpusGroup = corpora;
             if (m_Dlg != null)
             {
                 m_Dlg.DialogResult = DialogResult.Cancel;

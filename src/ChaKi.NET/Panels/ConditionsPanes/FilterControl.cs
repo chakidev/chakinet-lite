@@ -102,7 +102,7 @@ namespace ChaKi.Panels.ConditionsPanes
             try
             {
                 this.selectorDocAttrKeys.Reset();
-                foreach (var c in this.CorpusCond.CorpusGroup)
+                foreach (var c in this.CorpusCond.CorpusGroup.AsEnumerable())
                 {
                     this.selectorDocAttrKeys.AddTab(c.Name);
                     var svc = DBService.Create(c.DBParam);
@@ -138,7 +138,7 @@ namespace ChaKi.Panels.ConditionsPanes
             try
             {
                 this.selectorDocAttrValues.Reset();
-                foreach (var c in this.CorpusCond.CorpusGroup)
+                foreach (var c in this.CorpusCond.CorpusGroup.AsEnumerable())
                 {
                     var tabname = string.Format("{0}:{1}", c.Name, key);
                     this.selectorDocAttrValues.AddTab(tabname);

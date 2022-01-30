@@ -81,9 +81,55 @@ namespace ChaKi.Panels.ConditionsPanes
                 this.Width = ExpandedWidth;
             });
 
+            this.treeControl1.AfterCheck += TreeControl1_AfterCheck;
             this.AllowDrop = true;
             this.DragEnter += CorpusPane_DragEnter;
             this.DragDrop += CorpusPane_DragDrop;
+        }
+
+        private bool supressAfterCheck = false;
+
+        private void TreeControl1_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            if (supressAfterCheck)
+            {
+                return;
+            }
+            var g = this.CorpusGroup.FindGroup(e.Node.Name);
+            if (g != null)
+            {
+                g.IsActiveTarget = e.Node.Checked;
+                RefreshCheckedStates(e.Node);
+                return;
+            }
+            var c = this.CorpusGroup.Find(e.Node.Name);
+            if (c != null)
+            {
+                c.IsActiveTarget = e.Node.Checked;
+            }
+        }
+
+        private void RefreshCheckedStates(TreeNode node)
+        {
+            foreach (TreeNode n in node.Nodes)
+            {
+                var g = this.CorpusGroup.FindGroup(n.Name);
+                if (g != null)
+                {
+                    supressAfterCheck = true;
+                    n.Checked = g.IsActiveTarget;
+                    supressAfterCheck = false;
+                    RefreshCheckedStates(n);
+                    continue;
+                }
+                var c = this.CorpusGroup.Find(n.Name);
+                if (c != null)
+                {
+                    supressAfterCheck = true;
+                    n.Checked = c.IsActiveTarget;
+                    supressAfterCheck = false;
+                }
+            }
         }
 
 #if false
@@ -124,14 +170,14 @@ namespace ChaKi.Panels.ConditionsPanes
         {
             foreach (var g in group.Groups)
             {
-                var childNode = new TreeNode(g.Name) { Name = g.Name, Checked = true };
+                var childNode = new TreeNode(g.Name) { Name = g.Name, Checked = g.IsActiveTarget };
                 node.Nodes.Add(childNode);
                 UpdateNodeRecursively(childNode, g);
             }
             foreach (var c in group.Corpora)
             {
                 var name = c.Name;
-                var childNode = new TreeNode(name) { Name = name, Checked = true };
+                var childNode = new TreeNode(name) { Name = name, Checked = c.IsActiveTarget };
                 if (c.DBParam.DBType.Equals("SQLite"))
                 {
                     node.ImageIndex = 0;
@@ -228,7 +274,7 @@ namespace ChaKi.Panels.ConditionsPanes
                     m_WaitDone.WaitOne();
                 }
             }
-            var c = this.CorpusGroup.FirstOrDefault();
+            var c = this.CorpusGroup.AsEnumerable().FirstOrDefault();
             ChaKiModel.CurrentCorpus = c;
             UpdateView();
         }
@@ -346,7 +392,7 @@ namespace ChaKi.Panels.ConditionsPanes
                         this.Cursor = oldCursor;
                     }
                 }
-                var c = this.CorpusGroup.FirstOrDefault();
+                var c = this.CorpusGroup.AsEnumerable().FirstOrDefault();
                 ChaKiModel.CurrentCorpus = c;
             }
             UpdateView();
@@ -423,7 +469,7 @@ namespace ChaKi.Panels.ConditionsPanes
                 err.ShowDialog();
             }
             this.Cursor = oldCursor;
-            ChaKiModel.CurrentCorpus = this.CorpusGroup.FirstOrDefault();
+            ChaKiModel.CurrentCorpus = this.CorpusGroup.AsEnumerable().FirstOrDefault();
             UpdateView();
         }
 
@@ -433,7 +479,7 @@ namespace ChaKi.Panels.ConditionsPanes
             // コーパスの基本情報をロードしておく
             DBService dbs = DBService.Create(c.DBParam);
 
-            if (this.CorpusGroup.FirstOrDefault(_c => _c.Name == c.Name) != null)
+            if (this.CorpusGroup.AsEnumerable().FirstOrDefault(_c => _c.Name == c.Name) != null)
             {
                 MessageBox.Show(ChaKi.Properties.Resources.DuplicateCorpusName);
                 return;
@@ -486,7 +532,7 @@ namespace ChaKi.Panels.ConditionsPanes
             }
             this.CorpusGroup.Remove(name);
             TagSelector.ClearAllTags(name);
-            if (this.CorpusGroup.FirstOrDefault() == null)
+            if (this.CorpusGroup.AsEnumerable().FirstOrDefault() == null)
             {
                 ChaKiModel.CurrentCorpus = null;
             }
@@ -743,7 +789,7 @@ namespace ChaKi.Panels.ConditionsPanes
         // Git Repositoryが外部から更新された時のDB Update
         private void GitRepositories_RepositoryChanged(object sender, RepositoryChangedEventArgs e)
         {
-            var corpus = this.CorpusGroup.FirstOrDefault(c => c.Name == e.RepositoryName);
+            var corpus = this.CorpusGroup.AsEnumerable().FirstOrDefault(c => c.Name == e.RepositoryName);
             if (corpus != null)
             {
                 BeginInvoke(new Action<Corpus>(c =>

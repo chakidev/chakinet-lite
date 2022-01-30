@@ -1013,7 +1013,7 @@ namespace ChaKi
         private void OnOptionsDictionarySettings(object sender, EventArgs args)
         {
             DictionarySettingDialog dlg = new DictionarySettingDialog();
-            dlg.Corpora = this.condPanel.GetCorpusGroup().ToList();
+            dlg.Corpora = this.condPanel.GetCorpusGroup().AsEnumerable().ToList();
             dlg.ShowDialog();
         }
 

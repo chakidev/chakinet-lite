@@ -39,6 +39,11 @@ namespace ChaKi.Entity.Corpora
         [XmlIgnore]
         public Mutex Mutex { get; set; }
 
+        /// <summary>
+        /// ŒŸõ‘ÎÛ‚©”Û‚©
+        /// </summary>
+        public bool IsActiveTarget { get; set; }
+
         public Corpus()
             : base()
         {

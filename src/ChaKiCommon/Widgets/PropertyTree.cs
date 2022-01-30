@@ -95,7 +95,7 @@ namespace ChaKi.Common.Widgets
             Dictionary<string, IList<PartOfSpeech>> list = new Dictionary<string, IList<PartOfSpeech>>();
             int currentIndex = 0;
             int i = 0;
-            foreach (Corpus c in cps)
+            foreach (var c in cps.AsEnumerable())
             {
                 list.Add(c.Name, c.Lex.PartsOfSpeech);
                 if (c == current)
@@ -114,7 +114,7 @@ namespace ChaKi.Common.Widgets
             Dictionary<string, IList<CType>> list = new Dictionary<string, IList<CType>>();
             int currentIndex = 0;
             int i = 0;
-            foreach (Corpus c in cps)
+            foreach (var c in cps.AsEnumerable())
             {
                 list.Add(c.Name, c.Lex.CTypes);
                 if (c == current)
@@ -134,7 +134,7 @@ namespace ChaKi.Common.Widgets
             Dictionary<string, IList<CForm>> list = new Dictionary<string, IList<CForm>>();
             int currentIndex = 0;
             int i = 0;
-            foreach (Corpus c in cps)
+            foreach (var c in cps.AsEnumerable())
             {
                 list.Add(c.Name, c.Lex.CForms);
                 if (c == current)

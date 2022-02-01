@@ -194,10 +194,12 @@ namespace ChaKi
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
             this.statusStrip1 = new ChaKi.GUICommon.ChakiStatusStrip();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -211,6 +213,8 @@ namespace ChaKi
             this.tabControl1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -233,6 +237,10 @@ namespace ChaKi
             resources.ApplyResources(this.splitContainer1, "splitContainer1");
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainer4);
             // 
             // splitContainer1.Panel2
             // 
@@ -1306,6 +1314,11 @@ namespace ChaKi
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
             // 
+            // splitContainer4
+            // 
+            resources.ApplyResources(this.splitContainer4, "splitContainer4");
+            this.splitContainer4.Name = "splitContainer4";
+            // 
             // MainForm
             // 
             this.AllowDrop = true;
@@ -1325,6 +1338,7 @@ namespace ChaKi
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -1341,6 +1355,8 @@ namespace ChaKi
             this.menuStrip1.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1512,6 +1528,7 @@ namespace ChaKi
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.SplitContainer splitContainer4;
     }
 }
 

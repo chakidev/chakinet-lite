@@ -18,7 +18,7 @@ namespace ChaKi.Panels
     /// コマンド待ち行列(Queue)と単一のスレッドを持ち、
     /// キューに入れられたServiceCommandを順次実行する
     /// </summary>
-    public partial class CommandPanel : Form
+    public partial class CommandPanel : UserControl
     {
         public bool[] CommandEnableStates
         {

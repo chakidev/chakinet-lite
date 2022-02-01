@@ -132,7 +132,7 @@
             resources.ApplyResources(this.button8, "button8");
             this.button8.BackColor = System.Drawing.Color.GhostWhite;
             this.button8.Name = "button8";
-            this.button8.Svg = Properties.Resources.CollapseLeftGroup_16x;
+            this.button8.Svg = null;
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click_1);
             // 
@@ -140,11 +140,9 @@
             // 
             this.button9.BackColor = System.Drawing.Color.GhostWhite;
             resources.ApplyResources(this.button9, "button9");
-            this.button9.BackColor = System.Drawing.Color.GhostWhite;
             this.button9.Name = "button9";
-            this.button9.Svg = Properties.Resources.ExpandRightGroup_16x;
+            this.button9.Svg = null;
             this.button9.UseVisualStyleBackColor = false;
-            this.button9.Visible = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // CorpusPane

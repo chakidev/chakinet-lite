@@ -128,10 +128,10 @@
     <value>選択済コーパス一覧:</value>
   </data>
   <data name="button4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>194, 502</value>
+    <value>225, 498</value>
   </data>
   <data name="button7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>165, 530</value>
+    <value>149, 530</value>
   </data>
   <data name="button7.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 26</value>
@@ -140,22 +140,22 @@
     <value>エクスポート</value>
   </data>
   <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>92, 498</value>
+    <value>80, 498</value>
   </data>
   <data name="button3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 26</value>
+    <value>65, 26</value>
   </data>
   <data name="button3.Text" xml:space="preserve">
     <value>情報表示</value>
   </data>
   <data name="button5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>226, 502</value>
+    <value>225, 524</value>
   </data>
   <data name="button6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>92, 530</value>
+    <value>80, 530</value>
   </data>
   <data name="button6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 26</value>
+    <value>65, 26</value>
   </data>
   <data name="button6.Text" xml:space="preserve">
     <value>すべて除外</value>
@@ -164,7 +164,7 @@
     <value>19, 530</value>
   </data>
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 26</value>
+    <value>55, 26</value>
   </data>
   <data name="button2.Text" xml:space="preserve">
     <value>除外</value>
@@ -173,7 +173,7 @@
     <value>19, 498</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 26</value>
+    <value>55, 26</value>
   </data>
   <data name="button1.Text" xml:space="preserve">
     <value>追加...</value>
@@ -195,13 +195,13 @@
   </data>
   <data name="button8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAQxJREFUSEvtlL+OgkAQh+ks7xEsLe8daCwND0AsbXmDewMraktKSxMaX4AESjoK
-        OhIiCX+kHGfI/IjeRQNcc6d+ySTL7O73y0JY483/oSzLhQ5/0LbtXIfTqOt62TTNmdlpq0d6XCde86mt
-        cUBeFAWxSKoPUTnp3PgQyNM0Jdu2KYoihOy1yPd9chyH8jzvQh69yhu+y0WSZRkCuhK5aZrkeR56ByKa
-        qeI+Lyc/DpILLP+STUEQdBLXdamqql4uY+nJnKzR/la3D2NKCJ98rduH8bwh8oE1IJRCiGVZ+NFo9L2E
-        kDiOcYKQr4YPKYQkSTLtBAAhkGvbQMiv5IBDNtdyID2eW+njmz+HYVwASxhnZqAImtsAAAAASUVORK5C
-        YII=
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEMSURBVEhL7ZS/joJAEIfpLO8RLC3vHWgsDQ9ALG15g3sD
+        K2pLSksTGl+ABEo6CjoSIgl/pBxnyPyI3kUDXHOnfskky+zu98tCWOPN/6Esy4UOf9C27VyH06jretk0
+        zZnZaatHelwnXvOprXFAXhQFsUiqD1E56dz4EMjTNCXbtimKIoTstcj3fXIch/I870IevcobvstFkmUZ
+        AroSuWma5HkeegcimqniPi8nPw6SCyz/kk1BEHQS13WpqqpeLmPpyZys0f5Wtw9jSgiffK3bh/G8IfKB
+        NSCUQohlWfjRaPS9hJA4jnGCkK+GDymEJEky7QQAIZBr20DIr+SAQzbXciA9nlvp45s/h2FcAEsYZ2ag
+        CJrbAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="button8.Location" type="System.Drawing.Point, System.Drawing">
@@ -209,12 +209,13 @@
   </data>
   <data name="button9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAQdJREFUSEvtlD0Kg0AQRu1SpkyZMscI2KT2AJIj5AixyjEsLVMKNrmApYVgkRNI
-        BH/WcjLfsiNrioALgRR+sKCj894qu+ut+d/0fb8joo25naVt24O5dMs4jvthGJ5KqfRTwvUr14kncDal
-        ZRF40zQEkC0ReF3X+tliCX4L4F3XURRFlCSJSB48YlwXRUFBEFBZlm4SAWVZRr7v2xI98GWQrxIdbrqj
-        8WcSXlE3NKEZEMCs1aUHpJBjEqYWm/bv4ZmceEWpFT4Lg7b88gvAMAwnODYf17HZKM9zN7hEvqCqqgmO
-        4wPHBcNSQLGbneASkQjclD1b4gyXMPhowyWQsPhibtf8fTzvDRZyZTFvbf3dAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEHSURBVEhL7ZQ9CoNAEEbtUqZMmTLHCNik9gCSI+QIscox
+        LC1TCja5gKWFYJETSAR/1nIy37Ija4qAC4EUfrCgo/PeKrvrrfnf9H2/I6KNuZ2lbduDuXTLOI77YRie
+        Sqn0U8L1K9eJJ3A2pWUReNM0BJAtEXhd1/rZYgl+C+Bd11EURZQkiUgePGJcF0VBQRBQWZZuEgFlWUa+
+        79sSPfBlkK8SHW66o/FnEl5RNzShGRDArNWlB6SQYxKmFpv27+GZnHhFqRU+C4O2/PILwDAMJzg2H9ex
+        2SjPcze4RL6gqqoJjuMDxwXDUkCxm53gEpEI3JQ9W+IMlzD4aMMlkLD4Ym7X/H087w0WcmUxb2393QAA
+        AABJRU5ErkJggg==
 </value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">

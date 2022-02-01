@@ -153,6 +153,9 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="button4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="button4.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 9pt</value>
   </data>
@@ -160,7 +163,7 @@
     <value>NoControl</value>
   </data>
   <data name="button4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>195, 504</value>
+    <value>214, 505</value>
   </data>
   <data name="button4.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 20</value>
@@ -179,6 +182,9 @@
   </data>
   <data name="&gt;&gt;button4.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="button7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="button7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -207,6 +213,9 @@
   <data name="&gt;&gt;button7.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="button3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="button3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -234,6 +243,9 @@
   <data name="&gt;&gt;button3.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="button5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="button5.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 9pt</value>
   </data>
@@ -241,7 +253,7 @@
     <value>NoControl</value>
   </data>
   <data name="button5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>227, 504</value>
+    <value>214, 527</value>
   </data>
   <data name="button5.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 20</value>
@@ -260,6 +272,9 @@
   </data>
   <data name="&gt;&gt;button5.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="button6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="button6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -288,6 +303,9 @@
   <data name="&gt;&gt;button6.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="button2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -314,6 +332,9 @@
   </data>
   <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="button1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -343,7 +364,7 @@
     <value>7</value>
   </data>
   <data name="treeControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="treeControl1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Lucida Sans Unicode, 8.25pt</value>

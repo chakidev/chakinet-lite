@@ -116,6 +116,7 @@ namespace ChaKi.Entity.Corpora
                 // CorpusはCloneオブジェクト間であっても共有する
                 obj.Corpora.Add(c);
             }
+            obj.Name = this.Name;
             return obj;
         }
 

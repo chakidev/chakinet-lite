@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ConvertUDCorpus": {
+      "commandName": "Project",
+      "commandLineArgs": "q:\\ud-treebanks-v2.9 q:\\ud-treebanks-db > log.txt"
+    }
+  }
+}

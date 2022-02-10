@@ -125,7 +125,7 @@
     <value>96, 13</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>選択済コーパス一覧:</value>
+    <value>コーパス一覧:</value>
   </data>
   <data name="button4.Location" type="System.Drawing.Point, System.Drawing">
     <value>225, 498</value>

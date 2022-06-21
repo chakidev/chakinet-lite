@@ -72,7 +72,7 @@ namespace ChaKi.Service.Readers
             }
         }
 
-        private Lexeme PropsToLexeme(string[] props)
+        private Lexeme PropsToLexeme(string[] props, bool isConllU = false)
         {
             Debug.Assert(props.Length == 10);
 
@@ -83,7 +83,7 @@ namespace ChaKi.Service.Readers
             m.Pronunciation = props[3];
             m.BaseLexeme = m;
             m.Lemma = props[5];
-            m.PartOfSpeech = GetPartOfSpeech(props[6]);
+            m.PartOfSpeech = GetPartOfSpeech(props[6], isConllU);
             m.CType = GetCType(props[7]);
             m.CForm = GetCForm(props[8]);
             m.CustomProperty = props[9];
@@ -170,14 +170,14 @@ namespace ChaKi.Service.Readers
         /// </summary>
         /// <param name="s">語のPropertyをカンマで区切った文字列</param>
         /// <returns></returns>
-        public Lexeme AddEntry(string[] props)
+        public Lexeme AddEntry(string[] props, bool isConllU = false)
         {
             Lexeme m = PropsToLexeme(props);
 
             if (props[8].Length > 0 && !props[8].Equals(BASE_TAG))
             {
                 // 基本形を検索（なければ登録）
-                Lexeme m_base = PropsToLexeme(props);
+                Lexeme m_base = PropsToLexeme(props, isConllU);
                 m_base.CForm = GetCForm(BASE_TAG);
                 m_base.Surface = props[4];
                 m_base.Reading = string.Empty;
@@ -438,12 +438,12 @@ namespace ChaKi.Service.Readers
             return ret;
         }
 
-        public PartOfSpeech GetPartOfSpeech(string name)
+        public PartOfSpeech GetPartOfSpeech(string name, bool isConllU = false)
         {
             PartOfSpeech obj = null;
             if (!this.KeyedPartsOfSpeech.TryGetValue(name, out obj))
             {
-                obj = new PartOfSpeech(name) { ID = -1 };
+                obj = new PartOfSpeech(name, isConllU) { ID = -1 };
                 this.KeyedPartsOfSpeech.Add(name, obj);
             }
             return obj;
@@ -649,7 +649,7 @@ namespace ChaKi.Service.Readers
             }
             else
             {
-                return AddEntry(props);
+                return AddEntry(props, true);
             }
         }
 

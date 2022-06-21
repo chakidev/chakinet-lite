@@ -34,9 +34,16 @@ namespace ChaKi.Entity.Corpora
             return new PartOfSpeech(this);
         }
 
-        public PartOfSpeech(string name)
+        public PartOfSpeech(string name, bool isConllU = false)
          {
-             this.FromString(name);
+            if (isConllU)
+            {
+                FromStringConllU(name);
+            }
+            else
+            {
+                FromString(name);
+            }
          }
 
         public override string StrVal
@@ -64,6 +71,24 @@ namespace ChaKi.Entity.Corpora
                 {
                     m_Names[i] = parts[i];
                 }
+            }
+        }
+
+        // CONLL-U(UD)ではnameはUPOS-XPOSで、UPOSは'-'を含まないが、XPOSは'-'を含むことがある。
+        // UPOSをname[0]に, XPOSをname[1]に入れる。
+        private void FromStringConllU(string name)
+        {
+            m_PartOfSpeech = name;
+            m_Names = new string[4];
+            var idx = name.IndexOf('-');
+            if (idx < 0)
+            {
+                m_Names[0] = name;
+            }
+            else
+            {
+                m_Names[0] = name.Substring(0, idx);
+                m_Names[1] = name.Substring(idx + 1);
             }
         }
 
@@ -106,5 +131,6 @@ namespace ChaKi.Entity.Corpora
         private int m_ID;
         private string[] m_Names;
         private string m_PartOfSpeech;
+
     }
 }

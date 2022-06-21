@@ -297,6 +297,18 @@ namespace ChaKi.GUICommon
                 // Selection(Tree)にCForm候補を用意させる
                 m_inputDlg.TreePopup.PopulateWithCFormSelections(ChaKiModel.CurrentCorpusGroup, ChaKiModel.CurrentCorpus);
             }
+            else if (m_tags[index] == Lexeme.PropertyName[LP.UPOS])
+            {
+                m_inputDlg.HasTreeSelection = true;
+                // Selection(Tree)にUPOS(PartOfSpeechの第1セグメント)候補を用意させる
+                m_inputDlg.TreePopup.PopulateWithUPOSSelections(ChaKiModel.CurrentCorpusGroup, ChaKiModel.CurrentCorpus);
+            }
+            else if (m_tags[index] == Lexeme.PropertyName[LP.XPOS])
+            {
+                m_inputDlg.HasTreeSelection = true;
+                // Selection(Tree)にXPOS(PartOfSpeechの第2セグメント)候補を用意させる
+                m_inputDlg.TreePopup.PopulateWithXPOSSelections(ChaKiModel.CurrentCorpusGroup, ChaKiModel.CurrentCorpus);
+            }
             else
             {
                 m_inputDlg.HasListSelection = true;

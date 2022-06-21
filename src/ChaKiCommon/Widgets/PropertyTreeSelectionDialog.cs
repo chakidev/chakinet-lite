@@ -39,6 +39,17 @@ namespace ChaKi.Common.Widgets
              this.Selection = string.Empty;
         }
 
+        public void PopulateWithUPOSSelections(CorpusGroup cps, Corpus current)
+        {
+            this.treeView1.PopulateWithPOSSelections(cps, current, 0);
+            this.Selection = string.Empty;
+        }
+        public void PopulateWithXPOSSelections(CorpusGroup cps, Corpus current)
+        {
+            this.treeView1.PopulateWithPOSSelections(cps, current, 1);
+            this.Selection = string.Empty;
+        }
+
         /// <summary>
         /// スクロール位置を先頭にセットする
         /// </summary>

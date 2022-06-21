@@ -17,7 +17,10 @@ namespace ChaKi.Entity.Corpora
         PartOfSpeech = 6,
         CType = 7,
         CForm = 8,
-        Max = 9,
+        UPOS = 9,
+        XPOS = 10,
+        Custom = 11,
+        Max = 12,
     }
 
     public enum LWP
@@ -37,7 +40,11 @@ namespace ChaKi.Entity.Corpora
         EndTime = 10,
         Duration = 11,
         HeadInfo = 12,
-        Max = 13,
+        // UniversalDependency Properties (Lexeme Properties)
+        UPOS = 13,
+        XPOS = 14,
+        Custom = 15,
+        Max = 16,
     }
 
     public class Lexeme : IComparable, ICloneable
@@ -83,6 +90,9 @@ namespace ChaKi.Entity.Corpora
                 {LP.PartOfSpeech, "PartOfSpeech" },
                 {LP.CType, "CType" },
                 {LP.CForm, "CForm" },
+                {LP.UPOS, "UPOS" },
+                {LP.XPOS, "XPOS" },
+                {LP.Custom, "Custom" },
             };
 
         /// <summary>
@@ -98,6 +108,8 @@ namespace ChaKi.Entity.Corpora
                 {LWP.BaseLexeme, "BaseLexeme" },
                 {LWP.Lemma, "Lemma" },
                 {LWP.PartOfSpeech, "PartOfSpeech" },
+                {LWP.UPOS, "UPOS" },
+                {LWP.XPOS, "XPOS" },
                 {LWP.CType, "CType" },
                 {LWP.CForm, "CForm" },
                 {LWP.StartTime, "StartTime" },
@@ -119,7 +131,8 @@ namespace ChaKi.Entity.Corpora
                 {LP.Lemma, "lemma" },
                 {LP.PartOfSpeech, "part_of_speech_id" },
                 {LP.CType, "ctype_id" },
-                {LP.CForm, "cform_id" }
+                {LP.CForm, "cform_id" },
+                {LP.Custom, "custom" },
             };
 
         public static LP? FindProperty(string name)
@@ -591,7 +604,7 @@ namespace ChaKi.Entity.Corpora
             result.Add(Lexeme.PropertyName[LP.PartOfSpeech], this.PartOfSpeech.Name);
             result.Add(Lexeme.PropertyName[LP.CType], this.CType.Name);
             result.Add(Lexeme.PropertyName[LP.CForm], this.CForm.Name);
-            result.Add("Custom", this.CustomProperty);
+            result.Add(Lexeme.PropertyName[LP.Custom], this.CustomProperty);
 
             return result;
         }

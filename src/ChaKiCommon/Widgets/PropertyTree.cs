@@ -70,6 +70,7 @@ namespace ChaKi.Common.Widgets
             vw.Dock = DockStyle.Fill;
             vw.SelectedNode = null;
             vw.ShowPlusMinus = false;
+            
             //vw.Nodes.AddRange(new System.Windows.Forms.TreeNode[] { new TreeNode { Name = "root", Text = "*" } });
             vw.NodeMouseClick += new TreeNodeMouseClickEventHandler(
                 delegate(object o, TreeNodeMouseClickEventArgs e)
@@ -89,7 +90,7 @@ namespace ChaKi.Common.Widgets
             vw.ExpandAll();
         }
 
-        public void PopulateWithPOSSelections(CorpusGroup cps, Corpus current)
+        public void PopulateWithPOSSelections(CorpusGroup cps, Corpus current, int segToUse = -1)
         {
             if (cps == null || cps.Count == 0) return;
             Dictionary<string, IList<PartOfSpeech>> list = new Dictionary<string, IList<PartOfSpeech>>();
@@ -104,9 +105,10 @@ namespace ChaKi.Common.Widgets
                 }
                 i++;
             }
-            PopulateWithPOSSelections(list);
+            PopulateWithPOSSelections(list, segToUse);
             this.tabControl1.SelectedIndex = currentIndex;
         }
+
 
         public void PopulateWithCTypeSelections(CorpusGroup cps, Corpus current)
         {
@@ -147,7 +149,7 @@ namespace ChaKi.Common.Widgets
             this.tabControl1.SelectedIndex = currentIndex;
         }
 
-        public void PopulateWithPOSSelections(IDictionary<string, IList<PartOfSpeech>> list)
+        public void PopulateWithPOSSelections(IDictionary<string, IList<PartOfSpeech>> list, int segToUse = -1)
         {
             m_Trees.ForEach(v => { this.Controls.Remove(v); });
             m_Trees.Clear();
@@ -161,15 +163,39 @@ namespace ChaKi.Common.Widgets
 
                 tv.Nodes.Clear();
                 tv.Nodes.Add(".*", ".*");
-                foreach (PartOfSpeech pos in pair.Value)
+                var tagsToAdd = new List<string[]>();
+                foreach (var pos in pair.Value)
                 {
-                    string[] tags = new string[4] { pos.Name1, pos.Name2, pos.Name3, pos.Name4 };
+                    string[] tags;
+                    switch (segToUse)
+                    {
+                        case 0:
+                            tags = new string[1] { pos.Name1 };
+                            break;
+                        case 1:
+                            tags = new string[1] { pos.Name2 };
+                            break;
+                        default:
+                            tags = new string[4] { pos.Name1, pos.Name2, pos.Name3, pos.Name4 };
+                            break;
+                    }
+                    tagsToAdd.Add(tags);
+                }
+                // ソートして順に追加
+                tagsToAdd.Sort(ComparisonOfPosString);
+                foreach (var tags in tagsToAdd)
+                {
                     AddNode(tv, tags);
                 }
                 InitializeTreeView(tv);
                 tv.Parent = this.tabControl1.TabPages[page];
                 m_Trees.Add(tv);
             }
+        }
+
+        private static int ComparisonOfPosString(string[] p1, string[] p2)
+        {
+            return string.Compare(string.Join("\t", p1), string.Join("\t", p2));
         }
 
         public void PopulateWithCTypeSelections(IDictionary<string, IList<CType>> list)

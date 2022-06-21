@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CheckPOS": {
+      "commandName": "Project",
+      "commandLineArgs": "q:\\ud-treebanks-v2.9"
+    }
+  }
+}

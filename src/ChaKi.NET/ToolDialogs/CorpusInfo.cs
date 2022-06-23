@@ -67,7 +67,7 @@ namespace ChaKi.ToolDialogs
                 StartLoadLexicon();
             }
         }
-        
+
         private void StartLoadLexicon()
         {
             // Lexicon情報→非同期
@@ -104,8 +104,17 @@ namespace ChaKi.ToolDialogs
 
         private void ShowPOS()
         {
-            this.propertyTree1.PopulateWithPOSSelections(new CorpusGroup(m_Corpus), m_Corpus);
+            this.propertyTree1.PopulateWithPOSSelections(new CorpusGroup(m_Corpus), m_Corpus, -1);
         }
+        private void ShowUPOS()
+        {
+            this.propertyTree11.PopulateWithPOSSelections(new CorpusGroup(m_Corpus), m_Corpus, 0);
+        }
+        private void ShowXPOS()
+        {
+            this.propertyTree12.PopulateWithPOSSelections(new CorpusGroup(m_Corpus), m_Corpus, 1);
+        }
+
         private void ShowCForms()
         {
             this.propertyTree2.PopulateWithCFormSelections(new CorpusGroup(m_Corpus), m_Corpus);
@@ -159,6 +168,8 @@ namespace ChaKi.ToolDialogs
             this.Cursor = Cursors.WaitCursor;
             ShowLexicon();
             ShowPOS();
+            ShowUPOS();
+            ShowXPOS();
             ShowCForms();
             ShowCTypes();
             this.Cursor = Cursors.Arrow;

@@ -90,6 +90,7 @@ namespace ChaKi.Common.Widgets
             vw.ExpandAll();
         }
 
+        // segToUse: -1: name1~4を階層化、0: name1をリスト、1: name2をリスト
         public void PopulateWithPOSSelections(CorpusGroup cps, Corpus current, int segToUse = -1)
         {
             if (cps == null || cps.Count == 0) return;
@@ -108,7 +109,6 @@ namespace ChaKi.Common.Widgets
             PopulateWithPOSSelections(list, segToUse);
             this.tabControl1.SelectedIndex = currentIndex;
         }
-
 
         public void PopulateWithCTypeSelections(CorpusGroup cps, Corpus current)
         {

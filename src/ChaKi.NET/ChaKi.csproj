@@ -450,7 +450,7 @@
     </Compile>
     <Compile Include="Common\IChaKiView.cs" />
     <Compile Include="Panels\CommandPanel.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Panels\CommandPanel.Designer.cs">
       <DependentUpon>CommandPanel.cs</DependentUpon>

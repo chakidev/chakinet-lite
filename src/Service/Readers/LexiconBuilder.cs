@@ -172,7 +172,7 @@ namespace ChaKi.Service.Readers
         /// <returns></returns>
         public Lexeme AddEntry(string[] props, bool isConllU = false)
         {
-            Lexeme m = PropsToLexeme(props);
+            Lexeme m = PropsToLexeme(props, isConllU);
 
             if (props[8].Length > 0 && !props[8].Equals(BASE_TAG))
             {
@@ -184,7 +184,7 @@ namespace ChaKi.Service.Readers
                 m_base.Pronunciation = string.Empty;
 
                 string key_base = m_base.ToString();
-                string key_base2 = m_base.ToString2();
+                string key_base2 = m_base.ToString2(isConllU);
                 Lexeme l;
                 if (!this.KeyedEntries.TryGetValue(key_base, out l))    // Reading, Pronunciationを含めて検索
                 {
@@ -681,6 +681,10 @@ namespace ChaKi.Service.Readers
                 ret[6] = string.Format("{0}-{1}", ret[6], fields[4]);
             }
             // 5: Features
+            if (fields.Length > 5 && !fields[5].Equals("_"))
+            {
+                ret[9] = fields[5];
+            }
             // 6: Head
             // 7: DepRel
             // 8: PHead

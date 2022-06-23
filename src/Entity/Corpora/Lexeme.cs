@@ -116,6 +116,7 @@ namespace ChaKi.Entity.Corpora
                 {LWP.EndTime, "EndTime" },
                 {LWP.Duration, "Duration" },
                 {LWP.HeadInfo, "HeadInfo" },
+                {LWP.Custom, "FEATS" },
             };
 
         /// <summary>
@@ -308,7 +309,7 @@ namespace ChaKi.Entity.Corpora
             return properties[tag];
         }
 
-        public virtual string GetStringProperty(LP tag)
+        public virtual string GetStringProperty(LP tag, bool isConllU = false)
         {
             string s = string.Empty;
             switch (tag)
@@ -332,7 +333,10 @@ namespace ChaKi.Entity.Corpora
                     s = this.Lemma;
                     break;
                 case LP.PartOfSpeech:
-                    if (this.PartOfSpeech != null) s = this.PartOfSpeech.Name;
+                    if (this.PartOfSpeech != null)
+                    {
+                        s = isConllU ? this.PartOfSpeech.Name1 : this.PartOfSpeech.Name;
+                    }
                     break;
                 case LP.CType:
                     if (this.CType != null) s = this.CType.Name;
@@ -406,11 +410,12 @@ namespace ChaKi.Entity.Corpora
 
         // Reading, Pronunciationを除く文字列表現
         // 基本形の一致比較のみに使用する
-        public string ToString2()
+        // CONLLUの場合、name2(XPOS)に活用情報が入っている可能性があるため、pos.name1のみを使用する
+        public string ToString2(bool isConllU = false)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat("{0},,,", GetStringProperty(LP.Surface));
-            sb.AppendFormat("{0},", GetStringProperty(LP.PartOfSpeech));
+            sb.AppendFormat("{0},", GetStringProperty(LP.PartOfSpeech, isConllU));
             sb.AppendFormat("{0},", GetStringProperty(LP.BaseLexeme));
             sb.AppendFormat("{0},", GetStringProperty(LP.CType));
             sb.AppendFormat("{0}", GetStringProperty(LP.CForm));

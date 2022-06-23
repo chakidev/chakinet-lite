@@ -26,11 +26,16 @@ foreach (var subdir in subdirs)
                 {
                     var upos = tkns[3];
                     var xpos = tkns[4];
+                    if (xpos.Length > 40)
+                    {
+                        Console.WriteLine($"{file} xpos={xpos}");
+                        break;
+                    }
                     if (upos != "_" && upos.IndexOf('-') >= 0)
                     {
-                        found = true;
-                        Console.WriteLine($"{file} upos={upos}");
-                        break;
+                        //found = true;
+                        //Console.WriteLine($"{file} upos={upos}");
+                        //break;
                     }
                     if (xpos != "_" && xpos.IndexOf('-') >= 0)
                     {

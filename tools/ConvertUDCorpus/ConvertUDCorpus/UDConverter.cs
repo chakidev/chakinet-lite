@@ -38,6 +38,7 @@ namespace ConvertUDCorpus
                 };
                 Process.Start(psi).WaitForExit();
                 File.Delete(srcpath);
+                Console.Error.WriteLine(dstpath);
             }
 
         }

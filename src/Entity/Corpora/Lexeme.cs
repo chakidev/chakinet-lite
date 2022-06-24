@@ -92,7 +92,7 @@ namespace ChaKi.Entity.Corpora
                 {LP.CForm, "CForm" },
                 {LP.UPOS, "UPOS" },
                 {LP.XPOS, "XPOS" },
-                {LP.Custom, "Custom" },
+                {LP.Custom, "FEATS" },
             };
 
         /// <summary>

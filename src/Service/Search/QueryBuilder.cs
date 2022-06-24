@@ -125,6 +125,18 @@ namespace ChaKi.Service.Search
                     sb_where.Append(conn.Get());
                     sb_where.AppendFormat("l.part_of_speech_id=pos.id and pos.part_of_speech{0}'{1}'", op, Util.EscapeQuote(item.Value.StrVal));
                 }
+                else if (item.Key == Lexeme.PropertyName[LP.UPOS])
+                {
+                    sb_from.Append(",part_of_speech pos");
+                    sb_where.Append(conn.Get());
+                    sb_where.AppendFormat("l.part_of_speech_id=pos.id and pos.name1{0}'{1}'", op, Util.EscapeQuote(item.Value.StrVal));
+                }
+                else if (item.Key == Lexeme.PropertyName[LP.XPOS])
+                {
+                    sb_from.Append(",part_of_speech pos");
+                    sb_where.Append(conn.Get());
+                    sb_where.AppendFormat("l.part_of_speech_id=pos.id and pos.name2{0}'{1}'", op, Util.EscapeQuote(item.Value.StrVal));
+                }
                 else if (item.Key == Lexeme.PropertyName[LP.CType])
                 {
                     sb_from.Append(",ctype ct");

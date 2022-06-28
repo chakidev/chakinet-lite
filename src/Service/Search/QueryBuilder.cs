@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Collections;
+using System.Linq;
 using ChaKi.Entity.Corpora;
 using ChaKi.Entity.Search;
 using NHibernate;
@@ -449,9 +450,17 @@ namespace ChaKi.Service.Search
             {
                 throw new QueryBuilderException("PivotNotFound");
             }
-            sb.Append("SELECT wp.* FROM ");
+            sb.Append("SELECT wp.id");
+            if (cond.TagCond.LexemeConds.Count > 0)
+            {
+                sb.Append(",");
+                sb.Append(string.Join(",",
+                    Enumerable.Range(0, cond.TagCond.LexemeConds.Count)
+                        .Select(i => $"w{i}.position")));
+            }
+            sb.Append(" FROM ");
 
-            StringConnector connector = new StringConnector(",");
+            var connector = new StringConnector(",");
             sb.Append(connector.Get());
             sb.Append("word wp");
             for (int i = 0; i < cond.TagCond.LexemeConds.Count; i++)

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using ChaKi.Entity.Corpora;
 using ChaKi.Entity.Search;
@@ -10,13 +10,16 @@ using System.Text;
 using System.Diagnostics;
 using System.Data;
 using ChaKi.Common.Settings;
+using NHibernate.Transform;
+using ChaKi.Service.Common;
+using System.Linq;
 
 namespace ChaKi.Service.Search
 {
     public class TagSearchService : SearchServiceBase
     {
         private KwicList m_Model;
-        private LexemeResultSet m_LexemeResultSet;  //’†ŠÔŒ‹‰Ê‚Æ‚µ‚Ä‚ÌLexemeƒŠƒXƒg‚ÌƒŠƒXƒg
+        private LexemeResultSet m_LexemeResultSet;  //ä¸­é–“çµæœã¨ã—ã¦ã®Lexemeãƒªã‚¹ãƒˆã®ãƒªã‚¹ãƒˆ
 
         public TagSearchService(SearchHistory hist, SearchHistory parent)
             : base(hist, parent)
@@ -26,14 +29,14 @@ namespace ChaKi.Service.Search
         }
 
         /// <summary>
-        /// ƒR[ƒpƒX‚²‚Æ‚ÌTagSearch–{‘Ì
+        /// ã‚³ãƒ¼ãƒ‘ã‚¹ã”ã¨ã®TagSearchæœ¬ä½“
         /// </summary>
         /// <param name="c">The c.</param>
         protected override void ExecuteSearchSession(Corpus c)
         {
             SearchConditions cond = m_CondSeq.Last;
 
-            // ANDŒŸõii‚è‚İj‚Ìê‡‚ÍAtagCond‚Ìe‚ÌKwicList‚ÌSenteceW‡‚ğğŒ‚É‰Á‚¦‚éB
+            // ANDæ¤œç´¢ï¼ˆçµã‚Šè¾¼ã¿ï¼‰ã®å ´åˆã¯ã€tagCondã®è¦ªã®KwicListã®Senteceé›†åˆã‚’æ¡ä»¶ã«åŠ ãˆã‚‹ã€‚
             List<int> targetSentences = null;
             if (cond.Operator == SearchSequenceOperator.And)
             {
@@ -43,28 +46,46 @@ namespace ChaKi.Service.Search
                 }
             }
 
-            // Word‚ÌŒŸõğŒ•¶(SQL)‚ğì¬‚µAŒŸõ‚ğÀs‚·‚éB
-            string qstr = QueryBuilder.Instance.BuildTagSearchQuerySQL(cond, targetSentences);
-            IQuery query = m_Session.CreateSQLQuery(qstr).AddEntity(typeof(Word));
-            IList<Word> queryResult = query.List<Word>();
+            // Wordã®æ¤œç´¢æ¡ä»¶æ–‡(SQL)ã‚’ä½œæˆã—ã€æ¤œç´¢ã‚’å®Ÿè¡Œã™ã‚‹ã€‚
+            var qstr = QueryBuilder.Instance.BuildTagSearchQuerySQL(cond, targetSentences);
+            // ã“ã“ã§ã¯ä¸­å¿ƒèªã®IDã¨ã€ä¸­å¿ƒãŠã‚ˆã³å‘¨è¾ºèªã®Positionãƒªã‚¹ãƒˆã‚’çµæœ(object[])ã¨ã—ã¦å¾—ã‚‹ã€‚
+            // CreateSQLQueryã§å•ã„åˆã‚ã›ã‚‹ã¨object[2]ä»¥é™ãŒæ­£ã—ãå¾—ã‚‰ã‚Œãªã„ã®ã§ã€IDbCommandã‚’ç›´æ¥ãŸãŸãã€‚
+            //var query = m_Session.CreateSQLQuery(qstr);
+            List<object[]> queryResult = new List<object[]>();
+            var cmd = m_Session.Connection.CreateCommand();
+            {
+                cmd.CommandText = qstr;
+                var rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    var arr = new object[rdr.FieldCount];
+                    rdr.GetValues(arr);
+                    queryResult.Add(arr);
+                }
+                rdr.Close();
+            }
             int totalCount = queryResult.Count;
-            IEnumerable<Word> filteredResult = (cond.FilterCond.AllEnabled) ?
-                cond.FilterCond.ResultsetFilter.CreateEnumerable<Word>(queryResult) : queryResult;
+            var filteredResult = (cond.FilterCond.AllEnabled) ?
+                cond.FilterCond.ResultsetFilter.CreateEnumerable<object[]>(queryResult) : queryResult;
 
-            // ‚±‚±‚Ü‚Å‚ÅŒŸõ‚ÍI—¹B
+            // ã“ã“ã¾ã§ã§æ¤œç´¢ã¯çµ‚äº†ã€‚
 
-            // ŒŸõ‚³‚ê‚½Word‚É‘Î‚µ‚ÄA‚»‚ÌWord‚ğ‚Á‚Ä‚¢‚éSentence‚ğ‚½‚Ç‚èA
-            // •¶“à—e‚ğKwic‚É•ÏŠ·Eo—Í‚·‚é
+            // æ¤œç´¢ã•ã‚ŒãŸWordã«å¯¾ã—ã¦ã€ãã®Wordã‚’æŒã£ã¦ã„ã‚‹Sentenceã‚’ãŸã©ã‚Šã€
+            // æ–‡å†…å®¹ã‚’Kwicã«å¤‰æ›ãƒ»å‡ºåŠ›ã™ã‚‹
             int n = 0;
             m_Progress.SetRange(totalCount);
-            foreach (Word centerWord in filteredResult)
+            foreach (var r in filteredResult)
             {
-                int position = centerWord.Pos;   // KWIC‚Ìcenter word‚Æ‚È‚éŒê‚ÌˆÊ’u
+                // å…ˆã®ã‚¯ã‚¨ãƒªçµæœã®ç¬¬1ã‚«ãƒ©ãƒ ãŒä¸­å¿ƒèªã®IDãªã®ã§ã€ãã‚Œã‚’ç”¨ã„ã¦Wordã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã€‚
+                var centerWord = m_Session.Get<Word>((int)r[0]);
+                var secondaryWordPos = r.Skip(1).ToArray(); // r[1]ä»¥é™ãŒæ¤œç´¢ã«ç”¨ã„ãŸwordã®positionãƒªã‚¹ãƒˆ
+//                Console.WriteLine($"{(int)r[1]}, {(int)r[2]}");
+                int position = centerWord.Pos;   // KWICã®center wordã¨ãªã‚‹èªã®ä½ç½®
                 Sentence sen = centerWord.Sen;
                 KwicItem ki = new KwicItem(c, sen.ParentDoc, sen.ID, sen.StartChar, sen.EndChar, sen.Pos);
                 int pos = 0;
 
-                // sen.Words ˆÈ‰º‚ÌƒAƒNƒZƒX‚ÍAHibernate‚Å‚Í‚È‚­’¼ÚSQL‚Ås‚¤iMaxƒpƒtƒH[ƒ}ƒ“ƒX‚Ì‚½‚ßj
+                // sen.Words ä»¥ä¸‹ã®ã‚¢ã‚¯ã‚»ã‚¹ã¯ã€Hibernateã§ã¯ãªãç›´æ¥SQLã§è¡Œã†ï¼ˆMaxãƒ‘ãƒ•ã‚©ãƒ¼ãƒãƒ³ã‚¹ã®ãŸã‚ï¼‰
                 List<int> lexids = new List<int>();
                 //!SQL
                 ISQLQuery wq;
@@ -83,7 +104,7 @@ namespace ChaKi.Service.Search
                 foreach (var word in wlist)
                 {
                     int lexid = word.Lex.ID;
-                    // Corpus‚ÌLexicon‚Ö–â‚¢‡‚í‚¹•’Ç‰Á
+                    // Corpusã®Lexiconã¸å•ã„åˆã‚ã›ï¼†è¿½åŠ 
                     Lexeme lex;
                     if (!c.Lex.TryGetLexeme(lexid, out lex))
                     {
@@ -99,17 +120,26 @@ namespace ChaKi.Service.Search
                         QueryWordMappings(word);
                     }
 
+                    var kw_attr = 0; // ä¸­å¿ƒèªãƒ»å…±èµ·èªã§ã‚ã‚Œã‚ã°ã“ã®ãƒ•ãƒ©ã‚°ã‚’ã‚»ãƒƒãƒˆ
+                    if (pos == position)
+                    {
+                        kw_attr = KwicWord.KWA_PIVOT;
+                    }
+                    else if (secondaryWordPos.Contains(pos))
+                    {
+                        kw_attr = KwicWord.KWA_SECOND;
+                    }
                     if (pos < position)
                     {
-                        ki.Left.AddLexeme(lex, word, 0);
+                        ki.Left.AddLexeme(lex, word, kw_attr);
                     }
                     else if (pos == position)
                     {
-                        ki.Center.AddLexeme(lex, word, KwicWord.KWA_PIVOT);
+                        ki.Center.AddLexeme(lex, word, kw_attr);
                     }
                     else
                     {
-                        ki.Right.AddLexeme(lex, word, 0);
+                        ki.Right.AddLexeme(lex, word, kw_attr);
                     }
                     pos++;
                 }
@@ -117,6 +147,7 @@ namespace ChaKi.Service.Search
                 m_Progress.Increment();
                 n++;
             }
+
         }
     }
 }

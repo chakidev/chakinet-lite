@@ -34,7 +34,8 @@ namespace ChaKi.Views.KwicView
         public static bool RenderTwoLine { get; set; }
 
         private static Brush NormalBrush { get; set; }
-        private static Brush HilightBrush { get; set; }
+        private static Brush HilightBrush { get; set; } // 中心語の色
+        private static Brush HilightBrush2 { get; set; } // 共起語の色
         private static Font L1FontNormal { get; set; }
         private static Font L2FontNormal { get; set; }
         private static Font L1FontBold { get; set; }
@@ -49,6 +50,7 @@ namespace ChaKi.Views.KwicView
             sformat = new StringFormat() { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near };
             NormalBrush = Brushes.Black;
             HilightBrush = Brushes.Red;
+            HilightBrush2 = Brushes.Blue;
             SelectionBrush = new SolidBrush(Color.FromArgb(50, Color.Blue));
             CircleFillBrush = new SolidBrush(Color.FromArgb(200, Color.Pink));
         }
@@ -103,6 +105,12 @@ namespace ChaKi.Views.KwicView
                 l1Font = L1FontBold;
                 l2Font = L2FontBold;
                 brush = HilightBrush;
+            }
+            if ((this.KwicWord.ExtAttr & KwicWord.KWA_SECOND) != 0)
+            {
+                l1Font = L1FontBold;
+                l2Font = L2FontBold;
+                brush = HilightBrush2;
             }
             // Apply WordColorSetting
             Corpus crps = this.KwicItem.Crps;

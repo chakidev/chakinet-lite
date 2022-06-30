@@ -1085,5 +1085,205 @@ namespace ChaKi.Service.Search
 
             return sb.ToString();
         }
+
+        /// <summary>
+        /// Dependency Search用のクエリを作成する
+        /// (元々QueryBuilderSLAでBuildDepSearchQueryとして実装されていたもののSQL版)
+        /// 
+        /// Document Filter条件は、与えるtargetSentencesに既に反映されている。(cf. BuildDepSearchQuery1)
+        /// </summary>
+        /// <param name="lexemeResultSet"></param>
+        /// <param name="cond"></param>
+        /// <returns></returns>
+        public string BuildDepSearchQuerySQL(LexemeResultSet lexemeResultSet, SearchConditions cond, IList<Sentence> targetSentences)
+        {
+            Debug.Assert(lexemeResultSet != null);
+            Debug.Assert(lexemeResultSet.Count > 0);
+
+            DepSearchCondition depCond = cond.DepCond;
+
+            StringBuilder sb = new StringBuilder();
+            int iPivot = depCond.GetPivotPos();
+            if (iPivot < 0)
+            {
+                throw new QueryBuilderException("PivotNotFound");
+            }
+            sb.Append($"SELECT w{iPivot}.id");
+            if (cond.TagCond.LexemeConds.Count > 0)
+            {
+                sb.Append(",");
+                sb.Append(string.Join(",",
+                    lexemeResultSet.Cast<LexemeResult>().Select(r => $"w{r.No}.position")));
+            }
+            sb.Append(" FROM ");
+
+            StringConnector connector = new StringConnector(",");
+            foreach (LexemeResult res in lexemeResultSet)
+            {
+                sb.Append(connector.Get());
+                sb.AppendFormat("word w{0}", res.No);
+            }
+            sb.Append(connector.Get());
+            sb.AppendFormat("sentence sen");
+            for (int i = 0; i < depCond.BunsetsuConds.Count; i++)
+            {
+                sb.Append(connector.Get());
+                sb.AppendFormat("segment s{0}", i);
+            }
+            for (int i = 0; i < depCond.LinkConds.Count; i++)
+            {
+                sb.Append(connector.Get());
+                sb.AppendFormat("link k{0}", i);
+            }
+
+            sb.Append(" WHERE ");
+            sb.Append(BuildDepSearchQueryWhereClauseForBunsetsuSQL(iPivot, depCond, targetSentences, lexemeResultSet, cond.FilterCond.TargetProjectId));
+
+            this.LastQuery = sb.ToString();
+            return this.LastQuery;
+        }
+
+        /// <summary>
+        /// BuildDepSearchQueryWhereClauseと目的は同じだが
+        /// Bunsetsu Segmentを仮定してパフォーマンスを上げたもの
+        /// </summary>
+        /// <param name="iPivot"></param>
+        /// <param name="depCond"></param>
+        /// <param name="targetSentences"></param>
+        /// <param name="lexResults"></param>
+        /// <returns></returns>
+        private string BuildDepSearchQueryWhereClauseForBunsetsuSQL(int iPivot, DepSearchCondition depCond, IList<Sentence> targetSentences, LexemeResultSet lexResults, int targetProjectId)
+        {
+            // 検索の効率のため、lexResultsをLexemeのヒット数の少ない順に並べ替える。
+            lexResults.Sort();
+
+            StringBuilder sb = new StringBuilder();
+            StringConnector connector = new StringConnector(" AND ");
+
+            // 絞り込み範囲のSentece集合を条件に加える。
+            if (targetSentences != null && targetSentences.Count > 0)
+            {
+                sb.Append(connector.Get());
+                sb.AppendFormat("sen.id in {0}", Util.BuildSentenceIDList(targetSentences));
+            }
+
+            foreach (LexemeResult result in lexResults)
+            {
+                // 同じ文に出現していること。
+                sb.Append(connector.Get());
+                sb.AppendFormat("w{0}.sentence_id = sen.id", result.No);
+                if (result.LexemeList != null)
+                {
+                    // かつ、候補LexemeのどれかにIDが一致していること。
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("w{0}.lexeme_id in {1}", result.No, Util.BuildLexemeIDList(result.LexemeList));
+                }
+                // かつ、その語がSegment(i)に属していること
+                sb.Append(connector.Get());
+                TagSearchCondition tcond = depCond.BunsetsuConds[result.BunsetsuNo];
+                if (tcond.SegmentTag == "Bunsetsu")
+                {
+                    // 文節の場合のみ、速度を稼ぐために、Bunsetsu.IDによるマッチングを使用
+                    sb.AppendFormat("w{0}.bunsetsu_segment_id = s{1}.id", result.No, result.BunsetsuNo);
+                }
+                else
+                {
+                    sb.AppendFormat("(w{0}.end_char > s{1}.start_char and w{0}.start_char < s{1}.end_char)", result.No, result.BunsetsuNo);
+                }
+
+                // Word属性による検索条件を追加する.
+                sb.Append(BuildWordPropertyQueryWhere(result.No, connector, result.Cond));
+
+                // 語の間の順序関係
+                // 左接続条件
+                if (result.Cond.LeftConnection == '-')
+                {
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("w{0}.position+1 = w{1}.position", result.No - 1, result.No);
+                }
+                else if (result.Cond.LeftConnection == '<')
+                {
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("w{0}.position < w{1}.position", result.No - 1, result.No);
+                }
+                else if (result.Cond.LeftConnection == '^')
+                {
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("w{0}.start_char = s{1}.start_char", result.No, result.BunsetsuNo);
+                }
+                // 右接続条件
+                if (result.Cond.RightConnection == '$')
+                {
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("w{0}.end_char = s{1}.end_char", result.No, result.BunsetsuNo);
+                }
+                if (targetProjectId >= 0)
+                {
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("w{0}.project_id={1}", result.No, targetProjectId);
+                }
+            }
+            // Segment間の順序関係
+            for (int i = 0; i < depCond.BunsetsuConds.Count; i++)
+            {
+                sb.Append(connector.Get());
+                sb.AppendFormat("s{0}.sentence_id = sen.id", i);
+
+                TagSearchCondition tcond = depCond.BunsetsuConds[i];
+
+                //sb.Append(connector.Get());
+                //sb.AppendFormat("s{0}.Tag.Name = '{1}'", i, tcond.SegmentTag);
+
+                // Segment Attributes
+                foreach (var attr in tcond.SegmentAttrs)
+                {
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("s{0}.Attributes2['{1}'] = '{2}'", i, attr.Key, Util.EscapeQuote(attr.Value));
+                }
+
+                // 左接続条件
+                if (tcond.LeftConnection == '^')
+                {
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("s{0}.start_char = sen.start_char", i);
+                }
+                else if (tcond.LeftConnection == '-')
+                {
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("s{0}.end_char = s{1}.start_char", i - 1, i);
+                }
+                else if (tcond.LeftConnection == '<')
+                {
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("s{0}.start_char < s{1}.start_char", i - 1, i);
+                }
+                // 右接続条件
+                if (tcond.RightConnection == '$')
+                {
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("s{0}.end_char = sen.end_char", i);
+                }
+            }
+            // Segment間のLink条件
+            for (int i = 0; i < depCond.LinkConds.Count; i++)
+            {
+                LinkCondition kcond = depCond.LinkConds[i];
+                sb.Append(connector.Get());
+                sb.AppendFormat("k{0}.from_segment_id = s{1}.id and k{0}.to_segment_id = s{2}.id", i, kcond.SegidFrom, kcond.SegidTo);
+                if (kcond.TextIsValid)
+                {
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("k{0}.Tag.Name = '{1}'", i, kcond.Text);
+                }
+                // Link Attributes
+                foreach (var attr in kcond.LinkAttrs)
+                {
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("k{0}.Attributes2['{1}'] = '{2}'", i, attr.Key, Util.EscapeQuote(attr.Value));
+                }
+
+            }
+            return sb.ToString();
+        }
     }
 }

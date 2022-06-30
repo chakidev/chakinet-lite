@@ -11,56 +11,6 @@ namespace ChaKi.Service.Search
     public class QueryBuilderSLA : QueryBuilder
     {
         /// <summary>
-        /// Dependency Search用のクエリを作成する
-        /// 
-        /// Document Filter条件は、与えるtargetSentencesに既に反映されている。(cf. BuildDepSearchQuery1)
-        /// </summary>
-        /// <param name="lexemeResultSet"></param>
-        /// <param name="cond"></param>
-        /// <returns></returns>
-        public override string BuildDepSearchQuery(LexemeResultSet lexemeResultSet, SearchConditions cond, IList<Sentence> targetSentences)
-        {
-            Debug.Assert(lexemeResultSet != null);
-            Debug.Assert(lexemeResultSet.Count > 0);
-
-            DepSearchCondition depCond = cond.DepCond;
-
-            StringBuilder sb = new StringBuilder();
-            int iPivot = depCond.GetPivotPos();
-            if (iPivot < 0)
-            {
-                throw new QueryBuilderException("PivotNotFound");
-            }
-            sb.AppendFormat("select w{0} ", iPivot);
-            sb.Append("from ");
-
-            StringConnector connector = new StringConnector(",");
-            foreach (LexemeResult res in lexemeResultSet)
-            {
-                sb.Append(connector.Get());
-                sb.AppendFormat("Word w{0}", res.No);
-            }
-            sb.Append(connector.Get());
-            sb.AppendFormat("Sentence sen");
-            for (int i = 0; i < depCond.BunsetsuConds.Count; i++)
-            {
-                sb.Append(connector.Get());
-                sb.AppendFormat("Segment2 s{0}", i);
-            }
-            for (int i = 0; i < depCond.LinkConds.Count; i++)
-            {
-                sb.Append(connector.Get());
-                sb.AppendFormat("Link2 k{0}", i);
-            }
-
-            sb.Append(" where ");
-            sb.Append(BuildDepSearchQueryWhereClauseForBunsetsu(iPivot, depCond, targetSentences, lexemeResultSet, cond.FilterCond.TargetProjectId));
-
-            this.LastQuery = sb.ToString();
-            return this.LastQuery;
-        }
-        
-        /// <summary>
         /// BuildDepSearchQueryWhereClauseと目的は同じだが
         /// Bunsetsu Segmentを仮定してパフォーマンスを上げたもの
         /// </summary>

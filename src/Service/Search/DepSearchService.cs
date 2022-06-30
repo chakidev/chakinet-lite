@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Data;
 using ChaKi.Common.Settings;
+using System.Linq;
 
 namespace ChaKi.Service.Search
 {
@@ -51,16 +52,28 @@ namespace ChaKi.Service.Search
                 }
             }
 
-            IList<Word> queryResult = new List<Word>();
             // まずSeg, Link条件を無視して、Lexeme条件のみからSentenceを絞る。
             string qstr = QueryBuilder.Instance.BuildDepSearchQuery1(m_LexemeResultSet, cond, targetSentences);
             IQuery query = m_Session.CreateQuery(qstr);
             IList<Sentence> initialResult = query.List<Sentence>();
 
 #if true
-            qstr = QueryBuilder.Instance.BuildDepSearchQuery(m_LexemeResultSet, cond, initialResult);
-            query = m_Session.CreateQuery(qstr);
-            queryResult = query.List<Word>();
+            qstr = QueryBuilder.Instance.BuildDepSearchQuerySQL(m_LexemeResultSet, cond, initialResult);
+            //query = m_Session.CreateQuery(qstr);
+            //queryResult = query.List<Word>();
+            var queryResult = new List<object[]>();
+            var cmd = m_Session.Connection.CreateCommand();
+            {
+                cmd.CommandText = qstr;
+                var rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    var arr = new object[rdr.FieldCount];
+                    rdr.GetValues(arr);
+                    queryResult.Add(arr);
+                }
+                rdr.Close();
+            }
 #else
             // 次に各Sentence毎にSegmentを絞る
             int k = 0;
@@ -99,8 +112,8 @@ namespace ChaKi.Service.Search
             long t2 = sw2.ElapsedMilliseconds;
             long t3 = sw3.ElapsedMilliseconds;
 #endif
-            IEnumerable<Word> filteredResult = (cond.FilterCond.AllEnabled) ?
-                cond.FilterCond.ResultsetFilter.CreateEnumerable<Word>(queryResult) : queryResult;
+            var filteredResult = (cond.FilterCond.AllEnabled) ?
+                cond.FilterCond.ResultsetFilter.CreateEnumerable(queryResult) : queryResult;
             int totalCount = queryResult.Count;
 
             // ここまでで検索は終了。
@@ -109,8 +122,11 @@ namespace ChaKi.Service.Search
             // 文内容をKwicに変換・出力する
             int n = 0;
             m_Progress.SetRange(totalCount);
-            foreach (Word centerWord in filteredResult)
+            foreach (object[] r in filteredResult)
             {
+                // 先のクエリ結果の第1カラムが中心語のIDなので、それを用いてWordオブジェクトを取得。
+                var centerWord = m_Session.Get<Word>((int)r[0]);
+                var secondaryWordPos = r.Skip(1).ToArray(); // r[1]以降が検索に用いたwordのpositionリスト
                 int position = centerWord.Pos;   // KWICのcenter wordとなる語の位置
                 Sentence sen = centerWord.Sen;
                 KwicItem ki = new KwicItem(c, sen.ParentDoc, sen.ID, sen.StartChar, sen.EndChar, sen.Pos);
@@ -150,17 +166,26 @@ namespace ChaKi.Service.Search
                         QueryWordMappings(word);
                     }
 
+                    var kw_attr = 0; // 中心語・共起語であれあばこのフラグをセット
+                    if (pos == position)
+                    {
+                        kw_attr = KwicWord.KWA_PIVOT;
+                    }
+                    else if (secondaryWordPos.Contains(pos))
+                    {
+                        kw_attr = KwicWord.KWA_SECOND;
+                    }
                     if (pos < position)
                     {
-                        ki.Left.AddLexeme(lex, word, 0);
+                        ki.Left.AddLexeme(lex, word, kw_attr);
                     }
                     else if (pos == position)
                     {
-                        ki.Center.AddLexeme(lex, word, KwicWord.KWA_PIVOT);
+                        ki.Center.AddLexeme(lex, word, kw_attr);
                     }
                     else
                     {
-                        ki.Right.AddLexeme(lex, word, 0);
+                        ki.Right.AddLexeme(lex, word, kw_attr);
                     }
                     pos++;
                 } 

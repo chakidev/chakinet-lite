@@ -60,7 +60,7 @@ namespace ChaKi.Service.Lexicons
 
         /// <summary>
         /// 与えられたLexemeと一致するLexemeの数を返す。
-        /// 完全なLexemdを与えた場合は結果はFrequencyフィールドそのものである。
+        /// 完全なLexemeを与えた場合は結果はFrequencyフィールドそのものである。
         /// 一部属性がnullのLexemeを与えた場合は、マッチするLexemeすべてのFrequencyを合計したものである。
         /// </summary>
         /// <param name="lex"></param>
@@ -74,37 +74,37 @@ namespace ChaKi.Service.Lexicons
             if (lex.Surface != null)
             {
                 sb.Append(conn.Get());
-                sb.AppendFormat("l.Surface='{0}'", lex.Surface);
+                sb.AppendFormat("l.Surface='{0}'", Util.EscapeQuote(lex.Surface));
             }
             if (lex.Pronunciation != null)
             {
                 sb.Append(conn.Get());
-                sb.AppendFormat("l.Pronunciation='{0}'", lex.Pronunciation);
+                sb.AppendFormat("l.Pronunciation='{0}'", Util.EscapeQuote(lex.Pronunciation));
             }
             if (lex.Reading != null)
             {
                 sb.Append(conn.Get());
-                sb.AppendFormat("l.Reading='{0}'", lex.Reading);
+                sb.AppendFormat("l.Reading='{0}'", Util.EscapeQuote(lex.Reading));
             }
             if (lex.PartOfSpeech != null)
             {
                 sb.Append(conn.Get());
-                sb.AppendFormat("l.PartOfSpeech.Name='{0}'", lex.PartOfSpeech.Name);
+                sb.AppendFormat("l.PartOfSpeech.Name='{0}'", Util.EscapeQuote(lex.PartOfSpeech.Name));
             }
             if (lex.CType != null)
             {
                 sb.Append(conn.Get());
-                sb.AppendFormat("l.CType.Name='{0}'", lex.CType.Name);
+                sb.AppendFormat("l.CType.Name='{0}'", Util.EscapeQuote(lex.CType.Name));
             }
             if (lex.CForm != null)
             {
                 sb.Append(conn.Get());
-                sb.AppendFormat("l.CForm.Name='{0}'", lex.CForm.Name);
+                sb.AppendFormat("l.CForm.Name='{0}'", Util.EscapeQuote(lex.CForm.Name));
             }
             if (lex.BaseLexeme != null)
             {
                 sb.Append(conn.Get());
-                sb.AppendFormat("l.BaseLexeme.Surface='{0}'", lex.BaseLexeme.Surface);
+                sb.AppendFormat("l.BaseLexeme.Surface='{0}'", Util.EscapeQuote(lex.BaseLexeme.Surface));
             }
             if (sb.Length == 0)
             {

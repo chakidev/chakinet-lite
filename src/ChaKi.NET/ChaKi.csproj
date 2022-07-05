@@ -546,9 +546,6 @@
     <EmbeddedResource Include="Options\CustomizePropertyBoxDialog.ja-JP.resx">
       <DependentUpon>CustomizePropertyBoxDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Options\CustomizePropertyBoxDialog.zh-Hant.resx">
-      <DependentUpon>CustomizePropertyBoxDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Options\OptionDialog.ja-JP.resx">
       <DependentUpon>OptionDialog.cs</DependentUpon>
     </EmbeddedResource>

@@ -100,7 +100,7 @@ namespace ChaKi
             // Create Docking Panels
             condPanel = new ConditionsPanel(m_Model.CurrentSearchConditions) { Dock = DockStyle.Fill };
             condPanel.FilterPane.ProjectSelector = this.toolStripComboBox2;
-            this.splitContainer2.Panel1.Controls.Add(condPanel);
+            this.splitContainer5.Panel1.Controls.Add(condPanel);
             this.splitContainer4.Panel1.Controls.Add(condPanel.CorpusPane);
             scriptingPanel = new ScriptingPanel();
             wordAttributeListPanel = new WordAttributeListPanel();

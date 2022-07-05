@@ -29,13 +29,17 @@ namespace ChaKi.Common.Settings
 
         public LWP KwicRow2Property { get; set; }
 
+        // Default-Visible properties for UD Treebank Corpus
+        public static LWP[] DefaultVisibleProperty { get; private set; } =
+            {LWP.Surface, LWP.LemmaForm, LWP.UPOS, LWP.XPOS, LWP.Custom };
+
         public event EventHandler SettingChanged;
 
         public PropertyBoxSettings()
         {
             this.Settings = new List<PropertyBoxItemSetting>();
             this.KwicRow1Property = LWP.Surface;
-            this.KwicRow2Property = LWP.PartOfSpeech;
+            this.KwicRow2Property = LWP.UPOS;
         }
 
         public PropertyBoxSettings(PropertyBoxSettings src)
@@ -69,7 +73,7 @@ namespace ChaKi.Common.Settings
         {
             Default(Instance.Settings);
             Instance.KwicRow1Property = LWP.Surface;
-            Instance.KwicRow2Property = LWP.PartOfSpeech;
+            Instance.KwicRow2Property = LWP.UPOS;
         }
 
         public static void Default(IList<PropertyBoxItemSetting> list)
@@ -81,11 +85,26 @@ namespace ChaKi.Common.Settings
                 if (pair.Key == LWP.Surface)
                 {
                     val.IsKwicRow1 = true;
+                    val.DisplayName = "FORM"; // UD Treebak Corpus Naming
                 }
-                else if (pair.Key == LWP.PartOfSpeech)
+                else if (pair.Key == LWP.UPOS)
                 {
                     val.IsKwicRow2 = true;
                 }
+                else if (pair.Key == LWP.LemmaForm)
+                {
+                    val.DisplayName = "LEMMA"; // UD Treebak Corpus Naming
+                }
+                else if (pair.Key == LWP.Custom)
+                {
+                    val.DisplayName = "FEATS"; // UD Treebak Corpus Naming
+                }
+
+                if (!DefaultVisibleProperty.Contains(pair.Key))
+                {
+                    val.IsVisible = false;
+                }
+
                 list.Add(val);
             }
         }
@@ -98,10 +117,10 @@ namespace ChaKi.Common.Settings
                 XmlSerializer ser = new XmlSerializer(typeof(PropertyBoxSettings));
                 m_Instance = (PropertyBoxSettings)ser.Deserialize(rd);
             }
-            //Word属性にHeadInfoを追加したため、初回設定ロード時のみ、下記のコードで追加する.
-            if (m_Instance.Settings.FirstOrDefault(s => s.TagName == "HeadInfo") == null)
+            //SettingsにUPOSがない場合は古い設定と見なし、デフォルトで初期化する。
+            if (m_Instance.Settings.FirstOrDefault(s => s.TagName == "UPOS") == null)
             {
-                m_Instance.Settings.Add(new PropertyBoxItemSetting("HeadInfo", "HeadInfo", true));
+               Default();
             }
 
             m_Instance.UpdateKwicRows();
@@ -118,7 +137,7 @@ namespace ChaKi.Common.Settings
 
         public void UpdateKwicRows()
         {
-            for (int i = this.Settings.Count - 1; i >= 0;  i--)
+            for (int i = this.Settings.Count - 1; i >= 0; i--)
             {
                 var item = this.Settings[i];
                 if (item.IsKwicRow1)

@@ -339,10 +339,16 @@ namespace ChaKi.Entity.Corpora
                     }
                     break;
                 case LP.UPOS:
-                    s = this.PartOfSpeech.Name1;
+                    if (this.PartOfSpeech != null)
+                    {
+                        s = this.PartOfSpeech.Name1;
+                    }
                     break;
                 case LP.XPOS:
-                    s = this.PartOfSpeech.Name2;
+                    if (this.PartOfSpeech != null)
+                    {
+                        s = this.PartOfSpeech.Name2;
+                    }
                     break;
                 case LP.Custom:
                     s = this.CustomProperty;

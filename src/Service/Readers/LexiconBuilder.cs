@@ -670,6 +670,7 @@ namespace ChaKi.Service.Readers
             if (!fields[2].Equals("_"))
             {
                 ret[5] = fields[2];
+                ret[2] = fields[2];
             }
             // 3-4: POS
             if (!fields[3].Equals("_"))

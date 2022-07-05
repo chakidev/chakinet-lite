@@ -49,6 +49,10 @@ namespace ChaKi.Service.Search
             {
                 throw new Exception("Corpus:DocumentSet is not 1:1");
             }
+            if (cond.StringCond.Pattern.Length == 0)
+            {
+                throw new Exception("String Search Pattern is Empty.");
+            }
 
             // AND検索（絞り込み）の場合は、tagCondの親のKwicListのSentece集合をフィルタ条件とする。
             List<int> targetSentences = null;
@@ -154,7 +158,7 @@ namespace ChaKi.Service.Search
             {
                 p = text.IndexOf(pattern, p + 1,
                     (isCaseSensitive?StringComparison.CurrentCulture:StringComparison.CurrentCultureIgnoreCase));
-                if (p < 0)
+                if (p < 0 || (p + 1) >= txtlen)
                 {
                     break;
                 }

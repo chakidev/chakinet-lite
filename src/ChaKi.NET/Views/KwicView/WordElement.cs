@@ -290,6 +290,15 @@ namespace ChaKi.Views.KwicView
                         return this.KwicWord.Lex.PartOfSpeech.Name1;
                     }
                     return this.KwicWord.Lex.PartOfSpeech.Name;
+                case LWP.UPOS:
+                    return this.KwicWord.Lex.PartOfSpeech.Name1;
+                    break;
+                case LWP.XPOS:
+                    return this.KwicWord.Lex.PartOfSpeech.Name2;
+                    break;
+                case LWP.Custom:
+                    return this.KwicWord.Lex.CustomProperty;
+                    break;
                 case LWP.CType:
                     return this.KwicWord.Lex.CType.Name;
                 case LWP.CForm:

@@ -92,7 +92,7 @@ namespace ChaKi.Entity.Corpora
                 {LP.CForm, "CForm" },
                 {LP.UPOS, "UPOS" },
                 {LP.XPOS, "XPOS" },
-                {LP.Custom, "FEATS" },
+                {LP.Custom, "Custom" },
             };
 
         /// <summary>
@@ -108,15 +108,15 @@ namespace ChaKi.Entity.Corpora
                 {LWP.BaseLexeme, "BaseLexeme" },
                 {LWP.Lemma, "Lemma" },
                 {LWP.PartOfSpeech, "PartOfSpeech" },
-                {LWP.UPOS, "UPOS" },
-                {LWP.XPOS, "XPOS" },
                 {LWP.CType, "CType" },
                 {LWP.CForm, "CForm" },
                 {LWP.StartTime, "StartTime" },
                 {LWP.EndTime, "EndTime" },
                 {LWP.Duration, "Duration" },
                 {LWP.HeadInfo, "HeadInfo" },
-                {LWP.Custom, "FEATS" },
+                {LWP.UPOS, "UPOS" },
+                {LWP.XPOS, "XPOS" },
+                {LWP.Custom, "Custom" },
             };
 
         /// <summary>
@@ -337,6 +337,15 @@ namespace ChaKi.Entity.Corpora
                     {
                         s = isConllU ? this.PartOfSpeech.Name1 : this.PartOfSpeech.Name;
                     }
+                    break;
+                case LP.UPOS:
+                    s = this.PartOfSpeech.Name1;
+                    break;
+                case LP.XPOS:
+                    s = this.PartOfSpeech.Name2;
+                    break;
+                case LP.Custom:
+                    s = this.CustomProperty;
                     break;
                 case LP.CType:
                     if (this.CType != null) s = this.CType.Name;

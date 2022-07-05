@@ -195,6 +195,21 @@ namespace ChaKi.Views.KwicView
         /// KwicPanelのCurrentが変化したときのMainFormへの通知
         /// </summary>
         public event EventHandler CurrentPanelChanged;
+
+        /// <summary>
+        /// KwicPanelからMainFormへの通知: Collocation Dialogを表示する
+        /// </summary>
+        public event EventHandler CollocationRequested;
+
+        /// <summary>
+        /// KwicPanelからMainFormへの通知: Export Dialogを表示する
+        /// </summary>
+        public event EventHandler ExportRequested;
+
+        /// <summary>
+        /// KwicPanelからMainFormへの通知: 検索Abort処理を実行する
+        /// </summary>
+        public event EventHandler AbortRequested;
         #endregion
 
         public KwicView()
@@ -219,6 +234,9 @@ namespace ChaKi.Views.KwicView
                 panel.SelectionChanged += new EventHandler<SelectionChangedEventArgs>(panel_SelectionChanged);
                 panel.WordMappingHilightRequested += new EventHandler<WordMappingHilightEventArgs>(panel_WordMappingHilightRequested);
             }
+            this.button1.Click += (s, e) => CollocationRequested?.Invoke(s, e);
+            this.button2.Click += (s, e) => ExportRequested?.Invoke(s, e);
+            this.button3.Click += (s, e) => AbortRequested?.Invoke(s, e);
         }
 
         void panel_WordMappingHilightRequested(object sender, WordMappingHilightEventArgs e)
@@ -644,6 +662,14 @@ namespace ChaKi.Views.KwicView
                 this.transparentPanel1.ShowVerticalSplitter = false;
                 transparentPanel1.Visible = false;  // HideしないとKwicViewPanelに一切マウスイベントが行かないので注意.（.designer.csでデフォルトfalseにしてある.）
             }
+        }
+
+        /// <summary>
+        /// MainFormからKwicPanelへの通知: 検索状況を更新する
+        /// </summary>
+        public void UpdateSearchStatus(string msg)
+        {
+            this.textBox1.Text = msg ?? string.Empty;
         }
     }
 }

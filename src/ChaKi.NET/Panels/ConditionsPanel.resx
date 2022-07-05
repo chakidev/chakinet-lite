@@ -218,54 +218,6 @@
   <data name="&gt;&gt;depSearchTab.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="collocationTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 30</value>
-  </data>
-  <data name="collocationTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>758, 169</value>
-  </data>
-  <data name="collocationTab.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="collocationTab.Text" xml:space="preserve">
-    <value>Collocation</value>
-  </data>
-  <data name="&gt;&gt;collocationTab.Name" xml:space="preserve">
-    <value>collocationTab</value>
-  </data>
-  <data name="&gt;&gt;collocationTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;collocationTab.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;collocationTab.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="addinTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 30</value>
-  </data>
-  <data name="addinTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>758, 169</value>
-  </data>
-  <data name="addinTab.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="addinTab.Text" xml:space="preserve">
-    <value>AddIn</value>
-  </data>
-  <data name="&gt;&gt;addinTab.Name" xml:space="preserve">
-    <value>addinTab</value>
-  </data>
-  <data name="&gt;&gt;addinTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;addinTab.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;addinTab.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

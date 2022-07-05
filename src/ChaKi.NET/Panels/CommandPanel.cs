@@ -32,6 +32,8 @@ namespace ChaKi.Panels
         public BeginSearchDelegate BeginWordList;
         public BeginSearchDelegate BeginCollocation;
 
+        public event EventHandler<string> SearchStatusReported;
+
         private Queue<IServiceCommand> m_CommandQueue;
         private Thread m_Thread;
         private bool m_bThreadQuit;
@@ -314,6 +316,7 @@ namespace ChaKi.Panels
                         (!item.NhitIsUnknown) ? string.Format("{0}", item.Nret) : "--";
                     this.dataGridView1.Rows[row].Cells[6].Value =
                         (!item.NhitIsUnknown && item.Nhit > 0) ? string.Format("{0:F1}", item.NretP) : "--";
+                    SearchStatusReported?.Invoke(this, $"{item.Nhit} Search Result(s);  {item.NretP:F1} % Loaded.");
                 }
                 m_bModelUpdate = false;
             }
@@ -338,6 +341,7 @@ namespace ChaKi.Panels
                 {
                     rowdata[2] = string.Empty;
                 }
+                SearchStatusReported?.Invoke(this, "0 Search Result(s);  0 % Loaded.");
                 this.dataGridView1.Rows.Add(rowdata);
             }
             this.dataGridView1.ResumeLayout();

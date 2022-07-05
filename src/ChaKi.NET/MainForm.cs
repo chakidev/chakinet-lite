@@ -277,6 +277,8 @@ namespace ChaKi
             commandPanel.AppendSearch = this.OnBeginSearchAppend;
             commandPanel.BeginWordList = this.OnBeginWordList;
             commandPanel.BeginCollocation = this.OnBeginCollocation;
+            commandPanel.SearchStatusReported += (s, e) =>
+                kwicView.UpdateSearchStatus(e);
 
             // ConditionsPanel‚©‚ç‚ÌCallback
             condPanel.TabChanged += new EventHandler(OnConditionTabChanged);
@@ -288,6 +290,9 @@ namespace ChaKi
             this.kwicView.ContextRequested += new RequestContextDelegate(this.OnRequestContext);
             this.kwicView.ContextRequested += new RequestContextDelegate(this.OnRequestSentenceTagList);
             this.kwicView.CurrentPanelChanged += new EventHandler(HandleCurrentPanelChanged);
+            this.kwicView.CollocationRequested += (s, e) => HandleCollocation(s, e);
+            this.kwicView.ExportRequested += (s, e) => OnFileSendToExcelCSV(s, e);
+            this.kwicView.AbortRequested += (s, e) => this.commandPanel.Abort(true);
 
             // WordListView‚©‚ç‚ÌCallback
             this.wordListView.OccurrenceRequested += new EventHandler(this.OnWordOccurenceRequested);

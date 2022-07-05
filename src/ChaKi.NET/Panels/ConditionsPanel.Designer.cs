@@ -34,8 +34,6 @@
             this.stringSearchTab = new System.Windows.Forms.TabPage();
             this.tagSearchTab = new System.Windows.Forms.TabPage();
             this.depSearchTab = new System.Windows.Forms.TabPage();
-            this.collocationTab = new System.Windows.Forms.TabPage();
-            this.addinTab = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -47,8 +45,6 @@
             this.tabControl1.Controls.Add(this.stringSearchTab);
             this.tabControl1.Controls.Add(this.tagSearchTab);
             this.tabControl1.Controls.Add(this.depSearchTab);
-            this.tabControl1.Controls.Add(this.collocationTab);
-            this.tabControl1.Controls.Add(this.addinTab);
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -77,17 +73,6 @@
             this.depSearchTab.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.depSearchTab, "depSearchTab");
             this.depSearchTab.Name = "depSearchTab";
-            // 
-            // collocationTab
-            // 
-            this.collocationTab.BackColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.collocationTab, "collocationTab");
-            this.collocationTab.Name = "collocationTab";
-            // 
-            // addinTab
-            // 
-            resources.ApplyResources(this.addinTab, "addinTab");
-            this.addinTab.Name = "addinTab";
             // 
             // pictureBox1
             // 
@@ -119,8 +104,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage filterTab;
         private System.Windows.Forms.TabPage depSearchTab;
-        private System.Windows.Forms.TabPage collocationTab;
         private System.Windows.Forms.TabPage stringSearchTab;
-        private System.Windows.Forms.TabPage addinTab;
     }
 }

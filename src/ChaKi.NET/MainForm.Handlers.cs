@@ -662,8 +662,19 @@ namespace ChaKi
 
         private void OnSearchBeginCollocation(object sender, EventArgs e)
         {
-            OnBeginCollocation();
+            if (this.condPanel.CollocationDialog.ShowDialog() == DialogResult.OK)
+            {
+                OnBeginCollocation();
+            }
         }
+
+        // KwicViewのボタンからのCollocation: Collocation条件Dialogを経由してBeginCollocationを実行
+        private void HandleCollocation(object s, EventArgs e)
+        {
+            OnSearchBeginCollocation(s, e);
+        }
+
+
 
         private void OnSearchBeginCollocationUpdate(object sender, EventArgs e)
         {

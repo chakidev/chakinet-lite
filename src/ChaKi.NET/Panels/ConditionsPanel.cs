@@ -33,6 +33,8 @@ namespace ChaKi.Panels
 
         public CorpusPane CorpusPane { get; private set; }
 
+        public CollocationDialog CollocationDialog { get; private set; }
+
         private FilterPane filterPane;
         private StringSearchPane stringSearchPane;
         private TagSearchPane tagSearchPane;
@@ -52,13 +54,13 @@ namespace ChaKi.Panels
             InitializeComponent();
 
             CorpusPane = new CorpusPane(model.SentenceCond) { Dock = DockStyle.Fill };
+            collocationPane = new CollocationPane(model.CollCond) { Dock = DockStyle.Fill };
 
             var panes = new List<Control>();
             panes.Add(filterPane = new FilterPane(model.FilterCond, model.SentenceCond));
             panes.Add(stringSearchPane = new StringSearchPane(model.StringCond));
             panes.Add(tagSearchPane = new TagSearchPane(model.TagCond));
             panes.Add(depSearchPane = new DepSearchPane(model.DepCond));
-            panes.Add(collocationPane = new CollocationPane(model.CollCond));
             panes.Add(documentsAnalysisPane = new DocumentsAnalysisPane(model.DocumentsAnalysisCond));
             panes.Add(miningPane = new AddinPane(model.MiningCond));
 
@@ -73,7 +75,6 @@ namespace ChaKi.Panels
             stringSearchPane.Dock = DockStyle.Fill;
             tagSearchPane.Dock = DockStyle.Fill;
             depSearchPane.Dock = DockStyle.Fill;
-            collocationPane.Dock = DockStyle.Fill;
             documentsAnalysisPane.Dock = DockStyle.Fill;
             miningPane.Dock = DockStyle.Fill;
 
@@ -81,9 +82,12 @@ namespace ChaKi.Panels
             this.stringSearchTab.Controls.Add(stringSearchPane);
             this.tagSearchTab.Controls.Add(tagSearchPane);
             this.depSearchTab.Controls.Add(depSearchPane);
-            this.collocationTab.Controls.Add(collocationPane);
             //this.documentsAnalysisTab.Controls.Add(documentsAnalysisPane);
-            this.addinTab.Controls.Add(miningPane);
+            //this.addinTab.Controls.Add(miningPane);
+
+            // Collocation Paneをダイアログ化
+            this.CollocationDialog = new CollocationDialog();
+            this.CollocationDialog.Panel1.Controls.Add(this.collocationPane);
         }
 
         /// <summary>

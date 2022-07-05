@@ -33,14 +33,14 @@ namespace ChaKi.Entity.Search
         {
             get
             {
-                return 100.0 * Nhit / Nc;
+                return (Nc == 0)? 0.0: (100.0 * Nhit / Nc);
             }
         }
         public double NretP
         {
             get
             {
-                return 100.0 * Nret / Nhit;
+                return (Nhit == 0) ? 0.0 : (100.0 * Nret / Nhit);
             }
         }
 

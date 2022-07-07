@@ -101,11 +101,11 @@ namespace ChaKi
             condPanel = new ConditionsPanel(m_Model.CurrentSearchConditions) { Dock = DockStyle.Fill };
             condPanel.FilterPane.ProjectSelector = this.toolStripComboBox2;
             this.splitContainer5.Panel1.Controls.Add(condPanel);
-            this.splitContainer4.Panel1.Controls.Add(condPanel.CorpusPane);
+            this.splitContainer1.Panel1.Controls.Add(condPanel.CorpusPane);
             scriptingPanel = new ScriptingPanel();
             wordAttributeListPanel = new WordAttributeListPanel();
             commandPanel = new CommandPanel(condPanel.GetFilterButton());
-            this.splitContainer4.Panel2.Controls.Add(commandPanel);
+            this.splitContainer1.Panel2.Controls.Add(commandPanel);
             historyGuidePanel = new HistoryGuidePanel(m_Model.History);
             dependencyEditPanel = new DepEditControl() { Dock = DockStyle.Fill };
             this.tabPage1.Controls.Add(dependencyEditPanel);

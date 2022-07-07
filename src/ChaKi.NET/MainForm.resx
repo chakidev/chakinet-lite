@@ -144,60 +144,6 @@
   <data name="splitContainer1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="splitContainer4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="splitContainer4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="splitContainer4.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
-    <value>Horizontal</value>
-  </data>
-  <data name="&gt;&gt;splitContainer4.Panel1.Name" xml:space="preserve">
-    <value>splitContainer4.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer4.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer4.Panel1.Parent" xml:space="preserve">
-    <value>splitContainer4</value>
-  </data>
-  <data name="&gt;&gt;splitContainer4.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainer4.Panel2.Name" xml:space="preserve">
-    <value>splitContainer4.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitContainer4.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer4.Panel2.Parent" xml:space="preserve">
-    <value>splitContainer4</value>
-  </data>
-  <data name="&gt;&gt;splitContainer4.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="splitContainer4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 666</value>
-  </data>
-  <data name="splitContainer4.SplitterDistance" type="System.Int32, mscorlib">
-    <value>500</value>
-  </data>
-  <data name="splitContainer4.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitContainer4.Name" xml:space="preserve">
-    <value>splitContainer4</value>
-  </data>
-  <data name="&gt;&gt;splitContainer4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitContainer4.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splitContainer4.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;splitContainer1.Panel1.Name" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
   </data>

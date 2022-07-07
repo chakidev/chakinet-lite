@@ -234,54 +234,64 @@ namespace ChaKi
 
         void OnBeginCollocation()
         {
-            // 条件をセーブ
-            SaveSearchCond(null);
-
-            // Historyのカレントノードまたは直近のancestorがKwicListであることを確認
-            SearchHistory curHistNode = this.historyGuidePanel.GetLastKwicListNode();
-            if (curHistNode == null)
-            {
-                MessageBox.Show("Needs a Kwic Result List.");
-                return;
-            }
-
-            // Collocation条件を作成
-            SearchConditions conds = this.condPanel.CreateConditions();
-            m_Model.CurrentSearchConditions = conds;
-            SearchConditionsSequence condSeq = new SearchConditionsSequence(conds);
-            SearchHistory hist = null;
-
-            conds.ActiveSearch = SearchType.Collocation;
-            hist = SearchHistory.Create(condSeq);
-
-            // CollocationServiceを作成して実行（IServiceCommandではない。キューイングも行わない）
-            ICollocationService svc = new CollocationService(curHistNode.KwicList, hist.CollList, condSeq);
+            var oldCur = Cursor.Current;
             try
             {
-                if (conds.CollCond.CollType == CollocationType.FSM)
+                this.Cursor = Cursors.WaitCursor;
+                // 条件をセーブ
+                SaveSearchCond(null);
+
+                // Historyのカレントノードまたは直近のancestorがKwicListであることを確認
+                SearchHistory curHistNode = this.historyGuidePanel.GetLastKwicListNode();
+                if (curHistNode == null)
                 {
-                    // FSMの場合はProgress Dialogを出して、Collocation処理の中断を可能とする.
-                    CollocationProgressDialog dlg = new CollocationProgressDialog();
-                    dlg.Service = svc;
-                    dlg.ShowDialog();
+                    MessageBox.Show("Needs a Kwic Result List.");
+                    return;
                 }
-                else
+
+                // Collocation条件を作成
+                SearchConditions conds = this.condPanel.CreateConditions();
+                m_Model.CurrentSearchConditions = conds;
+                SearchConditionsSequence condSeq = new SearchConditionsSequence(conds);
+                SearchHistory hist = null;
+
+                conds.ActiveSearch = SearchType.Collocation;
+                hist = SearchHistory.Create(condSeq);
+
+                // CollocationServiceを作成して実行（IServiceCommandではない。キューイングも行わない）
+                ICollocationService svc = new CollocationService(curHistNode.KwicList, hist.CollList, condSeq);
+                try
                 {
-                    svc.Exec();
+                    if (conds.CollCond.CollType == CollocationType.FSM)
+                    {
+                        // FSMの場合はProgress Dialogを出して、Collocation処理の中断を可能とする.
+                        CollocationProgressDialog dlg = new CollocationProgressDialog();
+                        dlg.Service = svc;
+                        dlg.ShowDialog();
+                    }
+                    else
+                    {
+                        svc.Exec();
+                    }
                 }
+                catch (Exception ex)
+                {
+                    ErrorReportDialog edlg = new ErrorReportDialog("Error while executing collocation:", ex);
+                    edlg.ShowDialog();
+                }
+
+                // Viewに対するModelを更新する
+                IChaKiView view = this.ChangeView(conds.ActiveSearch);
+                Application.DoEvents();
+                view.SetModel(hist.CollList);
+
+                // ServiceCommandに基づき、ヒストリを新規作成して追加
+                curHistNode.AddChild(hist);
             }
-            catch (Exception ex)
+            finally
             {
-                ErrorReportDialog edlg = new ErrorReportDialog("Error while executing collocation:", ex);
-                edlg.ShowDialog();
+                this.Cursor = oldCur;
             }
-
-            // Viewに対するModelを更新する
-            IChaKiView view = this.ChangeView(conds.ActiveSearch);
-            view.SetModel(hist.CollList);
-
-            // ServiceCommandに基づき、ヒストリを新規作成して追加
-            curHistNode.AddChild(hist);
         }
 
         /// <summary>

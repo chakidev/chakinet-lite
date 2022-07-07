@@ -113,6 +113,10 @@ namespace ChaKi
             this.tabPage2.Controls.Add(contextPanel);
             attributePanel = new AttributeListPanel();
 
+            // ConditionPanelとKwicViewの間にCommandPanelにあったボタンを配置する
+            this.toolStrip1.Items.Insert(0, this.commandPanel.SearchButton);
+            this.toolStrip1.Items.Insert(1, this.commandPanel.WordListButton);
+
             // DPI微調整
             {
                 var px = currentScaleFactor.Width;
@@ -299,6 +303,8 @@ namespace ChaKi
 
             // CollocationViewからのcallback
             this.collocationView.OccurrenceRequested += new EventHandler<SentenceIdsOccurrenceEventArgs>(HandleCollocationOccurrenceRequested);
+            this.collocationView.GoBackRequested += (s, e) => HandleHistoryBack(s, e);
+            this.collocationView.ExportRequested += (s, e) => OnFileSendToExcelCSV(s, e);
 
             // HistoryGuidePanelからのCallback
             this.historyGuidePanel.HistoryNavigating +=new NavigateHistoryDelegate(this.OnHistoryNavigating);

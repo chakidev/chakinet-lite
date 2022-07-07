@@ -575,6 +575,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\ConditionsPanes\CollocationDialog.resx">
       <DependentUpon>CollocationDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\ConditionsPanes\CollocationPane.ja-JP.resx">
       <DependentUpon>CollocationPane.cs</DependentUpon>
@@ -865,6 +866,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\ConditionsPanes\CollocationPane.resx">
       <DependentUpon>CollocationPane.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\ConditionsPanes\DepSearchPane.resx">
       <DependentUpon>DepSearchPane.cs</DependentUpon>

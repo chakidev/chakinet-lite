@@ -20,6 +20,16 @@ namespace ChaKi.Views
         // FSMモード時のみ有効.
         public event EventHandler<SentenceIdsOccurrenceEventArgs> OccurrenceRequested;
 
+        /// <summary>
+        /// CollocationPanelからMainFormへの通知: Historyを1つ戻す(KwicViewに戻る)
+        /// </summary>
+        public event EventHandler GoBackRequested;
+
+        /// <summary>
+        /// CollocationPanelからMainFormへの通知: Export Dialogを表示する
+        /// </summary>
+        public event EventHandler ExportRequested;
+
         public CollocationView()
         {
             InitializeComponent();
@@ -29,6 +39,9 @@ namespace ChaKi.Views
 
             ApplyGridFont();
             FontDictionary.Current.FontChanged += HandleFontChanged;
+
+            this.button1.Click += (s, e) => { this.GoBackRequested?.Invoke(s, e); };
+            this.button2.Click += (s, e) => { this.ExportRequested?.Invoke(s, e); };
         }
 
         public void SetModel(object model)
@@ -79,7 +92,9 @@ namespace ChaKi.Views
                 col++;
             }
             UpdateView();
+            //this.dataGridView1.SuspendLayout();
             GUISetting.Instance.CollocationViewSettings.ApplyToGrid(this.dataGridView1);
+            //this.dataGridView1.ResumeLayout();
             this.dataGridView1.ColumnWidthChanged += dataGridView1_ColumnWidthChanged;
         }
 
@@ -102,6 +117,7 @@ namespace ChaKi.Views
                 total.Add(0);
             }
 
+            var n = 0;
             foreach (KeyValuePair<Lexeme, List<DIValue>> pair in m_Model.Rows)
             {
                 int row = this.dataGridView1.Rows.Add();
@@ -131,6 +147,10 @@ namespace ChaKi.Views
                             break;
                     }
                     col++;
+                }
+                if ((++n) % 100 == 0)
+                {
+                    Application.DoEvents();
                 }
             }
             // TOTAL行をセット

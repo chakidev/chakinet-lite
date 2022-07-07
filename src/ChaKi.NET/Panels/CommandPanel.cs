@@ -34,6 +34,9 @@ namespace ChaKi.Panels
 
         public event EventHandler<string> SearchStatusReported;
 
+        public ToolStripSplitButton SearchButton => this.searchToolStripButton;
+        public ToolStripButton WordListButton => this.wordListToolStripButton;
+
         private Queue<IServiceCommand> m_CommandQueue;
         private Thread m_Thread;
         private bool m_bThreadQuit;
@@ -51,6 +54,10 @@ namespace ChaKi.Panels
             m_CommandEnableStates = new bool[5] { true, true, false, false, true };
 
             InitializeComponent();
+
+            // ToolStripから検索ボタンを削除
+            this.toolStrip1.Items.Remove(this.searchToolStripButton);
+            this.toolStrip1.Items.Remove(this.wordListToolStripButton);
 
             // 与えられたFilter ButtonでToolStrip左端のボタンを置き換える。
             this.filterToolStripButton1 = fButton;
@@ -243,26 +250,22 @@ namespace ChaKi.Panels
             }
         }
 
-        private delegate void ButtonEnableDelegate(int index, bool enabled);
-
         private void EnableCommandButtons(bool enabled)
         {
-            ButtonEnableDelegate dele = (int i, bool f) => { this.toolStrip1.Items[i].Enabled = f; };
+            var action = new Action(() =>
+            {
+                this.searchToolStripButton.Enabled = enabled ? m_CommandEnableStates[1] : false;
+                this.wordListToolStripButton.Enabled = enabled ? m_CommandEnableStates[2] : false;
+                this.collocationToolStripButton.Enabled = enabled ? m_CommandEnableStates[3] : false;
+                this.abortToolStripButton.Enabled = enabled ? m_CommandEnableStates[4] : true;
+            });
             if (this.toolStrip1.InvokeRequired)
             {
-                this.toolStrip1.Invoke(dele, new object[] { 1, enabled ? m_CommandEnableStates[1] : false });
-                this.toolStrip1.Invoke(dele, new object[] { 2, enabled ? m_CommandEnableStates[2] : false });
-                this.toolStrip1.Invoke(dele, new object[] { 3, enabled ? m_CommandEnableStates[3] : false });
-                // Splitterが挟まるのでindexをひとつ飛ばす
-                this.toolStrip1.Invoke(dele, new object[] { 5, enabled ? m_CommandEnableStates[4] : true });
+                this.toolStrip1.Invoke(action);
             }
             else
             {
-                dele(1, enabled ? m_CommandEnableStates[1] : false);
-                dele(2, enabled ? m_CommandEnableStates[2] : false);
-                dele(3, enabled ? m_CommandEnableStates[3] : false);
-                // Splitterが挟まるのでindexをひとつ飛ばす
-                dele(5, enabled ? m_CommandEnableStates[4] : true);
+                action();
             }
         }
 

@@ -674,7 +674,23 @@ namespace ChaKi
             OnSearchBeginCollocation(s, e);
         }
 
-
+        // CollocationViewのボタンからHistoryを1つ戻る指示が出たときの処理。
+        private void HandleHistoryBack(object s, EventArgs e)
+        {
+            var curHist = this.historyGuidePanel.Current;
+            if (curHist == null)
+            {
+                MessageBox.Show("Cannot go back: No preceding history found.");
+                return;
+            }
+            var parentHist = curHist.Parent;
+            if (curHist == null)
+            {
+                MessageBox.Show("Cannot go back: Current history node has no parent.");
+                return;
+            }
+            OnHistoryNavigating(parentHist);
+        }
 
         private void OnSearchBeginCollocationUpdate(object sender, EventArgs e)
         {

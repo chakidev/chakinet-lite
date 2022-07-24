@@ -124,6 +124,9 @@
   <data name="filterTab.Location" type="System.Drawing.Point, System.Drawing">
     <value>1, 30</value>
   </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Reset</value>
+  </data>
   <data name="filterTab.Size" type="System.Drawing.Size, System.Drawing">
     <value>758, 169</value>
   </data>
@@ -151,6 +154,9 @@
   </data>
   <data name="stringSearchTab.Size" type="System.Drawing.Size, System.Drawing">
     <value>758, 169</value>
+  </data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="stringSearchTab.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -203,6 +209,9 @@
   <data name="depSearchTab.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="depSearchTab.Text" xml:space="preserve">
     <value>Dependency</value>
   </data>
@@ -222,10 +231,13 @@
   <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="tabControl1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Lucida Sans Unicode, 8.25pt</value>
-  </data>
   <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="&gt;&gt;button1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
@@ -279,6 +291,9 @@
   <metadata name="$this.TrayLargeIcon" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 9pt</value>
+  </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
     <value>760, 200</value>
   </data>

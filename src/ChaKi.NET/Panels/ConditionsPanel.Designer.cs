@@ -35,6 +35,7 @@
             this.tagSearchTab = new System.Windows.Forms.TabPage();
             this.depSearchTab = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -82,6 +83,12 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // ConditionsPanel
             // 
             this.AllowDrop = true;
@@ -105,5 +112,6 @@
         private System.Windows.Forms.TabPage filterTab;
         private System.Windows.Forms.TabPage depSearchTab;
         private System.Windows.Forms.TabPage stringSearchTab;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -100,7 +100,7 @@ namespace ChaKi
             // Create Docking Panels
             condPanel = new ConditionsPanel(m_Model.CurrentSearchConditions) { Dock = DockStyle.Fill };
             condPanel.FilterPane.ProjectSelector = this.toolStripComboBox2;
-            this.splitContainer5.Panel1.Controls.Add(condPanel);
+            this.splitContainer2.Panel1.Controls.Add(condPanel);
             this.splitContainer1.Panel1.Controls.Add(condPanel.CorpusPane);
             scriptingPanel = new ScriptingPanel();
             wordAttributeListPanel = new WordAttributeListPanel();
@@ -113,9 +113,8 @@ namespace ChaKi
             this.tabPage2.Controls.Add(contextPanel);
             attributePanel = new AttributeListPanel();
 
-            // ConditionPanelとKwicViewの間にCommandPanelにあったボタンを配置する
-            this.toolStrip1.Items.Insert(0, this.commandPanel.SearchButton);
-            this.toolStrip1.Items.Insert(1, this.commandPanel.WordListButton);
+            // ConditionPanelとKwicViewの間にCommandPanelの提供するボタンを配置する
+            condPanel.PrepareControlButtons(this.commandPanel.SearchButton, this.commandPanel.WordListButton);
 
             // DPI微調整
             {
@@ -153,6 +152,8 @@ namespace ChaKi
             this.wordListView.Dock = DockStyle.Fill;
             this.collocationView.Dock = DockStyle.Fill;
             #endregion
+
+            this.kwicView.PreparePopup(this.commandPanel.DataGridView);
 
             #region UICommand登録
             //

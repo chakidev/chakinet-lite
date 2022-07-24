@@ -47,6 +47,13 @@ namespace ChaKi.Panels
 
         public FilterPane FilterPane { get { return this.filterPane; } }
 
+        public TabControl TabControl => this.tabControl1;
+
+        private FlowLayoutPanel m_FlowLayoutPanel = new FlowLayoutPanel();
+
+        private Button m_ResetAllSearchSettiongsButton = new Button() { Width = 120 };
+
+
         public ConditionsPanel(SearchConditions model)
         {
             m_Cond = model;
@@ -88,7 +95,32 @@ namespace ChaKi.Panels
             // Collocation Paneをダイアログ化
             this.CollocationDialog = new CollocationDialog();
             this.CollocationDialog.Panel1.Controls.Add(this.collocationPane);
+
+            // Resetボタン
+            this.button1.Click += (o, e) => ResetConditions();
         }
+
+        public void PrepareControlButtons(Button searchButton, Button wordListButton)
+        {
+            // CommandPanelからのボタンをFlowLayoutPanelに追加する
+            m_FlowLayoutPanel.BackColor = Color.Transparent;
+            m_FlowLayoutPanel.Location = new Point(20, this.Height - 43);
+            m_FlowLayoutPanel.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+            m_FlowLayoutPanel.Width = 400;
+            m_FlowLayoutPanel.Height = 40;
+            searchButton.Height = 32;
+            wordListButton.Height = 32;
+            this.button1.Height = 32;
+            this.button1.Width = 100;
+            m_FlowLayoutPanel.Controls.Add(searchButton);
+            m_FlowLayoutPanel.Controls.Add(wordListButton);
+            m_FlowLayoutPanel.Controls.Add(this.button1);   // "Reset" button
+            this.Controls.Add(m_FlowLayoutPanel);
+            this.Controls.SetChildIndex(m_FlowLayoutPanel, 0);
+            this.Controls.SetChildIndex(tabControl1, 1);
+        }
+
+
 
         /// <summary>
         /// SearchConditionsをセットする。

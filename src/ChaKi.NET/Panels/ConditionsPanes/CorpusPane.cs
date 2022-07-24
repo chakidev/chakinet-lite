@@ -41,6 +41,7 @@ namespace ChaKi.Panels.ConditionsPanes
         private bool m_CancelFlag;
         private int m_LoadingTotal;
         private int m_LoadingDone;
+        private Font m_TreeViewBoldFont;
 
         public bool IsExpanded { get; private set; } = true;
         public int ExpandedWidth { get; private set; } // Expand時 DPI aware width
@@ -91,14 +92,47 @@ namespace ChaKi.Panels.ConditionsPanes
             this.DragDrop += CorpusPane_DragDrop;
             // TreeNodeのCheckBoxはCorpusに対応するNodeに限り表示
             this.treeControl1.DrawMode = TreeViewDrawMode.OwnerDrawText;
-            this.treeControl1.DrawNode += (s, e) =>
+            this.treeControl1.DrawNode += TreeControl1_DrawNode;
+        }
+
+        private void TreeControl1_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            // 末端のCorpusを表さない中間ノードのチェックボックスは非表示とする。
+            if (this.CorpusGroup.Find(e.Node.Name) == null)
             {
-                if (this.CorpusGroup.Find(e.Node.Name) == null)
+                HideCheckBox(this.treeControl1, e.Node);
+            }
+
+            var state = e.State;
+            var bounds1 = e.Bounds; // Textの描画領域
+            bounds1.X += 3; // Left Margin
+            var bounds2 = e.Bounds; // 背景の描画領域
+            bounds2.X += 1; // CheckBoxから1pxだけ離す
+            var font = e.Node.NodeFont ?? e.Node.TreeView.Font;
+            var foreColor = SystemColors.InactiveCaptionText;
+            var rectBrush = Brushes.White;
+            var isSelected = (state & TreeNodeStates.Selected) == TreeNodeStates.Selected;
+            var isFocused = (state & TreeNodeStates.Focused) == TreeNodeStates.Focused;
+            var isChecked = e.Node.Checked;
+            if (isSelected)
+            {
+                rectBrush = Brushes.LightSkyBlue;
+            }
+            if (isChecked)
+            {
+                foreColor = Color.Red;
+                if (m_TreeViewBoldFont == null)
                 {
-                    HideCheckBox(this.treeControl1, e.Node);
+                    m_TreeViewBoldFont = new Font(font, FontStyle.Bold);
                 }
-                e.DrawDefault = true;
-            };
+                font = m_TreeViewBoldFont;
+                bounds1.Width += 20; // Boldにすることで横サイズを拡大しないと収まらない
+                bounds2.Width += (20 + 3 - 1); // 上記+Marginを考慮
+            }
+            e.Graphics.FillRectangle(rectBrush, bounds2);
+            TextRenderer.DrawText(e.Graphics, e.Node.Text, font, bounds1, foreColor,
+                            TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.SingleLine);
+            e.DrawDefault = false;
         }
 
         private bool supressAfterCheck = false;
@@ -162,6 +196,12 @@ namespace ChaKi.Panels.ConditionsPanes
             UpdateNodeRecursively(rootNode, this.CorpusGroup);
             treeControl1.Nodes.AddRange(rootNode.Nodes.Cast<TreeNode>().ToArray());
             treeControl1.ExpandAll();
+            // 先頭に強制スクロール
+            if (treeControl1.Nodes.Count > 0)
+            {
+                this.treeControl1.SelectedNode = treeControl1.Nodes[0];
+                this.treeControl1.SelectedNode.EnsureVisible();
+            }
             treeControl1.ResumeLayout();
         }
 

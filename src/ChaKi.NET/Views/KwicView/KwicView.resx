@@ -403,7 +403,7 @@
     <value>3, 3</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 27</value>
+    <value>138, 30</value>
   </data>
   <data name="button1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -430,10 +430,10 @@
     <value>NoControl</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 3</value>
+    <value>150, 3</value>
   </data>
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 27</value>
+    <value>110, 30</value>
   </data>
   <data name="button2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -469,7 +469,7 @@
     <value>2</value>
   </data>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>0 Search Result(s);  0 % Loaded.</value>
+    <value>{0} Search Result(s);  {1:F1} % Loaded.</value>
   </data>
   <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
     <value>textBox1</value>
@@ -493,7 +493,7 @@
     <value>552, 3</value>
   </data>
   <data name="button3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 27</value>
+    <value>62, 30</value>
   </data>
   <data name="button3.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>

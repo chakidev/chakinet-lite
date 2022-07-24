@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KwicView));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.kwicViewPanel1 = new ChaKi.Views.KwicView.KwicViewPanel();
+            this.kwicViewPanel2 = new ChaKi.Views.KwicView.KwicViewPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Check = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,8 +49,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.transparentPanel1 = new ChaKi.Views.KwicView.KwicViewTransparentPanel();
-            this.kwicViewPanel1 = new ChaKi.Views.KwicView.KwicViewPanel();
-            this.kwicViewPanel2 = new ChaKi.Views.KwicView.KwicViewPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -74,6 +74,34 @@
             this.splitContainer1.Panel2.Controls.Add(this.kwicViewPanel2);
             resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
             this.splitContainer1.Panel2Collapsed = true;
+            // 
+            // kwicViewPanel1
+            // 
+            this.kwicViewPanel1.BackColor = System.Drawing.Color.Ivory;
+            resources.ApplyResources(this.kwicViewPanel1, "kwicViewPanel1");
+            this.kwicViewPanel1.DrawLinesFrom = 0;
+            this.kwicViewPanel1.DrawLinesTo = 0;
+            this.kwicViewPanel1.KwicMode = false;
+            this.kwicViewPanel1.Name = "kwicViewPanel1";
+            this.kwicViewPanel1.SingleSelection = -1;
+            this.kwicViewPanel1.SuspendUpdateView = false;
+            this.kwicViewPanel1.TwoLineMode = true;
+            this.kwicViewPanel1.UpdateFrozen = false;
+            this.kwicViewPanel1.WordWrap = true;
+            // 
+            // kwicViewPanel2
+            // 
+            this.kwicViewPanel2.BackColor = System.Drawing.Color.Ivory;
+            resources.ApplyResources(this.kwicViewPanel2, "kwicViewPanel2");
+            this.kwicViewPanel2.DrawLinesFrom = 0;
+            this.kwicViewPanel2.DrawLinesTo = 0;
+            this.kwicViewPanel2.KwicMode = false;
+            this.kwicViewPanel2.Name = "kwicViewPanel2";
+            this.kwicViewPanel2.SingleSelection = -1;
+            this.kwicViewPanel2.SuspendUpdateView = false;
+            this.kwicViewPanel2.TwoLineMode = true;
+            this.kwicViewPanel2.UpdateFrozen = false;
+            this.kwicViewPanel2.WordWrap = true;
             // 
             // dataGridView1
             // 
@@ -207,34 +235,6 @@
             resources.ApplyResources(this.transparentPanel1, "transparentPanel1");
             this.transparentPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.transparentPanel1.Name = "transparentPanel1";
-            // 
-            // kwicViewPanel1
-            // 
-            this.kwicViewPanel1.BackColor = System.Drawing.Color.Ivory;
-            resources.ApplyResources(this.kwicViewPanel1, "kwicViewPanel1");
-            this.kwicViewPanel1.DrawLinesFrom = 0;
-            this.kwicViewPanel1.DrawLinesTo = 0;
-            this.kwicViewPanel1.KwicMode = false;
-            this.kwicViewPanel1.Name = "kwicViewPanel1";
-            this.kwicViewPanel1.SingleSelection = -1;
-            this.kwicViewPanel1.SuspendUpdateView = false;
-            this.kwicViewPanel1.TwoLineMode = true;
-            this.kwicViewPanel1.UpdateFrozen = false;
-            this.kwicViewPanel1.WordWrap = true;
-            // 
-            // kwicViewPanel2
-            // 
-            this.kwicViewPanel2.BackColor = System.Drawing.Color.Ivory;
-            resources.ApplyResources(this.kwicViewPanel2, "kwicViewPanel2");
-            this.kwicViewPanel2.DrawLinesFrom = 0;
-            this.kwicViewPanel2.DrawLinesTo = 0;
-            this.kwicViewPanel2.KwicMode = false;
-            this.kwicViewPanel2.Name = "kwicViewPanel2";
-            this.kwicViewPanel2.SingleSelection = -1;
-            this.kwicViewPanel2.SuspendUpdateView = false;
-            this.kwicViewPanel2.TwoLineMode = true;
-            this.kwicViewPanel2.UpdateFrozen = false;
-            this.kwicViewPanel2.WordWrap = true;
             // 
             // KwicView
             // 

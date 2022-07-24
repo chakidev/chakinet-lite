@@ -227,9 +227,6 @@
   <data name="appendToolStripMenuItem.Text" xml:space="preserve">
     <value>追加検索を開始(&amp;A)</value>
   </data>
-  <data name="searchToolStripButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Meiryo UI, 8.25pt</value>
-  </data>
   <data name="searchToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -252,9 +249,6 @@
   <data name="searchToolStripButton.Text" xml:space="preserve">
     <value>検索開始</value>
   </data>
-  <data name="wordListToolStripButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Meiryo UI, 8.25pt</value>
-  </data>
   <data name="wordListToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -269,9 +263,6 @@
   </data>
   <data name="wordListToolStripButton.Text" xml:space="preserve">
     <value>ワードリスト開始</value>
-  </data>
-  <data name="collocationToolStripButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Meiryo UI, 8.25pt</value>
   </data>
   <data name="collocationToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -295,9 +286,6 @@
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 31</value>
-  </data>
-  <data name="abortToolStripButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Meiryo UI, 8.25pt</value>
   </data>
   <data name="abortToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 28</value>

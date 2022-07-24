@@ -32,10 +32,12 @@ namespace ChaKi.Panels
         public BeginSearchDelegate BeginWordList;
         public BeginSearchDelegate BeginCollocation;
 
-        public event EventHandler<string> SearchStatusReported;
+        public Control DataGridView => this.dataGridView1;
 
-        public ToolStripSplitButton SearchButton => this.searchToolStripButton;
-        public ToolStripButton WordListButton => this.wordListToolStripButton;
+        public event EventHandler<Tuple<int, double>> SearchStatusReported;
+
+        public Button SearchButton { get; } = new Button() { Width = 120 };
+        public Button WordListButton { get; } = new Button() { Width = 120 };
 
         private Queue<IServiceCommand> m_CommandQueue;
         private Thread m_Thread;
@@ -55,9 +57,14 @@ namespace ChaKi.Panels
 
             InitializeComponent();
 
-            // ToolStripから検索ボタンを削除
-            this.toolStrip1.Items.Remove(this.searchToolStripButton);
-            this.toolStrip1.Items.Remove(this.wordListToolStripButton);
+            // ToolStripと同機能のボタン（CondPanel向けに提供）を準備
+            this.SearchButton.Text = this.searchToolStripButton.Text;
+            this.SearchButton.Click += searchStripSplitButton_ButtonClick;
+            this.WordListButton.Text = this.wordListToolStripButton.Text;
+            this.WordListButton.Click += wordListToolStripButton_Click;
+
+            // datagridview1を切り離し(Popupの子に移動)
+            this.Controls.Remove(this.dataGridView1);
 
             // 与えられたFilter ButtonでToolStrip左端のボタンを置き換える。
             this.filterToolStripButton1 = fButton;
@@ -319,7 +326,7 @@ namespace ChaKi.Panels
                         (!item.NhitIsUnknown) ? string.Format("{0}", item.Nret) : "--";
                     this.dataGridView1.Rows[row].Cells[6].Value =
                         (!item.NhitIsUnknown && item.Nhit > 0) ? string.Format("{0:F1}", item.NretP) : "--";
-                    SearchStatusReported?.Invoke(this, $"{item.Nhit} Search Result(s);  {item.NretP:F1} % Loaded.");
+                    SearchStatusReported?.Invoke(this, new Tuple<int, double>(item.Nhit, item.NretP));
                 }
                 m_bModelUpdate = false;
             }
@@ -344,7 +351,7 @@ namespace ChaKi.Panels
                 {
                     rowdata[2] = string.Empty;
                 }
-                SearchStatusReported?.Invoke(this, "0 Search Result(s);  0 % Loaded.");
+                SearchStatusReported?.Invoke(this, new Tuple<int, double>(0, 0.0));
                 this.dataGridView1.Rows.Add(rowdata);
             }
             this.dataGridView1.ResumeLayout();

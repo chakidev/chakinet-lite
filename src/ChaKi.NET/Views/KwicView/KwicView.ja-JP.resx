@@ -121,4 +121,16 @@
   <data name="kwicViewPanel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>788, 147</value>
   </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>コロケーション...</value>
+  </data>
+  <data name="button2.Text" xml:space="preserve">
+    <value>エクスポート...</value>
+  </data>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>ヒット数: {0} 件;  {1:F1} %ロード済み</value>
+  </data>
+  <data name="button3.Text" xml:space="preserve">
+    <value>中止</value>
+  </data>
 </root>

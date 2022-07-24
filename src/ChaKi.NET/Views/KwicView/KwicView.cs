@@ -9,6 +9,7 @@ using ChaKi.Common.Settings;
 using System.Drawing;
 using System.Collections.Generic;
 using ChaKi.Common.Widgets;
+using PopupControl;
 
 namespace ChaKi.Views.KwicView
 {
@@ -158,9 +159,15 @@ namespace ChaKi.Views.KwicView
             }
         }
 
+        public Button CollocationButton => this.button1;
+        public Button ExportButton => this.button2;
+        public Button AbortButton => this.button3;
+
         private Columns m_Columns;
 
         private SizeF currentScaleFactor = new SizeF(1f, 1f);
+
+        private string m_TextBox1FormatText;
 
         protected override void ScaleControl(SizeF factor, BoundsSpecified specified)
         {
@@ -169,6 +176,8 @@ namespace ChaKi.Views.KwicView
             //Record the running scale factor used
             this.currentScaleFactor = new SizeF(factor.Width, factor.Height);
         }
+
+        private Popup m_Popup;
 
         #region KwicView Events
         /// <summary>
@@ -237,6 +246,15 @@ namespace ChaKi.Views.KwicView
             this.button1.Click += (s, e) => CollocationRequested?.Invoke(s, e);
             this.button2.Click += (s, e) => ExportRequested?.Invoke(s, e);
             this.button3.Click += (s, e) => AbortRequested?.Invoke(s, e);
+
+            this.textBox1.Click += (s, e) => { m_Popup?.Show(this.textBox1); };
+            m_TextBox1FormatText = this.textBox1.Text;
+            UpdateSearchStatus(new Tuple<int, double>(0, 0.0));
+        }
+
+        public void PreparePopup(Control content)
+        {
+            m_Popup = new Popup(content);
         }
 
         void panel_WordMappingHilightRequested(object sender, WordMappingHilightEventArgs e)
@@ -667,9 +685,11 @@ namespace ChaKi.Views.KwicView
         /// <summary>
         /// MainFormからKwicPanelへの通知: 検索状況を更新する
         /// </summary>
-        public void UpdateSearchStatus(string msg)
+        public void UpdateSearchStatus(Tuple<int, double> e)
         {
-            this.textBox1.Text = msg ?? string.Empty;
+            var total = e.Item1;
+            var percentage = e.Item2;
+            this.textBox1.Text = string.Format(m_TextBox1FormatText, total, percentage);
         }
     }
 }

@@ -9,6 +9,7 @@ using ChaKi.Entity.Search;
 using ChaKi.Panels;
 using ChaKi.Panels.ConditionsPanes;
 using ChaKi.Entity.Corpora;
+using ChaKi.Common.Widgets;
 
 namespace ChaKi.Panels
 {
@@ -100,18 +101,26 @@ namespace ChaKi.Panels
             this.button1.Click += (o, e) => ResetConditions();
         }
 
+        private DpiAdjuster m_DpiAdjuster;
+
         public void PrepareControlButtons(Button searchButton, Button wordListButton)
         {
             // CommandPanel‚©‚ç‚Ìƒ{ƒ^ƒ“‚ðFlowLayoutPanel‚É’Ç‰Á‚·‚é
-            m_FlowLayoutPanel.BackColor = Color.Transparent;
-            m_FlowLayoutPanel.Location = new Point(20, this.Height - 43);
-            m_FlowLayoutPanel.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
-            m_FlowLayoutPanel.Width = 400;
-            m_FlowLayoutPanel.Height = 40;
-            searchButton.Height = 32;
-            wordListButton.Height = 32;
-            this.button1.Height = 32;
-            this.button1.Width = 100;
+            m_DpiAdjuster = new DpiAdjuster((xscale, yscale) => {
+                m_FlowLayoutPanel.BackColor = Color.Transparent;
+                m_FlowLayoutPanel.Location = new Point((int)(10 * xscale), (int)(this.Height - 40 * yscale));
+                m_FlowLayoutPanel.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+                m_FlowLayoutPanel.Width = (int)(400 * xscale);
+                m_FlowLayoutPanel.Height = (int)(34 * yscale);
+                searchButton.Height = (int)(28 * yscale);
+                searchButton.Width = (int)(120 * xscale);
+                wordListButton.Height = (int)(28 * yscale);
+                wordListButton.Width = (int)(120 * xscale);
+                this.button1.Height = (int)(28 * yscale);
+                this.button1.Width = (int)(100 * xscale);
+                m_DpiAdjuster = null;
+            });
+            this.Paint += (e, a) => m_DpiAdjuster?.Adjust(a.Graphics);
             m_FlowLayoutPanel.Controls.Add(searchButton);
             m_FlowLayoutPanel.Controls.Add(wordListButton);
             m_FlowLayoutPanel.Controls.Add(this.button1);   // "Reset" button

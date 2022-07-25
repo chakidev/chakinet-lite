@@ -41,7 +41,11 @@ namespace ChaKi.Entity.Corpora
 
         public bool IsFiltered(LP lp)
         {
-            return Filters[lp];
+            if (!this.Filters.TryGetValue(lp, out var b))
+            {
+                return false;
+            }
+            return b;
         }
 
         public void SetFiltered(LP lp)

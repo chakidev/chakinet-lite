@@ -697,7 +697,7 @@ namespace ChaKi
             bool b = this.commandPanel.CanBeginCollocation;
             this.UICSearchBeginCollocationToolStripMenuItem.Enabled = b;
             this.UICSearchBeginCollocationToolStripButton.Enabled = b;
-            this.kwicView.CollocationButton.Enabled = b;
+            this.kwicView.CollocationButton.Enabled = true; // カレントcondTabだけでは判定できないので常時trueとする
         }
 
         private void OnSearchLoadSearchConditions(object sender, EventArgs e)

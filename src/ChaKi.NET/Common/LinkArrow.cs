@@ -5,6 +5,7 @@ using ChaKi.Common;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using ChaKi.Common.Settings;
+using ChaKi.Entity.Corpora.Annotations;
 
 namespace ChaKi.GUICommon
 {
@@ -12,7 +13,12 @@ namespace ChaKi.GUICommon
     {
         public int From { get; set; }
         public int To { get; set; }
-        public string Text { get; set; }
+        private string m_Text;
+        public string Text
+        {
+            get => m_Text;
+            set { m_Text = value; }
+        }
         public bool Selected { get; set; }
         public LinkCondition Link { get; private set; }
 
@@ -22,8 +28,10 @@ namespace ChaKi.GUICommon
         private RectangleF m_TextRect;
 
         private Control m_Parent;
+        private ComboBox m_TagBox;
         private Button m_AttributeButton;
         private EditAttributesDialog m_EditAttributesDlg;
+        private TagSelector m_LinkTagSource;
 
         private static Pen m_Pen;
         private static Font m_Font;
@@ -44,6 +52,7 @@ namespace ChaKi.GUICommon
             this.Text = "*";
             m_Points = new Point[4];
             m_Parent = parent;
+            m_LinkTagSource = TagSelector.PreparedSelectors[Tag.LINK];
             m_AttributeButton = new Button()
             {   // cf. BunsetsuBox.Designer.csの"button"のデザインと同一とする。
                 Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128))),
@@ -56,11 +65,62 @@ namespace ChaKi.GUICommon
                 Text = "a",
                 UseVisualStyleBackColor = false,
             };
+            m_TagBox = new ComboBox()
+            {
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Name = "combo1",
+                TabIndex = 0,
+                DropDownWidth = 300,
+            };
+            m_TagBox.Items.Add("*");
+            m_TagBox.SelectedIndex = 0;
+            m_TagBox.DropDown += TagBox_DropDown;
+            m_TagBox.SelectedValueChanged += TagBox_SelectedValueChanged;
             m_AttributeButton.BackColor = (this.Link.LinkAttrs.Count > 0) ? Color.Crimson : Color.DodgerBlue;
             m_AttributeButton.Click += AttributeButton_Click;
-            m_Parent.Controls.Add(m_AttributeButton);
+            //m_Parent.Controls.Add(m_AttributeButton);  // hide attribute button
+            m_Parent.Controls.Add(m_TagBox);
             m_EditAttributesDlg = new EditAttributesDialog();
             m_EditAttributesDlg.SetData(this.Link.LinkAttrs);
+        }
+
+        private void TagBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            this.Text = m_TagBox.Text;
+            m_TagBox.Select(0, 0);
+            var sz = TextRenderer.MeasureText(this.Text, m_Font);
+            var mp = new PointF((m_Points[1].X + m_Points[2].X) / 2F, (m_Points[1].Y + m_Points[2].Y) / 2F);
+            m_TextRect = new RectangleF(mp, sz);
+            //m_AttributeButton.Location = new Point((int)(m_TextRect.Right + 3), (int)(m_TextRect.Top));
+            m_TagBox.Location = new Point((int)(mp.X - sz.Width / 2.0), (int)(m_TextRect.Top + 1));
+            m_TagBox.Width = (int)(sz.Width + 40);
+        }
+
+        private void TagBox_DropDown(object sender, EventArgs e)
+        {
+            var curcorpusname = (ChaKiModel.CurrentCorpus != null) ? (ChaKiModel.CurrentCorpus.Name) : string.Empty;
+            List<Tag> tags = (m_LinkTagSource != null) ? m_LinkTagSource.GetTagsForCorpus(curcorpusname) : null;
+            var maxWidth = 50;
+            if (tags != null)
+            {
+                m_TagBox.Items.Clear();
+                m_TagBox.Items.Add("*");
+                foreach (var tag in tags)
+                {
+                    m_TagBox.Items.Add(tag.Name);
+
+                    // Measure max width
+                    var w = TextRenderer.MeasureText(tag.Name, m_TagBox.Font).Width;
+                    maxWidth = Math.Max(maxWidth, w);
+                }
+            }
+            else
+            {
+                m_TagBox.Items.Clear();
+                m_TagBox.Items.Add("*");
+                m_TagBox.Items.Add("D");
+            }
+            m_TagBox.DropDownWidth = maxWidth + 10;
         }
 
         // 属性条件の編集
@@ -122,12 +182,11 @@ namespace ChaKi.GUICommon
 
             if (drawText)
             {
-                SizeF sz = g.MeasureString(this.Text, m_Font);
-                PointF mp = new PointF((m_Points[1].X + m_Points[2].X) / 2F, (m_Points[1].Y + m_Points[2].Y) / 2F);
-                mp.X -= (sz.Width / 2F);
-                g.DrawString(this.Text, m_Font, Brushes.DarkGreen, mp);
-                m_TextRect = new RectangleF(mp, sz); ;
-                m_AttributeButton.Location = new Point((int)(m_TextRect.Right + 3), (int)(m_TextRect.Top));
+                var sz = g.MeasureString(this.Text, m_Font);
+                var mp = new PointF((m_Points[1].X + m_Points[2].X) / 2F, (m_Points[1].Y + m_Points[2].Y) / 2F);
+                m_TextRect = new RectangleF(mp, sz);
+                //m_AttributeButton.Location = new Point((int)(m_TextRect.Right + 3), (int)(m_TextRect.Top));
+                m_TagBox.Location = new Point((int)(mp.X - sz.Width/2.0), (int)(m_TextRect.Top + 1));
             }
         }
 

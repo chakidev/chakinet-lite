@@ -28,8 +28,6 @@ namespace ChaKi.Panels.ConditionsPanes
 
         private static Pen m_DragPen;
 
-        private TagSelector m_LinkTagSource;
-
         private DpiAdjuster m_DpiAdjuster;
         private int m_XMargin = 5;
 
@@ -54,8 +52,6 @@ namespace ChaKi.Panels.ConditionsPanes
             m_FreezeUpdate = false;
 
             this.UpdateView();
-
-            m_LinkTagSource = TagSelector.PreparedSelectors[ChaKi.Entity.Corpora.Annotations.Tag.LINK];
 
             m_DpiAdjuster = new DpiAdjuster((xscale, yscale) => {
                 m_XMargin = (int)(m_XMargin * xscale);
@@ -428,32 +424,6 @@ namespace ChaKi.Panels.ConditionsPanes
             {
                 this.contextMenuStrip2.Show(PointToScreen(e.Location));
             }
-            else if (ht == LinkArrowHitType.AtText)
-            {
-#if false // TagSelectorだとワイルドカードの入力で問題がある.
-                Popup popup = TagSelector.PreparedPopups[ChaKi.Entity.Corpora.Annotations.Tag.LINK];
-                //((TagSelector)popup.Content).TagSelected += new EventHandler(HandleLinkTagChanged);
-                popup.Show(this, e.Location);
-#endif
-                var curcorpusname = (ChaKiModel.CurrentCorpus != null) ? (ChaKiModel.CurrentCorpus.Name) : string.Empty;
-                List<Tag> tags = (m_LinkTagSource != null) ? m_LinkTagSource.GetTagsForCorpus(curcorpusname) : null;
-                if (tags != null)
-                {
-                    this.contextMenuStrip1.Items.Clear();
-                    this.contextMenuStrip1.Items.Add("*");
-                    foreach (var tag in tags)
-                    {
-                        this.contextMenuStrip1.Items.Add(tag.Name);
-                    }
-                }
-                else
-                {
-                    this.contextMenuStrip1.Items.Clear();
-                    this.contextMenuStrip1.Items.Add("*");
-                    this.contextMenuStrip1.Items.Add("D");
-                }
-                this.contextMenuStrip1.Show(PointToScreen(e.Location));
-            }
         }
 
         // 外側のBoxでマウスが押された→依存線ドラッグ開始
@@ -483,10 +453,6 @@ namespace ChaKi.Panels.ConditionsPanes
             if (ht == LinkArrowHitType.AtArrow)
             {
                 this.Cursor = Cursors.UpArrow;
-            }
-            else if (ht == LinkArrowHitType.AtText)
-            {
-                this.Cursor = Cursors.IBeam;
             }
             else
             {

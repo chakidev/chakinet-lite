@@ -8,6 +8,7 @@ using ChaKi.Entity.Corpora;
 using ChaKi.Entity.Corpora.Annotations;
 using System.Text;
 using ChaKi.Common.Settings;
+using ChaKi.Common.Widgets;
 
 namespace DependencyEditSLA.Widgets
 {
@@ -23,6 +24,9 @@ namespace DependencyEditSLA.Widgets
 
         private static Pen m_BorderPen;
         private static Font ms_Font;
+
+        private DpiAdjuster m_DpiAdjuster;
+        private SizeF m_WordBoxMargin;
 
         public event MergeSplitEventHandler SplitBunsetsuRequested;  // this --> SentenceStructure
         public event MergeSplitEventHandler SplitWordRequested;      // WordBox --> this --> SentenceStructure
@@ -63,6 +67,11 @@ namespace DependencyEditSLA.Widgets
             m_Buttons = new List<ConcatButton>();
             m_bHover = false;
             this.AbridgeType = 0;
+
+            m_DpiAdjuster = new DpiAdjuster((xscale, yscale) =>
+            {
+                this.m_WordBoxMargin = new SizeF((float)(2.0 * xscale), (float)(2.0 * yscale));
+            });
         }
 
         public Segment Model
@@ -178,9 +187,9 @@ namespace DependencyEditSLA.Widgets
             int x = 0;
             if (!IsLeftAbridged)
             {
-                x += 4;
+                x += (int)(m_WordBoxMargin.Width);
             }
-            int y = 4;
+            int y = (int)(m_WordBoxMargin.Height);
             int height = 0;
             int margin = DepEditSettings.Current.WordBoxMargin;
 
@@ -226,10 +235,10 @@ namespace DependencyEditSLA.Widgets
             }
             if (!IsRightAbridged)
             {
-                x += 5;
+                x += (int)(m_WordBoxMargin.Width + 1);
             }
             this.Width = x;
-            this.Height = (int)(height + 8F);
+            this.Height = (int)(height + m_WordBoxMargin.Height * 2);
         }
 
         /// <summary>

@@ -49,6 +49,9 @@ namespace ChaKi.Common.Settings
 
         public static DepEditSettings Current = new DepEditSettings();
 
+        // WordBoxの背景を塗りつぶして強調するか否か
+        public bool UseWordBackColor;
+
         private DepEditSettings()
         {
             this.DispMode = DispModes.Diagonal;
@@ -68,6 +71,7 @@ namespace ChaKi.Common.Settings
             this.ShowHeadInfo = true;
             this.SegmentBoxLevelMarginX = 1.0;
             this.SegmentBoxLevelMarginY = 3.0;
+            this.UseWordBackColor = false;
         }
 
         public DepEditSettings(DepEditSettings src)
@@ -102,7 +106,7 @@ namespace ChaKi.Common.Settings
             this.ShowHeadInfo = src.ShowHeadInfo;
             this.SegmentBoxLevelMarginX = src.SegmentBoxLevelMarginX;
             this.SegmentBoxLevelMarginY = src.SegmentBoxLevelMarginY;
-
+            this.UseWordBackColor = src.UseWordBackColor;
         }
     }
 

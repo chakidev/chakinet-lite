@@ -44,7 +44,7 @@ namespace DependencyEditSLA.Widgets
             set
             {
                 m_Abridged = value;
-                this.BorderStyle = (m_Abridged) ? BorderStyle.None : BorderStyle.Fixed3D;
+                UpdateBorderStyle();
             }
         }
         private bool m_Abridged;
@@ -79,6 +79,15 @@ namespace DependencyEditSLA.Widgets
 
             this.lexemeBox1.Model = w.Lex;
             this.lexemeBox1.Click += new EventHandler(lexemeBox1_Click);
+        }
+
+        public void UpdateBorderStyle()
+        {
+            var newBorderStyle = (m_Abridged || !DepEditSettings.Current.UseWordBackColor) ? BorderStyle.None : BorderStyle.Fixed3D;
+            if (this.BorderStyle != newBorderStyle)
+            {
+                this.BorderStyle = newBorderStyle;
+            }
         }
 
         void lexemeBox1_Click(object sender, EventArgs e)
@@ -269,6 +278,8 @@ namespace DependencyEditSLA.Widgets
         {
             if (!this.Visible) return;
 
+            UpdateBorderStyle();
+
             if (this.Abridged)
             {
                 Graphics g = e.Graphics;
@@ -284,7 +295,10 @@ namespace DependencyEditSLA.Widgets
             if (m_CurDispMode != DispModes.Morphemes)
             {
                 Graphics g = e.Graphics;
-                g.FillRectangle(Brushes.Snow, new Rectangle(0, 0, this.Width, this.Height));
+                if (DepEditSettings.Current.UseWordBackColor)
+                {
+                    g.FillRectangle(Brushes.Snow, new Rectangle(0, 0, this.Width, this.Height));
+                }
                 g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
                 Brush br = m_bCenter ? ms_Brush2 : ms_Brush;
                 string s = m_Model.Lex.Surface;

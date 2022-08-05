@@ -30,6 +30,7 @@ namespace DependencyEditSLA
             this.trackBar9.Value = (int)(settings.SegmentBoxLevelMarginY);
 
             this.checkBox1.Checked = settings.ShowHeadInfo;
+            this.checkBox2.Checked = settings.UseWordBackColor;
         }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
@@ -105,6 +106,16 @@ namespace DependencyEditSLA
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             DepEditSettings.Current.ShowHeadInfo = this.checkBox1.Checked;
+            if (this.View != null)
+            {
+                this.View.RecalcLayout();
+                this.View.Refresh();
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            DepEditSettings.Current.UseWordBackColor = this.checkBox2.Checked;
             if (this.View != null)
             {
                 this.View.RecalcLayout();

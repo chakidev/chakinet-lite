@@ -97,7 +97,16 @@ namespace ChaKi
                     cmd = new SentenceListService(hist, parent);
                     break;
                 case SearchType.StringSearch:
-                    cmd = new StringSearchService(hist, parent);
+                    if (hist.CondSeq.Last.StringCond.Pattern.Length == 0)
+                    {
+                        // ğŒ‚ª‚È‚¢‚ÍSentenceSearch‚ğs‚¤
+                        conds.ActiveSearch = SearchType.SentenceSearch;
+                        cmd = new SentenceListService(hist, parent);
+                    }
+                    else
+                    {
+                        cmd = new StringSearchService(hist, parent);
+                    }
                     break;
                 case SearchType.TagSearch:
                     cmd = new TagSearchService(hist, parent);

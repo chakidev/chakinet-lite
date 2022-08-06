@@ -19,10 +19,10 @@ namespace ChaKi.Panels
     public enum ConditionsPanelType
     {
         CP_CORPUS = -1,
-        CP_FILTER = 0,
-        CP_STRING = 1,
-        CP_TAG = 2,
-        CP_DEP = 3,
+        CP_STRING = 0,
+        CP_TAG = 1,
+        CP_DEP = 2,
+        CP_FILTER = 3,
         CP_COLLOCATION = 4,
         CP_DOCUMENTSANALYSIS = 5,
         CP_MINING = 6,
@@ -65,10 +65,10 @@ namespace ChaKi.Panels
             collocationPane = new CollocationPane(model.CollCond) { Dock = DockStyle.Fill };
 
             var panes = new List<Control>();
-            panes.Add(filterPane = new FilterPane(model.FilterCond, model.SentenceCond));
             panes.Add(stringSearchPane = new StringSearchPane(model.StringCond));
             panes.Add(tagSearchPane = new TagSearchPane(model.TagCond));
             panes.Add(depSearchPane = new DepSearchPane(model.DepCond));
+            panes.Add(filterPane = new FilterPane(model.FilterCond, model.SentenceCond));
             panes.Add(documentsAnalysisPane = new DocumentsAnalysisPane(model.DocumentsAnalysisCond));
             panes.Add(miningPane = new AddinPane(model.MiningCond));
 

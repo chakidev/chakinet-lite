@@ -42,10 +42,10 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.filterTab);
             this.tabControl1.Controls.Add(this.stringSearchTab);
             this.tabControl1.Controls.Add(this.tagSearchTab);
             this.tabControl1.Controls.Add(this.depSearchTab);
+            this.tabControl1.Controls.Add(this.filterTab);
             resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;

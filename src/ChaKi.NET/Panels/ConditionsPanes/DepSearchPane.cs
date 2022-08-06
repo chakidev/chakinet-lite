@@ -415,8 +415,6 @@ namespace ChaKi.Panels.ConditionsPanes
             UpdateView();
         }
 
-
-
         private void OnMouseDown(object sender, MouseEventArgs e)
         {
             LinkArrowHitType ht = HitTestLinkArrows(e.Location);
@@ -537,18 +535,6 @@ namespace ChaKi.Panels.ConditionsPanes
             m_Model.LinkConds.Remove(m_HitAt.Link);
             UpdateView();
             Invalidate();
-        }
-
-        private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            if (m_HitAt != null)
-            {
-                string t = e.ClickedItem.Text;
-                m_HitAt.Link.Text = t;
-                // å¯ó¶ÇÃÇΩÇﬂÅAÇ±Ç±Ç≈ViewÇ‡çXêVÇ∑ÇÈ
-                m_HitAt.Text = t;
-                Invalidate();
-            }
         }
 
         /// <summary>

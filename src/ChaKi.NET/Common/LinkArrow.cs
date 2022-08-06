@@ -13,12 +13,7 @@ namespace ChaKi.GUICommon
     {
         public int From { get; set; }
         public int To { get; set; }
-        private string m_Text;
-        public string Text
-        {
-            get => m_Text;
-            set { m_Text = value; }
-        }
+        public string Text { get; set; }
         public bool Selected { get; set; }
         public LinkCondition Link { get; private set; }
 
@@ -49,7 +44,7 @@ namespace ChaKi.GUICommon
         public LinkArrow(Control parent, LinkCondition cond)
         {
             this.Link = cond;
-            this.Text = "*";
+            this.Text = cond.Text ?? "*";
             m_Points = new Point[4];
             m_Parent = parent;
             m_LinkTagSource = TagSelector.PreparedSelectors[Tag.LINK];
@@ -72,8 +67,11 @@ namespace ChaKi.GUICommon
                 TabIndex = 0,
                 DropDownWidth = 300,
             };
-            m_TagBox.Items.Add("*");
-            m_TagBox.SelectedIndex = 0;
+            if (m_TagBox.Items.IndexOf(this.Text) < 0)
+            {
+                m_TagBox.Items.Add(this.Text);
+            }
+            m_TagBox.SelectedItem = this.Text;
             m_TagBox.DropDown += TagBox_DropDown;
             m_TagBox.SelectedValueChanged += TagBox_SelectedValueChanged;
             m_AttributeButton.BackColor = (this.Link.LinkAttrs.Count > 0) ? Color.Crimson : Color.DodgerBlue;
@@ -87,11 +85,13 @@ namespace ChaKi.GUICommon
         private void TagBox_SelectedValueChanged(object sender, EventArgs e)
         {
             this.Text = m_TagBox.Text;
+            this.Link.Text = this.Text;
             m_TagBox.Select(0, 0);
+
+            // ComboBoxのサイズと位置をテキストに合わせて調整
             var sz = TextRenderer.MeasureText(this.Text, m_Font);
             var mp = new PointF((m_Points[1].X + m_Points[2].X) / 2F, (m_Points[1].Y + m_Points[2].Y) / 2F);
             m_TextRect = new RectangleF(mp, sz);
-            //m_AttributeButton.Location = new Point((int)(m_TextRect.Right + 3), (int)(m_TextRect.Top));
             m_TagBox.Location = new Point((int)(mp.X - sz.Width / 2.0), (int)(m_TextRect.Top + 1));
             m_TagBox.Width = (int)(sz.Width + 40);
         }

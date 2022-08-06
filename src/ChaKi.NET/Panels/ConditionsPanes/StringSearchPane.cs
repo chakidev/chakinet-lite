@@ -20,6 +20,14 @@ namespace ChaKi.Panels.ConditionsPanes
             SetCondition(model);
         }
 
+        // 初期表示時に左上に透明な背景抜け領域ができ、下のWindowが透けて見える現象への対応
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            e.Graphics.FillRectangle(SystemBrushes.Control, 0, 0, this.Width, this.Height);
+        }
+
+
         public void SetCondition(StringSearchCondition cond)
         {
             m_Model = cond;

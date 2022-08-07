@@ -1135,6 +1135,11 @@ namespace ChaKi.Service.Search
                 sb.Append(connector.Get());
                 sb.AppendFormat("link k{0}", i);
             }
+            for (int i = 0; i < depCond.LinkConds.Count; i++)
+            {
+                sb.Append(connector.Get());
+                sb.AppendFormat("tag_definition t{0}", i);
+            }
 
             sb.Append(" WHERE ");
             sb.Append(BuildDepSearchQueryWhereClauseForBunsetsuSQL(iPivot, depCond, targetSentences, lexemeResultSet, cond.FilterCond.TargetProjectId));
@@ -1273,7 +1278,9 @@ namespace ChaKi.Service.Search
                 if (kcond.TextIsValid)
                 {
                     sb.Append(connector.Get());
-                    sb.AppendFormat("k{0}.Tag.Name = '{1}'", i, kcond.Text);
+                    sb.AppendFormat("t{0}.type='Link' AND t{0}.tag_name='{1}'", i, kcond.Text);
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("k{0}.tag_definition_id=t{0}.id", i);
                 }
                 // Link Attributes
                 foreach (var attr in kcond.LinkAttrs)

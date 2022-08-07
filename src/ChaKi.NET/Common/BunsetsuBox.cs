@@ -92,9 +92,9 @@ namespace ChaKi.GUICommon
                 return;
             }
             // Segment Tag Textboxを追加する
-            this.Controls.Add(this.textBox1);
+            //this.Controls.Add(this.textBox1);
             this.textBox1.Text = this.SegmentTag;
-            this.Controls.Add(this.button1);
+            //this.Controls.Add(this.button1);
             m_EditAttributesDlg.SetData(this.SegmentAttributes);
             this.button1.BackColor = (this.SegmentAttributes.Count > 0) ? Color.Crimson : Color.DodgerBlue;
 
@@ -139,9 +139,9 @@ namespace ChaKi.GUICommon
         private void RecalcLayout()
         {
             int x = 5;
-            int y = 5;
+            int y = -5; // PropertyBox上部のindex boxesは非表示であるが、その分だけ空白領域がある。
 
-            int height = 15;
+            int height = 5;
             if (m_PropertyBoxes.Count > 0)
             {
                 height += m_PropertyBoxes[0].Height;

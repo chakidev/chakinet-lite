@@ -127,12 +127,12 @@ namespace ChaKi.GUICommon
         static PropertyBox()
         {
             m_font = new Font("ＭＳ Ｐゴシック", 9);
-            m_font2 = new Font("Lucida Sans Unicode", 8, FontStyle.Italic);
+            m_font2 = new Font("Segoe UI", 8, FontStyle.Italic);
             m_brush = new SolidBrush(Color.Black);
             m_brush2 = new SolidBrush(Color.MediumSlateBlue);
             m_brush3 = new SolidBrush(Color.White);
             m_brush4 = new SolidBrush(Color.Red);
-            m_pen = new Pen(Color.Red, 2);
+            m_pen = new Pen(Color.Red, 4);
 
             // input用のポップアップを作成
             m_inputDlg = new TransparentInputForm();

@@ -72,6 +72,7 @@ namespace ChaKi.GUICommon
                 m_TagBox.Items.Add(this.Text);
             }
             m_TagBox.SelectedItem = this.Text;
+            TagBox_SelectedValueChanged(null, EventArgs.Empty);  // サイズを強制更新
             m_TagBox.DropDown += TagBox_DropDown;
             m_TagBox.SelectedValueChanged += TagBox_SelectedValueChanged;
             m_AttributeButton.BackColor = (this.Link.LinkAttrs.Count > 0) ? Color.Crimson : Color.DodgerBlue;

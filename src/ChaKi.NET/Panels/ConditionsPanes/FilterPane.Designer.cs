@@ -30,22 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FilterPane));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.filterControl = new ChaKi.Panels.ConditionsPanes.FilterControl();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.filterControl = new ChaKi.Panels.ConditionsPanes.FilterControl();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.filterControl);
             resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.filterControl);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
-            // 
-            // filterControl
-            // 
-            resources.ApplyResources(this.filterControl, "filterControl");
-            this.filterControl.Name = "filterControl";
             // 
             // checkBox1
             // 
@@ -53,6 +48,12 @@
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // filterControl
+            // 
+            resources.ApplyResources(this.filterControl, "filterControl");
+            this.filterControl.CorpusCond = null;
+            this.filterControl.Name = "filterControl";
             // 
             // FilterPane
             // 

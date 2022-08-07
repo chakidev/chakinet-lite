@@ -112,17 +112,17 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>223, 56</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 18</value>
+    <value>108, 14</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>(無指定ですべて取得)</value>
@@ -131,16 +131,16 @@
     <value>23, 83</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 18</value>
+    <value>92, 14</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>取得開始No.(&amp;S):</value>
   </data>
   <data name="checkBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>226, 84</value>
+    <value>221, 81</value>
   </data>
   <data name="checkBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 22</value>
+    <value>183, 18</value>
   </data>
   <data name="checkBox1.Text" xml:space="preserve">
     <value>検索実行毎に自動インクリメント(&amp;A)</value>
@@ -149,19 +149,19 @@
     <value>144, 81</value>
   </data>
   <data name="textBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 25</value>
+    <value>73, 21</value>
   </data>
   <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>144, 53</value>
   </data>
   <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 25</value>
+    <value>73, 21</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>29, 58</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 18</value>
+    <value>86, 14</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>最大取得数(&amp;M):</value>
@@ -170,16 +170,25 @@
     <value>248, 19</value>
   </data>
   <data name="radioButton3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 22</value>
+    <value>76, 18</value>
   </data>
   <data name="radioButton3.Text" xml:space="preserve">
     <value>ランダム(&amp;R)</value>
+  </data>
+  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 8.25pt</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>416, 113</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>検索結果取得方法(&amp;R)</value>
   </data>
   <data name="radioButton2.Location" type="System.Drawing.Point, System.Drawing">
     <value>138, 19</value>
   </data>
   <data name="radioButton2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 22</value>
+    <value>65, 18</value>
   </data>
   <data name="radioButton2.Text" xml:space="preserve">
     <value>降順(&amp;D)</value>
@@ -188,33 +197,42 @@
     <value>23, 19</value>
   </data>
   <data name="radioButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 22</value>
+    <value>61, 18</value>
   </data>
   <data name="radioButton1.Text" xml:space="preserve">
     <value>昇順(&amp;I)</value>
   </data>
-  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Meiryo UI, 8.25pt</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>検索結果取得方法(&amp;R)</value>
-  </data>
-  <data name="textBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 25</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 18</value>
-  </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 25</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 18</value>
-  </data>
   <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Meiryo UI, 8.25pt</value>
   </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>425, 3</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>488, 54</value>
+  </data>
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Documentタグフィルタ(&amp;D)</value>
+  </data>
+  <data name="textBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>277, 25</value>
+  </data>
+  <data name="textBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 21</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>232, 30</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 14</value>
+  </data>
+  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 21</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 14</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>920, 119</value>
   </data>
 </root>

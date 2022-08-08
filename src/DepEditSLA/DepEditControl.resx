@@ -152,8 +152,15 @@
   <data name="toolStripButton6.ToolTipText" xml:space="preserve">
     <value>Enter/Leave Edit Mode</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="toolStripButton6.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="toolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 37</value>
+  </data>
+  <data name="toolStripSeparator8.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="toolStripButton1.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
@@ -164,6 +171,9 @@
   <data name="toolStripButton1.Text" xml:space="preserve">
     <value>Undo</value>
   </data>
+  <data name="toolStripButton1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="toolStripButton2.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
@@ -173,8 +183,14 @@
   <data name="toolStripButton2.Text" xml:space="preserve">
     <value>Redo</value>
   </data>
+  <data name="toolStripButton2.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 37</value>
+  </data>
+  <data name="toolStripSeparator1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="toolStripButton3.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
@@ -264,8 +280,14 @@
   <data name="toolStripButton8.Text" xml:space="preserve">
     <value>Save Dependency Tree</value>
   </data>
+  <data name="toolStripButton8.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 37</value>
+  </data>
+  <data name="toolStripSeparator5.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="toolStripTextBox2.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -393,6 +415,9 @@
   <data name="toolStripButton15.ToolTipText" xml:space="preserve">
     <value>Create new Link on a Segment</value>
   </data>
+  <data name="toolStripButton15.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="toolStripButton17.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
@@ -401,6 +426,9 @@
   </data>
   <data name="toolStripButton17.Text" xml:space="preserve">
     <value>Annotate MWEs based on External Dictionary</value>
+  </data>
+  <data name="toolStripButton17.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="toolStripButton16.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
@@ -416,6 +444,9 @@
   </data>
   <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 37</value>
+  </data>
+  <data name="toolStripSeparator6.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="toolStripButton14.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -441,8 +472,14 @@
   <data name="toolStripButton14.Text" xml:space="preserve">
     <value>Reanalyze by Cabocha</value>
   </data>
+  <data name="toolStripButton14.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="toolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 37</value>
+  </data>
+  <data name="toolStripSeparator10.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="toolStripButton18.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>

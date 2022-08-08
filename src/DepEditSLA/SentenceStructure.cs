@@ -415,31 +415,34 @@ namespace DependencyEditSLA
 #endif
 
             // 機能ボタン（各Bunsetsuの前にあると考える）
-            FunctionButton cbFirst = null;
-            for (int i = 0; i < m_BunsetsuBoxes.Count; i++)
+            if (this.EditMode)
             {
-                FunctionButton cb = null;
-                BunsetsuBox bb = m_BunsetsuBoxes[i];
-                if (bb.Enabled)
+                FunctionButton cbFirst = null;
+                for (int i = 0; i < m_BunsetsuBoxes.Count; i++)
                 {
-                    // 連続した省略文節の前にはボタンを置かない（改行しない）
-                    if (!bb.IsAbridged
-                     || (bb.IsRightAbridged && !bb.IsAllAbridged)
-                     || (bb.IsLeftAbridged && i > 0 && !m_BunsetsuBoxes[i - 1].IsRightAbridged))
+                    FunctionButton cb = null;
+                    BunsetsuBox bb = m_BunsetsuBoxes[i];
+                    if (bb.Enabled)
                     {
-                        cb = new ConcatButton(i - 1);
-                        cb.Click += new System.EventHandler(concatButton_Clicked);
-                        if (cbFirst == null) cbFirst = cb;
+                        // 連続した省略文節の前にはボタンを置かない（改行しない）
+                        if (!bb.IsAbridged
+                         || (bb.IsRightAbridged && !bb.IsAllAbridged)
+                         || (bb.IsLeftAbridged && i > 0 && !m_BunsetsuBoxes[i - 1].IsRightAbridged))
+                        {
+                            cb = new ConcatButton(i - 1);
+                            cb.Click += new System.EventHandler(concatButton_Clicked);
+                            if (cbFirst == null) cbFirst = cb;
+                        }
                     }
+                    m_FunctionButtons.Add(cb);
+                    controlsToAdd.Add(cb);
                 }
-                m_FunctionButtons.Add(cb);
-                controlsToAdd.Add(cb);
-            }
-            // 先頭にはボタンを置かない
-            if (m_FunctionButtons.Count > 0 && cbFirst != null)
-            {
-                m_FunctionButtons.Remove(cbFirst);
-                controlsToAdd.Remove(cbFirst);
+                // 先頭にはボタンを置かない
+                if (m_FunctionButtons.Count > 0 && cbFirst != null)
+                {
+                    m_FunctionButtons.Remove(cbFirst);
+                    controlsToAdd.Remove(cbFirst);
+                }
             }
         }
 
@@ -719,15 +722,18 @@ namespace DependencyEditSLA
                     cur_w = 0;
                 }
                 FunctionButton cb = null;
-                if (i < m_BunsetsuBoxes.Count - 1)
+                if (this.EditMode)
                 {
-                    cb = m_FunctionButtons[i];
-                    if (cb != null)
+                    if (i < m_BunsetsuBoxes.Count - 1)
                     {
-                        cb.Left = (x + settings.BunsetsuBoxMargin);
-                        cb.Top = y;
-                        x += (cb.Width + settings.BunsetsuBoxMargin);
-                        xindent_diagonal += (cb.Width + settings.BunsetsuBoxMargin);
+                        cb = m_FunctionButtons[i];
+                        if (cb != null)
+                        {
+                            cb.Left = (x + settings.BunsetsuBoxMargin);
+                            cb.Top = y;
+                            x += (cb.Width + settings.BunsetsuBoxMargin);
+                            xindent_diagonal += (cb.Width + settings.BunsetsuBoxMargin);
+                        }
                     }
                 }
                 if (m_DispMode == DispModes.Horizontal || m_DispMode == DispModes.Morphemes)
@@ -1267,6 +1273,8 @@ namespace DependencyEditSLA
             {
                 if (!this.EditMode)
                 {
+                    // EditModeでなければRightClickで常に設定のためのContextMenuを出す
+                    this.contextMenuStrip3.Show(PointToScreen(e.Location));
                     return;
                 }
                 if (arr != null)
@@ -1284,8 +1292,7 @@ namespace DependencyEditSLA
                     return;
                 }
                 // それ以外の場所での右クリック → コンテクストメニュー表示
-                var p = this.PointToScreen(e.Location);
-                this.contextMenuStrip3.Show(p);
+                this.contextMenuStrip3.Show(PointToScreen(e.Location));
             }
         }
 

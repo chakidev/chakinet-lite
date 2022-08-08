@@ -234,9 +234,9 @@ namespace DependencyEditSLA
                 m_SentenceStructure.SetCenterWord(m_CenterWordPos);
                 m_SentenceStructure.VerticalScroll.Value = m_SentenceStructure.VerticalScroll.Maximum;
                 m_SentenceStructure.UpdateContents();
-                m_SentenceStructure.EditMode = true;
-
-                m_IsEditMode = true;
+                // Lite版ではEdit機能は動作させない
+                //m_SentenceStructure.EditMode = true;
+                //m_IsEditMode = true;
 
             }
             catch (Exception ex)

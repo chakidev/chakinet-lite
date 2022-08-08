@@ -54,6 +54,8 @@ namespace DependencyEditSLA.Widgets
             get { return (m_Model != null) ? m_Model.CharLength : 0; }
         }
 
+        private ToolTip m_ToolTip;
+
         static WordBox() 
         {
             ms_Brush = new SolidBrush(Color.Black);
@@ -74,6 +76,15 @@ namespace DependencyEditSLA.Widgets
             m_bCenter = bCenter;
             m_Hovering = false;
             Abridged = false;
+
+            // Create Tooltip
+            m_ToolTip = new ToolTip()
+            {
+                AutoPopDelay = 5000,
+                InitialDelay = 500,
+                ReshowDelay = 500,
+                ShowAlways = true
+            };
 
             UpdateContents();
 
@@ -189,6 +200,19 @@ namespace DependencyEditSLA.Widgets
                 this.lexemeBox1.Visible = false;
             }
             m_CurDispMode = mode;
+
+            if (m_CurDispMode != DispModes.Morphemes)
+            {
+                m_ToolTip.SetToolTip(this,
+                    $"Lemma: {m_Model.Lex.Lemma}\r\n" +
+                    $"upos: {m_Model.Lex.PartOfSpeech.Name1}\r\n" +
+                    $"xpos: {m_Model.Lex.PartOfSpeech.Name2}\r\n" +
+                    $"feats: {m_Model.Lex.CustomProperty}");
+            }
+            else
+            {
+                m_ToolTip.RemoveAll();
+            }
         }
 
         public void RecalcLayout(DispModes mode)
@@ -311,7 +335,7 @@ namespace DependencyEditSLA.Widgets
             }
             else
             {
-                e.Graphics.FillRectangle(Brushes.AntiqueWhite, new Rectangle(0, 0, this.Width, this.Height));
+                e.Graphics.FillRectangle(Brushes.White, new Rectangle(0, 0, this.Width, this.Height));
             }
             if (DepEditSettings.Current.ShowHeadInfo)
             {

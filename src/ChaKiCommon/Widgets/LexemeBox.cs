@@ -7,13 +7,13 @@ using System.Text;
 using System.Windows.Forms;
 using ChaKi.Entity.Corpora;
 using System.Drawing.Text;
+using ChaKi.Common.Settings;
 
 namespace ChaKi.Common
 {
     public partial class LexemeBox : UserControl
     {
         #region static fields
-        private static List<string> m_tags;
         private static Font m_font;
         private static Brush m_brush;
         private static Font m_font2;
@@ -24,19 +24,16 @@ namespace ChaKi.Common
         private static Pen m_pen;
         #endregion
 
+        private List<string> m_tags;
+
         private Lexeme m_Model;
 
         public new event EventHandler Click;
 
         static LexemeBox()
         {
-            m_tags = new List<string>();
-            foreach (KeyValuePair<LP, string> pair in Lexeme.PropertyName)
-            {
-                m_tags.Add(pair.Value);
-            }
             m_font = new Font("ＭＳ Ｐゴシック", 9);
-            m_font2 = new Font("Lucida Sans Unicode", 8, FontStyle.Italic);
+            m_font2 = new Font("Segoe UI", 8, FontStyle.Italic);
             m_brush = new SolidBrush(Color.Black);
             m_brush2 = new SolidBrush(Color.MediumSlateBlue);
             m_brush3 = new SolidBrush(Color.White);
@@ -49,14 +46,20 @@ namespace ChaKi.Common
         {
             InitializeComponent();
 
-            // PropertyBoxの初期化
-            foreach (string tag in m_tags)
+            // TagListの初期化
+            m_tags = new List<string>();
+            foreach (var setting in PropertyBoxSettings.Instance.Settings)
             {
-                this.listBox1.Items.Add(tag);
+                if (setting.IsVisible)
+                {
+                    this.listBox1.Items.Add(setting.DisplayName);
+                    m_tags.Add(setting.TagName);
+                }
             }
 
+            this.listBox1.ItemHeight = 16;
             // コントロールの高さを計算
-            int height = this.listBox1.GetItemHeight(0) * m_tags.Count + 6;
+            int height = this.listBox1.GetItemHeight(0) * this.listBox1.Items.Count + 6;
             this.listBox1.Height = height;
             this.Height = this.listBox1.Height;
 
@@ -104,7 +107,11 @@ namespace ChaKi.Common
                 string s = null;
                 if (m_Model != null)
                 {
-                    s = m_Model.GetStringProperty((LP)index);
+                    var lp = Lexeme.FindProperty(m_tags[index]);
+                    if (lp != null)
+                    {
+                        s = m_Model.GetStringProperty(lp.Value);
+                    }
                 }
                 if (s != null && s.Length > 0)
                 {

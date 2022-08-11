@@ -284,6 +284,7 @@ namespace ChaKi
             UICToolsEditTagSetDefinitionsToolStripMenuItem.Visible = false;
             toolStripSeparator12.Visible = false;
             UICDictionaryToolStripMenuItem.Visible = false;
+            UICOptionsDictionarySettingsToolStripMenuItem.Visible = false;
             UICSearchBeginSearchToolStripButton.Visible = false;
             UICSearchBeginSearchNarrowToolStripButton.Visible = false;
             UICSearchBeginSearchAppendToolStripButton.Visible = false;

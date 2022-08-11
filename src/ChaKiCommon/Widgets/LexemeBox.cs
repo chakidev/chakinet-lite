@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using ChaKi.Entity.Corpora;
 using System.Drawing.Text;
 using ChaKi.Common.Settings;
+using ChaKi.Common.Widgets;
 
 namespace ChaKi.Common
 {
@@ -57,11 +58,19 @@ namespace ChaKi.Common
                 }
             }
 
-            this.listBox1.ItemHeight = 16;
-            // コントロールの高さを計算
-            int height = this.listBox1.GetItemHeight(0) * this.listBox1.Items.Count + 6;
-            this.listBox1.Height = height;
-            this.Height = this.listBox1.Height;
+            var dpiadjuster = new DpiAdjuster((xscale, yscale) =>
+            {
+                this.listBox1.ItemHeight = (int)(16 * yscale);
+                // コントロールの高さを計算
+                int height = this.listBox1.GetItemHeight(0) * this.listBox1.Items.Count + 6;
+                this.listBox1.Height = height;
+                this.Height = this.listBox1.Height;
+            });
+            using (var g = this.CreateGraphics())
+            {
+                dpiadjuster.Adjust(g);
+            }
+
 
             this.listBox1.Click += delegate(object o, EventArgs e) { if (Click != null) Click(o, e); };  //ListBox Clickイベントの中継
         }

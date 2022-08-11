@@ -614,6 +614,12 @@
   <data name="UICSearchBeginSearchToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>条件に合うSentenceまたはKWICを検索</value>
   </data>
+  <data name="UICSearchAbortSearchToolStripMenuItem.Text" xml:space="preserve">
+    <value>検索中断(&amp;A)</value>
+  </data>
+  <data name="UICSearchAbortSearchToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>現在の検索を強制中断</value>
+  </data>
   <data name="UICSearchBeginSearchNarrowToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>262, 24</value>
   </data>

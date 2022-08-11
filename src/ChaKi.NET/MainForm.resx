@@ -1268,6 +1268,12 @@
   <data name="UICSearchBeginSearchToolStripMenuItem.Text" xml:space="preserve">
     <value>Begin Sea&amp;rch</value>
   </data>
+  <data name="UICSearchAbortSearchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>263, 26</value>
+  </data>
+  <data name="UICSearchAbortSearchToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Abort Search</value>
+  </data>
   <data name="UICSearchBeginSearchNarrowToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS

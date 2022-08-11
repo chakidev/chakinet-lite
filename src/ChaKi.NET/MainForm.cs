@@ -238,6 +238,7 @@ namespace ChaKi
             uc.UpdateEventHandler += this.OnSearchBeginWordListUpdate;
             UICommand.Commands.Add((uc = new UICommand(this, "SearchBeginCollocation")));
             uc.UpdateEventHandler += this.OnSearchBeginCollocationUpdate;
+            UICommand.Commands.Add((uc = new UICommand(this, "SearchAbortSearch")));
             UICommand.Commands.Add((uc = new UICommand(this, "SearchLoadSearchConditions")));
             UICommand.Commands.Add((uc = new UICommand(this, "SearchSaveCurrentSearchConditions")));
             UICommand.Commands.Add((uc = new UICommand(this, "SearchResetAllSearchSettings")));

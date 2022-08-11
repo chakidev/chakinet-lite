@@ -96,6 +96,7 @@ namespace ChaKi
             this.UICSearchCollocationSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.UICSearchBeginSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UICSearchAbortSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICSearchBeginSearchNarrowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICSearchBeginSearchAppendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UICSearchBeginWordListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -635,6 +636,7 @@ namespace ChaKi
             this.UICSearchBeginSearchAppendToolStripMenuItem,
             this.UICSearchBeginWordListToolStripMenuItem,
             this.UICSearchBeginCollocationToolStripMenuItem,
+            this.UICSearchAbortSearchToolStripMenuItem,
             this.toolStripSeparator8,
             this.UICSearchLoadSearchConditionsToolStripMenuItem,
             this.UICSearchSaveCurrentSearchConditionsToolStripMenuItem,
@@ -686,6 +688,11 @@ namespace ChaKi
             // 
             resources.ApplyResources(this.UICSearchBeginSearchToolStripMenuItem, "UICSearchBeginSearchToolStripMenuItem");
             this.UICSearchBeginSearchToolStripMenuItem.Name = "UICSearchBeginSearchToolStripMenuItem";
+            // 
+            // UICSearchAbortSearchToolStripMenuItem
+            // 
+            resources.ApplyResources(this.UICSearchAbortSearchToolStripMenuItem, "UICSearchAbortSearchToolStripMenuItem");
+            this.UICSearchAbortSearchToolStripMenuItem.Name = "UICSearchAbortSearchToolStripMenuItem";
             // 
             // UICSearchBeginSearchNarrowToolStripMenuItem
             // 
@@ -1396,6 +1403,7 @@ namespace ChaKi
         private System.Windows.Forms.ToolStripMenuItem UICSearchCollocationSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem UICSearchBeginSearchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem UICSearchAbortSearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem UICSearchLoadSearchConditionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UICSearchSaveCurrentSearchConditionsToolStripMenuItem;

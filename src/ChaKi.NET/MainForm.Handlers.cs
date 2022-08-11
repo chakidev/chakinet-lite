@@ -627,6 +627,12 @@ namespace ChaKi
             OnBeginSearch();
         }
 
+        private void OnSearchAbortSearch(object sender, EventArgs e)
+        {
+            // CommandPanelにスレッド中断を指示する
+            this.commandPanel.Abort(false);
+        }
+
         private void OnSearchBeginSearchNarrow(object sender, EventArgs e)
         {
             OnBeginSearchNarrow();

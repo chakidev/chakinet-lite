@@ -115,12 +115,6 @@
     </Compile>
     <Compile Include="TagChangedEventArgs.cs" />
     <Compile Include="Utility.cs" />
-    <Compile Include="Widgets\AddinDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Widgets\AddinDialog.Designer.cs">
-      <DependentUpon>AddinDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Widgets\AttributeGrid.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -286,9 +280,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Widgets\AddinDialog.resx">
-      <DependentUpon>AddinDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Widgets\AttributeGrid.resx">
       <DependentUpon>AttributeGrid.cs</DependentUpon>
     </EmbeddedResource>

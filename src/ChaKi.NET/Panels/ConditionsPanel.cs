@@ -42,7 +42,6 @@ namespace ChaKi.Panels
         private DepSearchPane depSearchPane;
         private CollocationPane collocationPane;
         private DocumentsAnalysisPane documentsAnalysisPane;
-        private AddinPane miningPane;
 
         private SearchConditions m_Cond;
 
@@ -70,7 +69,6 @@ namespace ChaKi.Panels
             panes.Add(depSearchPane = new DepSearchPane(model.DepCond));
             panes.Add(filterPane = new FilterPane(model.FilterCond, model.SentenceCond));
             panes.Add(documentsAnalysisPane = new DocumentsAnalysisPane(model.DocumentsAnalysisCond));
-            panes.Add(miningPane = new AddinPane(model.MiningCond));
 
             foreach (var pane in panes)
             {
@@ -84,7 +82,6 @@ namespace ChaKi.Panels
             tagSearchPane.Dock = DockStyle.Fill;
             depSearchPane.Dock = DockStyle.Fill;
             documentsAnalysisPane.Dock = DockStyle.Fill;
-            miningPane.Dock = DockStyle.Fill;
 
             this.filterTab.Controls.Add(filterPane);
             this.stringSearchTab.Controls.Add(stringSearchPane);
@@ -148,7 +145,6 @@ namespace ChaKi.Panels
             this.depSearchPane.SetCondition(m_Cond.DepCond);
             this.collocationPane.SetCondition(m_Cond.CollCond);
             this.documentsAnalysisPane.SetCondition(m_Cond.DocumentsAnalysisCond);
-            this.miningPane.SetCondition(m_Cond.MiningCond);
             return m_Cond;
         }
 
@@ -197,7 +193,6 @@ namespace ChaKi.Panels
             m_Cond.DepCond = this.depSearchPane.GetCondition();
             m_Cond.CollCond = this.collocationPane.GetCondition();
             m_Cond.DocumentsAnalysisCond = this.documentsAnalysisPane.GetCondition();
-            m_Cond.MiningCond = this.miningPane.GetCondition();
             return m_Cond;
         }
 
@@ -215,7 +210,6 @@ namespace ChaKi.Panels
             this.depSearchPane.SetCondition(m_Cond.DepCond);
             this.collocationPane.SetCondition(m_Cond.CollCond);
             this.documentsAnalysisPane.SetCondition(m_Cond.DocumentsAnalysisCond);
-            this.miningPane.SetCondition(m_Cond.MiningCond);
 
             // Model Updateを自動的に行わないサブパネルのみUpdateView()を直接呼び出す.
             this.stringSearchPane.UpdateView();

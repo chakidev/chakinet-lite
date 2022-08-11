@@ -139,9 +139,6 @@
       <HintPath>..\packages\Svg.2.4.3\lib\Svg.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.AddIn">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -254,12 +251,6 @@
     </Compile>
     <Compile Include="Panels\ConditionsPanes\FilterControl.Designer.cs">
       <DependentUpon>FilterControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Panels\ConditionsPanes\AddinPane.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Panels\ConditionsPanes\AddinPane.Designer.cs">
-      <DependentUpon>AddinPane.cs</DependentUpon>
     </Compile>
     <Compile Include="Panels\FilterButton.cs">
       <SubType>Component</SubType>
@@ -767,7 +758,6 @@
     <Content Include="ReaderDefs.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Addin.png" />
     <Content Include="Resources\Adjust.png" />
     <Content Include="Resources\AdjustLeft.png" />
     <Content Include="Resources\ArrowDown.png" />
@@ -809,9 +799,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\ConditionsPanes\FilterControl.resx">
       <DependentUpon>FilterControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Panels\ConditionsPanes\AddinPane.resx">
-      <DependentUpon>AddinPane.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\FilterButton.resx">
       <DependentUpon>FilterButton.cs</DependentUpon>
@@ -964,10 +951,6 @@
     <Content Include="XKwic.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Addins\AddinsHostSideViews\AddinsHostSideViews.csproj">
-      <Project>{C9BDF674-D43B-4B0C-ABDF-FACDD0C4A93E}</Project>
-      <Name>AddinsHostSideViews</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ChaKiCommon\ChaKiCommon.csproj">
       <Project>{B9B0121C-BD6C-496E-8573-5A2CB440242A}</Project>
       <Name>ChaKiCommon</Name>

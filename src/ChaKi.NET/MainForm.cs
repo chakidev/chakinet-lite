@@ -277,6 +277,23 @@ namespace ChaKi
             UICommand.Commands.Add((uc = new UICommand(this, "HelpAbout")));
             #endregion
 
+            // MenuItem/ToolStripButton‚Ì”ñ•\Ž¦‰»
+            UICToolsCreateMySQLCorpusToolStripMenuItem.Visible = false;
+            UICToolsCreateDictionaryToolStripMenuItem.Visible = false;
+            UICToolsEditTagSetDefinitionsToolStripMenuItem.Visible = false;
+            toolStripSeparator12.Visible = false;
+            UICDictionaryToolStripMenuItem.Visible = false;
+            UICSearchBeginSearchToolStripButton.Visible = false;
+            UICSearchBeginSearchNarrowToolStripButton.Visible = false;
+            UICSearchBeginSearchAppendToolStripButton.Visible = false;
+            UICSearchBeginWordListToolStripButton.Visible = false;
+            UICSearchBeginCollocationToolStripButton.Visible = false;
+            UICEditChangeLexemeToolStripButton.Visible = false;
+            UICVersioncontrolCommitToolStripButton.Visible = false;
+            toolStripSeparator24.Visible = false;
+            toolStripSeparator14.Visible = false;
+            toolStripSeparator28.Visible = false;
+
             // CommandPanel‚©‚ç‚ÌCallback
             commandPanel.BeginSearch = this.OnBeginSearch;
             commandPanel.NarrowSearch = this.OnBeginSearchNarrow;

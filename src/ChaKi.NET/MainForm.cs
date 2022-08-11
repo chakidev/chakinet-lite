@@ -153,7 +153,8 @@ namespace ChaKi
             this.collocationView.Dock = DockStyle.Fill;
             #endregion
 
-            this.kwicView.PreparePopup(this.commandPanel.DataGridView);
+            this.kwicView.PopupContent = this.commandPanel.DataGridView;
+            this.wordListView.PopupContent = this.commandPanel.DataGridView;
 
             #region UICommand“o˜^
             //
@@ -301,7 +302,10 @@ namespace ChaKi
             commandPanel.BeginWordList = this.OnBeginWordList;
             commandPanel.BeginCollocation = this.OnBeginCollocation;
             commandPanel.SearchStatusReported += (s, e) =>
+            {
                 kwicView.UpdateSearchStatus(e);
+                wordListView.UpdateSearchStatus(e);
+            };
 
             // ConditionsPanel‚©‚ç‚ÌCallback
             condPanel.TabChanged += new EventHandler(OnConditionTabChanged);
@@ -319,6 +323,8 @@ namespace ChaKi
 
             // WordListView‚©‚ç‚ÌCallback
             this.wordListView.OccurrenceRequested += new EventHandler(this.OnWordOccurenceRequested);
+            this.wordListView.ExportRequested += (s, e) => OnFileSendToExcelCSV(s, e);
+            this.wordListView.AbortRequested += (s, e) => this.commandPanel.Abort(true);
 
             // CollocationView‚©‚ç‚Ìcallback
             this.collocationView.OccurrenceRequested += new EventHandler<SentenceIdsOccurrenceEventArgs>(HandleCollocationOccurrenceRequested);

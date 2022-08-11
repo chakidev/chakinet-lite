@@ -177,7 +177,7 @@ namespace ChaKi.Views.KwicView
             this.currentScaleFactor = new SizeF(factor.Width, factor.Height);
         }
 
-        private Popup m_Popup;
+        public Control PopupContent { get; set; }
 
         #region KwicView Events
         /// <summary>
@@ -247,14 +247,12 @@ namespace ChaKi.Views.KwicView
             this.button2.Click += (s, e) => ExportRequested?.Invoke(s, e);
             this.button3.Click += (s, e) => AbortRequested?.Invoke(s, e);
 
-            this.textBox1.Click += (s, e) => { m_Popup?.Show(this.textBox1); };
+            this.textBox1.Click += (s, e) => {
+                    this.PopupContent.Parent = null;
+                   new Popup(this.PopupContent).Show(this.textBox1);
+            };
             m_TextBox1FormatText = this.textBox1.Text;
             UpdateSearchStatus(new Tuple<int, double>(0, 0.0));
-        }
-
-        public void PreparePopup(Control content)
-        {
-            m_Popup = new Popup(content);
         }
 
         void panel_WordMappingHilightRequested(object sender, WordMappingHilightEventArgs e)

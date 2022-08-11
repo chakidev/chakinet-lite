@@ -11,6 +11,7 @@ using ChaKi.ToolDialogs;
 using ChaKi.Common;
 using ChaKi.Common.Settings;
 using System.Threading;
+using PopupControl;
 
 namespace ChaKi.Views
 {
@@ -45,7 +46,21 @@ namespace ChaKi.Views
         public DataGridView Grid { get { return this.dataGridView1; } }
 
         public event EventHandler OccurrenceRequested;   // Row Header右クリック→Show Occurenceコマンド実行依頼(to MainForm)
-        
+
+        private string m_TextBox1FormatText;
+
+        public Control PopupContent { get; set; }
+
+        /// <summary>
+        /// WordListViewからMainFormへの通知: Export Dialogを表示する
+        /// </summary>
+        public event EventHandler ExportRequested;
+
+        /// <summary>
+        /// WordListViewからMainFormへの通知: 検索Abort処理を実行する
+        /// </summary>
+        public event EventHandler AbortRequested;
+
         public WordListView()
         {
             m_Model = null;
@@ -63,6 +78,16 @@ namespace ChaKi.Views
 
             PropertyBoxSettings.Instance.SettingChanged += new EventHandler(Instance_SettingChanged);
             FontDictionary.Current.FontChanged += HandleFontChanged;
+
+            this.button2.Click += (s, e) => ExportRequested?.Invoke(s, e);
+            this.button3.Click += (s, e) => AbortRequested?.Invoke(s, e);
+
+            this.textBox1.Click += (s, e) => {
+                PopupContent.Parent = null;
+                new Popup(PopupContent).Show(this.textBox1);
+            };
+            m_TextBox1FormatText = this.textBox1.Text;
+            UpdateSearchStatus(new Tuple<int, double>(0, 0.0));
         }
 
         void Instance_SettingChanged(object sender, EventArgs e)
@@ -814,6 +839,16 @@ namespace ChaKi.Views
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CopyToClipboard();
+        }
+
+        /// <summary>
+        /// MainFormからWordListViewへの通知: 検索状況を更新する
+        /// </summary>
+        public void UpdateSearchStatus(Tuple<int, double> e)
+        {
+            var total = e.Item1;
+            var percentage = e.Item2;
+            this.textBox1.Text = string.Format(m_TextBox1FormatText, total, percentage);
         }
     }
 

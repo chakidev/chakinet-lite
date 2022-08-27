@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using ChaKi.Common.Settings;
 using ChaKi.Entity.Corpora.Annotations;
+using System.Drawing.Drawing2D;
 
 namespace ChaKi.GUICommon
 {
@@ -45,7 +46,7 @@ namespace ChaKi.GUICommon
         {
             this.Link = cond;
             this.Text = cond.Text ?? "*";
-            m_Points = new Point[4];
+            m_Points = new Point[6];
             m_Parent = parent;
             m_LinkTagSource = TagSelector.PreparedSelectors[Tag.LINK];
             m_AttributeButton = new Button()
@@ -91,7 +92,7 @@ namespace ChaKi.GUICommon
 
             // ComboBoxのサイズと位置をテキストに合わせて調整
             var sz = TextRenderer.MeasureText(this.Text, m_Font);
-            var mp = new PointF((m_Points[1].X + m_Points[2].X) / 2F, (m_Points[1].Y + m_Points[2].Y) / 2F);
+            var mp = new PointF((m_Points[2].X + m_Points[3].X) / 2F, (m_Points[2].Y + m_Points[3].Y) / 2F);
             m_TextRect = new RectangleF(mp, sz);
             m_TagBox.Location = new Point((int)(mp.X - sz.Width / 2.0), (int)(m_TextRect.Top + 1));
             m_TagBox.Width = (int)(sz.Width + 40);
@@ -174,17 +175,41 @@ namespace ChaKi.GUICommon
             }
 
             var y = Math.Max(s.Y, e.Y);
+            var rad = 5;
+            var dx = (s.X < e.X) ? rad : -rad;
             m_Points[0] = new Point(s.X + level * 4, s.Y);
-            m_Points[1] = new Point(s.X + level * 4, y + (level + 1) * 10 + 15);
-            m_Points[2] = new Point(e.X + level * 4, y + (level + 1) * 10 + 15);
-            m_Points[3] = new Point(e.X + level * 4, e.Y);
+            m_Points[1] = new Point(s.X + level * 4, y + (level + 1) * 10 + 15 - rad);
+            m_Points[2] = new Point(s.X + level * 4 + dx, y + (level + 1) * 10 + 15);
+            m_Points[3] = new Point(e.X + level * 4 - dx, y + (level + 1) * 10 + 15);
+            m_Points[4] = new Point(e.X + level * 4, y + (level + 1) * 10 + 15 - rad);
+            m_Points[5] = new Point(e.X + level * 4, e.Y);
 
-            g.DrawLines(m_Pen, m_Points);
+            var path = new GraphicsPath();
+            path.AddLine(m_Points[0], m_Points[1]);
+            if (dx > 0)
+            {
+                path.AddArc(m_Points[1].X, m_Points[1].Y - rad, rad * 2, rad * 2, 180, -90);
+            }
+            else
+            {
+                path.AddArc(m_Points[2].X - rad, m_Points[1].Y - rad, rad * 2, rad * 2, 0, 90);
+            }
+            path.AddLine(m_Points[2], m_Points[3]);
+            if (dx > 0)
+            {
+                path.AddArc(m_Points[3].X - rad, m_Points[4].Y - rad, rad * 2, rad * 2, 90, -90);
+            }
+            else
+            {
+                path.AddArc(m_Points[4].X, m_Points[4].Y - rad, rad * 2, rad * 2, 90, 90);
+            }
+            path.AddLine(m_Points[4], m_Points[5]);
+            g.DrawPath(m_Pen, path);
 
             if (drawText)
             {
                 var sz = g.MeasureString(this.Text, m_Font);
-                var mp = new PointF((m_Points[1].X + m_Points[2].X) / 2F, (m_Points[1].Y + m_Points[2].Y) / 2F);
+                var mp = new PointF((m_Points[2].X + m_Points[3].X) / 2F, (m_Points[2].Y + m_Points[3].Y) / 2F);
                 m_TextRect = new RectangleF(mp, sz);
                 //m_AttributeButton.Location = new Point((int)(m_TextRect.Right + 3), (int)(m_TextRect.Top));
                 m_TagBox.Location = new Point((int)(mp.X - sz.Width/2.0), (int)(m_TextRect.Top + 1));
@@ -197,9 +222,9 @@ namespace ChaKi.GUICommon
             {
                 return LinkArrowHitType.AtText;
             }
-            int x1 = Math.Min(m_Points[0].X, m_Points[3].X);
-            int x2 = Math.Max(m_Points[0].X, m_Points[3].X);
-            int y = m_Points[1].Y;
+            int x1 = Math.Min(m_Points[0].X, m_Points[5].X);
+            int x2 = Math.Max(m_Points[0].X, m_Points[5].X);
+            int y = m_Points[2].Y;
             if (p.X >= x1 && p.X <= x2 && p.Y > y - 4 && p.Y < y + 4)
             {
                 return LinkArrowHitType.AtArrow;

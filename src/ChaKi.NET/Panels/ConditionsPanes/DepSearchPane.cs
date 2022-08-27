@@ -9,6 +9,7 @@ using PopupControl;
 using ChaKi.Common;
 using ChaKi.Entity.Corpora.Annotations;
 using ChaKi.Common.Widgets;
+using System.Drawing.Drawing2D;
 
 namespace ChaKi.Panels.ConditionsPanes
 {
@@ -499,24 +500,49 @@ namespace ChaKi.Panels.ConditionsPanes
             }
         }
 
-        private void OnPaint(object sender, PaintEventArgs e)
+        private void OnPaint(object sender, PaintEventArgs ea)
         {
-            Graphics g = e.Graphics;
+            Graphics g = ea.Graphics;
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
             if (m_Dragging)
             {
-                Point[] pts = new Point[]
-                {
-                    m_DragStartPoint,
-                    new Point(m_DragStartPoint.X,m_DragStartPoint.Y),
-                    new Point(m_DragStartPoint.X,m_DragStartPoint.Y+20),
-                    new Point(m_DragEndPoint.X,m_DragStartPoint.Y+20),
-                    new Point(m_DragEndPoint.X,m_DragStartPoint.Y),
+                var s = m_DragStartPoint;
+                var e = m_DragEndPoint;
+                var y = s.Y;
+                var rad = 5;
+                var dx = (s.X < e.X) ? rad : -rad;
+                var pts = new Point[] {
+                    new Point(s.X, y),
+                    new Point(s.X, y + 25 - rad),
+                    new Point(s.X + dx, y + 25),
+                    new Point(e.X - dx, y + 25),
+                    new Point(e.X, y + 25 - rad),
+                    new Point(e.X, y)
                 };
 
-                g.DrawLines(m_DragPen, pts);
+                var path = new GraphicsPath();
+                path.AddLine(pts[0], pts[1]);
+                if (dx > 0)
+                {
+                    path.AddArc(pts[1].X, pts[1].Y - rad, rad * 2, rad * 2, 180, -90);
+                }
+                else
+                {
+                    path.AddArc(pts[2].X - rad, pts[1].Y - rad, rad * 2, rad * 2, 0, 90);
+                }
+                path.AddLine(pts[2], pts[3]);
+                if (dx > 0)
+                {
+                    path.AddArc(pts[3].X - rad, pts[4].Y - rad, rad * 2, rad * 2, 90, -90);
+                }
+                else
+                {
+                    path.AddArc(pts[4].X, pts[4].Y - rad, rad * 2, rad * 2, 90, 90);
+                }
+                path.AddLine(pts[4], pts[5]);
+                g.DrawPath(m_DragPen, path);
             }
 
             int level = 0;

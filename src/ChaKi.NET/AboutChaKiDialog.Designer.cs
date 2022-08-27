@@ -35,9 +35,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.BuildNumber = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +59,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(129, 21);
+            this.label1.Location = new System.Drawing.Point(129, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 15);
             this.label1.TabIndex = 26;
@@ -69,11 +69,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(129, 73);
+            this.label2.Location = new System.Drawing.Point(129, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(145, 15);
             this.label2.TabIndex = 27;
-            this.label2.Text = "Copyright (C) 2010-2021";
+            this.label2.Text = "Copyright (C) 2022";
             // 
             // label3
             // 
@@ -99,11 +99,22 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(207, 103);
+            this.label4.Location = new System.Drawing.Point(200, 110);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(133, 15);
             this.label4.TabIndex = 30;
             this.label4.Text = "Sowa Research Co., Ltd.";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(200, 95);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(129, 17);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Kyushu University";
             // 
             // pictureBox3
             // 
@@ -115,16 +126,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 31;
             this.pictureBox3.TabStop = false;
-            // 
-            // BuildNumber
-            // 
-            this.BuildNumber.AutoSize = true;
-            this.BuildNumber.BackColor = System.Drawing.Color.Transparent;
-            this.BuildNumber.Location = new System.Drawing.Point(129, 42);
-            this.BuildNumber.Name = "BuildNumber";
-            this.BuildNumber.Size = new System.Drawing.Size(58, 15);
-            this.BuildNumber.TabIndex = 32;
-            this.BuildNumber.Text = "(Release:)";
             // 
             // label5
             // 
@@ -153,9 +154,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(424, 331);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.BuildNumber);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox2);
@@ -191,8 +192,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label BuildNumber;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label6;
     }
 }

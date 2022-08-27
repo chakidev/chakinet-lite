@@ -15,7 +15,6 @@ namespace ChaKi
         {
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);
-            this.BuildNumber.Text = "Revision: " + AssemblyBuild;
 
             var regex = new Regex(@"(\d+)\.(\d+)\.\d+\.\d+");
             var version = regex.Match(AboutChaKiDialog.AssemblyVersion);

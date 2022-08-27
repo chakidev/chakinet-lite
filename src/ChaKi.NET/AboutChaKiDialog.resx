@@ -157,9 +157,7 @@
 </value>
   </data>
   <data name="richTextBox1.Text" xml:space="preserve">
-    <value>DotNetMagic Version 5.4.0 by Crownwood Software Ltd.
-http://www.dotnetmagic.com/
-NHibernate.NET Version 2.1.2 by Fabio Maulo
+    <value>NHibernate.NET Version 3.1.0 by Fabio Maulo
 https://www.hibernate.org/
 MySQL Connector/Net Version 5.2 by Sun Microsystems, Inc
 http://dev.mysql.com/
@@ -171,10 +169,6 @@ Power Collections for .NET by Wintellect
 http://www.codeplex.com/PowerCollections
 Simple Popup Control by Lukasz Swiatowski
 http://www.codeproject.com/KB/miscctrl/simplepopup.aspx
-IronPython (Optional Component)
-http://ironpython.codeplex.com/
-IronRuby (Optional Component)
-http://ironruby.net/ 
 NDesk.Options 0.2.1 by Jonathan Pryor
 http://www.ndesk.org/Options</value>
   </data>

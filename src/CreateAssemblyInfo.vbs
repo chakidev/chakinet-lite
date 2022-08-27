@@ -12,9 +12,9 @@ Dim info
 Const ForReading = 1, ForWriting = 2, ForAppending = 8
 
 '=============================================================
-Const CompanyStr = "NAIST/Sowa Research Co.,Ltd."
-Const CopyrightStr = "(C) 2011-2021"
-Const CurrentVersion = "0.5.0.0"
+Const CompanyStr = "NAIST/Kyushu U./Sowa Research Co.,Ltd."
+Const CopyrightStr = "(C) 2022"
+Const CurrentVersion = "1.0.0.0"
 '=============================================================
 Set AssemblyList(0) = New AssemblyInfo
 With AssemblyList(0)

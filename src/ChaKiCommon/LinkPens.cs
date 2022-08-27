@@ -33,6 +33,7 @@ namespace ChaKi.Common
 
             DefaultPen = new Pen(Color.Gray, 1.0f);
             DefaultPen.SetLineCap(LineCap.Square, LineCap.Custom, DashCap.Flat);
+            p.CustomEndCap = CustomArrowCap;
             DefaultPen.CustomEndCap = CustomArrowCap;
         }
 

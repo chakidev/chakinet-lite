@@ -5,9 +5,6 @@ FULL TEXT OF THE LICENSE SHALL BE FOUND IN THE ATTACHED FILE 'CommonPublicLicens
 
 Chaki.NET includes the following third-party programs.
 ---------------------------------------------------------------------------------------
-DotNetMagic Version 5.4.0 by Crownwood Software Ltd.
-http://www.dotnetmagic.com/
-
 NHibernate.NET Version 2.0.0 É¿2 by Fabio Maulo
 http://sourceforge.net/projects/nhibernate/
 Distributed under GNU Library or Lesser General Public License (LGPL) (cf. LGPL_3_0.txt)
@@ -29,14 +26,6 @@ Distributed under Common Public License Version 1.0 (cf. CommonPublicLicense_1_0
 Simple Popup Control by Lukasz Swiatowski
 http://www.codeproject.com/KB/miscctrl/simplepopup.aspx
 Distributed under Common Public License Version 1.0 (cf. CommonPublicLicense_1_0.txt)
-
-IronPython (Optional Component)
-http://ironpython.codeplex.com/
-Distributed under Microsoft Public License (cf. MsPL.html)
-
-IronRuby (Optional Component)
-http://ironruby.net/ 
-Distributed under Apache License Version 2.0 (cf. Apache_2_0.txt)
 
 NDesk.Options 0.2.1 by Jonathan Pryor
 http://www.ndesk.org/Options

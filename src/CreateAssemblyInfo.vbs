@@ -14,7 +14,7 @@ Const ForReading = 1, ForWriting = 2, ForAppending = 8
 '=============================================================
 Const CompanyStr = "NAIST/Kyushu U./Sowa Research Co.,Ltd."
 Const CopyrightStr = "(C) 2022"
-Const CurrentVersion = "1.0.0.0"
+Const CurrentVersion = "0.9.0.0"
 '=============================================================
 Set AssemblyList(0) = New AssemblyInfo
 With AssemblyList(0)

@@ -1,0 +1,23 @@
+SELECT w0.id,w0.position,w1.position
+FROM word w0,word w1,sentence sen,segment s0,segment s1,link k0,tag_definition t0
+
+WHERE sen.id in ()
+ AND w1.bunsetsu_segment_id = s1.id
+ AND w1.project_id=0
+ AND s0.sentence_id = sen.id
+ AND s1.sentence_id = sen.id
+ AND k0.from_segment_id = s0.id
+ and k0.to_segment_id = s1.id
+
+select w0
+from Word w0,Word w1,Sentence sen,Segment2 s0,Segment2 s1,Link2 k0 
+
+where sen.ID in ()
+ and w1.Bunsetsu.ID = s1.ID
+ and w1.Project.ID=0
+ and s0.Sentence.ID = sen.ID
+ and s0.Tag.Name = 'Bunsetsu'
+ and s1.Sentence.ID = sen.ID
+ and s1.Tag.Name = 'Bunsetsu'
+ and k0.From = s0
+ and k0.To = s1

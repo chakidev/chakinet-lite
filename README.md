@@ -7,14 +7,14 @@
   - Windows10以降(64bit版のみ)をサポートしています。
 - すぐに利用可能な形のUD Treebanks v.2.9データベースファイルは以下からダウンロードできます。(サイズが大きいため3つのzipファイルに分割しています。)
   1. Afrikans - Greek  
-     https://drive.google.com/file/d/1FWBKJs2Ua6YMrHG3s06ZffCWjqalzr7p  
-     SHA256 Hash: b3eda098a4036d7e89c4f3f2c3681328e2e5c87875dd0d5e80b206a10cec75b1
+     https://drive.google.com/file/d/1DhOzpfbEkaAvmvN_FnPId9BrMlpNZ4jW  
+     SHA256 Hash: 8420a5173ef8f482d392ac639f33f97aef454a35c3c143a2f0e7e4a3e53986b6
   2. Guajajara - Norwegian  
-     https://drive.google.com/file/d/12Gns1mQbfvL-Ryf9zXfCQbM5o77yJThy  
-     SHA256 Hash: 56c9432a33c4da12c815ca6bb9d56f188d1a41a5a6fbfbe1d1f690ff6811cf68
+     https://drive.google.com/file/d/1eeZkZiit2ZRDwwJosHPgZfyHCZqY9TO3  
+     SHA256 Hash: e06c9fbfbba378329b62fa1d83bb53e5180c29d548b1739173727ea022ad7085
   3. Old_Church_Slavonic - Yupik  
-     https://drive.google.com/file/d/17Tn6MC0HJTm8HQu-RN_Agv5n1TFuN6kv  
-     SHA256 Hash: 367c62296c2922532727c1d9b7f9b9b4d99a82052240cef4728eafcd3cf5dd8c
+     https://drive.google.com/file/d/11loTiAUph7xMtUA8xxThX_0Yo7PvUkaV  
+     SHA256 Hash: 1ada6921963e274e120ab2fef42e1f541750b1ecece33aef686f692842ef9985
 
 ## 最新ビルドを試用する方法
 - ここでは、GitHubのビルドサーバーから最新ビルドをダウンロードして試す方法を記述します。インストーラは使用しません。

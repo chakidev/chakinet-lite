@@ -1137,8 +1137,11 @@ namespace ChaKi.Service.Search
             }
             for (int i = 0; i < depCond.LinkConds.Count; i++)
             {
-                sb.Append(connector.Get());
-                sb.AppendFormat("tag_definition t{0}", i);
+                if (depCond.LinkConds[i].TextIsValid)
+                {
+                    sb.Append(connector.Get());
+                    sb.AppendFormat("tag_definition t{0}", i);
+                }
             }
 
             sb.Append(" WHERE ");

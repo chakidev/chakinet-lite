@@ -512,13 +512,17 @@ namespace ChaKi.Panels.ConditionsPanes
                 var e = m_DragEndPoint;
                 var y = s.Y;
                 var rad = 5;
+                var offset = 25;
+                var scale = new SizeF(g.DpiX / 96.0F, g.DpiY / 96.0F);
+                rad = (int)(rad * scale.Width);
+                offset = (int)(offset * scale.Width);
                 var dx = (s.X < e.X) ? rad : -rad;
                 var pts = new Point[] {
                     new Point(s.X, y),
-                    new Point(s.X, y + 25 - rad),
-                    new Point(s.X + dx, y + 25),
-                    new Point(e.X - dx, y + 25),
-                    new Point(e.X, y + 25 - rad),
+                    new Point(s.X, y + offset - rad),
+                    new Point(s.X + dx, y + offset),
+                    new Point(e.X - dx, y + offset),
+                    new Point(e.X, y + offset - rad),
                     new Point(e.X, y)
                 };
 

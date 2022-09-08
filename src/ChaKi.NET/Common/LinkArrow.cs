@@ -176,13 +176,19 @@ namespace ChaKi.GUICommon
 
             var y = Math.Max(s.Y, e.Y);
             var rad = 5;
+            var xoffs = 4;
+            var yoffs = 10;
+            var scale = new SizeF(g.DpiX / 96.0F, g.DpiY / 96.0F);
+            rad = (int)(rad * scale.Width);
+            xoffs = (int)(xoffs * scale.Width);
+            yoffs = (int)(yoffs * scale.Height);
             var dx = (s.X < e.X) ? rad : -rad;
-            m_Points[0] = new Point(s.X + level * 4, s.Y);
-            m_Points[1] = new Point(s.X + level * 4, y + (level + 1) * 10 + 15 - rad);
-            m_Points[2] = new Point(s.X + level * 4 + dx, y + (level + 1) * 10 + 15);
-            m_Points[3] = new Point(e.X + level * 4 - dx, y + (level + 1) * 10 + 15);
-            m_Points[4] = new Point(e.X + level * 4, y + (level + 1) * 10 + 15 - rad);
-            m_Points[5] = new Point(e.X + level * 4, e.Y);
+            m_Points[0] = new Point(s.X + level * xoffs, s.Y);
+            m_Points[1] = new Point(s.X + level * xoffs, y + (level + 1) * yoffs + (yoffs + rad) - rad);
+            m_Points[2] = new Point(s.X + level * xoffs + dx, y + (level + 1) * yoffs + (yoffs + rad));
+            m_Points[3] = new Point(e.X + level * xoffs - dx, y + (level + 1) * yoffs + (yoffs + rad));
+            m_Points[4] = new Point(e.X + level * xoffs, y + (level + 1) * yoffs + (yoffs + rad) - rad);
+            m_Points[5] = new Point(e.X + level * xoffs, e.Y);
 
             var path = new GraphicsPath();
             path.AddLine(m_Points[0], m_Points[1]);

@@ -743,10 +743,10 @@ namespace DependencyEditSLA
                 else
                 {
                     bool needNewLine = true;
-                    if (cb == null)
-                    {
-                        needNewLine = false;
-                    }
+                    //if (cb == null)
+                    //{
+                    //    needNewLine = false;
+                    //}
                     if (!needNewLine) // 横に並ぶ文節のうちAllAbridgedでないものは、Diagonal表示のインデントの考慮に入れる
                     {
                         xindent_diagonal += cur_w;

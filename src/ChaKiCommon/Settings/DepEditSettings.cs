@@ -64,7 +64,7 @@ namespace ChaKi.Common.Settings
             this.CurveParamX = 0.05;
             this.CurveParamY = 0.14;
             this.Background = "Linen";
-            this.ReverseDepArrowDirection = false;
+            this.ReverseDepArrowDirection = true;
             this.ShowLinks = false;
             LexemeSelectionSettings = new LexemeSelectionSettings();
             LexemeListCheckDialogSettings = new LexemeSelectionSettings();

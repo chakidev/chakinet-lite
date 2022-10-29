@@ -10,6 +10,7 @@ using ChaKi.Common;
 using ChaKi.Entity.Corpora.Annotations;
 using ChaKi.Common.Widgets;
 using System.Drawing.Drawing2D;
+using ChaKi.Common.Settings;
 
 namespace ChaKi.Panels.ConditionsPanes
 {
@@ -511,6 +512,12 @@ namespace ChaKi.Panels.ConditionsPanes
                 var s = m_DragStartPoint;
                 var e = m_DragEndPoint;
                 var y = s.Y;
+                if (DepEditSettings.Current.ReverseDepArrowDirection)
+                {
+                    s = m_DragEndPoint;
+                    e = m_DragStartPoint;
+                    y = e.Y;
+                }
                 var rad = 5;
                 var offset = 25;
                 var scale = new SizeF(g.DpiX / 96.0F, g.DpiY / 96.0F);

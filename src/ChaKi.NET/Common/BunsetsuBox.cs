@@ -72,6 +72,7 @@ namespace ChaKi.GUICommon
             this.SegmentTag = segmentTag;
             this.SegmentAttributes = segmentAttrs;
             this.BackColor = CyclicColorTable.GetColor(bunsetsuID);
+            this.BorderStyle = BorderStyle.None;
 
             UpdateView();
         }
@@ -207,10 +208,11 @@ namespace ChaKi.GUICommon
         {
             Graphics g = e.Graphics;
             Rectangle r = this.Bounds;
-            g.FillRectangle(Brushes.White, 0, 0, r.Width, 2);
-            g.FillRectangle(Brushes.White, 0, 0, 2, r.Height);
-            g.FillRectangle(Brushes.Gray, 0, r.Height - 4, r.Width, 4);
-            g.FillRectangle(Brushes.Gray, r.Width-4, 0, 4, r.Height);
+            g.DrawRectangle(Pens.LightGray, 0, 0, r.Width - 1, r.Height - 1);
+            //g.FillRectangle(Brushes.White, 0, 0, r.Width, 2);
+            //g.FillRectangle(Brushes.White, 0, 0, 2, r.Height);
+            //g.FillRectangle(Brushes.Gray, 0, r.Height - 4, r.Width, 4);
+            //g.FillRectangle(Brushes.Gray, r.Width-4, 0, 4, r.Height);
         }
 
         void OnRelationCommandClicked(object sender, RelationCommandEventArgs e)

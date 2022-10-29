@@ -332,6 +332,57 @@ namespace ChaKi.Entity.Search
                         }
                     }
                 }
+                else if (p.Key.Equals("UPOS"))
+                {
+                    if (p.Value.IsRegEx)
+                    {
+                        if (!Regex.IsMatch(lex.PartOfSpeech.Name1, p.Value.StrVal))
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        if (!lex.PartOfSpeech.Name1.Equals(p.Value.StrVal))
+                        {
+                            return false;
+                        }
+                    }
+                }
+                else if (p.Key.Equals("XPOS"))
+                {
+                    if (p.Value.IsRegEx)
+                    {
+                        if (!Regex.IsMatch(lex.PartOfSpeech.Name2, p.Value.StrVal))
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        if (!lex.PartOfSpeech.Name2.Equals(p.Value.StrVal))
+                        {
+                            return false;
+                        }
+                    }
+                }
+                else if (p.Key.Equals("Custom"))
+                {
+                    if (p.Value.IsRegEx)
+                    {
+                        if (!Regex.IsMatch(lex.CustomProperty, p.Value.StrVal))
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        if (!lex.CustomProperty.Equals(p.Value.StrVal))
+                        {
+                            return false;
+                        }
+                    }
+                }
             }
             return true;
         }

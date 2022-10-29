@@ -87,6 +87,7 @@ namespace ChaKi.Panels.ConditionsPanes
             });
 
             this.treeControl1.AfterCheck += TreeControl1_AfterCheck;
+            this.treeControl1.AfterSelect += treeControl1_AfterSelect;
             this.AllowDrop = true;
             this.DragEnter += CorpusPane_DragEnter;
             this.DragDrop += CorpusPane_DragDrop;
@@ -147,6 +148,26 @@ namespace ChaKi.Panels.ConditionsPanes
             if (c != null)
             {
                 c.IsActiveTarget = e.Node.Checked;
+                if (c.IsActiveTarget)
+                {
+                    // 基本情報がロードされていなければロードする
+                    var oldCursor = this.Cursor;
+                    this.Cursor = Cursors.WaitCursor;
+                    try
+                    {
+                        var dbs = DBService.Create(c.DBParam);
+                        dbs.LoadMandatoryCorpusInfo(c, (s, t) =>
+                        {
+                            TagSelector.PreparedSelectors[s].AddTag(t, c.Name);
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        ErrorReportDialog err = new ErrorReportDialog(string.Format("Cannot load CorpusInfo of {0}", c.Source), ex);
+                        err.ShowDialog();
+                    }
+                    this.Cursor = oldCursor;
+                }
             }
         }
 

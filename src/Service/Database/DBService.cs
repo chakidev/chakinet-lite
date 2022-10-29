@@ -443,6 +443,7 @@ namespace ChaKi.Service.Database
         public virtual void LoadMandatoryCorpusInfo(Corpus cps, RegisterTagCallback callback)
         {
             NHibernate.Cfg.Configuration cfg = SearchConfiguration.GetInstance().NHibernateConfig;
+            this.SetupConnection(cfg);
 
             cps.Lex.Reset();
 
